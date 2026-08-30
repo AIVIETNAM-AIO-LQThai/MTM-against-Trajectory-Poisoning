@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Offline RL evaluation episode record",
+  "type": "object",
+  "required": [
+    "experiment_id",
+    "dataset",
+    "environment",
+    "method",
+    "seed",
+    "attack",
+    "poison_rate",
+    "training_steps",
+    "checkpoint",
+    "evaluation_episode",
+    "raw_return",
+    "normalized_return",
+    "config_hash",
+    "dataset_hash",
+    "git_commit"
+  ],
+  "properties": {
+    "experiment_id": {
+      "type": "string"
+    },
+    "dataset": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "attack": {
+      "type": "string"
+    },
+    "poison_rate": {
+      "type": "number"
+    },
+    "attack_seed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "training_steps": {
+      "type": "integer"
+    },
+    "checkpoint": {
+      "type": "string"
+    },
+    "target_return": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "evaluation_episode": {
+      "type": "integer"
+    },
+    "evaluation_seed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "episode_length": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "raw_return": {
+      "type": "number"
+    },
+    "normalized_return": {
+      "type": "number"
+    },
+    "config_hash": {
+      "type": "string"
+    },
+    "dataset_hash": {
+      "type": "string"
+    },
+    "poisoned_dataset_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "git_commit": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

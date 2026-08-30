@@ -1,0 +1,104 @@
+experiment:
+  name: dt_walker2d_medium_clean
+  condition: clean
+  development_seeds: [0, 1, 2]
+  final_num_seeds: 5
+  frozen: false
+
+environment:
+  dataset_id: walker2d-medium-v2
+  evaluation_env_id: Walker2d-v3
+  max_episode_steps: 1000
+  observation_dim: 17
+  action_dim: 6
+  action_low: -1.0
+  action_high: 1.0
+
+dataset:
+  id: walker2d-medium-v2
+  immutable_raw: true
+  raw_sha256: "CF00F43ADD04C17FDFC2958DD581DEA0851B2E5BEDBE6FDA073758A8F841AEDA"
+  raw_size_bytes: 232254996
+  num_transitions: 1000000
+  num_trajectories: null
+  segmentation:
+    terminal_is_boundary: true
+    timeout_is_boundary: true
+    fallback_timeout_step: 999
+
+preprocessing:
+  state_normalization:
+    enabled: true
+    scope: entire_clean_dataset
+    epsilon_added_to_std: 1.0e-6
+  reward_transform: none
+  return_to_go:
+    gamma: 1.0
+    scale_divisor: 1000.0
+  trajectory_fraction: 1.0
+  trajectory_sampling_probability: proportional_to_trajectory_length
+  start_index_sampling: uniform_within_selected_trajectory
+  context_length: 20
+  padding:
+    direction: left
+    state_value_before_normalization: 0.0
+    action_value: -10.0
+    reward_value: 0.0
+    rtg_value: 0.0
+    timestep_value: 0
+    done_value: 2
+    attention_mask_padding: 0
+    attention_mask_valid: 1
+  validation_split: none
+
+method:
+  name: dt
+
+model:
+  hidden_size: 128
+  num_layers: 3
+  num_attention_heads: 1
+  intermediate_size: 512
+  activation: relu
+  dropout: 0.1
+  n_positions: 1024
+  timestep_embedding: learned
+  max_timestep_embeddings: 1000
+  token_order: [return_to_go, state, action]
+  action_prediction_source: state_token_same_timestep
+  action_head: linear_tanh
+  action_loss: mse_valid_positions_only
+  trainable_parameter_count: null
+
+training:
+  optimizer: AdamW
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-4
+  lr_schedule: linear_warmup_then_constant
+  warmup_updates: 10000
+  batch_size: 64
+  gradient_clip_norm: 0.25
+  iterations: 10
+  updates_per_iteration: 10000
+  total_updates: 100000
+  early_stopping: false
+
+evaluation:
+  primary_target_return: 5000.0
+  secondary_target_returns: [2500.0]
+  rtg_scale: 1000.0
+  episodes_per_target: 100
+  max_episode_steps: 1000
+  deterministic_policy: true
+  explicit_action_clipping: false
+  rtg_update_rule: subtract_observed_reward_divided_by_scale
+  use_same_episode_seeds_across_methods: true
+  d4rl_random_reference: 1.629008
+  d4rl_expert_reference: 4592.3
+  normalized_score_formula: "100*(raw_return-random)/(expert-random)"
+
+attack:
+  enabled: false
+
+mtm:
+  enabled: false

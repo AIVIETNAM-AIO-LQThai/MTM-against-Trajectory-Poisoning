@@ -1,0 +1,11 @@
+{
+  "dataset_id": "walker2d-medium-v2",
+  "filename": "walker2d_medium-v2.hdf5",
+  "size_bytes": 232254996,
+  "sha256": "CF00F43ADD04C17FDFC2958DD581DEA0851B2E5BEDBE6FDA073758A8F841AEDA",
+  "num_transitions": 1000000,
+  "observation_dim": 17,
+  "action_dim": 6,
+  "source": "D4RL mirror",
+  "audit_complete": false
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Offline RL run manifest",
+  "type": "object",
+  "required": [
+    "experiment_id",
+    "dataset",
+    "method",
+    "seed",
+    "config_hash",
+    "dataset_hash",
+    "git_commit",
+    "environment",
+    "dependencies"
+  ],
+  "properties": {
+    "experiment_id": {
+      "type": "string"
+    },
+    "dataset": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "config_hash": {
+      "type": "string"
+    },
+    "dataset_hash": {
+      "type": "string"
+    },
+    "git_commit": {
+      "type": "string"
+    },
+    "git_dirty": {
+      "type": "boolean"
+    },
+    "environment": {
+      "type": "object"
+    },
+    "dependencies": {
+      "type": "object"
+    },
+    "rng": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,58 @@
+{
+  "dataset_id": "walker2d-medium-v2",
+  "filename": "walker2d_medium-v2.hdf5",
+  "size_bytes": 232254996,
+  "sha256": "CF00F43ADD04C17FDFC2958DD581DEA0851B2E5BEDBE6FDA073758A8F841AEDA",
+  "num_raw_transitions": 1000000,
+  "num_training_transitions": 999995,
+  "num_trajectories": 1190,
+  "trailing_unfinished_transitions": 5,
+  "observation_shape": [1000000, 17],
+  "action_shape": [1000000, 6],
+  "terminal_count": 513,
+  "timeout_count": 677,
+  "terminal_and_timeout_count": 0,
+  "action_min": -1.0,
+  "action_max": 1.0,
+  "action_bound_violations": 0,
+  "reward_statistics": {
+    "mean": 3.393986701965332,
+    "std": 1.2347394227981567,
+    "min": -2.557255268096924,
+    "max": 8.469034194946289
+  },
+  "trajectory_length_statistics": {
+    "mean": 840.3319327731092,
+    "std": 240.13098646565848,
+    "min": 60.0,
+    "max": 1000.0
+  },
+  "episode_return_statistics": {
+    "mean": 2852.088416413436,
+    "std": 1095.443313443862,
+    "min": -6.605671878904104,
+    "max": 4226.9399804016575
+  },
+  "validity": {
+    "observations": {
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "next_observations": {
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "actions": {
+      "nan_count": 0,
+      "inf_count": 0
+    },
+    "rewards": {
+      "nan_count": 0,
+      "inf_count": 0
+    }
+  },
+  "max_nonboundary_next_obs_error": 0.0,
+  "dataset_validity_test": "PASS",
+  "trajectory_boundary_test": "PASS",
+  "audit_complete": true
+}
