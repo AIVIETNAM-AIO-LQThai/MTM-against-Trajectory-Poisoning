@@ -1,0 +1,19 @@
+{
+  "attack": "none",
+  "checkpoint": "experiments/dt/walker2d_medium_clean/seed_0/smoke/checkpoint_final.pt",
+  "dataset": "walker2d-medium-v2",
+  "environment": "Walker2d-v3",
+  "episode_length_mean": 34.0,
+  "episode_length_std": 0.0,
+  "eval_seed_base": 10200,
+  "method": "dt",
+  "normalized_return_mean": -0.08805625701539156,
+  "normalized_return_std": 0.0,
+  "num_episodes": 1,
+  "poison_rate": 0.0,
+  "raw_return_mean": -2.4133650474465456,
+  "raw_return_std": 0.0,
+  "target_return": 2500.0,
+  "training_seed": 0,
+  "training_update": 100
+}

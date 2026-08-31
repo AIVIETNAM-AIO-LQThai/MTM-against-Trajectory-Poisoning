@@ -1,0 +1,19 @@
+{
+  "attack": "none",
+  "checkpoint": "experiments/dt/walker2d_medium_clean/seed_1/full/checkpoint_final.pt",
+  "dataset": "walker2d-medium-v2",
+  "environment": "Walker2d-v3",
+  "episode_length_mean": 824.33,
+  "episode_length_std": 246.35645130582637,
+  "eval_seed_base": 40000,
+  "method": "dt",
+  "normalized_return_mean": 62.80140815875769,
+  "normalized_return_std": 21.699969888211314,
+  "num_episodes": 100,
+  "poison_rate": 0.0,
+  "raw_return_mean": 2884.6350349116105,
+  "raw_return_std": 996.1742229308516,
+  "target_return": 2500.0,
+  "training_seed": 1,
+  "training_update": 100000
+}

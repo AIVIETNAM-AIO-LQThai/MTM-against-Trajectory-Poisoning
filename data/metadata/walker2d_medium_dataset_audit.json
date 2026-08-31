@@ -7,8 +7,14 @@
   "num_training_transitions": 999995,
   "num_trajectories": 1190,
   "trailing_unfinished_transitions": 5,
-  "observation_shape": [1000000, 17],
-  "action_shape": [1000000, 6],
+  "observation_shape": [
+    1000000,
+    17
+  ],
+  "action_shape": [
+    1000000,
+    6
+  ],
   "terminal_count": 513,
   "timeout_count": 677,
   "terminal_and_timeout_count": 0,
@@ -52,7 +58,29 @@
     }
   },
   "max_nonboundary_next_obs_error": 0.0,
-  "dataset_validity_test": "PASS",
-  "trajectory_boundary_test": "PASS",
+  "checks": {
+    "dataset_validity": {
+      "status": "PASS",
+      "evidence": {
+        "num_raw_transitions": 1000000,
+        "observation_dim": 17,
+        "action_dim": 6,
+        "nan_count": 0,
+        "inf_count": 0,
+        "action_bound_violations": 0
+      }
+    },
+    "trajectory_boundaries": {
+      "status": "PASS",
+      "evidence": {
+        "terminal_count": 513,
+        "timeout_count": 677,
+        "num_trajectories": 1190,
+        "num_training_transitions": 999995,
+        "trailing_unfinished_transitions": 5,
+        "max_nonboundary_next_obs_error": 0.0
+      }
+    }
+  },
   "audit_complete": true
 }

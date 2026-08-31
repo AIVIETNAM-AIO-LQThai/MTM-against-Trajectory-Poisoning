@@ -222,18 +222,104 @@ def main() -> None:
     # Optional sequential consistency diagnostic
     # ------------------------------------------------------------
     non_boundary_indices = np.where(~boundaries[:-1])[0]
-    next_obs_error = np.max(
+    next_obs_error = float(np.max(
         np.abs(
             next_observations[non_boundary_indices]
             - observations[non_boundary_indices + 1]
         )
-    )
+    ))
 
     print("\nSequential observation consistency:")
     print(
         f"  max |next_obs[t] - obs[t+1]| "
         f"= {next_obs_error:.10f}"
     )
+
+    # ------------------------------------------------------------
+    # Audit check results
+    # ------------------------------------------------------------
+
+    total_nan_count = sum(
+        item["nan_count"]
+        for item in validity.values()
+    )
+
+    total_inf_count = sum(
+        item["inf_count"]
+        for item in validity.values()
+    )
+
+    dataset_validity_pass = (
+        total_nan_count == 0
+        and total_inf_count == 0
+        and action_bound_violations == 0
+    )
+
+    trajectory_boundary_pass = (
+        used_transitions + trailing_transitions == n
+        and num_trajectories == int(boundaries.sum())
+        and next_obs_error <= 1e-6
+    )
+
+    checks = {
+        "dataset_validity": {
+            "status": (
+                "PASS"
+                if dataset_validity_pass
+                else "FAIL"
+            ),
+            "evidence": {
+                "num_raw_transitions": int(n),
+                "observation_dim": int(
+                    observations.shape[1]
+                ),
+                "action_dim": int(
+                    actions.shape[1]
+                ),
+                "nan_count": int(total_nan_count),
+                "inf_count": int(total_inf_count),
+                "action_bound_violations": int(
+                    action_bound_violations
+                ),
+            },
+        },
+
+        "trajectory_boundaries": {
+            "status": (
+                "PASS"
+                if trajectory_boundary_pass
+                else "FAIL"
+            ),
+            "evidence": {
+                "terminal_count": int(
+                    terminal_count
+                ),
+                "timeout_count": int(
+                    timeout_count
+                ),
+                "num_trajectories": int(
+                    num_trajectories
+                ),
+                "num_training_transitions": int(
+                    used_transitions
+                ),
+                "trailing_unfinished_transitions": int(
+                    trailing_transitions
+                ),
+                "max_nonboundary_next_obs_error": float(
+                    next_obs_error
+                ),
+            },
+        },
+    }
+
+    print("\nAudit checks:")
+
+    for check_name, check in checks.items():
+        print(
+            f"  {check_name}: "
+            f"{check['status']}"
+        )
 
     # ------------------------------------------------------------
     # Save audit
@@ -267,7 +353,11 @@ def main() -> None:
         "validity": validity,
 
         "max_nonboundary_next_obs_error": float(next_obs_error),
-        "audit_complete": True,
+        "checks": checks,
+        "audit_complete": (
+            dataset_validity_pass 
+            and trajectory_boundary_pass
+        ),
     }
 
     args.output.parent.mkdir(

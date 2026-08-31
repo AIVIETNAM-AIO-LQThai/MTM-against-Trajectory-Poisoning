@@ -1,0 +1,7 @@
+platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.17
+python: 3.8.20 (default, Oct  3 2024, 15:24:27)  [GCC 11.2.0]
+gym: 0.18.3
+numpy: 1.24.3
+torch: 1.8.1
+transformers: 4.5.1
+mujoco_path: ('/home/quoc_thai/.mujoco/mujoco200', '/home/quoc_thai/.mujoco/mjkey.txt')
