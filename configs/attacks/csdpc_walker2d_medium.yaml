@@ -1,0 +1,74 @@
+experiment:
+  group: 2
+  phase: attack_reproduction
+  development_only: true
+
+dataset:
+  name: walker2d-medium-v2
+
+  # Must match Group-1 clean dataset.
+  immutable_clean_dataset: true
+
+attack:
+  name: csdpc
+  enabled: true
+
+  representation:
+    type: raw_state_action
+
+    # Do not assume standardization until source audit resolves it.
+    preprocessing: UNVERIFIED
+
+  clustering:
+    method: kmeans
+    num_clusters: UNVERIFIED
+    random_state_from_attack_seed: true
+
+  pattern:
+    sequence_length: 5
+
+    remove_consecutive_duplicates: true
+
+    # Pattern extraction must never cross an episode boundary.
+    respect_episode_boundaries: true
+
+    frequency_definition: UNVERIFIED
+
+  selection:
+    rare_pattern_rule: UNVERIFIED
+    target_pattern_rule: UNVERIFIED
+
+  perturbation:
+    magnitude: 0.05
+
+    norm: UNVERIFIED
+    state_rule: UNVERIFIED
+    action_rule: UNVERIFIED
+    clipping_rule: UNVERIFIED
+
+  budget:
+    rates:
+      - 0.00
+      - 0.01
+      - 0.05
+
+    denominator: UNVERIFIED
+
+  seeds:
+    - 0
+    - 1
+    - 2
+
+preservation:
+  rewards: true
+  terminals: true
+  timeouts: true
+  trajectory_boundaries: true
+  number_of_transitions: true
+
+output:
+  save_poison_metadata: true
+  save_dataset_hashes: true
+  save_modified_indices: true
+  save_original_values: true
+  save_poisoned_values: true
