@@ -45,3 +45,38 @@ class SequenceWindow:
     transition_indices: Tuple[int, ...]
     raw_cluster_labels: Pattern
     pattern: Pattern
+
+@dataclass(frozen=True)
+class SelectedWindow:
+    trajectory_id: int
+    global_start: int
+    global_end: int
+    source_pattern: Pattern
+
+    @property
+    def transition_indices(self) -> Tuple[int, ...]:
+        return tuple(
+            range(
+                self.global_start,
+                self.global_end,
+            )
+        )
+
+    @property
+    def length(self) -> int:
+        return (
+            self.global_end
+            - self.global_start
+        )
+
+
+@dataclass(frozen=True)
+class SelectionResult:
+    selected_windows: Tuple[SelectedWindow, ...]
+    requested_transition_budget: int
+    actual_transition_budget: int
+    skipped_overlap_windows: int
+
+    @property
+    def num_selected_windows(self) -> int:
+        return len(self.selected_windows)
