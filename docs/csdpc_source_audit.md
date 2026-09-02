@@ -137,6 +137,30 @@ decision-unit positions.
 
 This resolves an apparent indexing inconsistency in the publication.
 
+### Numerical reproducibility note
+
+Repeated Walker2d-medium-v2 audits with the same frozen dataset,
+configuration, environment, and attack seed produced identical
+discrete clustering/pattern statistics but a very small difference
+in the reported KMeans inertia.
+
+Observed example for attack seed 0:
+
+- run A inertia: 33191494.0
+- run B inertia: 33191496.0
+- KMeans iterations: 14 in both runs
+- discrete pattern statistics: identical
+
+Therefore, exact floating-point equality of KMeans inertia is not used
+as a reproducibility gate.
+
+Reproducibility gates use exact discrete outputs such as cluster-label
+derived pattern statistics, selected transition indices, poison metadata,
+and serialized poisoned-dataset hashes.
+
+Any same-seed change in those discrete outputs must be investigated
+before downstream experiments.
+
 ## G2.3 Frozen Reproduction Choices
 ### Poison-budget semantics
 
