@@ -1,5 +1,6 @@
 __pycache__/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -24,6 +25,7 @@ experiments/**/training_metrics.jsonl
 experiments/**/evaluation_episodes.jsonl
 experiments/**/evaluation_summary.json
 experiments/**/normalization_stats.npz
+experiments/**/*.pt
 
 results/episodes/*
 results/summaries/*

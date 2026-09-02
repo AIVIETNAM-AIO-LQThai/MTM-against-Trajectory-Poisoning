@@ -3,14 +3,26 @@
 Research repository scaffold for studying whether Masked Trajectory Modeling (MTM) can improve the robustness of a causal Decision Transformer (DT) against trajectory-level / coverage-targeted poisoning in offline reinforcement learning.
 
 ## Current active scope
-Only **Group 1 — Foundation + Clean Baseline** is active:
+
+**Group 2 — Attack Reproduction + Vulnerability** is active.
+
+Frozen baseline:
 - dataset: `walker2d-medium-v2`
-- method: vanilla Decision Transformer
-- poisoning: disabled
-- MTM: disabled
+- clean method: vanilla Decision Transformer
+- Gate A baseline tag: `clean-dt`
 - development seeds: `0, 1, 2`
 
-Do not implement CSDPC, BC, CQL, RDT, or DT+MTM until the clean DT baseline passes Gate A.
+Current Group-2 workflow:
+
+1. reproduce CSDPC as an independent dataset transformation;
+2. validate CSDPC structurally and mechanistically;
+3. validate the attack on CQL (Gate B);
+4. test transfer to the frozen Decision Transformer (Gate C);
+5. compare against Behavior Cloning.
+
+MTM and DT+MTM are not implemented in Group 2.
+No defense may be added until the attack reproduction and
+DT vulnerability experiments are completed.
 
 ## Naming
 Folders are named by what they contain: `dt`, `bc`, `cql`, `rdt`, and `dt_mtm`.
