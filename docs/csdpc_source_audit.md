@@ -121,3 +121,18 @@ attack is implemented:
 
 No implementation choice for these questions may be selected using
 downstream CQL/DT performance.
+
+### Sequence-length interpretation
+
+The paper's Eq. 9 and supplementary pseudocode write the sequence as
+u_t,...,u_{t+l}, which would contain l+1 labels literally.
+
+However, the experimental ablation explicitly defines tested sequence
+lengths as 1,3,5,7,9 consecutive time steps and states that length 5
+is the default.
+
+Reproduction convention:
+sequence_length=5 denotes exactly five consecutive state-action /
+decision-unit positions.
+
+This resolves an apparent indexing inconsistency in the publication.

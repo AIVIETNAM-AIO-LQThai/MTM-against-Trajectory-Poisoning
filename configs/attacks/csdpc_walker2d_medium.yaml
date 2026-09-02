@@ -16,35 +16,49 @@ attack:
   representation:
     type: raw_state_action
 
-    # Do not assume standardization until source audit resolves it.
-    preprocessing: UNVERIFIED
+    # The publication describes raw (s,a) clustering but does not
+    # specify an additional normalization procedure for this setting.
+    preprocessing: none
+    preprocessing_status: SOURCE_UNDERSPECIFIED
 
   clustering:
     method: kmeans
-    num_clusters: UNVERIFIED
+    num_clusters: 8
+    cluster_selection: elbow_method
     random_state_from_attack_seed: true
 
   pattern:
+    # Exactly five decision-unit positions; see source-audit note
+    # regarding the paper's indexing inconsistency.
     sequence_length: 5
 
     remove_consecutive_duplicates: true
-
-    # Pattern extraction must never cross an episode boundary.
     respect_episode_boundaries: true
 
-    frequency_definition: UNVERIFIED
+    frequency_definition: occurrence_count
 
   selection:
-    rare_pattern_rule: UNVERIFIED
-    target_pattern_rule: UNVERIFIED
+    ordering: ascending_pattern_frequency
+
+    # Exact mapping from rho to selected patterns/windows remains
+    # under-specified in the publication.
+    rare_pattern_budget_rule: SOURCE_UNDERSPECIFIED
+
+    # Candidate resulting pattern with highest O(p_i) is preferred,
+    # but generation/search procedure is under-specified.
+    target_pattern_objective: maximize_resulting_pattern_frequency
+    candidate_generation: SOURCE_UNDERSPECIFIED
 
   perturbation:
     magnitude: 0.05
+    norm: linf_relative
 
-    norm: UNVERIFIED
-    state_rule: UNVERIFIED
-    action_rule: UNVERIFIED
-    clipping_rule: UNVERIFIED
+    state_constraint: "||zeta_s||_inf < eta * ||s||_inf"
+    action_constraint: "||zeta_a||_inf < eta * ||a||_inf"
+
+    num_candidates: SOURCE_UNDERSPECIFIED
+    sampling_rule: SOURCE_UNDERSPECIFIED
+    clipping_rule: SOURCE_UNDERSPECIFIED
 
   budget:
     rates:
@@ -52,7 +66,7 @@ attack:
       - 0.01
       - 0.05
 
-    denominator: UNVERIFIED
+    denominator: SOURCE_UNDERSPECIFIED
 
   seeds:
     - 0
