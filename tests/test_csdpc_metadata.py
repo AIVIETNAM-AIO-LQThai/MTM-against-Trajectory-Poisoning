@@ -15,35 +15,19 @@ from src.attacks.csdpc.metadata import (
 
 def _dataset():
     rng = np.random.default_rng(123)
-
     n = 100
 
-    observations = rng.normal(
-        size=(n, 4)
-    )
-
-    actions = rng.uniform(
-        -0.8,
-        0.8,
-        size=(n, 2),
-    )
-
-    rewards = rng.normal(
-        size=n
-    )
-
-    terminals = np.zeros(
-        n,
-        dtype=bool,
-    )
-
-    timeouts = np.zeros(
-        n,
-        dtype=bool,
-    )
+    observations = rng.normal(size=(n, 4))
+    actions = rng.uniform(-0.8, 0.8, size=(n, 2))
+    rewards = rng.normal(size=n)
+    terminals = np.zeros(n, dtype=bool,)
+    timeouts = np.zeros(n, dtype=bool,)
 
     timeouts[49] = True
     timeouts[99] = True
+
+    infos_qpos = rng.normal(size=(n, 3))
+    infos_qvel = rng.normal(size=(n, 2))
 
     return {
         "observations": observations,
@@ -51,6 +35,8 @@ def _dataset():
         "rewards": rewards,
         "terminals": terminals,
         "timeouts": timeouts,
+        "infos/qpos": infos_qpos,
+        "infos/qvel": infos_qvel,
     }
 
 
@@ -75,14 +61,10 @@ def test_logical_hash_is_independent_of_mapping_order():
             )
         )
     )
-
     assert (
-        logical_dataset_sha256(
-            dataset
-        )
-        == logical_dataset_sha256(
-            reversed_dataset
-        )
+        logical_dataset_sha256(dataset)
+        ==
+        logical_dataset_sha256(reversed_dataset)
     )
 
 
@@ -122,25 +104,12 @@ def test_zero_rho_has_same_logical_hash():
 def test_nonzero_attack_metadata_passes_integrity():
     dataset = _dataset()
 
-    prepared = _prepared(
-        dataset
-    )
+    prepared = _prepared(dataset)
+    result = apply_csdpc_attack(dataset, prepared, rho=0.10)
+    metadata = build_csdpc_metadata(dataset, prepared, result)
 
-    result = apply_csdpc_attack(
-        dataset,
-        prepared,
-        rho=0.10,
-    )
-
-    metadata = build_csdpc_metadata(
-        dataset,
-        prepared,
-        result,
-    )
-
-    assert metadata[
-        "integrity"
-    ]["all_checks_passed"]
+    assert metadata["integrity"]["all_checks_passed"]
+    assert metadata["integrity"]["all_non_attack_arrays_identical"]
 
     assert (
         metadata["attack"][

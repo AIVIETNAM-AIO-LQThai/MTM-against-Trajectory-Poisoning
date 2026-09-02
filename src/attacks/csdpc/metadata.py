@@ -368,6 +368,23 @@ def build_csdpc_metadata(
         "shapes_and_dtypes_preserved": bool(
             shapes_and_dtypes_preserved
         ),
+        "all_non_attack_arrays_identical": bool(
+            all(
+                np.array_equal(
+                    np.asarray(
+                        clean_dataset[key]
+                    ),
+                    np.asarray(
+                        poisoned[key]
+                    ),
+                )
+                for key in clean_dataset
+                if key not in {
+                    "observations",
+                    "actions",
+                }
+            )
+        ),
         "rewards_identical": (
             preserved_field(
                 "rewards"

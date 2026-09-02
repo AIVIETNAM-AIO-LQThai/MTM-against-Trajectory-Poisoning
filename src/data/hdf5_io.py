@@ -11,33 +11,47 @@ import numpy as np
 def load_hdf5_dataset(
     path: str | Path,
 ) -> dict[str, np.ndarray]:
+    """
+    Load every HDF5 dataset recursively.
+
+    Nested HDF5 datasets are represented internally using their
+    slash-separated HDF5 paths, for example:
+
+        infos/qpos
+        infos/qvel
+
+    HDF5 groups themselves are not returned as dataset entries.
+    """
+
     path = Path(path)
 
-    dataset = {}
+    loaded = {}
 
     with h5py.File(
         path,
         "r",
     ) as handle:
-        for key in sorted(
-            handle.keys()
-        ):
-            value = handle[key]
 
-            if not isinstance(
-                value,
+        def collect(
+            name,
+            obj,
+        ):
+            if isinstance(
+                obj,
                 h5py.Dataset,
             ):
-                raise TypeError(
-                    "nested HDF5 groups are "
-                    f"not supported: {key}"
-                )
+                loaded[name] = obj[()]
 
-            dataset[key] = (
-                value[()]
-            )
+        handle.visititems(
+            collect
+        )
 
-    return dataset
+    return {
+        key: loaded[key]
+        for key in sorted(
+            loaded
+        )
+    }
 
 
 def write_hdf5_dataset(
@@ -47,6 +61,16 @@ def write_hdf5_dataset(
         np.ndarray,
     ],
 ) -> None:
+    """
+    Write a flat mapping of arrays to HDF5.
+
+    Keys may contain slash-separated paths such as:
+
+        infos/qpos
+
+    h5py recreates the corresponding HDF5 group hierarchy.
+    """
+
     path = Path(path)
 
     path.parent.mkdir(
@@ -63,9 +87,20 @@ def write_hdf5_dataset(
         temporary_path,
         "w",
     ) as handle:
+
         for key in sorted(
             dataset
         ):
+            if not key:
+                raise ValueError(
+                    "HDF5 dataset key cannot be empty"
+                )
+
+            if key.startswith("/"):
+                raise ValueError(
+                    "HDF5 dataset keys must be relative"
+                )
+
             handle.create_dataset(
                 key,
                 data=np.asarray(
