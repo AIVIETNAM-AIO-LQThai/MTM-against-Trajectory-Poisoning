@@ -49,25 +49,43 @@ attack:
   selection:
     ordering: ascending_pattern_frequency
 
-    # Exact mapping from rho to selected patterns/windows remains
-    # under-specified in the publication.
-    rare_pattern_budget_rule: SOURCE_UNDERSPECIFIED
+    tie_break:
+      pattern: lexicographic
+      occurrence:
+        - trajectory_id
+        - global_start
 
-    # Candidate resulting pattern with highest O(p_i) is preferred,
-    # but generation/search procedure is under-specified.
+    allow_overlapping_windows: false
+    partial_windows: false
+
     target_pattern_objective: maximize_resulting_pattern_frequency
-    candidate_generation: SOURCE_UNDERSPECIFIED
+
 
   perturbation:
     magnitude: 0.05
     norm: linf_relative
 
-    state_constraint: "||zeta_s||_inf < eta * ||s||_inf"
-    action_constraint: "||zeta_a||_inf < eta * ||a||_inf"
+    state_constraint: "||zeta_s||_inf <= eta * ||s||_inf"
+    action_constraint: "||zeta_a||_inf <= eta * ||a||_inf"
 
-    num_candidates: SOURCE_UNDERSPECIFIED
-    sampling_rule: SOURCE_UNDERSPECIFIED
-    clipping_rule: SOURCE_UNDERSPECIFIED
+    candidate_generation: seeded_uniform
+    num_candidates: 100
+
+    candidate_selection:
+      primary: resulting_clean_pattern_frequency
+      maximize: true
+      tie_break:
+        - total_linf_perturbation
+        - candidate_index
+
+    state_clipping: none
+
+    action_clipping:
+      enabled: true
+      low: -1.0
+      high: 1.0
+
+    random_state_from_attack_seed: true
 
   budget:
     rates:
@@ -75,7 +93,12 @@ attack:
       - 0.01
       - 0.05
 
-    denominator: SOURCE_UNDERSPECIFIED
+    denominator: transitions
+    rounding: floor
+    count_unique_modified_transitions: true
+    allow_budget_exceedance: false
+
+    requested_and_actual_rate_recorded: true
 
   seeds:
     - 0

@@ -136,3 +136,71 @@ sequence_length=5 denotes exactly five consecutive state-action /
 decision-unit positions.
 
 This resolves an apparent indexing inconsistency in the publication.
+
+## G2.3 Frozen Reproduction Choices
+### Poison-budget semantics
+
+- SOURCE STATUS: SOURCE_UNDERSPECIFIED
+- REPRODUCTION CHOICE:
+  - rho is interpreted as a fraction of original dataset transitions.
+  - requested_transition_budget = floor(rho * N).
+  - A transition is counted at most once even if it belongs to multiple candidate windows.
+  - Selected attack windows may not overlap.
+  - Only complete length-l windows are selected; windows are never partially poisoned.
+  - Therefore actual_transition_budget may be slightly below the requested budget.
+  - requested_rho and actual_rho must both be recorded.
+
+Rationale:
+The publication describes rho as the poisoning proportion/rate and reports attacks such as
+"1% of the dataset", but does not operationally specify the denominator or overlapping-window
+accounting. Transition-level accounting gives rho a direct dataset-level interpretation.
+
+### Rare-pattern selection
+
+- VERIFIED:
+  - pattern frequency is occurrence count O(p).
+  - low-frequency decision patterns are attack targets.
+- REPRODUCTION CHOICE:
+  1. Rank unique patterns by ascending occurrence count.
+  2. Break equal-frequency ties lexicographically by pattern tuple.
+  3. Within one pattern, rank occurrence windows by:
+     trajectory_id, then global_start.
+  4. Add complete non-overlapping windows until adding another window would exceed
+     the transition budget.
+  5. Do not select a more frequent pattern while an eligible occurrence of a less
+     frequent pattern remains.
+
+### Perturbation candidate generation
+
+- SOURCE STATUS: SOURCE_UNDERSPECIFIED
+- REPRODUCTION CHOICE:
+  - eta = 0.05.
+  - For each selected sequence, generate 100 candidate perturbed sequences.
+  - Candidate perturbations are sampled independently from a seeded uniform distribution.
+  - For state vector s_t:
+        delta_s[j] ~ Uniform(-eta * ||s_t||_inf,
+                              eta * ||s_t||_inf)
+  - For action vector a_t:
+        delta_a[j] ~ Uniform(-eta * ||a_t||_inf,
+                              eta * ||a_t||_inf)
+  - State values are not clipped.
+  - Walker2d actions are clipped to [-1, 1].
+  - Reassign perturbed state-action pairs using the already-fitted clean KMeans model.
+  - Deduplicate labels after the original length-l window is reconstructed.
+  - Score each candidate by the clean-data occurrence count O(p_candidate).
+  - Select the candidate with maximum O(p_candidate).
+  - Ties are broken by smaller total perturbation L-infinity magnitude, then candidate index.
+  - Candidate generation is deterministic for a fixed attack seed.
+
+### Preservation rules
+
+CSDPC must not modify:
+- rewards
+- terminals
+- timeouts
+- transition count
+- trajectory boundaries
+
+The attack may modify only:
+- observations
+- actions
