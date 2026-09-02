@@ -1,0 +1,41 @@
+{
+  "artifacts": [
+    {
+      "actual_transition_budget": 0,
+      "file_sha256": "13edc878f17e0332a8edc9ef24ca1c926f9cc1d184a6427d7e73ba000cf79abd",
+      "hdf5": "data/poisoned/csdpc/walker2d-medium-v2/rho_000_seed_1.hdf5",
+      "logical_sha256": "ccee6f94a7108c8cf5c07e85680d70dd2d0564cb8e6eae3851878caba939d38e",
+      "metadata": "data/metadata/csdpc/walker2d-medium-v2/rho_000_seed_1.json",
+      "rho": 0.0
+    },
+    {
+      "actual_transition_budget": 10000,
+      "file_sha256": "9803b76800883f983e8b5d4c483ace37779666ee9205c3af47935317ab8b571d",
+      "hdf5": "data/poisoned/csdpc/walker2d-medium-v2/rho_001_seed_1.hdf5",
+      "logical_sha256": "58552225555e8554efcaef9a1317ab300334a14aa203bd0c48f00f0995d2c88b",
+      "metadata": "data/metadata/csdpc/walker2d-medium-v2/rho_001_seed_1.json",
+      "rho": 0.01
+    },
+    {
+      "actual_transition_budget": 50000,
+      "file_sha256": "6ac3ae448ea2af651c899e893a459a0880b9c4c710ef956e24d6674c8d3882a0",
+      "hdf5": "data/poisoned/csdpc/walker2d-medium-v2/rho_005_seed_1.hdf5",
+      "logical_sha256": "eeeea522d2983406f88e109180200414fee46884bb93b7eec60a63bcdffc0158",
+      "metadata": "data/metadata/csdpc/walker2d-medium-v2/rho_005_seed_1.json",
+      "rho": 0.05
+    }
+  ],
+  "attack_seed": 1,
+  "clean_file_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "clean_logical_sha256": "ccee6f94a7108c8cf5c07e85680d70dd2d0564cb8e6eae3851878caba939d38e",
+  "cross_rho_consistency": {
+    "checked": true,
+    "low_indices_subset_of_high": true,
+    "shared_actions_identical": true,
+    "shared_observations_identical": true
+  },
+  "kmeans_inertia": 33207114.0,
+  "kmeans_inertia_is_reproducibility_gate": false,
+  "kmeans_iterations": 23,
+  "schema_version": "csdpc-seed-manifest-v1"
+}
