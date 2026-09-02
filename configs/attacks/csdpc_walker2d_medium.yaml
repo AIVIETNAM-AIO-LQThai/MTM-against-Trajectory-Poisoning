@@ -19,19 +19,28 @@ attack:
     # The publication describes raw (s,a) clustering but does not
     # specify an additional normalization procedure for this setting.
     preprocessing: none
-    preprocessing_status: SOURCE_UNDERSPECIFIED
+    preprocessing_status: REPRODUCTION_CHOICE_SOURCE_UNDERSPECIFIED
 
   clustering:
     method: kmeans
     num_clusters: 8
     cluster_selection: elbow_method
+
+    # Source-under-specified operational details frozen before
+    # downstream attack outcomes are inspected.
+    init: k-means++
+    n_init: 10
+    max_iter: 300
+    tolerance: 1.0e-4
+    algorithm: lloyd
+
     random_state_from_attack_seed: true
 
   pattern:
     # Exactly five decision-unit positions; see source-audit note
     # regarding the paper's indexing inconsistency.
     sequence_length: 5
-
+    deduplicate_after_windowing: true
     remove_consecutive_duplicates: true
     respect_episode_boundaries: true
 
