@@ -477,28 +477,42 @@ def build_csdpc_metadata(
             ],
             dtype=bool,
         )
+        
+        changed_patterns = (
+            ~unchanged_patterns
+        )
+        if np.any(changed_patterns):
+            improved_given_changed = float(
+                np.mean(
+                    improved[
+                        changed_patterns
+                    ]
+                )
+            )
+        else:
+            improved_given_changed = 0.0
 
         effect = {
             "fraction_target_frequency_improved": float(
                 np.mean(improved)
             ),
             "mean_source_frequency": float(
-                np.mean(
-                    source_frequencies
-                )
+                np.mean(source_frequencies)
             ),
             "mean_target_frequency": float(
-                np.mean(
-                    target_frequencies
-                )
+                np.mean(target_frequencies)
             ),
             "median_target_source_frequency_ratio": float(
                 np.median(ratios)
             ),
             "fraction_target_pattern_unchanged": float(
-                np.mean(
-                    unchanged_patterns
-                )
+                np.mean(unchanged_patterns)
+            ),
+            "fraction_target_pattern_changed": float(
+                np.mean(changed_patterns)
+            ),
+            "fraction_frequency_improved_given_pattern_changed": (
+                improved_given_changed
             ),
             "distinct_source_patterns": int(
                 len(
@@ -528,6 +542,8 @@ def build_csdpc_metadata(
             "fraction_target_pattern_unchanged": 0.0,
             "distinct_source_patterns": 0,
             "distinct_target_patterns": 0,
+            "fraction_target_pattern_changed": 0.0,
+            "fraction_frequency_improved_given_pattern_changed": 0.0,
         }
 
     selected_windows = [

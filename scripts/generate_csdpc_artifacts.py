@@ -56,19 +56,25 @@ EXPECTED_CLEAN_SHA256 = (
     "0851b2e5bedbe6fda073758a8f841aeda"
 )
 
+def _portable_path(
+    path: Path,
+) -> str:
+    path = path.resolve()
+    try:
+        return str(
+            path.relative_to(
+                ROOT.resolve()
+            )
+        )
+    except ValueError:
+        return str(path)
 
 def _rho_code(
     rho: float,
 ) -> str:
-    percent = int(
-        round(
-            rho * 100
-        )
-    )
+    percent = int(round(rho * 100))
 
-    reconstructed = (
-        percent / 100.0
-    )
+    reconstructed = (percent / 100.0)
 
     if not np.isclose(
         rho,
@@ -304,10 +310,10 @@ def main():
         artifact_records.append(
             {
                 "rho": rho,
-                "hdf5": str(
+                "hdf5": _portable_path(
                     output_path
                 ),
-                "metadata": str(
+                "metadata": _portable_path(
                     metadata_path
                 ),
                 "logical_sha256": (
@@ -330,63 +336,48 @@ def main():
             "Requested budget:",
             result.requested_transition_budget,
         )
-
         print(
             "Actual budget:",
             result.actual_transition_budget,
         )
-
         print(
             "Actual rho:",
             f"{result.actual_rho:.6%}",
         )
 
-        effect = metadata[
-            "attack_effect"
-        ]
+        effect = metadata["attack_effect"]
 
         print(
             "Target-frequency improved:",
-            (
-                f"{100.0 * effect['fraction_target_frequency_improved']:.2f}%"
-            ),
+            (f"{100.0 * effect['fraction_target_frequency_improved']:.2f}%"),
         )
-
         print(
             "Target pattern unchanged:",
-            (
-                f"{100.0 * effect['fraction_target_pattern_unchanged']:.2f}%"
-            ),
+            (f"{100.0 * effect['fraction_target_pattern_unchanged']:.2f}%"),
         )
-
+        print(
+            "Target pattern changed:",
+            (f"{100.0 * effect['fraction_target_pattern_changed']:.2f}%"),
+        )
+        print(
+            "Improved given pattern changed:",
+            (f"{100.0 * effect['fraction_frequency_improved_given_pattern_changed']:.2f}%"),
+        )
         print(
             "Mean source frequency:",
-            effect[
-                "mean_source_frequency"
-            ],
+            effect["mean_source_frequency"],
         )
-
         print(
             "Mean target frequency:",
-            effect[
-                "mean_target_frequency"
-            ],
+            effect["mean_target_frequency"],
         )
-
         print(
             "Median target/source ratio:",
-            effect[
-                "median_target_source_frequency_ratio"
-            ],
+            effect["median_target_source_frequency_ratio"],
         )
-
         print(
             "Logical SHA256:",
-            metadata[
-                "dataset"
-            ][
-                "poisoned_logical_sha256"
-            ],
+            metadata["dataset"]["poisoned_logical_sha256"],
         )
 
         if np.isclose(
@@ -531,9 +522,7 @@ def main():
     )
 
     print()
-    print(
-        "========== SEED MANIFEST =========="
-    )
+    print("========== SEED MANIFEST ==========")
 
     print(
         json.dumps(
