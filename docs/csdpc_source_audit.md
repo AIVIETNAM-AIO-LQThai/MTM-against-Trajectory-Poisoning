@@ -242,3 +242,69 @@ The attack may modify only:
 - observations
 - actions
 
+## G2.4 Frozen Reproduction Contract
+
+The implementation below is the canonical CSDPC reproduction used for
+all Group-2 vulnerability experiments.
+
+It is a paper-faithful independent reproduction, not a code-level
+reproduction. No official implementation sufficiently specifying all
+operational details was available when this implementation was frozen.
+
+### Source-specified settings
+
+| Item | Frozen value | Status |
+|---|---:|---|
+| Decision unit | state-action pair | VERIFIED |
+| Clustering | k-means | VERIFIED |
+| Walker2D clusters | 8 | VERIFIED |
+| Sequence length | 5 | VERIFIED_EXPERIMENT / indexing convention documented separately |
+| Pattern frequency | occurrence count | VERIFIED_CONCEPT |
+| Attack target | rare / low-frequency patterns | VERIFIED_CONCEPT |
+| Perturbation magnitude eta | 0.05 | VERIFIED_EXPERIMENT |
+| Development rho | 0%, 1%, 5% | VERIFIED_EXPERIMENT |
+
+### Operational reproduction choices
+
+| Item | Frozen value | Status |
+|---|---|---|
+| Feature representation | raw concatenated state-action | REPRODUCTION_CHOICE |
+| Feature scaling | none | REPRODUCTION_CHOICE |
+| Window interpretation | exactly l original decision positions | REPRODUCTION_CHOICE |
+| Deduplication | after constructing each original-position window | REPRODUCTION_CHOICE |
+| Episode crossing | forbidden | REPRODUCTION_CHOICE |
+| rho denominator | original dataset transitions | REPRODUCTION_CHOICE |
+| Budget rounding | floor(rho * N) | REPRODUCTION_CHOICE |
+| Budget accounting | unique modified transitions | REPRODUCTION_CHOICE |
+| Partial selected windows | forbidden | REPRODUCTION_CHOICE |
+| Selected-window overlap | forbidden | REPRODUCTION_CHOICE |
+| Pattern-frequency ties | lexicographic pattern order | REPRODUCTION_CHOICE |
+| Occurrence ties | trajectory_id then global_start | REPRODUCTION_CHOICE |
+| Perturbation generation | seeded uniform bounded candidates | REPRODUCTION_CHOICE |
+| Candidates per selected window | 100 | REPRODUCTION_CHOICE |
+| Candidate objective | maximize clean target-pattern frequency | REPRODUCTION_CHOICE |
+| Candidate tie-break | lower total L-inf perturbation, then candidate index | REPRODUCTION_CHOICE |
+| State clipping | none | REPRODUCTION_CHOICE |
+| Action clipping | [-1, 1] | REPRODUCTION_CHOICE |
+| Rewards | unchanged | REPRODUCTION_CHOICE consistent with attack definition |
+| Terminals | unchanged | REPRODUCTION_CHOICE consistent with attack definition |
+| Timeouts | unchanged | REPRODUCTION_CHOICE consistent with attack definition |
+
+### Anti-tuning rule
+
+No SOURCE_UNDERSPECIFIED or REPRODUCTION_CHOICE setting may be changed
+because it produces stronger or weaker downstream CQL, DT, or BC
+performance.
+
+If an alternative interpretation is investigated, it must:
+
+1. retain the canonical frozen reproduction unchanged;
+2. receive a separate configuration and experiment identifier;
+3. be reported as a sensitivity analysis;
+4. never replace the primary result retrospectively.
+
+If later author clarification or official code resolves an
+underspecified choice, the existing reproduction remains preserved and
+the clarified implementation is introduced as a separately versioned
+variant.
+
