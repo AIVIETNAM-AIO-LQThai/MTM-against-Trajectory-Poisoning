@@ -80,3 +80,33 @@ class SelectionResult:
     @property
     def num_selected_windows(self) -> int:
         return len(self.selected_windows)
+
+@dataclass(frozen=True)
+class PerturbedWindow:
+    trajectory_id: int
+    global_start: int
+    global_end: int
+
+    source_pattern: Pattern
+    target_pattern: Pattern
+
+    source_frequency: int
+    target_frequency: int
+
+    candidate_index: int
+    total_linf_perturbation: float
+
+    observations: np.ndarray
+    actions: np.ndarray
+
+    state_deltas: np.ndarray
+    action_deltas: np.ndarray
+
+    @property
+    def transition_indices(self) -> Tuple[int, ...]:
+        return tuple(
+            range(
+                self.global_start,
+                self.global_end,
+            )
+        )

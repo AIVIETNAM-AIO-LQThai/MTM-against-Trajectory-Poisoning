@@ -192,6 +192,19 @@ accounting. Transition-level accounting gives rho a direct dataset-level interpr
   - Ties are broken by smaller total perturbation L-infinity magnitude, then candidate index.
   - Candidate generation is deterministic for a fixed attack seed.
 
+- `total_linf_perturbation` is operationally defined as:
+
+      sum_t (
+          ||delta_s_t||_inf
+          +
+          ||delta_a_t||_inf
+      )
+
+  across the original length-l selected window.
+
+- This is a REPRODUCTION_CHOICE used only as a deterministic
+  candidate tie-break and not as a claim about the publication.
+
 ### Preservation rules
 
 CSDPC must not modify:
@@ -204,3 +217,4 @@ CSDPC must not modify:
 The attack may modify only:
 - observations
 - actions
+
