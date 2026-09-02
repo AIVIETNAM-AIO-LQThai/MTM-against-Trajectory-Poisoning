@@ -1,11 +1,8 @@
 import numpy as np
 
-from src.attacks.csdpc.perturbation import (
-    perturb_selected_window,
-)
-from src.attacks.csdpc.types import (
-    SelectedWindow,
-)
+from src.attacks.csdpc.perturbation import perturb_selected_window
+from src.attacks.csdpc.types import SelectedWindow
+from src.attacks.csdpc.clustering import build_raw_decision_units, fit_kmeans_decision_units
 
 
 class SignKMeans:
@@ -302,4 +299,81 @@ def test_same_seed_is_deterministic():
     assert (
         first.candidate_index
         == second.candidate_index
+    )
+
+def test_float32_kmeans_accepts_rng_generated_candidates():
+    observations = np.array(
+        [
+            [-3.0, 0.0],
+            [-2.5, 0.1],
+            [-2.0, 0.2],
+            [2.0, 0.3],
+            [2.5, 0.4],
+            [3.0, 0.5],
+        ],
+        dtype=np.float32,
+    )
+
+    actions = np.array(
+        [
+            [-0.2],
+            [-0.2],
+            [-0.1],
+            [0.1],
+            [0.2],
+            [0.2],
+        ],
+        dtype=np.float32,
+    )
+
+    features = build_raw_decision_units(
+        observations,
+        actions,
+    )
+
+    model, clustering = (
+        fit_kmeans_decision_units(
+            features,
+            num_clusters=2,
+            seed=0,
+        )
+    )
+
+    assert (
+        model.cluster_centers_.dtype
+        == np.float32
+    )
+
+    selected = SelectedWindow(
+        trajectory_id=0,
+        global_start=0,
+        global_end=3,
+        source_pattern=(
+            int(
+                clustering.labels[0]
+            ),
+        ),
+    )
+
+    result = perturb_selected_window(
+        observations,
+        actions,
+        selected,
+        kmeans_model=model,
+        clean_pattern_frequencies={
+            selected.source_pattern: 10,
+        },
+        eta=0.05,
+        num_candidates=10,
+        rng=np.random.default_rng(0),
+    )
+
+    assert (
+        result.observations.shape
+        == (3, 2)
+    )
+
+    assert (
+        result.actions.shape
+        == (3, 1)
     )

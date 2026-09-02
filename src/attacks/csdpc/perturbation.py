@@ -233,10 +233,43 @@ def perturb_selected_window(
         axis=2,
     )
 
-    flattened = decision_units.reshape(
-        num_candidates
-        * sequence_length,
-        decision_units.shape[2],
+    # sklearn KMeans expects prediction inputs to use the
+    # same floating-point dtype as the fitted cluster centers.
+    #
+    # D4RL observations/actions are commonly float32, while
+    # NumPy RNG perturbations are generated as float64.
+    # Align only the KMeans prediction representation here.
+    cluster_centers = getattr(
+        kmeans_model,
+        "cluster_centers_",
+        None,
+    )
+
+    if cluster_centers is not None:
+        prediction_dtype = np.asarray(
+            cluster_centers
+        ).dtype
+
+        decision_units_for_prediction = (
+            np.asarray(
+                decision_units,
+                dtype=prediction_dtype,
+            )
+        )
+    else:
+        # Supports deterministic lightweight stand-ins used
+        # by unit tests that implement predict() but do not
+        # expose sklearn's cluster_centers_ attribute.
+        decision_units_for_prediction = (
+            decision_units
+        )
+
+    flattened = (
+        decision_units_for_prediction.reshape(
+            num_candidates
+            * sequence_length,
+            decision_units_for_prediction.shape[2],
+        )
     )
 
     predicted_labels = (
