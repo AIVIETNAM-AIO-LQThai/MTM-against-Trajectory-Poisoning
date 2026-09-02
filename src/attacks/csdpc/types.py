@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Tuple, Any, Mapping
 
 import numpy as np
 
@@ -110,3 +110,18 @@ class PerturbedWindow:
                 self.global_end,
             )
         )
+
+@dataclass(frozen=True)
+class PreparedCSDPC:
+    attack_seed: int
+
+    num_transitions: int
+    sequence_length: int
+    eta: float
+    num_candidates: int
+
+    clustering_model: Any
+    clustering: ClusteringResult
+
+    windows: Tuple[SequenceWindow, ...]
+    pattern_frequencies: Mapping[Pattern, int]
