@@ -125,3 +125,18 @@ class PreparedCSDPC:
 
     windows: Tuple[SequenceWindow, ...]
     pattern_frequencies: Mapping[Pattern, int]
+
+@dataclass(frozen=True)
+class CSDPCAttackResult:
+    poisoned_dataset: Mapping[str, np.ndarray]
+
+    requested_rho: float
+    actual_rho: float
+
+    requested_transition_budget: int
+    actual_transition_budget: int
+
+    selected_windows: Tuple[SelectedWindow, ...]
+    perturbed_windows: Tuple[PerturbedWindow, ...]
+
+    modified_transition_indices: Tuple[int, ...]
