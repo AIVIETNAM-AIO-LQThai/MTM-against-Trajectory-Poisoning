@@ -1,0 +1,189 @@
+{
+  "attack": {
+    "actual_rho": 0.0,
+    "actual_transition_budget": 0,
+    "attack_seed": 0,
+    "eta": 0.05,
+    "name": "CSDPC",
+    "num_candidates": 100,
+    "requested_rho": 0.0,
+    "requested_transition_budget": 0,
+    "sequence_length": 5
+  },
+  "attack_effect": {
+    "distinct_source_patterns": 0,
+    "distinct_target_patterns": 0,
+    "fraction_frequency_improved_given_pattern_changed": 0.0,
+    "fraction_target_frequency_improved": 0.0,
+    "fraction_target_pattern_changed": 0.0,
+    "fraction_target_pattern_unchanged": 0.0,
+    "mean_source_frequency": 0.0,
+    "mean_target_frequency": 0.0,
+    "median_target_source_frequency_ratio": 0.0
+  },
+  "clustering": {
+    "inertia": 33191496.0,
+    "inertia_is_reproducibility_gate": false,
+    "method": "kmeans",
+    "n_iter": 14,
+    "num_clusters": 8
+  },
+  "dataset": {
+    "clean_file_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "clean_logical_sha256": "ccee6f94a7108c8cf5c07e85680d70dd2d0564cb8e6eae3851878caba939d38e",
+    "num_transitions": 1000000,
+    "poisoned_file_sha256": "13edc878f17e0332a8edc9ef24ca1c926f9cc1d184a6427d7e73ba000cf79abd",
+    "poisoned_logical_sha256": "ccee6f94a7108c8cf5c07e85680d70dd2d0564cb8e6eae3851878caba939d38e",
+    "schema": {
+      "actions": {
+        "dtype": "float32",
+        "shape": [
+          1000000,
+          6
+        ]
+      },
+      "infos/action_log_probs": {
+        "dtype": "float32",
+        "shape": [
+          1000000
+        ]
+      },
+      "infos/qpos": {
+        "dtype": "float64",
+        "shape": [
+          1000000,
+          9
+        ]
+      },
+      "infos/qvel": {
+        "dtype": "float64",
+        "shape": [
+          1000000,
+          9
+        ]
+      },
+      "metadata/algorithm": {
+        "dtype": "|S3",
+        "shape": []
+      },
+      "metadata/iteration": {
+        "dtype": "int32",
+        "shape": []
+      },
+      "metadata/policy/fc0/bias": {
+        "dtype": "float32",
+        "shape": [
+          256
+        ]
+      },
+      "metadata/policy/fc0/weight": {
+        "dtype": "float32",
+        "shape": [
+          256,
+          17
+        ]
+      },
+      "metadata/policy/fc1/bias": {
+        "dtype": "float32",
+        "shape": [
+          256
+        ]
+      },
+      "metadata/policy/fc1/weight": {
+        "dtype": "float32",
+        "shape": [
+          256,
+          256
+        ]
+      },
+      "metadata/policy/last_fc/bias": {
+        "dtype": "float32",
+        "shape": [
+          6
+        ]
+      },
+      "metadata/policy/last_fc/weight": {
+        "dtype": "float32",
+        "shape": [
+          6,
+          256
+        ]
+      },
+      "metadata/policy/last_fc_log_std/bias": {
+        "dtype": "float32",
+        "shape": [
+          6
+        ]
+      },
+      "metadata/policy/last_fc_log_std/weight": {
+        "dtype": "float32",
+        "shape": [
+          6,
+          256
+        ]
+      },
+      "metadata/policy/nonlinearity": {
+        "dtype": "|S4",
+        "shape": []
+      },
+      "metadata/policy/output_distribution": {
+        "dtype": "|S13",
+        "shape": []
+      },
+      "next_observations": {
+        "dtype": "float32",
+        "shape": [
+          1000000,
+          17
+        ]
+      },
+      "observations": {
+        "dtype": "float32",
+        "shape": [
+          1000000,
+          17
+        ]
+      },
+      "rewards": {
+        "dtype": "float32",
+        "shape": [
+          1000000
+        ]
+      },
+      "terminals": {
+        "dtype": "bool",
+        "shape": [
+          1000000
+        ]
+      },
+      "timeouts": {
+        "dtype": "bool",
+        "shape": [
+          1000000
+        ]
+      }
+    }
+  },
+  "integrity": {
+    "action_bounds_valid": true,
+    "actual_rho_consistent": true,
+    "all_checks_passed": true,
+    "all_non_attack_arrays_identical": true,
+    "budget_matches_index_count": true,
+    "budget_not_exceeded": true,
+    "keys_preserved": true,
+    "modified_indices_in_range": true,
+    "modified_indices_unique": true,
+    "perturbation_bounds_valid": true,
+    "rewards_identical": true,
+    "selected_windows_nonoverlapping": true,
+    "shapes_and_dtypes_preserved": true,
+    "terminals_identical": true,
+    "timeouts_identical": true
+  },
+  "modified_transition_indices": [],
+  "num_selected_windows": 0,
+  "perturbed_windows": [],
+  "schema_version": "csdpc-artifact-metadata-v1",
+  "selected_windows": []
+}

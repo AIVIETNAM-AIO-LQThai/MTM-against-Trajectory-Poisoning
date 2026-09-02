@@ -36,3 +36,6 @@ results/figures/*
 
 .env
 *.local.yaml
+
+# Generated CSDPC poisoned datasets
+/data/poisoned/
