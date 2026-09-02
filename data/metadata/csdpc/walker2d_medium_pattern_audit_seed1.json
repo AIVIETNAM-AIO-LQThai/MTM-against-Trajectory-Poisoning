@@ -1,0 +1,208 @@
+{
+  "clustering": {
+    "attack_seed": 1,
+    "inertia": 33207112.0,
+    "method": "kmeans",
+    "n_iter": 23,
+    "num_clusters": 8
+  },
+  "dataset": {
+    "action_dim": 6,
+    "decision_unit_dim": 23,
+    "name": "walker2d-medium-v2",
+    "path": "/home/quoc_thai/code/RL/MTM-against-Trajectory-Poisoning/data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "state_dim": 17,
+    "transitions": 1000000
+  },
+  "most_common_patterns": [
+    {
+      "count": 214361,
+      "pattern": [
+        0
+      ]
+    },
+    {
+      "count": 50947,
+      "pattern": [
+        6
+      ]
+    },
+    {
+      "count": 43439,
+      "pattern": [
+        7
+      ]
+    },
+    {
+      "count": 33758,
+      "pattern": [
+        5
+      ]
+    },
+    {
+      "count": 29036,
+      "pattern": [
+        7,
+        0
+      ]
+    },
+    {
+      "count": 24194,
+      "pattern": [
+        3
+      ]
+    },
+    {
+      "count": 20929,
+      "pattern": [
+        2,
+        5
+      ]
+    },
+    {
+      "count": 20885,
+      "pattern": [
+        1,
+        6
+      ]
+    },
+    {
+      "count": 17879,
+      "pattern": [
+        0,
+        6
+      ]
+    },
+    {
+      "count": 17772,
+      "pattern": [
+        6,
+        0
+      ]
+    }
+  ],
+  "pattern_extraction": {
+    "deduplicate_after_windowing": true,
+    "distinct_pattern_reduction_fraction": 0.43933393339333937,
+    "expected_windows": 995235,
+    "frequency_definition": "occurrence_count",
+    "pattern_length_distribution": {
+      "1": 400044,
+      "2": 280422,
+      "3": 168742,
+      "4": 90718,
+      "5": 55309
+    },
+    "respect_episode_boundaries": true,
+    "sequence_length": 5,
+    "total_windows": 995235,
+    "unique_deduplicated_patterns": 6229,
+    "unique_raw_cluster_sequences": 11110
+  },
+  "rarest_patterns": [
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        2,
+        7
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        3,
+        0
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        4,
+        3
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        4,
+        5
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        4,
+        6
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        6,
+        7
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        2,
+        1,
+        6
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        2,
+        4
+      ]
+    }
+  ],
+  "trajectory_audit": {
+    "completed_trajectories": 1190,
+    "trailing_transitions": 5
+  }
+}

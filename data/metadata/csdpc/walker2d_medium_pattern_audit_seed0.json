@@ -1,0 +1,221 @@
+{
+  "cluster_occupancy": {
+    "0": 349833,
+    "1": 85144,
+    "2": 172133,
+    "3": 39905,
+    "4": 96315,
+    "5": 81028,
+    "6": 135198,
+    "7": 40444
+  },
+  "clustering": {
+    "attack_seed": 0,
+    "inertia": 33191498.0,
+    "method": "kmeans",
+    "n_iter": 14,
+    "num_clusters": 8
+  },
+  "dataset": {
+    "action_dim": 6,
+    "decision_unit_dim": 23,
+    "name": "walker2d-medium-v2",
+    "path": "/home/quoc_thai/code/RL/MTM-against-Trajectory-Poisoning/data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "state_dim": 17,
+    "transitions": 1000000
+  },
+  "most_common_patterns": [
+    {
+      "count": 217074,
+      "pattern": [
+        0
+      ]
+    },
+    {
+      "count": 75714,
+      "pattern": [
+        2
+      ]
+    },
+    {
+      "count": 52389,
+      "pattern": [
+        6
+      ]
+    },
+    {
+      "count": 33254,
+      "pattern": [
+        2,
+        0
+      ]
+    },
+    {
+      "count": 30688,
+      "pattern": [
+        4
+      ]
+    },
+    {
+      "count": 30147,
+      "pattern": [
+        2,
+        6
+      ]
+    },
+    {
+      "count": 26533,
+      "pattern": [
+        6,
+        2
+      ]
+    },
+    {
+      "count": 23150,
+      "pattern": [
+        1
+      ]
+    },
+    {
+      "count": 18315,
+      "pattern": [
+        6,
+        0
+      ]
+    },
+    {
+      "count": 17765,
+      "pattern": [
+        0,
+        6
+      ]
+    }
+  ],
+  "pattern_extraction": {
+    "average_deduplicated_pattern_length": 2.046719618984461,
+    "deduplicate_after_windowing": true,
+    "deduplicated_window_fraction": 0.9495938145262174,
+    "distinct_pattern_reduction_fraction": 0.42456993605331894,
+    "expected_windows": 995235,
+    "frequency_definition": "occurrence_count",
+    "pattern_length_distribution": {
+      "1": 424206,
+      "2": 283480,
+      "3": 154561,
+      "4": 82822,
+      "5": 50166
+    },
+    "respect_episode_boundaries": true,
+    "sequence_length": 5,
+    "total_windows": 995235,
+    "unique_deduplicated_patterns": 6389,
+    "unique_raw_cluster_sequences": 11103,
+    "windows_with_deduplication": 945069
+  },
+  "rarest_patterns": [
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        2,
+        5
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        4
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        4,
+        1
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        4,
+        7
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        5,
+        2
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        5,
+        4
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        5,
+        7
+      ]
+    },
+    {
+      "count": 1,
+      "pattern": [
+        0,
+        1,
+        0,
+        6,
+        0
+      ]
+    }
+  ],
+  "trajectory_audit": {
+    "completed_trajectories": 1190,
+    "trailing_transitions": 5
+  }
+}
