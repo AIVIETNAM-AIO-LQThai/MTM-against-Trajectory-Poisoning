@@ -280,3 +280,41 @@ VERIFIED_AGAINST_FROZEN_D4RL
 
 The project-only `raw_indices` field is retained exclusively for
 attack-exposure auditing and is never supplied to the CQL learner.
+
+### PyTorch CUDA compatibility correction
+
+During the Gate-B integration preflight, the frozen official CQL
+implementation failed when running on CUDA because its random CQL
+actions are created with:
+
+    torch.FloatTensor(...).uniform_(-1, 1)
+
+which creates a CPU tensor.
+
+The observations and CQL networks were correctly located on CUDA.
+The frozen implementation subsequently passed the CPU random-action
+tensor and CUDA observation tensor into the same Q-network operation,
+causing a device mismatch.
+
+Status:
+PROJECT_RUNTIME_COMPATIBILITY_FIX
+
+The project does not modify the frozen CQL reference repository.
+
+Instead, the project-owned CQLTrainer wrapper overrides only
+`_get_tensor_values()` and transfers an action tensor to the
+observation tensor's device when their devices differ.
+
+This correction:
+
+- does not change sampled random-action values;
+- does not change the Uniform[-1, 1] sampling distribution;
+- does not change network architecture;
+- does not change the CQL objective;
+- does not change optimizer configuration;
+- does not change attack data;
+- does not change any frozen Gate-B hyperparameter.
+
+Compatibility fix ID:
+
+    cql_random_actions_device_transfer_v1
