@@ -15,6 +15,21 @@ changed in response to observed attack strength.
 3. D4RL reference behavior
 4. Project reproduction choices only where the above are underspecified
 
+## Official CQL reference snapshot
+
+Repository:
+https://github.com/aviralkumar2907/CQL
+
+Commit:
+d67dbe9cf5d2b96e3b462b6146f249b3d6569796
+
+The official CQL repository is treated as a read-only reference snapshot.
+CQL-specific implementation details not specified by the CSDPC paper are
+resolved against this exact commit.
+
+Local modifications to the reference repository:
+none
+
 ## Development setting
 
 Environment / dataset:
@@ -87,3 +102,46 @@ Clean CQL must be validated before any poisoned CQL result is used.
 
 Once the CQL configuration is frozen, no hyperparameter may be changed
 because it strengthens or weakens CSDPC.
+
+## Official CQL implementation ambiguities
+
+### MuJoCo runtime configuration
+
+The frozen official CQL source contains configuration defaults in
+`d4rl/examples/cql_mujoco_new.py`, while the official repository README
+recommends different command-line values for D4RL MuJoCo experiments.
+
+This is treated as a SOURCE_CONFLICT rather than silently selecting one
+configuration.
+
+In particular:
+
+- `min_q_version=3` is consistently recommended.
+- the example configuration contains `min_q_weight=1.0`.
+- the official MuJoCo README recommends `min_q_weight=5.0 or 10.0`.
+- the example configuration enables Lagrange CQL.
+- the official MuJoCo README example passes `lagrange_thresh=-1.0`,
+  which disables the Lagrange variant.
+- constructor defaults in `rlkit/torch/sac/cql.py` are not treated as
+  experimental settings when the example/CLI explicitly overrides them.
+
+CSDPC-specified CQL parameters retain higher precedence where the CSDPC
+supplement explicitly gives a value.
+
+Any remaining CQL-specific conflict must be frozen before poisoned CQL
+training.
+
+### Random-seed handling
+
+The official CQL MuJoCo script exposes a `--seed` argument.
+
+The frozen source must be checked for actual calls that seed Python,
+NumPy, PyTorch, CUDA, and the evaluation environment.
+
+If the argument is not operationally applied to those random generators,
+the project will add explicit deterministic seed initialization in its
+own CQL wrapper.
+
+The official reference clone itself will remain unmodified.
+
+This is a PROJECT_REPRODUCIBILITY_FIX and not a CQL algorithm change.
