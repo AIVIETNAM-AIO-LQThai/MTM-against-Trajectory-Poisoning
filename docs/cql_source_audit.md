@@ -55,7 +55,7 @@ The additional seeds 1 and 2 are project robustness checks.
 |---|---:|---|
 | Optimizer | Adam | VERIFIED_CSDPC_SUPPLEMENT |
 | Critic learning rate | 0.003 | VERIFIED_CSDPC_SUPPLEMENT |
-| Actor learning rate | 0.003 | VERIFIED_CSDPC_SUPPLEMENT |
+| Actor learning rate | 0.001 | VERIFIED_CSDPC_SUPPLEMENT |
 | Batch size | 256 | VERIFIED_CSDPC_SUPPLEMENT |
 | Critic hidden units | [256, 256, 256] | VERIFIED_CSDPC_SUPPLEMENT |
 | Actor hidden units | [256, 256, 256] | VERIFIED_CSDPC_SUPPLEMENT |
@@ -318,3 +318,32 @@ This correction:
 Compatibility fix ID:
 
     cql_random_actions_device_transfer_v1
+
+### CQL actor-learning-rate transcription correction
+
+Before the first valid clean CQL reproduction run, a source-audit
+correction was made to the frozen configuration.
+
+The CSDPC supplementary Table 8 specifies for CQL:
+
+- critic learning rate = 0.003
+- actor learning rate = 0.001
+
+The initial project configuration incorrectly transcribed the actor
+learning rate as 0.003.
+
+A clean seed-0 integration run using that incorrect configuration
+became numerically unstable and produced NaNs in the policy network
+around epoch 97.
+
+That run is marked INVALID_CONFIGURATION and is excluded from all
+Gate-B results.
+
+The configuration was corrected to actor_lr=0.001 before any poisoned
+CQL result was observed.
+
+Status:
+SOURCE_TRANSCRIPTION_CORRECTION
+
+This is not downstream hyperparameter tuning; it restores the value
+explicitly specified by the CSDPC source.
