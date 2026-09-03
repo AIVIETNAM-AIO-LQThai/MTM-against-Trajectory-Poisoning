@@ -1,0 +1,13 @@
+python= 3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49)  [GCC 13.3.0]
+platform= Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.17
+numpy= 1.23.5
+torch= 2.0.1+cu118
+cuda_runtime= 11.8
+cuda_available= True
+gpu= NVIDIA GeForce RTX 4090
+gym= 0.23.1
+d4rl_dist= 1.1
+mujoco_py= 2.1.2.14
+mjrl_path= /home/quoc_thai/miniconda3/envs/g2-cql/lib/python3.8/site-packages/mjrl/__init__.py
+mujoco_path= /home/quoc_thai/.mujoco/mujoco210
+mjrl @ git+https://github.com/aravindr93/mjrl.git@3871d93763d3b49c4741e6daeaebbc605fe140dc

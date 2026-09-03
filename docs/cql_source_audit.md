@@ -201,3 +201,82 @@ No poisoned CQL run may begin until this equivalence check passes.
 
 The project-owned `raw_indices` field is audit metadata only and must
 never be supplied to CQL as a learning feature.
+
+### CQL dependency specification
+
+The frozen official CQL repository does not provide a dedicated
+requirements file for the D4RL CQL experiments.
+
+The same frozen repository snapshot contains conflicting dependency
+guidance.
+
+`d4rl/environment/linux-gpu-env.yml` specifies:
+
+- Python 3.5.2
+- NumPy 1.11.3
+- PyTorch 0.4.1
+- Gym 0.10.5
+- gtimer 1.0.0b5
+
+However, the frozen CQL README explicitly instructs users of the D4RL
+experiments to install the RLKit environment while ensuring:
+
+    torch >= 1.1.0
+
+The environment file and `cql_mujoco_new.py` were introduced by the
+same frozen repository commit, so their discrepancy cannot be resolved
+by repository age alone.
+
+The CQL README also instructs users to install D4RL externally but does
+not pin an exact D4RL commit or package version.
+
+Status:
+SOURCE_CONFLICT
+
+For Gate B, the project will therefore use a Python-3.8-compatible
+software environment that preserves the APIs and numerical behavior
+required by the frozen CQL implementation and the Walker2d-medium-v2
+D4RL task.
+
+Exact package versions will be frozen in a project environment manifest
+before any CQL performance result is observed.
+
+Software compatibility changes must not alter the CQL objective,
+architecture, attack artifacts, or frozen hyperparameters.
+
+## D4RL Training-View Resolution
+
+The frozen official CQL repository delegates MuJoCo offline-dataset
+conversion to the external:
+
+    d4rl.qlearning_dataset(...)
+
+function.
+
+For Gate B, the exact installed D4RL distribution and runtime software
+stack are recorded in:
+
+- `configs/environments/g2-cql.yml`
+- `configs/environments/g2-cql-pip-freeze.txt`
+- `configs/environments/g2-cql-runtime.txt`
+- `docs/d4rl_qlearning_dataset_snapshot.txt`
+
+The project-owned CQL dataset adapter was tested field-by-field against
+the installed D4RL `qlearning_dataset()` implementation with
+`terminate_on_end=False`.
+
+Equivalence covers:
+
+- observations;
+- actions;
+- next observations;
+- rewards;
+- terminals;
+- timeout filtering;
+- output dtypes.
+
+Status:
+VERIFIED_AGAINST_FROZEN_D4RL
+
+The project-only `raw_indices` field is retained exclusively for
+attack-exposure auditing and is never supplied to the CQL learner.
