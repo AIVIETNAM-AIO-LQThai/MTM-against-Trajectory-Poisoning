@@ -1,0 +1,279 @@
+{
+  "all_integrity_checks_passed": true,
+  "clean_cql_training_transition_count": 999322,
+  "clean_training_view_logical_sha256": "51c078c2630d5b7a989263f1d0e84adac1b7207087d20cce566d59052c7d26b7",
+  "conditions": [
+    {
+      "actual_raw_rho": 0.0,
+      "attack_seed": 0,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.0,
+        "any_tuple_exposure_rate": 0.0,
+        "current_state_exposure_rate": 0.0,
+        "next_state_exposure_rate": 0.0,
+        "num_raw_modified_transitions": 0,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 0,
+        "poisoned_action_training_count": 0,
+        "poisoned_current_state_count": 0,
+        "poisoned_next_state_count": 0,
+        "raw_modified_current_retention": 0.0
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 0,
+      "raw_modified_transition_count": 0,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.0,
+      "training_view_logical_sha256": "51c078c2630d5b7a989263f1d0e84adac1b7207087d20cce566d59052c7d26b7"
+    },
+    {
+      "actual_raw_rho": 0.01,
+      "attack_seed": 0,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.010006784599958771,
+        "any_tuple_exposure_rate": 0.011957106918490737,
+        "current_state_exposure_rate": 0.010006784599958771,
+        "next_state_exposure_rate": 0.010005783921498776,
+        "num_raw_modified_transitions": 10000,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 11949,
+        "poisoned_action_training_count": 10000,
+        "poisoned_current_state_count": 10000,
+        "poisoned_next_state_count": 9999,
+        "raw_modified_current_retention": 1.0
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 0,
+      "raw_modified_transition_count": 10000,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.01,
+      "training_view_logical_sha256": "672f97e6206bb3fd5db1a3e10df35cb93073cb474c2166a8c948ca9fb7437a7c"
+    },
+    {
+      "actual_raw_rho": 0.05,
+      "attack_seed": 0,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.0500249168936539,
+        "any_tuple_exposure_rate": 0.05944930662989507,
+        "current_state_exposure_rate": 0.0500249168936539,
+        "next_state_exposure_rate": 0.049985890433714056,
+        "num_raw_modified_transitions": 50000,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 59409,
+        "poisoned_action_training_count": 49991,
+        "poisoned_current_state_count": 49991,
+        "poisoned_next_state_count": 49952,
+        "raw_modified_current_retention": 0.99982
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 9,
+      "raw_modified_transition_count": 50000,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.05,
+      "training_view_logical_sha256": "a236ec98bd41d1e29a4eef6911511b3175e996bd7aac0670dc38c02915a91258"
+    },
+    {
+      "actual_raw_rho": 0.0,
+      "attack_seed": 1,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.0,
+        "any_tuple_exposure_rate": 0.0,
+        "current_state_exposure_rate": 0.0,
+        "next_state_exposure_rate": 0.0,
+        "num_raw_modified_transitions": 0,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 0,
+        "poisoned_action_training_count": 0,
+        "poisoned_current_state_count": 0,
+        "poisoned_next_state_count": 0,
+        "raw_modified_current_retention": 0.0
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 0,
+      "raw_modified_transition_count": 0,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.0,
+      "training_view_logical_sha256": "51c078c2630d5b7a989263f1d0e84adac1b7207087d20cce566d59052c7d26b7"
+    },
+    {
+      "actual_raw_rho": 0.01,
+      "attack_seed": 1,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.010005783921498776,
+        "any_tuple_exposure_rate": 0.011962110310790716,
+        "current_state_exposure_rate": 0.010005783921498776,
+        "next_state_exposure_rate": 0.010005783921498776,
+        "num_raw_modified_transitions": 10000,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 11954,
+        "poisoned_action_training_count": 9999,
+        "poisoned_current_state_count": 9999,
+        "poisoned_next_state_count": 9999,
+        "raw_modified_current_retention": 0.9999
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 1,
+      "raw_modified_transition_count": 10000,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.01,
+      "training_view_logical_sha256": "72f322761360d0c9bdf70e922361a1447e9bd74d08456f73222b306ad9243980"
+    },
+    {
+      "actual_raw_rho": 0.05,
+      "attack_seed": 1,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.05002791892903388,
+        "any_tuple_exposure_rate": 0.05951034801595482,
+        "current_state_exposure_rate": 0.05002791892903388,
+        "next_state_exposure_rate": 0.04997688432757409,
+        "num_raw_modified_transitions": 50000,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 59470,
+        "poisoned_action_training_count": 49994,
+        "poisoned_current_state_count": 49994,
+        "poisoned_next_state_count": 49943,
+        "raw_modified_current_retention": 0.99988
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 6,
+      "raw_modified_transition_count": 50000,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.05,
+      "training_view_logical_sha256": "0b254cbf6c3a152a2bd03ae605b13e3da58602ab1ef90eed266477a4c86606df"
+    },
+    {
+      "actual_raw_rho": 0.0,
+      "attack_seed": 2,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.0,
+        "any_tuple_exposure_rate": 0.0,
+        "current_state_exposure_rate": 0.0,
+        "next_state_exposure_rate": 0.0,
+        "num_raw_modified_transitions": 0,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 0,
+        "poisoned_action_training_count": 0,
+        "poisoned_current_state_count": 0,
+        "poisoned_next_state_count": 0,
+        "raw_modified_current_retention": 0.0
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 0,
+      "raw_modified_transition_count": 0,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.0,
+      "training_view_logical_sha256": "51c078c2630d5b7a989263f1d0e84adac1b7207087d20cce566d59052c7d26b7"
+    },
+    {
+      "actual_raw_rho": 0.01,
+      "attack_seed": 2,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.010005783921498776,
+        "any_tuple_exposure_rate": 0.011969115060010688,
+        "current_state_exposure_rate": 0.010005783921498776,
+        "next_state_exposure_rate": 0.010005783921498776,
+        "num_raw_modified_transitions": 10000,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 11961,
+        "poisoned_action_training_count": 9999,
+        "poisoned_current_state_count": 9999,
+        "poisoned_next_state_count": 9999,
+        "raw_modified_current_retention": 0.9999
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 1,
+      "raw_modified_transition_count": 10000,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.01,
+      "training_view_logical_sha256": "c781bdb657f8bb5e9424b1c57ed12d3919ece7f7698407c3f4e0e7e7d2a451d3"
+    },
+    {
+      "actual_raw_rho": 0.05,
+      "attack_seed": 2,
+      "cql_training_transition_count": 999322,
+      "exposure": {
+        "action_exposure_rate": 0.05002691825057389,
+        "any_tuple_exposure_rate": 0.059523356835934765,
+        "current_state_exposure_rate": 0.05002691825057389,
+        "next_state_exposure_rate": 0.04997688432757409,
+        "num_raw_modified_transitions": 50000,
+        "num_training_transitions": 999322,
+        "poison_exposed_training_tuple_count": 59483,
+        "poisoned_action_training_count": 49993,
+        "poisoned_current_state_count": 49993,
+        "poisoned_next_state_count": 49943,
+        "raw_modified_current_retention": 0.99986
+      },
+      "integrity": {
+        "all_checks_passed": true,
+        "raw_indices_match_clean": true,
+        "rewards_match_clean": true,
+        "terminals_match_clean": true,
+        "training_size_matches_clean": true
+      },
+      "modified_dropped_as_current_transition": 7,
+      "raw_modified_transition_count": 50000,
+      "raw_transition_count": 1000000,
+      "requested_rho": 0.05,
+      "training_view_logical_sha256": "17609bfaed17f11f47c28e2fa5daf46234d79dc50c6f348203e9096121af5b52"
+    }
+  ],
+  "raw_clean_transition_count": 1000000,
+  "schema_version": "cql-training-view-audit-v1"
+}

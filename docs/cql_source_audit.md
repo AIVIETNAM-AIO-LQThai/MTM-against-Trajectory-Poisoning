@@ -145,3 +145,59 @@ own CQL wrapper.
 The official reference clone itself will remain unmodified.
 
 This is a PROJECT_REPRODUCIBILITY_FIX and not a CQL algorithm change.
+
+### Seed resolution
+
+The frozen `cql_mujoco_new.py` exposes `--seed` and stores the value in
+`variant["seed"]`, but the script executes the experiment without an
+observed call to the RLKit `set_seed()` path.
+
+Status:
+PROJECT_REPRODUCIBILITY_FIX_REQUIRED
+
+The project CQL runner will explicitly seed:
+
+- Python `random`
+- NumPy
+- PyTorch CPU
+- PyTorch CUDA
+- evaluation environment where supported
+
+The official CQL reference clone remains unmodified.
+
+### D4RL dataset transformation dependency
+
+The frozen official CQL repository does not define
+`qlearning_dataset()` internally.
+
+The MuJoCo entry point calls:
+
+    d4rl.qlearning_dataset(eval_env)
+
+The search of the frozen CQL repository found calls to
+`qlearning_dataset()` in the MuJoCo and AntMaze entry points, but no
+local definition of that function.
+
+Therefore, the exact offline-transition transformation is supplied by
+the external D4RL dependency installed in the CQL environment.
+
+Status:
+SOURCE_DEPENDENCY_EXTERNAL_D4RL
+
+The project CQL training-view adapter must be verified against the exact
+installed D4RL version before Gate-B training.
+
+The equivalence check must cover at least:
+
+- whether the transformation iterates over N or N-1 raw transitions;
+- construction of `next_observations`;
+- handling of timeout transitions;
+- handling of true terminal transitions;
+- the default value and behavior of `terminate_on_end`;
+- output dtypes;
+- any transition filtering performed by D4RL.
+
+No poisoned CQL run may begin until this equivalence check passes.
+
+The project-owned `raw_indices` field is audit metadata only and must
+never be supplied to CQL as a learning feature.
