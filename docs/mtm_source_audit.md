@@ -37,13 +37,19 @@ Wu et al., ICML 2023
 
 ## Reference modalities
 
-Continuous D4RL setup contains:
+For the official continuous D4RL MTM configuration,
+`use_reward: True`.
+
+Therefore the reference SequenceDataset exposes:
 
 - states
 - actions
+- rewards
 - returns
 
-Rewards may be present in SequenceDataset depending on configuration.
+The `returns` modality is internally computed from the
+SequenceDataset future-value construction and is NOT the
+same object as Group-1 Decision Transformer RTG.
 
 ## Important return-semantics finding
 
@@ -64,6 +70,18 @@ official implementation.
 
 MTM normalization must not modify the frozen Group-1 DT input
 normalization.
+
+Important implementation detail:
+
+`SequenceDataset.trajectory_statistics()` computes modality
+statistics over the segmented trajectory tensors, which are padded
+to `max_path_length`.
+
+Therefore reference tokenizer mean/std statistics include the
+zero-padded portions of those tensors.
+
+This behavior must be reproduced during the faithful reference
+stage before testing cleaner project-specific alternatives.
 
 ## Reference masking
 
