@@ -1,15 +1,16 @@
 name: g3-mtm-ref
 
 channels:
-  - pytorch
-  - conda-forge
   - defaults
 
 dependencies:
   - python=3.10
   - pip
-  - numpy
-  - scipy
-  - h5py
-  - pyyaml
-  - pytest
+
+  - pip:
+      - numpy==1.23.5
+      - scipy==1.10.1
+      - h5py==3.8.0
+      - PyYAML==6.0.1
+      - pytest==7.4.4
+      - torch==1.12.1+cpu
