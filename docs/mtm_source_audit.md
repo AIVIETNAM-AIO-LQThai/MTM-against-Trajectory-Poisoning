@@ -35,21 +35,30 @@ Wu et al., ICML 2023
 - optimizer: AdamW
 - scheduler: warmup followed by cosine decay
 
-## Reference modalities
+## Reference dataset fields and modeled modalities
 
-For the official continuous D4RL MTM configuration,
-`use_reward: True`.
-
-Therefore the reference SequenceDataset exposes:
+The official continuous D4RL SequenceDataset uses
+`use_reward: True`, so dataset samples may contain:
 
 - states
 - actions
 - rewards
 - returns
 
-The `returns` modality is internally computed from the
-SequenceDataset future-value construction and is NOT the
-same object as Group-1 Decision Transformer RTG.
+However, the official `d4rl_cont` tokenizer configuration creates
+tokenizers only for:
+
+- states
+- actions
+- returns
+
+Therefore, for the reference continuous D4RL MTM:
+
+- rewards are source data used to construct the return/value target;
+- rewards are not a modeled/tokenized MTM modality;
+- the modeled modalities are states, actions, and returns.
+
+This distinction must be preserved in our reproduction.
 
 ## Important return-semantics finding
 
