@@ -126,6 +126,51 @@ To avoid ambiguity, project logging should prefer:
 
 rather than an ambiguous `mask_ratio`.
 
+### AUTO_MASK implementation semantics
+
+The official naming is potentially misleading.
+
+Mask values use:
+
+- `1` = visible / conditioned
+- `0` = hidden / reconstructed
+
+`create_full_random_mask()` computes:
+
+`int(traj_length * tokens_per_timestep * mask_ratio)`
+
+entries equal to one.
+
+Therefore the configured `mask_ratio` controls the initial
+visible-token fraction before AUTO_MASK applies its additional
+future frontier.
+
+For the continuous D4RL tokenizers, each modality has one token
+per timestep, so masks have shape `[T, 1]`.
+
+AUTO_MASK samples:
+
+1. a target modality from the order
+   `states -> returns -> actions`,
+2. a timestep,
+3. independent initial random masks for each modeled modality,
+4. then hides future tokens according to the sampled
+   modality/timestep frontier.
+
+This is a data-visibility mask, NOT a causal Transformer
+attention mask. The MTM encoder/decoder remains bidirectional
+over visible tokens.
+
+The d4rl_cont tokenizer declaration order is:
+
+1. states
+2. actions
+3. returns
+
+Because the implementation samples modality masks while iterating
+through that dictionary, this insertion order also affects the
+exact NumPy RNG stream.
+
 ## Reference reconstruction objective
 
 Critical finding:
