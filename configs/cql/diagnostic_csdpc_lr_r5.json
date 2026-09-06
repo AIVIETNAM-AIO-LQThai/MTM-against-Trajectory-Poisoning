@@ -3,7 +3,7 @@
   "layer_size": 256,
   "replay_buffer_size": 2000000,
   "algorithm_kwargs": {
-    "num_epochs": 500,
+    "num_epochs": 120,
     "num_eval_steps_per_epoch": 1000,
     "num_trains_per_train_loop": 1000,
     "num_expl_steps_per_train_loop": 1000,
@@ -22,7 +22,7 @@
     "num_qs": 2,
     "temp": 1.0,
     "min_q_version": 3,
-    "min_q_weight": 10.0,
+    "min_q_weight": 5.0,
     "with_lagrange": false,
     "lagrange_thresh": -1.0,
     "num_random": 10,

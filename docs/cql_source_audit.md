@@ -347,3 +347,87 @@ SOURCE_TRANSCRIPTION_CORRECTION
 
 This is not downstream hyperparameter tuning; it restores the value
 explicitly specified by the CSDPC source.
+
+### Clean CQL policy-regime collapse
+
+Three clean Walker2d-medium-v2 runs were completed under the initial
+Gate-B configuration.
+
+All three seeds learned high-performing policies during the initial
+behavior-cloning policy phase, reaching returns above 3000.
+
+However, all three policies collapsed synchronously when the frozen
+CQL trainer crossed `policy_eval_start=40000`.
+
+With 1000 gradient updates per outer training epoch, this transition
+occurs around outer epoch 40-41.
+
+Observed evaluation returns:
+
+- seed 0: epoch 40 = 3594.77, epoch 41 = -7.52
+- seed 1: epoch 40 = 3411.04, epoch 41 = -6.54
+- seed 2: epoch 40 = 3779.42, epoch 41 = -7.89
+
+The frozen CQL implementation uses a behavior-cloning-style policy
+objective before `policy_eval_start` and switches to the Q-maximizing
+CQL/SAC policy objective afterwards.
+
+Q estimates subsequently grow rapidly and policy performance remains
+collapsed.
+
+Status:
+SOURCE_CONFIGURATION_INCOMPATIBILITY
+
+No poisoned CQL result has been observed.
+
+The next experiments are clean-only source-resolution diagnostics and
+must not be selected according to attack effectiveness.
+
+### Clean-only resolution of min_q_weight
+
+The official CQL D4RL MuJoCo guidance leaves
+`min_q_weight` underspecified as either 5.0 or 10.0 when using the
+non-Lagrange variant.
+
+Two clean-only source-resolution variants were evaluated before any
+poisoned CQL result was observed:
+
+- R5: with_lagrange=false, min_q_weight=5.0
+- R10: with_lagrange=false, min_q_weight=10.0
+
+Both variants retained the CSDPC-specified CQL learning rates:
+
+- actor learning rate = 0.001
+- critic learning rate = 0.003
+
+Selection was based only on clean Walker2d-medium-v2 stability over
+epochs 80-119 across model seeds 0, 1, and 2.
+
+Observed results:
+
+R5:
+- three-seed late-window mean = 3213.95
+- cross-seed standard deviation = 619.89
+- fraction of late-window epochs >= 3000:
+  seed 0 = 57.5%, seed 1 = 95.0%, seed 2 = 95.0%
+
+R10:
+- three-seed late-window mean = 3639.16
+- cross-seed standard deviation = 29.84
+- fraction of late-window epochs >= 3000:
+  seed 0 = 95.0%, seed 1 = 95.0%, seed 2 = 95.0%
+
+R10 is therefore selected as the canonical Gate-B CQL
+source-resolution variant.
+
+Frozen CQL-specific resolution:
+
+- with_lagrange = false
+- lagrange_thresh = -1.0
+- min_q_version = 3
+- min_q_weight = 10.0
+
+Status:
+CLEAN_ONLY_SOURCE_RESOLUTION_COMPLETE
+
+No poisoned CQL performance was used in this selection.
