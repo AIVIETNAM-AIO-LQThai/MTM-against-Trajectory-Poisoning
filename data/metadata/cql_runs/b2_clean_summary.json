@@ -1,0 +1,55 @@
+{
+  "gate": "B2_CLEAN_CQL",
+  "status": "PASS",
+  "dataset": "walker2d-medium-v2",
+  "canonical_variant": "R10",
+  "training_epochs": 500,
+  "late_window": [
+    400,
+    499
+  ],
+  "seeds": [
+    {
+      "seed": 0,
+      "late_mean": 3721.7099099849347,
+      "late_std": 255.1214907530267,
+      "late_min": 1640.3654319869806,
+      "late_max": 3935.1232905481493,
+      "final": 3813.746639233612,
+      "best": 4159.932202755805,
+      "best_epoch": 74,
+      "config_hash": null,
+      "dataset_logical_hash": null
+    },
+    {
+      "seed": 1,
+      "late_mean": 3726.502190893922,
+      "late_std": 328.70717448486914,
+      "late_min": 1459.952933871872,
+      "late_max": 4233.377067952668,
+      "final": 3729.27115092204,
+      "best": 4233.377067952668,
+      "best_epoch": 498,
+      "config_hash": null,
+      "dataset_logical_hash": null
+    },
+    {
+      "seed": 2,
+      "late_mean": 3634.5629112718952,
+      "late_std": 431.43615082812727,
+      "late_min": 1402.0922732318054,
+      "late_max": 3938.9347066750342,
+      "final": 3613.767900722604,
+      "best": 4098.345844935038,
+      "best_epoch": 232,
+      "config_hash": null,
+      "dataset_logical_hash": null
+    }
+  ],
+  "three_seed_late_mean": 3694.258337383584,
+  "cross_seed_std": 42.2563558380648,
+  "minimum_seed_late_mean": 3634.5629112718952,
+  "maximum_seed_late_mean": 3726.502190893922,
+  "config_hashes_identical": true,
+  "dataset_hashes_identical": true
+}

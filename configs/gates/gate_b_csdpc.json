@@ -1,0 +1,61 @@
+{
+  "gate": "B_CSDPC_CQL_VALIDATION",
+  "dataset": "walker2d-medium-v2",
+
+  "poison_rates": [
+    0.01,
+    0.05
+  ],
+
+  "attack_seeds": [
+    0,
+    1,
+    2
+  ],
+
+  "model_seeds": [
+    0,
+    1,
+    2
+  ],
+
+  "pairing_rule": "attack_seed_equals_model_seed",
+
+  "training_epochs": 500,
+
+  "primary_metric": {
+    "name": "late_window_evaluation_return",
+    "start_epoch": 400,
+    "end_epoch": 499,
+    "aggregation_within_run": "mean",
+    "paired_degradation_formula": "(clean_return - poisoned_return) / abs(clean_return)"
+  },
+
+  "decision_rule": {
+    "primary_poison_rate": 0.05,
+
+    "pass": {
+      "minimum_mean_paired_degradation": 0.50,
+      "require_all_three_seed_pairs_to_degrade": true
+    },
+
+    "inconclusive": {
+      "minimum_mean_paired_degradation": 0.25,
+      "maximum_mean_paired_degradation_exclusive": 0.50,
+      "or_inconsistent_seed_direction": true
+    },
+
+    "fail": {
+      "mean_paired_degradation_below": 0.25,
+      "with_no_directional_inconsistency": true
+    }
+  },
+
+  "secondary_reporting": {
+    "poison_rate_0.01": true,
+    "final_checkpoint_return": true,
+    "normalized_d4rl_score": true
+  },
+
+  "anti_tuning_rule": "Do not modify the canonical CQL configuration, CSDPC artifacts, poison budget, perturbation rule, training horizon, or decision criterion based on poisoned CQL performance."
+}

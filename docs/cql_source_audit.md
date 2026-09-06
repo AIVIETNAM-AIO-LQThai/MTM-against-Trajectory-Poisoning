@@ -460,3 +460,28 @@ Machine-readable specification:
 
 Status:
 FROZEN_BEFORE_GATE_B_RESULTS
+
+### B2 clean CQL reproduction result
+
+The canonical R10 clean CQL configuration completed the frozen
+500-epoch protocol for model seeds 0, 1, and 2.
+
+Late-window evaluation uses epochs 400-499.
+
+Observed aggregate results:
+
+- three-seed mean late return = 3694.26
+- cross-seed standard deviation = 42.26
+- minimum seed late mean = 3634.56
+- maximum seed late mean = 3726.50
+- configuration hashes identical across seeds = true
+- clean dataset logical hashes identical across seeds = true
+
+All frozen B2 acceptance requirements were satisfied.
+
+Status:
+B2_CLEAN_CQL_PASS
+
+The canonical CQL baseline is now frozen. Its hyperparameters,
+training horizon, seed protocol, and clean dataset must not be changed
+in response to downstream poisoned results.
