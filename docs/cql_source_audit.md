@@ -431,3 +431,32 @@ Status:
 CLEAN_ONLY_SOURCE_RESOLUTION_COMPLETE
 
 No poisoned CQL performance was used in this selection.
+
+### Frozen B2 clean-CQL acceptance criterion
+
+Before reviewing the complete three-seed canonical clean CQL results,
+the B2 clean-reproduction gate was frozen.
+
+Canonical clean evaluation uses:
+
+- dataset: Walker2d-medium-v2
+- model seeds: 0, 1, 2
+- training horizon: 500 epochs
+- late evaluation window: epochs 400-499
+
+B2 PASS requires:
+
+1. all three runs complete 500 epochs;
+2. no NaN or numerical divergence;
+3. each seed has mean evaluation return >= 2500 over epochs 400-499;
+4. the mean of the three seed-level late-window means is >= 3000;
+5. all three runs use the same frozen clean dataset and CQL configuration.
+
+The criterion is defined before poisoned CQL results are observed and
+must not be changed based on attack performance.
+
+Machine-readable specification:
+`configs/gates/gate_b_clean_cql.json`
+
+Status:
+FROZEN_BEFORE_GATE_B_RESULTS

@@ -1,0 +1,23 @@
+{
+  "gate": "B2_CLEAN_CQL",
+  "dataset": "walker2d-medium-v2",
+  "num_model_seeds": 3,
+  "model_seeds": [0, 1, 2],
+  "training_epochs": 500,
+  "late_window_start_epoch": 400,
+  "late_window_end_epoch": 499,
+
+  "requirements": {
+    "all_runs_complete": true,
+    "all_returns_finite": true,
+    "minimum_per_seed_late_mean_return": 2500.0,
+    "minimum_three_seed_mean_late_return": 3000.0
+  },
+
+  "notes": [
+    "All three seeds must use the same frozen dataset and CQL configuration.",
+    "No poisoned CQL performance may be used to modify this criterion.",
+    "Numerical divergence or NaN constitutes failure.",
+    "The criterion is frozen before reviewing the remaining canonical clean-seed results."
+  ]
+}
