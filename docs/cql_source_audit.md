@@ -485,3 +485,43 @@ B2_CLEAN_CQL_PASS
 The canonical CQL baseline is now frozen. Its hyperparameters,
 training horizon, seed protocol, and clean dataset must not be changed
 in response to downstream poisoned results.
+
+### Canonical Gate-B CSDPC result
+
+Canonical CSDPC artifacts were evaluated against the frozen R10 CQL
+baseline using 500 training epochs and paired attack/model seeds
+0, 1, and 2.
+
+The primary Gate-B poison rate was rho=0.05.
+
+Observed paired degradation:
+
+- seed 0: 2.38%
+- seed 1: 2.58%
+- seed 2: -0.56%
+
+Mean paired degradation:
+
+- rho=0.01: 0.14%
+- rho=0.05: 1.47%
+
+At rho=0.05, not all seed pairs degraded because seed 2 obtained
+slightly higher return on the poisoned dataset.
+
+According to the predeclared Gate-B criterion, the result is:
+
+GATE B: INCONCLUSIVE
+
+The canonical attack therefore does not establish convincing CQL
+degradation under the current reproduction.
+
+No canonical CQL hyperparameter, CSDPC artifact, poisoning rule,
+training horizon, evaluation metric, or Gate-B threshold will be
+modified in response to this result.
+
+Further investigation must be performed only as explicitly named
+sensitivity experiments and must remain separate from the canonical
+Gate-B result.
+
+Status:
+CANONICAL_GATE_B_INCONCLUSIVE
