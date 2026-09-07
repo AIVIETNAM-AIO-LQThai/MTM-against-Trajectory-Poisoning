@@ -106,6 +106,12 @@ def _parse_args():
     )
 
     parser.add_argument(
+        "--num-clusters",
+        type=int,
+        default=8,
+    )
+
+    parser.add_argument(
         "--rhos",
         type=float,
         nargs="+",
@@ -173,7 +179,7 @@ def main():
         prepare_csdpc_attack(
             clean_dataset,
             attack_seed=args.seed,
-            num_clusters=8,
+            num_clusters=args.num_clusters,
             sequence_length=5,
             eta=0.05,
             num_candidates=100,
@@ -484,6 +490,9 @@ def main():
         ),
         "attack_seed": int(
             args.seed
+        ),
+        "num_clusters": int(
+            args.num_clusters
         ),
         "clean_file_sha256": (
             clean_file_sha
