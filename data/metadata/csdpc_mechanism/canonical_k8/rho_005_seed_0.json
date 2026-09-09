@@ -1,0 +1,56 @@
+{
+  "action_bound_diagnostic": {
+    "modified_action_rows_at_bound_fraction": 0.30624,
+    "note": "This is an action-bound saturation diagnostic, not the exact fraction of candidates that were clipped."
+  },
+  "attack_seed": 0,
+  "budget": {
+    "dataset_diff_transition_count": 50000,
+    "requested_transition_budget": 50000,
+    "selected_indices_match_dataset_diff": true,
+    "selected_transition_count": 50000,
+    "selection_skipped_overlap_windows": 15092
+  },
+  "clean_pattern_baseline": {
+    "clean_dedup_distinct_pattern_reduction": 0.42456993605331894,
+    "dedup_affected_window_fraction": 0.9495938145262174,
+    "deduplicated_distinct_pattern_count": 6389,
+    "raw_distinct_pattern_count": 11103,
+    "window_count": 995235
+  },
+  "eta": 0.05,
+  "global_pattern_effect": {
+    "clean_distinct_pattern_count": 6389,
+    "clean_to_poison_distinct_pattern_reduction_fraction": 0.16997965252778213,
+    "new_pattern_type_count": 145,
+    "poison_distinct_pattern_count": 5303,
+    "removed_pattern_type_count": 1231
+  },
+  "local_attack_effect": {
+    "changed_to_new_pattern_fraction_given_changed": 0.0,
+    "modified_transition_cluster_label_change_fraction": 0.11162,
+    "selected_window_count": 10000,
+    "selected_window_frequency_improvement_fraction": 0.4698,
+    "selected_window_frequency_improvement_given_changed": 0.9949174078780177,
+    "selected_window_pattern_change_fraction": 0.4722,
+    "selected_window_pattern_unchanged_fraction": 0.5278
+  },
+  "num_candidates": 100,
+  "num_clusters": 8,
+  "rho": 0.05,
+  "schema_version": "csdpc-mechanism-audit-v1",
+  "sequence_length": 5,
+  "targeted_pattern_effect": {
+    "eradicated_selected_source_pattern_type_count": 814,
+    "fully_selected_source_pattern_fraction": 0.4538897475528078,
+    "fully_selected_source_pattern_type_count": 1762,
+    "partially_selected_source_pattern_type_count": 2120,
+    "selected_source_occurrence_completion_fraction": 0.4744283138817725,
+    "selected_source_occurrence_mass_after": 15114,
+    "selected_source_occurrence_mass_before": 21078,
+    "selected_source_occurrence_mass_reduction_fraction": 0.28294904639908913,
+    "selected_source_pattern_eradication_fraction": 0.20968572900566718,
+    "selected_source_pattern_type_count": 3882,
+    "selected_source_total_clean_occurrences": 21078
+  }
+}
