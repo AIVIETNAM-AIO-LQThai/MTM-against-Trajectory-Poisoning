@@ -296,6 +296,44 @@ def _audit_one_rho(
         selected_source_patterns
     )
 
+    selected_occurrence_counts = Counter(
+        window.source_pattern
+        for window in selected_windows
+    )
+
+    selected_source_total_clean_occurrences = sum(
+        int(clean_counts[pattern])
+        for pattern in selected_source_patterns
+    )
+
+    fully_selected_source_pattern_count = sum(
+        1
+        for pattern in selected_source_patterns
+        if (
+            selected_occurrence_counts[pattern]
+            == clean_counts[pattern]
+        )
+    )
+
+    partially_selected_source_pattern_count = (
+        selected_source_pattern_count
+        - fully_selected_source_pattern_count
+    )
+
+    selected_source_occurrence_completion_fraction = (
+        _safe_fraction(
+            selected_window_count,
+            selected_source_total_clean_occurrences,
+        )
+    )
+
+    fully_selected_source_pattern_fraction = (
+        _safe_fraction(
+            fully_selected_source_pattern_count,
+            selected_source_pattern_count,
+        )
+    )
+
     eradicated_source_patterns = sum(
         1
         for pattern
@@ -535,6 +573,21 @@ def _audit_one_rho(
         "targeted_pattern_effect": {
             "selected_source_pattern_type_count": int(
                 selected_source_pattern_count
+            ),
+            "selected_source_total_clean_occurrences": int(
+                selected_source_total_clean_occurrences
+            ),
+            "fully_selected_source_pattern_type_count": int(
+                fully_selected_source_pattern_count
+            ),
+            "partially_selected_source_pattern_type_count": int(
+                partially_selected_source_pattern_count
+            ),
+            "fully_selected_source_pattern_fraction": float(
+                fully_selected_source_pattern_fraction
+            ),
+            "selected_source_occurrence_completion_fraction": float(
+                selected_source_occurrence_completion_fraction
             ),
             "eradicated_selected_source_pattern_type_count": int(
                 eradicated_source_patterns
