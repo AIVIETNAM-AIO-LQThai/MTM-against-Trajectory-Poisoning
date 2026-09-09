@@ -117,3 +117,49 @@ measurements are recorded.
 
 Any such sensitivity must be separately named and must never replace
 the canonical Gate-B result retrospectively.
+
+## Deduplication-order source-fidelity diagnostic
+
+A separately frozen clean-data diagnostic compared:
+
+- D0_CANONICAL:
+  construct length-5 original-position windows, then remove
+  consecutive repeated cluster labels within each window.
+
+- D3_TRAJECTORY_DEDUP_BEFORE_WINDOW:
+  remove consecutive repeated cluster labels over each completed
+  trajectory first, then construct length-5 windows over the
+  compressed label sequence.
+
+Both variants reused the exact same canonical raw-data k=8 KMeans
+clustering for each attack seed. No poisoned dataset or learner
+performance was used.
+
+Observed three-seed means:
+
+D0_CANONICAL:
+- completed-label fraction retained: 100.00%
+- raw distinct patterns: 11108.67
+- diagnostic distinct patterns: 6281.00
+- distinct-pattern reduction: 43.46%
+
+D3_TRAJECTORY_DEDUP_BEFORE_WINDOW:
+- completed-label fraction retained: 27.53%
+- raw distinct patterns: 11108.67
+- diagnostic distinct patterns: 8884.67
+- distinct-pattern reduction: 20.02%
+
+D3 removes approximately 72.47% of repeated trajectory labels, but
+this must not be conflated with the source paper's reported nearly
+80% reduction in the number of distinct decision patterns.
+
+The D3 interpretation therefore does not explain the source/reproduction
+deduplication discrepancy.
+
+The publication's method description also more directly supports the
+canonical window-then-deduplicate interpretation: a sequence is
+extracted first, converted to decision-unit labels, and consecutive
+repeated units are then merged to form a decision pattern.
+
+Status:
+DEDUP_ORDER_DIAGNOSTIC_NO_EXPLANATION
