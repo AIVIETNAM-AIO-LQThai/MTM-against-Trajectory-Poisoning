@@ -1,0 +1,57 @@
+{
+  "experiment": "CSDPC_SEQUENCE_ENUMERATION_DIAGNOSTIC",
+  "status": "DIAGNOSTIC_ONLY",
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "attack_seeds": [0, 1, 2],
+
+  "canonical_reference": {
+    "feature_preprocessing": "none",
+    "deduplication_order": "window_then_deduplicate",
+    "window_stride": 1,
+    "respect_episode_boundaries": true
+  },
+
+  "diagnostic_variants": [
+    {
+      "id": "D0_OVERLAPPING_STRIDE_1",
+      "window_stride": 1,
+      "trajectory_offset": 0
+    },
+    {
+      "id": "D4_NONOVERLAPPING_STRIDE_5_OFFSET_0",
+      "window_stride": 5,
+      "trajectory_offset": 0
+    }
+  ],
+
+  "offset_sensitivity": {
+    "enabled": true,
+    "stride": 5,
+    "offsets": [0, 1, 2, 3, 4],
+    "report_all_offsets": true,
+    "do_not_select_best_offset": true
+  },
+
+  "metrics": [
+    "window_count",
+    "raw_distinct_pattern_count",
+    "deduplicated_distinct_pattern_count",
+    "distinct_pattern_reduction_fraction",
+    "dedup_affected_window_fraction",
+    "average_deduplicated_pattern_length"
+  ],
+
+  "rules": [
+    "No poisoned dataset is generated.",
+    "No learner is trained.",
+    "All variants reuse the same canonical raw k=8 KMeans clustering within each seed.",
+    "No offset may be selected according to proximity to the paper result.",
+    "All stride-5 offsets must be reported together.",
+    "The canonical stride-1 reproduction remains unchanged.",
+    "No diagnostic result can retrospectively replace canonical Gate B."
+  ]
+}
