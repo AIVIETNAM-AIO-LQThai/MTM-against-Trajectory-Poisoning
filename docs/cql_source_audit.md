@@ -525,3 +525,40 @@ Gate-B result.
 
 Status:
 CANONICAL_GATE_B_INCONCLUSIVE
+
+### CSDPC cluster-count sensitivity result
+
+After the canonical k=8 Gate-B result was INCONCLUSIVE, the
+predeclared cluster-count sensitivity evaluated k=6 and k=10 at
+rho=0.05 using the same frozen 500k-update R10 CQL configuration.
+
+Observed paired degradation:
+
+k=6:
+- seed 0: 5.29%
+- seed 1: 1.24%
+- seed 2: 1.16%
+- mean: 2.56%
+- std: 1.93%
+- all seeds degraded: true
+
+k=10:
+- seed 0: 3.28%
+- seed 1: 4.10%
+- seed 2: 3.99%
+- mean: 3.79%
+- std: 0.36%
+- all seeds degraded: true
+
+Neither sensitivity condition produced the predeclared strong attack
+effect.
+
+Conclusion:
+cluster count alone does not explain the discrepancy between the
+current independent CSDPC reproduction and the attack effect reported
+in the source paper.
+
+The canonical k=8 Gate-B result remains INCONCLUSIVE.
+
+Status:
+CLUSTER_SENSITIVITY_NO_STRONG_EFFECT
