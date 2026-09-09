@@ -1,0 +1,157 @@
+{
+  "canonical_attack_is_unchanged": true,
+  "clustering": {
+    "attack_seed": 0,
+    "feature_preprocessing": "none",
+    "inertia": 33191496.0,
+    "method": "kmeans",
+    "n_iter": 14,
+    "num_clusters": 8,
+    "shared_by_all_variants": true
+  },
+  "dataset": {
+    "action_dim": 6,
+    "completed_trajectory_count": 1190,
+    "completed_transition_count": 999995,
+    "decision_unit_dim": 23,
+    "name": "walker2d-medium-v2",
+    "num_transitions": 1000000,
+    "path": "data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "state_dim": 17,
+    "trailing_transition_count": 5
+  },
+  "experiment": "CSDPC_SEQUENCE_ENUMERATION_DIAGNOSTIC",
+  "offset_sensitivity": {
+    "do_not_select_best_offset": true,
+    "offset_semantics": "trajectory_relative",
+    "offsets": {
+      "0": {
+        "definition": {
+          "deduplication_order": "window_then_deduplicate",
+          "sequence_length": 5,
+          "trajectory_offset": 0,
+          "window_stride": 5
+        },
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.0525875875875874,
+          "dedup_affected_window_fraction": 0.9481431431431432,
+          "deduplicated_distinct_pattern_count": 3367,
+          "distinct_pattern_reduction_fraction": 0.4380841121495327,
+          "raw_distinct_pattern_count": 5992,
+          "window_count": 199800
+        }
+      },
+      "1": {
+        "definition": {
+          "deduplication_order": "window_then_deduplicate",
+          "sequence_length": 5,
+          "trajectory_offset": 1,
+          "window_stride": 5
+        },
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.0512632404076134,
+          "dedup_affected_window_fraction": 0.9500331638293168,
+          "deduplicated_distinct_pattern_count": 3380,
+          "distinct_pattern_reduction_fraction": 0.4397480523785845,
+          "raw_distinct_pattern_count": 6033,
+          "window_count": 199012
+        }
+      },
+      "2": {
+        "definition": {
+          "deduplication_order": "window_then_deduplicate",
+          "sequence_length": 5,
+          "trajectory_offset": 2,
+          "window_stride": 5
+        },
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.046543662963149,
+          "dedup_affected_window_fraction": 0.9499622945050525,
+          "deduplicated_distinct_pattern_count": 3407,
+          "distinct_pattern_reduction_fraction": 0.43555334658714384,
+          "raw_distinct_pattern_count": 6036,
+          "window_count": 198910
+        }
+      },
+      "3": {
+        "definition": {
+          "deduplication_order": "window_then_deduplicate",
+          "sequence_length": 5,
+          "trajectory_offset": 3,
+          "window_stride": 5
+        },
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.0415078015754053,
+          "dedup_affected_window_fraction": 0.9502630705310705,
+          "deduplicated_distinct_pattern_count": 3365,
+          "distinct_pattern_reduction_fraction": 0.4392601233127812,
+          "raw_distinct_pattern_count": 6001,
+          "window_count": 198806
+        }
+      },
+      "4": {
+        "definition": {
+          "deduplication_order": "window_then_deduplicate",
+          "sequence_length": 5,
+          "trajectory_offset": 4,
+          "window_stride": 5
+        },
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.041659327552628,
+          "dedup_affected_window_fraction": 0.9495739958833861,
+          "deduplicated_distinct_pattern_count": 3367,
+          "distinct_pattern_reduction_fraction": 0.43780263816997833,
+          "raw_distinct_pattern_count": 5989,
+          "window_count": 198707
+        }
+      }
+    },
+    "stride": 5
+  },
+  "protocol": {
+    "canonical_attack_is_unchanged": true,
+    "config_path": "configs/gates/csdpc_sequence_enumeration_diagnostic.json",
+    "config_sha256": "2ce9b5832403bdce878d98045eddf8825e9f292f6186cc6e0785bf0fc465b861",
+    "offset_semantics": "trajectory_relative"
+  },
+  "schema_version": "csdpc-sequence-enumeration-seed-v1",
+  "seed": 0,
+  "status": "DIAGNOSTIC_ONLY",
+  "variants": {
+    "D0_OVERLAPPING_STRIDE_1": {
+      "definition": {
+        "deduplication_order": "window_then_deduplicate",
+        "offset_semantics": "trajectory_relative",
+        "sequence_length": 5,
+        "trajectory_offset": 0,
+        "window_stride": 1
+      },
+      "metrics": {
+        "average_deduplicated_pattern_length": 2.046719618984461,
+        "dedup_affected_window_fraction": 0.9495938145262174,
+        "deduplicated_distinct_pattern_count": 6389,
+        "distinct_pattern_reduction_fraction": 0.42456993605331894,
+        "raw_distinct_pattern_count": 11103,
+        "window_count": 995235
+      }
+    },
+    "D4_NONOVERLAPPING_STRIDE_5_OFFSET_0": {
+      "definition": {
+        "deduplication_order": "window_then_deduplicate",
+        "offset_semantics": "trajectory_relative",
+        "sequence_length": 5,
+        "trajectory_offset": 0,
+        "window_stride": 5
+      },
+      "metrics": {
+        "average_deduplicated_pattern_length": 2.0525875875875874,
+        "dedup_affected_window_fraction": 0.9481431431431432,
+        "deduplicated_distinct_pattern_count": 3367,
+        "distinct_pattern_reduction_fraction": 0.4380841121495327,
+        "raw_distinct_pattern_count": 5992,
+        "window_count": 199800
+      }
+    }
+  }
+}
