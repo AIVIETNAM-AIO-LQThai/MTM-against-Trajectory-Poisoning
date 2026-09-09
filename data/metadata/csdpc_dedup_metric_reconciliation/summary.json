@@ -1,0 +1,142 @@
+{
+  "aggregate_metrics": {
+    "average_deduplicated_pattern_length": {
+      "max": 2.1170276366888223,
+      "mean": 2.0934546447154023,
+      "min": 2.046719618984461,
+      "std": 0.03304707948989962,
+      "values_by_seed": {
+        "0": 2.046719618984461,
+        "1": 2.1166166784729237,
+        "2": 2.1170276366888223
+      }
+    },
+    "canonical_distinct_type_reduction_fraction": {
+      "max": 0.439845226311527,
+      "mean": 0.43458303191939507,
+      "min": 0.42456993605331894,
+      "std": 0.007083404159464143,
+      "values_by_seed": {
+        "0": 0.42456993605331894,
+        "1": 0.43933393339333937,
+        "2": 0.439845226311527
+      }
+    },
+    "deduplicated_distinct_pattern_type_count": {
+      "max": 6389.0,
+      "mean": 6281.0,
+      "min": 6225.0,
+      "std": 76.38498979948002,
+      "values_by_seed": {
+        "0": 6389.0,
+        "1": 6229.0,
+        "2": 6225.0
+      }
+    },
+    "full_length_distinct_pattern_fraction": {
+      "max": 0.6439192361871967,
+      "mean": 0.6326581130817059,
+      "min": 0.6267458661101301,
+      "std": 0.007966137369011602,
+      "values_by_seed": {
+        "0": 0.6439192361871967,
+        "1": 0.6267458661101301,
+        "2": 0.6273092369477912
+      }
+    },
+    "full_length_pattern_occurrence_fraction": {
+      "max": 0.05563108210623621,
+      "mean": 0.0538703589269536,
+      "min": 0.050406185473782575,
+      "std": 0.002449652129271177,
+      "values_by_seed": {
+        "0": 0.050406185473782575,
+        "1": 0.05557380920084201,
+        "2": 0.05563108210623621
+      }
+    },
+    "non_equivalent_total_window_denominator_reduction_fraction": {
+      "max": 0.9937451958582646,
+      "mean": 0.9936889277406843,
+      "min": 0.9935804106567796,
+      "std": 7.675070691791455e-05,
+      "values_by_seed": {
+        "0": 0.9935804106567796,
+        "1": 0.9937411767070089,
+        "2": 0.9937451958582646
+      }
+    },
+    "raw_distinct_sequence_type_changed_fraction": {
+      "max": 0.6486097363448213,
+      "mean": 0.6422280365250578,
+      "min": 0.6294695127443033,
+      "std": 0.009021638902902925,
+      "values_by_seed": {
+        "0": 0.6294695127443033,
+        "1": 0.6486048604860486,
+        "2": 0.6486097363448213
+      }
+    },
+    "raw_distinct_sequence_type_count": {
+      "max": 11113.0,
+      "mean": 11108.666666666666,
+      "min": 11103.0,
+      "std": 4.189935029992178,
+      "values_by_seed": {
+        "0": 11103.0,
+        "1": 11110.0,
+        "2": 11113.0
+      }
+    },
+    "total_label_token_reduction_fraction": {
+      "max": 0.5906560762031078,
+      "mean": 0.5813090710569195,
+      "min": 0.5765944726622356,
+      "std": 0.006609415897979883,
+      "values_by_seed": {
+        "0": 0.5906560762031078,
+        "1": 0.5766766643054153,
+        "2": 0.5765944726622356
+      }
+    },
+    "window_count": {
+      "max": 995235.0,
+      "mean": 995235.0,
+      "min": 995235.0,
+      "std": 0.0,
+      "values_by_seed": {
+        "0": 995235.0,
+        "1": 995235.0,
+        "2": 995235.0
+      }
+    },
+    "window_instance_changed_fraction": {
+      "max": 0.9495938145262174,
+      "mean": 0.9461296410730465,
+      "min": 0.9443689178937638,
+      "std": 0.002449652129271158,
+      "values_by_seed": {
+        "0": 0.9495938145262174,
+        "1": 0.944426190799158,
+        "2": 0.9443689178937638
+      }
+    }
+  },
+  "attack_seeds": [
+    0,
+    1,
+    2
+  ],
+  "canonical_attack_is_unchanged": true,
+  "dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "experiment": "CSDPC_DEDUP_METRIC_RECONCILIATION",
+  "metric_semantics": {
+    "canonical_distinct_type_reduction_fraction": "1 - number of unique deduplicated patterns / number of unique raw cluster-label sequences",
+    "non_equivalent_total_window_denominator_reduction_fraction": "1 - unique deduplicated pattern types / total window occurrences; reported only to expose denominator ambiguity and is not treated as the source statistic",
+    "raw_distinct_sequence_type_changed_fraction": "fraction of unique raw cluster-label sequence types altered by deduplication",
+    "total_label_token_reduction_fraction": "fraction of cluster-label positions removed across all window occurrences",
+    "window_instance_changed_fraction": "fraction of window occurrences whose label tuple changes after deduplication"
+  },
+  "schema_version": "csdpc-dedup-metric-reconciliation-summary-v1",
+  "status": "DIAGNOSTIC_ONLY"
+}
