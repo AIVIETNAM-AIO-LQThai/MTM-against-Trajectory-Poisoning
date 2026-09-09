@@ -163,3 +163,52 @@ repeated units are then merged to form a decision pattern.
 
 Status:
 DEDUP_ORDER_DIAGNOSTIC_NO_EXPLANATION
+
+## Sequence-enumeration source-fidelity diagnostic
+
+A separately frozen clean-data diagnostic compared the canonical
+overlapping sequence enumeration against non-overlapping length-5
+enumeration.
+
+All conditions reused the same canonical raw-data k=8 KMeans
+clustering within each attack seed. Deduplication remained
+window-then-deduplicate. No poisoned dataset or learner performance
+was used.
+
+Observed three-seed means:
+
+D0_OVERLAPPING_STRIDE_1:
+- window count: 995235
+- raw distinct patterns: 11108.67
+- deduplicated distinct patterns: 6281.00
+- distinct-pattern reduction: 43.46%
+- dedup-affected window fraction: 94.61%
+- average deduplicated pattern length: 2.0935
+
+D4_NONOVERLAPPING_STRIDE_5_OFFSET_0:
+- window count: 199800
+- raw distinct patterns: 6031.67
+- deduplicated distinct patterns: 3347.33
+- distinct-pattern reduction: 44.50%
+- dedup-affected window fraction: 94.47%
+- average deduplicated pattern length: 2.0988
+
+The complete predeclared stride-5 offset sensitivity produced:
+
+- offset 0: 44.50%
+- offset 1: 44.74%
+- offset 2: 44.60%
+- offset 3: 44.79%
+- offset 4: 44.73%
+
+The range across all predeclared offsets was only 0.29 percentage
+points.
+
+Therefore sequence stride and trajectory-relative offset do not explain
+the discrepancy between the canonical reproduction and the source
+paper's descriptive nearly-80% distinct-pattern reduction.
+
+No offset is selected as preferred based on these results.
+
+Status:
+SEQUENCE_ENUMERATION_DIAGNOSTIC_NO_EXPLANATION
