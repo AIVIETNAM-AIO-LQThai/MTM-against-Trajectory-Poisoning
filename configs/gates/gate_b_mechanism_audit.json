@@ -1,0 +1,43 @@
+{
+  "experiment": "CSDPC_MECHANISM_FIDELITY_AUDIT",
+  "status": "DIAGNOSTIC_ONLY",
+  "canonical_attack_unchanged": true,
+
+  "dataset": "walker2d-medium-v2",
+  "canonical_num_clusters": 8,
+  "sequence_length": 5,
+  "eta": 0.05,
+  "num_candidates": 100,
+
+  "poison_rates": [0.01, 0.05],
+  "attack_seeds": [0, 1, 2],
+
+  "metrics": [
+    "clean_dedup_distinct_pattern_reduction",
+    "selected_window_pattern_change_fraction",
+    "selected_window_frequency_improvement_fraction",
+    "selected_window_frequency_improvement_given_changed",
+    "modified_transition_cluster_label_change_fraction",
+    "selected_source_pattern_eradication_fraction",
+    "selected_source_occurrence_mass_reduction_fraction",
+    "clean_to_poison_distinct_pattern_reduction_fraction",
+    "removed_pattern_type_count",
+    "new_pattern_type_count",
+    "selection_skipped_overlap_windows",
+    "modified_action_rows_at_bound_fraction"
+  ],
+
+  "interpretation": {
+    "paper_nearly_80_percent_dedup_reduction_is_descriptive_reference_only": true,
+    "dedup_reduction_is_not_a_pass_fail_threshold": true,
+    "no_downstream_learner_performance_used_for_mechanism_selection": true
+  },
+
+  "rules": [
+    "The canonical k=8 Gate-B result remains INCONCLUSIVE.",
+    "This audit does not alter any canonical poisoned artifact.",
+    "No CQL, DT, BC, or MTM hyperparameter may be changed from this audit.",
+    "Any later alternative attack interpretation must receive a separate experiment identifier.",
+    "No sensitivity result may retrospectively replace the canonical Gate-B result."
+  ]
+}
