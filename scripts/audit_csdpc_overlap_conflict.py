@@ -358,13 +358,36 @@ def _generate_proposals(
             action_high=1.0,
         )
 
-        labels = _predict_window_labels(
-            perturbed,
-            prepared.clustering_model,
+        labels = tuple(
+            int(value)
+            for value
+            in perturbed.raw_target_labels
         )
 
-        pattern = deduplicate_consecutive(
-            labels
+        expected_length = (
+            int(
+                window.global_end
+            )
+            - int(
+                window.global_start
+            )
+        )
+
+        if (
+            len(
+                labels
+            )
+            != expected_length
+        ):
+            raise RuntimeError(
+                "stored raw target-label sequence "
+                "has unexpected length"
+            )
+
+        pattern = (
+            deduplicate_consecutive(
+                labels
+            )
         )
 
         if (
@@ -374,8 +397,8 @@ def _generate_proposals(
             )
         ):
             raise RuntimeError(
-                "predicted labels do not reproduce "
-                "PerturbedWindow target pattern"
+                "stored raw target labels do not "
+                "reproduce canonical target pattern"
             )
 
         proposals.append(

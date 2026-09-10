@@ -427,15 +427,11 @@ def _generate_proposals(
     prepared,
 ):
     observations = np.asarray(
-        clean_dataset[
-            "observations"
-        ]
+        clean_dataset["observations"]
     )
 
     actions = np.asarray(
-        clean_dataset[
-            "actions"
-        ]
+        clean_dataset["actions"]
     )
 
     rng = np.random.default_rng(
@@ -453,9 +449,7 @@ def _generate_proposals(
                 observations,
                 actions,
                 window,
-                kmeans_model=(
-                    prepared.clustering_model
-                ),
+                kmeans_model=(prepared.clustering_model),
                 clean_pattern_frequencies=(
                     prepared.pattern_frequencies
                 ),
@@ -469,12 +463,31 @@ def _generate_proposals(
             )
         )
 
-        labels = (
-            _predict_window_labels(
-                perturbed,
-                prepared.clustering_model,
+        labels = tuple(
+            int(value)
+            for value
+            in perturbed.raw_target_labels
+        )
+
+        expected_length = (
+            int(
+                window.global_end
+            )
+            - int(
+                window.global_start
             )
         )
+
+        if (
+            len(
+                labels
+            )
+            != expected_length
+        ):
+            raise RuntimeError(
+                "stored raw target-label sequence "
+                "has unexpected length"
+            )
 
         pattern = (
             deduplicate_consecutive(
@@ -489,8 +502,8 @@ def _generate_proposals(
             )
         ):
             raise RuntimeError(
-                "proposal prediction does not "
-                "reproduce target pattern"
+                "stored raw target labels do not "
+                "reproduce canonical target pattern"
             )
 
         proposals.append(

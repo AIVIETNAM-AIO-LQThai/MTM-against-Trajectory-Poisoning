@@ -369,35 +369,17 @@ def perturb_selected_window(
     )
 
     return PerturbedWindow(
-        trajectory_id=(
-            selected_window.trajectory_id
-        ),
+        trajectory_id=(selected_window.trajectory_id),
         global_start=start,
         global_end=end,
-        source_pattern=(
-            selected_window.source_pattern
-        ),
+        source_pattern=(selected_window.source_pattern),
         target_pattern=best_pattern,
         source_frequency=source_frequency,
-        target_frequency=int(
-            best_frequency
-        ),
-        candidate_index=int(
-            best_candidate_index
-        ),
-        total_linf_perturbation=float(
-            best_perturbation_cost
-        ),
-        observations=(
-            candidate_observations[
-                best_candidate_index
-            ].copy()
-        ),
-        actions=(
-            candidate_actions[
-                best_candidate_index
-            ].copy()
-        ),
+        target_frequency=int(best_frequency),
+        candidate_index=int(best_candidate_index),
+        total_linf_perturbation=float(best_perturbation_cost),
+        observations=(candidate_observations[best_candidate_index].copy()),
+        actions=(candidate_actions[best_candidate_index].copy()),
         state_deltas=(
             state_deltas[
                 best_candidate_index
@@ -407,5 +389,12 @@ def perturb_selected_window(
             action_deltas[
                 best_candidate_index
             ].copy()
+        ),
+        raw_target_labels=tuple(
+            int(value)
+            for value
+            in predicted_labels[
+                best_candidate_index
+            ]
         ),
     )
