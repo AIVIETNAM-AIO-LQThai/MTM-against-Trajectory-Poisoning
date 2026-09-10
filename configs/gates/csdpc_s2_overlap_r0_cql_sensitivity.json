@@ -1,0 +1,54 @@
+{
+  "experiment": "CSDPC_S2_OVERLAP_R0_CQL_SENSITIVITY",
+  "status": "SENSITIVITY_ONLY",
+
+  "variant_id": "csdpc_s2_overlap_r0_v1",
+
+  "canonical_gate_b_unchanged": true,
+  "canonical_gate_b_reference": "data/metadata/cql_runs/gate_b_summary.json",
+  "canonical_clean_reference": "data/metadata/cql_runs/b2_clean_summary.json",
+  "canonical_gate_b_rule": "configs/gates/gate_b_csdpc.json",
+
+  "artifact_contract": "configs/gates/csdpc_s2_overlap_r0_artifact_contract.json",
+  "artifact_root": "data/poisoned/csdpc_s2_overlap_r0_v1/walker2d-medium-v2",
+  "artifact_metadata_root": "data/metadata/csdpc_s2_overlap_r0_v1/walker2d-medium-v2",
+
+  "cql_config": "configs/cql/gate_b_walker2d_medium_v2.json",
+  "clean_output_root": "outputs/g2/cql",
+  "run_output_root": "outputs/g2/cql_s2_overlap_r0_v1",
+  "summary_output": "data/metadata/cql_runs/csdpc_s2_overlap_r0_v1_cql_sensitivity.json",
+
+  "attack_seeds": [0, 1, 2],
+  "model_seeds": [0, 1, 2],
+  "pairing_rule": "attack_seed_equals_model_seed",
+
+  "poison_rates": [0.01, 0.05],
+  "primary_poison_rate": 0.05,
+
+  "training_epochs": 500,
+
+  "primary_metric": {
+    "name": "late_window_evaluation_return",
+    "start_epoch": 400,
+    "end_epoch": 499,
+    "aggregation_within_run": "mean",
+    "paired_degradation_formula": "(clean_return - poisoned_return) / abs(clean_return)"
+  },
+
+  "interpretation": {
+    "reuse_frozen_gate_b_decision_rule_descriptively": true,
+    "minimum_mean_paired_degradation_for_strong_effect": 0.50,
+    "require_all_three_seed_pairs_to_degrade_for_strong_effect": true
+  },
+
+  "rules": [
+    "Do not rerun or alter the frozen clean CQL baselines.",
+    "Do not alter the frozen CQL configuration.",
+    "Do not regenerate S2/R0 artifacts after observing learner results.",
+    "Run the three paired attack/model seeds for both rho values.",
+    "Do not use C500 or C1000 candidate search.",
+    "Do not select an overlap-resolution rule using learner performance.",
+    "Canonical Gate B remains INCONCLUSIVE regardless of this sensitivity result.",
+    "This experiment may establish sensitivity to source-semantics interpretation but cannot retroactively replace canonical Gate B."
+  ]
+}
