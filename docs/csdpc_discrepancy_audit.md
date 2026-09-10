@@ -531,3 +531,59 @@ CONFLICT_RESOLUTION_SENSITIVITY_REQUIRED
 CQL_DEFERRED
 
 Canonical Gate B remains INCONCLUSIVE.
+
+## Overlap-resolution sensitivity
+
+A separately frozen learner-free sensitivity compared three
+deterministic ways of resolving overlapping independent C100
+proposals under the S2 type-complete selection interpretation:
+
+- R0_FIRST_RARE_WINS
+- R1_LAST_WINS
+- R2_MODE_LABEL_FIRST
+
+The protocol predeclared R0 as the primary reproduction convention
+if the max-minus-min spread across rules remained below 0.05 on all
+five coverage-mechanism metrics.
+
+At rho=0.01, the across-rule spreads were:
+
+- selected-window pattern-change fraction: 0.005261
+- selected-window frequency-improvement fraction: 0.003037
+- selected-source-pattern eradication fraction: 0.005815
+- selected-source occurrence-mass reduction fraction: 0.001467
+- global distinct-pattern reduction fraction: 0.002318
+
+At rho=0.05, the spreads were:
+
+- selected-window pattern-change fraction: 0.002474
+- selected-window frequency-improvement fraction: 0.006813
+- selected-source-pattern eradication fraction: 0.002425
+- selected-source occurrence-mass reduction fraction: 0.012886
+- global distinct-pattern reduction fraction: 0.010658
+
+All values are substantially below the predeclared 0.05 material
+sensitivity threshold.
+
+Thus the coverage-collapse mechanism is not materially sensitive to
+the tested deterministic conflict-resolution conventions.
+
+R0_FIRST_RARE_WINS remains the primary convention because it was
+predeclared before observing these results, not because it maximizes
+attack strength.
+
+The realized R0 mechanism at rho=0.05 produced approximately:
+
+- selected-window pattern change: 49.69%
+- frequency improvement: 46.65%
+- selected-source-pattern eradication: 27.69%
+- selected-source occurrence-mass reduction: 36.72%
+- global distinct-pattern reduction: 19.87%
+
+Status:
+
+OVERLAP_RESOLUTION_SENSITIVITY_VALIDATED
+RESOLUTION_RULE_SENSITIVITY_NOT_MATERIAL
+R0_FIRST_RARE_WINS_RETAINED_AS_PREDECLARED_PRIMARY
+S2_OVERLAP_R0_ARTIFACT_REALIZATION_JUSTIFIED
+CANONICAL_GATE_B_REMAINS_INCONCLUSIVE
