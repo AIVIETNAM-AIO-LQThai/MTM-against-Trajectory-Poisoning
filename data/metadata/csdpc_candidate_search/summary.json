@@ -1,0 +1,1563 @@
+{
+  "attack_seeds": [
+    0,
+    1,
+    2
+  ],
+  "candidate_pools": [
+    100,
+    500,
+    1000
+  ],
+  "canonical_attack_is_unchanged": true,
+  "experiment": "CSDPC_CANDIDATE_SEARCH_SENSITIVITY",
+  "interpretation_rules": {
+    "C100_is_canonical_reference": true,
+    "C500_and_C1000_are_diagnostic_only": true,
+    "candidate_pools_are_nested": true,
+    "canonical_gate_b_unchanged": true,
+    "no_learner_result_used_for_selection": true
+  },
+  "rho_results": {
+    "0.01": {
+      "candidate_pools": {
+        "100": {
+          "binary_oracle_opportunity_capture_ratio": {
+            "max": 0.7683653209794838,
+            "mean": 0.7524361196831221,
+            "min": 0.7325842696629213,
+            "std": 0.014868563886885575,
+            "values_by_seed": {
+              "0": 0.7325842696629213,
+              "1": 0.7563587684069611,
+              "2": 0.7683653209794838
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_c100": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_previous_pool": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "clean_to_poison_distinct_pattern_reduction_fraction": {
+            "max": 0.19453815261044172,
+            "mean": 0.18216857510251494,
+            "min": 0.1599624354359055,
+            "std": 0.015736126606413256,
+            "values_by_seed": {
+              "0": 0.1599624354359055,
+              "1": 0.1920051372611976,
+              "2": 0.19453815261044172
+            }
+          },
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.8680593732820231,
+            "mean": 0.8641196991458999,
+            "min": 0.8591938155715074,
+            "std": 0.003685917811682712,
+            "values_by_seed": {
+              "0": 0.8680593732820231,
+              "1": 0.8591938155715074,
+              "2": 0.8651059085841695
+            }
+          },
+          "mean_frequency_gap_to_oracle_reference": {
+            "max": 1496.8825000000002,
+            "mean": 1265.6095,
+            "min": 856.6605,
+            "std": 289.99726786414163,
+            "values_by_seed": {
+              "0": 856.6605,
+              "1": 1443.2855,
+              "2": 1496.8825000000002
+            }
+          },
+          "mean_source_pattern_frequency": {
+            "max": 1.327,
+            "mean": 1.3148333333333333,
+            "min": 1.301,
+            "std": 0.010679679562400542,
+            "values_by_seed": {
+              "0": 1.301,
+              "1": 1.3165,
+              "2": 1.327
+            }
+          },
+          "mean_target_pattern_frequency": {
+            "max": 555.3385,
+            "mean": 420.61866666666657,
+            "min": 347.175,
+            "std": 95.39073027670045,
+            "values_by_seed": {
+              "0": 347.175,
+              "1": 359.3425,
+              "2": 555.3385
+            }
+          },
+          "modified_transition_cluster_label_change_fraction": {
+            "max": 0.143,
+            "mean": 0.13493333333333332,
+            "min": 0.1206,
+            "std": 0.010161802114891932,
+            "values_by_seed": {
+              "0": 0.1206,
+              "1": 0.1412,
+              "2": 0.143
+            }
+          },
+          "new_pattern_type_count": {
+            "max": 135.0,
+            "mean": 117.66666666666667,
+            "min": 98.0,
+            "std": 15.195028426721974,
+            "values_by_seed": {
+              "0": 98.0,
+              "1": 120.0,
+              "2": 135.0
+            }
+          },
+          "oracle_frequency_improvement_possible_fraction_reference": {
+            "max": 0.7555,
+            "mean": 0.7233333333333333,
+            "min": 0.6675,
+            "std": 0.03963233808674706,
+            "values_by_seed": {
+              "0": 0.6675,
+              "1": 0.747,
+              "2": 0.7555
+            }
+          },
+          "oracle_mean_best_frequency_reference": {
+            "max": 2052.221,
+            "mean": 1686.2281666666665,
+            "min": 1203.8355,
+            "std": 355.9973595900053,
+            "values_by_seed": {
+              "0": 1203.8355,
+              "1": 1802.628,
+              "2": 2052.221
+            }
+          },
+          "removed_pattern_type_count": {
+            "max": 1346.0,
+            "mean": 1260.6666666666667,
+            "min": 1120.0,
+            "std": 100.21754115700283,
+            "values_by_seed": {
+              "0": 1120.0,
+              "1": 1316.0,
+              "2": 1346.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.8928571428571429,
+            "mean": 0.8906119210235744,
+            "min": 0.8869179600886918,
+            "std": 0.002632186255697441,
+            "values_by_seed": {
+              "0": 0.8928571428571429,
+              "1": 0.8869179600886918,
+              "2": 0.8920606601248885
+            }
+          },
+          "selected_source_occurrence_mass_reduction_fraction": {
+            "max": 0.5053523639607493,
+            "mean": 0.472263743324262,
+            "min": 0.4196428571428571,
+            "std": 0.03761792070923521,
+            "values_by_seed": {
+              "0": 0.4196428571428571,
+              "1": 0.4917960088691796,
+              "2": 0.5053523639607493
+            }
+          },
+          "selected_source_pattern_eradication_fraction": {
+            "max": 0.48049052396878483,
+            "mean": 0.4547997418573712,
+            "min": 0.4051676745464541,
+            "std": 0.03510243832012956,
+            "values_by_seed": {
+              "0": 0.4051676745464541,
+              "1": 0.47874102705687466,
+              "2": 0.48049052396878483
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 1819.0,
+            "mean": 1808.0,
+            "min": 1794.0,
+            "std": 10.424330514074594,
+            "values_by_seed": {
+              "0": 1819.0,
+              "1": 1811.0,
+              "2": 1794.0
+            }
+          },
+          "selected_transition_count": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_window_count": {
+            "max": 2000.0,
+            "mean": 2000.0,
+            "min": 2000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 2000.0,
+              "1": 2000.0,
+              "2": 2000.0
+            }
+          },
+          "selected_window_frequency_improvement_fraction": {
+            "max": 0.5805,
+            "mean": 0.5448333333333333,
+            "min": 0.489,
+            "std": 0.03998402458760526,
+            "values_by_seed": {
+              "0": 0.489,
+              "1": 0.565,
+              "2": 0.5805
+            }
+          },
+          "selected_window_frequency_improvement_given_changed": {
+            "max": 0.9906143344709898,
+            "mean": 0.988045005329003,
+            "min": 0.9848942598187311,
+            "std": 0.002371124522504773,
+            "values_by_seed": {
+              "0": 0.9848942598187311,
+              "1": 0.9886264216972879,
+              "2": 0.9906143344709898
+            }
+          },
+          "selected_window_pattern_change_fraction": {
+            "max": 0.586,
+            "mean": 0.5513333333333333,
+            "min": 0.4965,
+            "std": 0.039222300912731885,
+            "values_by_seed": {
+              "0": 0.4965,
+              "1": 0.5715,
+              "2": 0.586
+            }
+          },
+          "strict_frequency_gain_fraction_vs_previous_pool": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          }
+        },
+        "1000": {
+          "binary_oracle_opportunity_capture_ratio": {
+            "max": 0.8398411647915288,
+            "mean": 0.8270583465388907,
+            "min": 0.8059925093632959,
+            "std": 0.015008645740224834,
+            "values_by_seed": {
+              "0": 0.8059925093632959,
+              "1": 0.8353413654618473,
+              "2": 0.8398411647915288
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_c100": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_previous_pool": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "clean_to_poison_distinct_pattern_reduction_fraction": {
+            "max": 0.2162465885374859,
+            "mean": 0.20362889112401675,
+            "min": 0.1790577555172953,
+            "std": 0.017376532811636734,
+            "values_by_seed": {
+              "0": 0.1790577555172953,
+              "1": 0.2162465885374859,
+              "2": 0.21558232931726906
+            }
+          },
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.8680593732820231,
+            "mean": 0.8641196991458999,
+            "min": 0.8591938155715074,
+            "std": 0.003685917811682712,
+            "values_by_seed": {
+              "0": 0.8680593732820231,
+              "1": 0.8591938155715074,
+              "2": 0.8651059085841695
+            }
+          },
+          "mean_frequency_gap_to_oracle_reference": {
+            "max": 1354.9465,
+            "mean": 1097.3151666666665,
+            "min": 730.925,
+            "std": 266.11034175893195,
+            "values_by_seed": {
+              "0": 730.925,
+              "1": 1206.074,
+              "2": 1354.9465
+            }
+          },
+          "mean_source_pattern_frequency": {
+            "max": 1.327,
+            "mean": 1.3148333333333333,
+            "min": 1.301,
+            "std": 0.010679679562400542,
+            "values_by_seed": {
+              "0": 1.301,
+              "1": 1.3165,
+              "2": 1.327
+            }
+          },
+          "mean_target_pattern_frequency": {
+            "max": 697.2745,
+            "mean": 588.913,
+            "min": 472.9105,
+            "std": 91.75543502430796,
+            "values_by_seed": {
+              "0": 472.9105,
+              "1": 596.554,
+              "2": 697.2745
+            }
+          },
+          "modified_transition_cluster_label_change_fraction": {
+            "max": 0.1647,
+            "mean": 0.1557,
+            "min": 0.1389,
+            "std": 0.011889491158161488,
+            "values_by_seed": {
+              "0": 0.1389,
+              "1": 0.1635,
+              "2": 0.1647
+            }
+          },
+          "new_pattern_type_count": {
+            "max": 142.0,
+            "mean": 132.0,
+            "min": 115.0,
+            "std": 12.083045973594572,
+            "values_by_seed": {
+              "0": 115.0,
+              "1": 139.0,
+              "2": 142.0
+            }
+          },
+          "oracle_frequency_improvement_possible_fraction_reference": {
+            "max": 0.7555,
+            "mean": 0.7233333333333333,
+            "min": 0.6675,
+            "std": 0.03963233808674706,
+            "values_by_seed": {
+              "0": 0.6675,
+              "1": 0.747,
+              "2": 0.7555
+            }
+          },
+          "oracle_mean_best_frequency_reference": {
+            "max": 2052.221,
+            "mean": 1686.2281666666665,
+            "min": 1203.8355,
+            "std": 355.9973595900053,
+            "values_by_seed": {
+              "0": 1203.8355,
+              "1": 1802.628,
+              "2": 2052.221
+            }
+          },
+          "removed_pattern_type_count": {
+            "max": 1486.0,
+            "mean": 1409.6666666666667,
+            "min": 1259.0,
+            "std": 106.54055044389854,
+            "values_by_seed": {
+              "0": 1259.0,
+              "1": 1486.0,
+              "2": 1484.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.8928571428571429,
+            "mean": 0.8906119210235744,
+            "min": 0.8869179600886918,
+            "std": 0.002632186255697441,
+            "values_by_seed": {
+              "0": 0.8928571428571429,
+              "1": 0.8869179600886918,
+              "2": 0.8920606601248885
+            }
+          },
+          "selected_source_occurrence_mass_reduction_fraction": {
+            "max": 0.5517395182872435,
+            "mean": 0.5188593241719806,
+            "min": 0.46071428571428574,
+            "std": 0.041232127530003826,
+            "values_by_seed": {
+              "0": 0.46071428571428574,
+              "1": 0.5441241685144125,
+              "2": 0.5517395182872435
+            }
+          },
+          "selected_source_pattern_eradication_fraction": {
+            "max": 0.5328874024526199,
+            "mean": 0.5042271126033637,
+            "min": 0.4491478834524464,
+            "std": 0.03895764388806342,
+            "values_by_seed": {
+              "0": 0.4491478834524464,
+              "1": 0.5306460519050249,
+              "2": 0.5328874024526199
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 1819.0,
+            "mean": 1808.0,
+            "min": 1794.0,
+            "std": 10.424330514074594,
+            "values_by_seed": {
+              "0": 1819.0,
+              "1": 1811.0,
+              "2": 1794.0
+            }
+          },
+          "selected_transition_count": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_window_count": {
+            "max": 2000.0,
+            "mean": 2000.0,
+            "min": 2000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 2000.0,
+              "1": 2000.0,
+              "2": 2000.0
+            }
+          },
+          "selected_window_frequency_improvement_fraction": {
+            "max": 0.6345,
+            "mean": 0.5988333333333333,
+            "min": 0.538,
+            "std": 0.04322871987720918,
+            "values_by_seed": {
+              "0": 0.538,
+              "1": 0.624,
+              "2": 0.6345
+            }
+          },
+          "selected_window_frequency_improvement_given_changed": {
+            "max": 0.9937353171495693,
+            "mean": 0.989215542015052,
+            "min": 0.982648401826484,
+            "std": 0.004752101331251692,
+            "values_by_seed": {
+              "0": 0.982648401826484,
+              "1": 0.9912629070691025,
+              "2": 0.9937353171495693
+            }
+          },
+          "selected_window_pattern_change_fraction": {
+            "max": 0.6385,
+            "mean": 0.6051666666666667,
+            "min": 0.5475,
+            "std": 0.04094169295745134,
+            "values_by_seed": {
+              "0": 0.5475,
+              "1": 0.6295,
+              "2": 0.6385
+            }
+          },
+          "strict_frequency_gain_fraction_vs_previous_pool": {
+            "max": 0.036,
+            "mean": 0.0325,
+            "min": 0.0265,
+            "std": 0.004262237284181474,
+            "values_by_seed": {
+              "0": 0.0265,
+              "1": 0.035,
+              "2": 0.036
+            }
+          }
+        },
+        "500": {
+          "binary_oracle_opportunity_capture_ratio": {
+            "max": 0.8259430840502978,
+            "mean": 0.8102125057378876,
+            "min": 0.7887640449438202,
+            "std": 0.015707553857423277,
+            "values_by_seed": {
+              "0": 0.7887640449438202,
+              "1": 0.8159303882195449,
+              "2": 0.8259430840502978
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_c100": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_previous_pool": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "clean_to_poison_distinct_pattern_reduction_fraction": {
+            "max": 0.21253012048192776,
+            "mean": 0.1999118010670099,
+            "min": 0.17561433714196273,
+            "std": 0.017185179220618612,
+            "values_by_seed": {
+              "0": 0.17561433714196273,
+              "1": 0.2115909455771392,
+              "2": 0.21253012048192776
+            }
+          },
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.8680593732820231,
+            "mean": 0.8641196991458999,
+            "min": 0.8591938155715074,
+            "std": 0.003685917811682712,
+            "values_by_seed": {
+              "0": 0.8680593732820231,
+              "1": 0.8591938155715074,
+              "2": 0.8651059085841695
+            }
+          },
+          "mean_frequency_gap_to_oracle_reference": {
+            "max": 1382.4814999999999,
+            "mean": 1128.0241666666666,
+            "min": 746.5889999999999,
+            "std": 274.690547716982,
+            "values_by_seed": {
+              "0": 746.5889999999999,
+              "1": 1255.002,
+              "2": 1382.4814999999999
+            }
+          },
+          "mean_source_pattern_frequency": {
+            "max": 1.327,
+            "mean": 1.3148333333333333,
+            "min": 1.301,
+            "std": 0.010679679562400542,
+            "values_by_seed": {
+              "0": 1.301,
+              "1": 1.3165,
+              "2": 1.327
+            }
+          },
+          "mean_target_pattern_frequency": {
+            "max": 669.7395,
+            "mean": 558.2040000000001,
+            "min": 457.2465,
+            "std": 87.07176857914395,
+            "values_by_seed": {
+              "0": 457.2465,
+              "1": 547.626,
+              "2": 669.7395
+            }
+          },
+          "modified_transition_cluster_label_change_fraction": {
+            "max": 0.16,
+            "mean": 0.15080000000000002,
+            "min": 0.1347,
+            "std": 0.011423076059742703,
+            "values_by_seed": {
+              "0": 0.1347,
+              "1": 0.1577,
+              "2": 0.16
+            }
+          },
+          "new_pattern_type_count": {
+            "max": 142.0,
+            "mean": 125.33333333333333,
+            "min": 110.0,
+            "std": 13.097921802925667,
+            "values_by_seed": {
+              "0": 110.0,
+              "1": 124.0,
+              "2": 142.0
+            }
+          },
+          "oracle_frequency_improvement_possible_fraction_reference": {
+            "max": 0.7555,
+            "mean": 0.7233333333333333,
+            "min": 0.6675,
+            "std": 0.03963233808674706,
+            "values_by_seed": {
+              "0": 0.6675,
+              "1": 0.747,
+              "2": 0.7555
+            }
+          },
+          "oracle_mean_best_frequency_reference": {
+            "max": 2052.221,
+            "mean": 1686.2281666666665,
+            "min": 1203.8355,
+            "std": 355.9973595900053,
+            "values_by_seed": {
+              "0": 1203.8355,
+              "1": 1802.628,
+              "2": 2052.221
+            }
+          },
+          "removed_pattern_type_count": {
+            "max": 1465.0,
+            "mean": 1379.6666666666667,
+            "min": 1232.0,
+            "std": 104.8374403011104,
+            "values_by_seed": {
+              "0": 1232.0,
+              "1": 1442.0,
+              "2": 1465.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.8928571428571429,
+            "mean": 0.8906119210235744,
+            "min": 0.8869179600886918,
+            "std": 0.002632186255697441,
+            "values_by_seed": {
+              "0": 0.8928571428571429,
+              "1": 0.8869179600886918,
+              "2": 0.8920606601248885
+            }
+          },
+          "selected_source_occurrence_mass_reduction_fraction": {
+            "max": 0.539250669045495,
+            "mean": 0.5066893661890642,
+            "min": 0.44955357142857144,
+            "std": 0.040532469038061236,
+            "values_by_seed": {
+              "0": 0.44955357142857144,
+              "1": 0.5312638580931264,
+              "2": 0.539250669045495
+            }
+          },
+          "selected_source_pattern_eradication_fraction": {
+            "max": 0.5234113712374582,
+            "mean": 0.4942719632980963,
+            "min": 0.439802089059923,
+            "std": 0.03854739428069549,
+            "values_by_seed": {
+              "0": 0.439802089059923,
+              "1": 0.5196024295969078,
+              "2": 0.5234113712374582
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 1819.0,
+            "mean": 1808.0,
+            "min": 1794.0,
+            "std": 10.424330514074594,
+            "values_by_seed": {
+              "0": 1819.0,
+              "1": 1811.0,
+              "2": 1794.0
+            }
+          },
+          "selected_transition_count": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_window_count": {
+            "max": 2000.0,
+            "mean": 2000.0,
+            "min": 2000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 2000.0,
+              "1": 2000.0,
+              "2": 2000.0
+            }
+          },
+          "selected_window_frequency_improvement_fraction": {
+            "max": 0.624,
+            "mean": 0.5866666666666668,
+            "min": 0.5265,
+            "std": 0.042954109879679236,
+            "values_by_seed": {
+              "0": 0.5265,
+              "1": 0.6095,
+              "2": 0.624
+            }
+          },
+          "selected_window_frequency_improvement_given_changed": {
+            "max": 0.9920508744038156,
+            "mean": 0.9890733115018772,
+            "min": 0.9841121495327103,
+            "std": 0.0035314621230125697,
+            "values_by_seed": {
+              "0": 0.9841121495327103,
+              "1": 0.9910569105691057,
+              "2": 0.9920508744038156
+            }
+          },
+          "selected_window_pattern_change_fraction": {
+            "max": 0.629,
+            "mean": 0.593,
+            "min": 0.535,
+            "std": 0.04140853374205208,
+            "values_by_seed": {
+              "0": 0.535,
+              "1": 0.615,
+              "2": 0.629
+            }
+          },
+          "strict_frequency_gain_fraction_vs_previous_pool": {
+            "max": 0.0995,
+            "mean": 0.09233333333333334,
+            "min": 0.0785,
+            "std": 0.009783773414292783,
+            "values_by_seed": {
+              "0": 0.0785,
+              "1": 0.0995,
+              "2": 0.099
+            }
+          }
+        }
+      }
+    },
+    "0.05": {
+      "candidate_pools": {
+        "100": {
+          "binary_oracle_opportunity_capture_ratio": {
+            "max": 0.7518606937227917,
+            "mean": 0.7465337498283828,
+            "min": 0.7387954080830319,
+            "std": 0.005599794752713383,
+            "values_by_seed": {
+              "0": 0.7387954080830319,
+              "1": 0.7489451476793249,
+              "2": 0.7518606937227917
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_c100": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_previous_pool": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "clean_to_poison_distinct_pattern_reduction_fraction": {
+            "max": 0.2009638554216867,
+            "mean": 0.190325205277318,
+            "min": 0.16997965252778213,
+            "std": 0.014391506195954888,
+            "values_by_seed": {
+              "0": 0.16997965252778213,
+              "1": 0.20003210788248516,
+              "2": 0.2009638554216867
+            }
+          },
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.4552866912151499,
+            "mean": 0.454461997579994,
+            "min": 0.4538897475528078,
+            "std": 0.0005975833165581873,
+            "values_by_seed": {
+              "0": 0.4538897475528078,
+              "1": 0.4552866912151499,
+              "2": 0.4542095539720243
+            }
+          },
+          "mean_frequency_gap_to_oracle_reference": {
+            "max": 1640.2658000000001,
+            "mean": 1555.9934,
+            "min": 1397.0303999999999,
+            "std": 112.47186092399599,
+            "values_by_seed": {
+              "0": 1397.0303999999999,
+              "1": 1640.2658000000001,
+              "2": 1630.6840000000002
+            }
+          },
+          "mean_source_pattern_frequency": {
+            "max": 11.0116,
+            "mean": 10.943600000000002,
+            "min": 10.9024,
+            "std": 0.048441304689283246,
+            "values_by_seed": {
+              "0": 11.0116,
+              "1": 10.9024,
+              "2": 10.9168
+            }
+          },
+          "mean_target_pattern_frequency": {
+            "max": 802.4411,
+            "mean": 785.7307999999999,
+            "min": 764.7651,
+            "std": 15.672727179615787,
+            "values_by_seed": {
+              "0": 789.9862,
+              "1": 764.7651,
+              "2": 802.4411
+            }
+          },
+          "modified_transition_cluster_label_change_fraction": {
+            "max": 0.12734,
+            "mean": 0.12178666666666667,
+            "min": 0.11162,
+            "std": 0.007199154271317035,
+            "values_by_seed": {
+              "0": 0.11162,
+              "1": 0.1264,
+              "2": 0.12734
+            }
+          },
+          "new_pattern_type_count": {
+            "max": 188.0,
+            "mean": 165.66666666666666,
+            "min": 145.0,
+            "std": 17.594190960528863,
+            "values_by_seed": {
+              "0": 145.0,
+              "1": 164.0,
+              "2": 188.0
+            }
+          },
+          "oracle_frequency_improvement_possible_fraction_reference": {
+            "max": 0.7121,
+            "mean": 0.6863333333333334,
+            "min": 0.6359,
+            "std": 0.03566457937817605,
+            "values_by_seed": {
+              "0": 0.6359,
+              "1": 0.711,
+              "2": 0.7121
+            }
+          },
+          "oracle_mean_best_frequency_reference": {
+            "max": 2433.1251,
+            "mean": 2341.7242,
+            "min": 2187.0166,
+            "std": 109.99440028695413,
+            "values_by_seed": {
+              "0": 2187.0166,
+              "1": 2405.0309,
+              "2": 2433.1251
+            }
+          },
+          "removed_pattern_type_count": {
+            "max": 1439.0,
+            "mean": 1360.0,
+            "min": 1231.0,
+            "std": 91.98188227399277,
+            "values_by_seed": {
+              "0": 1231.0,
+              "1": 1410.0,
+              "2": 1439.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.49414438899046303,
+            "mean": 0.4874666211220209,
+            "min": 0.4744283138817725,
+            "std": 0.00922038503346814,
+            "values_by_seed": {
+              "0": 0.4744283138817725,
+              "1": 0.49414438899046303,
+              "2": 0.49382716049382713
+            }
+          },
+          "selected_source_occurrence_mass_reduction_fraction": {
+            "max": 0.33886419753086416,
+            "mean": 0.3194583290904525,
+            "min": 0.28294904639908913,
+            "std": 0.02583306815952577,
+            "values_by_seed": {
+              "0": 0.28294904639908913,
+              "1": 0.3365617433414043,
+              "2": 0.33886419753086416
+            }
+          },
+          "selected_source_pattern_eradication_fraction": {
+            "max": 0.24460810099947397,
+            "mean": 0.23280718939821235,
+            "min": 0.20968572900566718,
+            "std": 0.016350517527391986,
+            "values_by_seed": {
+              "0": 0.20968572900566718,
+              "1": 0.24460810099947397,
+              "2": 0.2441277381894959
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 3882.0,
+            "mean": 3824.3333333333335,
+            "min": 3789.0,
+            "std": 41.12041936664665,
+            "values_by_seed": {
+              "0": 3882.0,
+              "1": 3802.0,
+              "2": 3789.0
+            }
+          },
+          "selected_transition_count": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "selected_window_count": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_window_frequency_improvement_fraction": {
+            "max": 0.5354,
+            "mean": 0.5125666666666667,
+            "min": 0.4698,
+            "std": 0.030263766380864678,
+            "values_by_seed": {
+              "0": 0.4698,
+              "1": 0.5325,
+              "2": 0.5354
+            }
+          },
+          "selected_window_frequency_improvement_given_changed": {
+            "max": 0.9962783773725344,
+            "mean": 0.9955076293514301,
+            "min": 0.9949174078780177,
+            "std": 0.0005700888042328145,
+            "values_by_seed": {
+              "0": 0.9949174078780177,
+              "1": 0.9953271028037384,
+              "2": 0.9962783773725344
+            }
+          },
+          "selected_window_pattern_change_fraction": {
+            "max": 0.5374,
+            "mean": 0.5148666666666667,
+            "min": 0.4722,
+            "std": 0.030185795040419627,
+            "values_by_seed": {
+              "0": 0.4722,
+              "1": 0.535,
+              "2": 0.5374
+            }
+          },
+          "strict_frequency_gain_fraction_vs_previous_pool": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          }
+        },
+        "1000": {
+          "binary_oracle_opportunity_capture_ratio": {
+            "max": 0.827833169498666,
+            "mean": 0.8226471188059371,
+            "min": 0.8138072023903129,
+            "std": 0.006281984260399679,
+            "values_by_seed": {
+              "0": 0.8138072023903129,
+              "1": 0.8263009845288327,
+              "2": 0.827833169498666
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_c100": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_previous_pool": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "clean_to_poison_distinct_pattern_reduction_fraction": {
+            "max": 0.23133729330550645,
+            "mean": 0.2174668597204682,
+            "min": 0.19439661918923146,
+            "std": 0.016424183123810627,
+            "values_by_seed": {
+              "0": 0.19439661918923146,
+              "1": 0.23133729330550645,
+              "2": 0.22666666666666668
+            }
+          },
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.4552866912151499,
+            "mean": 0.454461997579994,
+            "min": 0.4538897475528078,
+            "std": 0.0005975833165581873,
+            "values_by_seed": {
+              "0": 0.4538897475528078,
+              "1": 0.4552866912151499,
+              "2": 0.4542095539720243
+            }
+          },
+          "mean_frequency_gap_to_oracle_reference": {
+            "max": 1317.1854000000003,
+            "mean": 1267.3279666666667,
+            "min": 1176.7367,
+            "std": 64.16589549204137,
+            "values_by_seed": {
+              "0": 1176.7367,
+              "1": 1308.0618000000002,
+              "2": 1317.1854000000003
+            }
+          },
+          "mean_source_pattern_frequency": {
+            "max": 11.0116,
+            "mean": 10.943600000000002,
+            "min": 10.9024,
+            "std": 0.048441304689283246,
+            "values_by_seed": {
+              "0": 11.0116,
+              "1": 10.9024,
+              "2": 10.9168
+            }
+          },
+          "mean_target_pattern_frequency": {
+            "max": 1115.9397,
+            "mean": 1074.3962333333332,
+            "min": 1010.2799,
+            "std": 45.993833399513676,
+            "values_by_seed": {
+              "0": 1010.2799,
+              "1": 1096.9691,
+              "2": 1115.9397
+            }
+          },
+          "modified_transition_cluster_label_change_fraction": {
+            "max": 0.14594,
+            "mean": 0.13962,
+            "min": 0.12738,
+            "std": 0.008656527402293987,
+            "values_by_seed": {
+              "0": 0.12738,
+              "1": 0.14554,
+              "2": 0.14594
+            }
+          },
+          "new_pattern_type_count": {
+            "max": 190.0,
+            "mean": 176.0,
+            "min": 159.0,
+            "std": 12.832251036613439,
+            "values_by_seed": {
+              "0": 159.0,
+              "1": 179.0,
+              "2": 190.0
+            }
+          },
+          "oracle_frequency_improvement_possible_fraction_reference": {
+            "max": 0.7121,
+            "mean": 0.6863333333333334,
+            "min": 0.6359,
+            "std": 0.03566457937817605,
+            "values_by_seed": {
+              "0": 0.6359,
+              "1": 0.711,
+              "2": 0.7121
+            }
+          },
+          "oracle_mean_best_frequency_reference": {
+            "max": 2433.1251,
+            "mean": 2341.7242,
+            "min": 2187.0166,
+            "std": 109.99440028695413,
+            "values_by_seed": {
+              "0": 2187.0166,
+              "1": 2405.0309,
+              "2": 2433.1251
+            }
+          },
+          "removed_pattern_type_count": {
+            "max": 1620.0,
+            "mean": 1540.6666666666667,
+            "min": 1401.0,
+            "std": 99.06339160131535,
+            "values_by_seed": {
+              "0": 1401.0,
+              "1": 1620.0,
+              "2": 1601.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.49414438899046303,
+            "mean": 0.4874666211220209,
+            "min": 0.4744283138817725,
+            "std": 0.00922038503346814,
+            "values_by_seed": {
+              "0": 0.4744283138817725,
+              "1": 0.49414438899046303,
+              "2": 0.49382716049382713
+            }
+          },
+          "selected_source_occurrence_mass_reduction_fraction": {
+            "max": 0.3817283950617284,
+            "mean": 0.35969551690441787,
+            "min": 0.31933769807382106,
+            "std": 0.028577407809536243,
+            "values_by_seed": {
+              "0": 0.31933769807382106,
+              "1": 0.3780204575777042,
+              "2": 0.3817283950617284
+            }
+          },
+          "selected_source_pattern_eradication_fraction": {
+            "max": 0.27774855339295107,
+            "mean": 0.2630833876089714,
+            "min": 0.2357032457496136,
+            "std": 0.019377047180514043,
+            "values_by_seed": {
+              "0": 0.2357032457496136,
+              "1": 0.27774855339295107,
+              "2": 0.27579836368434946
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 3882.0,
+            "mean": 3824.3333333333335,
+            "min": 3789.0,
+            "std": 41.12041936664665,
+            "values_by_seed": {
+              "0": 3882.0,
+              "1": 3802.0,
+              "2": 3789.0
+            }
+          },
+          "selected_transition_count": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "selected_window_count": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_window_frequency_improvement_fraction": {
+            "max": 0.5895,
+            "mean": 0.5648333333333334,
+            "min": 0.5175,
+            "std": 0.03347967874530595,
+            "values_by_seed": {
+              "0": 0.5175,
+              "1": 0.5875,
+              "2": 0.5895
+            }
+          },
+          "selected_window_frequency_improvement_given_changed": {
+            "max": 0.9969558599695586,
+            "mean": 0.9958841710017557,
+            "min": 0.9944273635664873,
+            "std": 0.001067570666068066,
+            "values_by_seed": {
+              "0": 0.9944273635664873,
+              "1": 0.9962692894692217,
+              "2": 0.9969558599695586
+            }
+          },
+          "selected_window_pattern_change_fraction": {
+            "max": 0.5913,
+            "mean": 0.5671333333333334,
+            "min": 0.5204,
+            "std": 0.033051912030756865,
+            "values_by_seed": {
+              "0": 0.5204,
+              "1": 0.5897,
+              "2": 0.5913
+            }
+          },
+          "strict_frequency_gain_fraction_vs_previous_pool": {
+            "max": 0.0307,
+            "mean": 0.028566666666666667,
+            "min": 0.0247,
+            "std": 0.0027390184778898854,
+            "values_by_seed": {
+              "0": 0.0247,
+              "1": 0.0307,
+              "2": 0.0303
+            }
+          }
+        },
+        "500": {
+          "binary_oracle_opportunity_capture_ratio": {
+            "max": 0.8087347282685016,
+            "mean": 0.8040063473204885,
+            "min": 0.7954080830319232,
+            "std": 0.0060899844618037815,
+            "values_by_seed": {
+              "0": 0.7954080830319232,
+              "1": 0.8078762306610409,
+              "2": 0.8087347282685016
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_c100": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "candidate_frequency_nonregression_fraction_vs_previous_pool": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "clean_to_poison_distinct_pattern_reduction_fraction": {
+            "max": 0.224594637983625,
+            "mean": 0.21226738023775968,
+            "min": 0.18907497260917205,
+            "std": 0.016410368034849045,
+            "values_by_seed": {
+              "0": 0.18907497260917205,
+              "1": 0.224594637983625,
+              "2": 0.22313253012048195
+            }
+          },
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.4552866912151499,
+            "mean": 0.454461997579994,
+            "min": 0.4538897475528078,
+            "std": 0.0005975833165581873,
+            "values_by_seed": {
+              "0": 0.4538897475528078,
+              "1": 0.4552866912151499,
+              "2": 0.4542095539720243
+            }
+          },
+          "mean_frequency_gap_to_oracle_reference": {
+            "max": 1401.8039,
+            "mean": 1339.9260000000002,
+            "min": 1244.3775999999998,
+            "std": 68.5372740952446,
+            "values_by_seed": {
+              "0": 1244.3775999999998,
+              "1": 1373.5965,
+              "2": 1401.8039
+            }
+          },
+          "mean_source_pattern_frequency": {
+            "max": 11.0116,
+            "mean": 10.943600000000002,
+            "min": 10.9024,
+            "std": 0.048441304689283246,
+            "values_by_seed": {
+              "0": 11.0116,
+              "1": 10.9024,
+              "2": 10.9168
+            }
+          },
+          "mean_target_pattern_frequency": {
+            "max": 1031.4344,
+            "mean": 1001.7982000000002,
+            "min": 942.639,
+            "std": 41.83189701682999,
+            "values_by_seed": {
+              "0": 942.639,
+              "1": 1031.4344,
+              "2": 1031.3212
+            }
+          },
+          "modified_transition_cluster_label_change_fraction": {
+            "max": 0.14142,
+            "mean": 0.13523333333333332,
+            "min": 0.12336,
+            "std": 0.008398195573388894,
+            "values_by_seed": {
+              "0": 0.12336,
+              "1": 0.14092,
+              "2": 0.14142
+            }
+          },
+          "new_pattern_type_count": {
+            "max": 190.0,
+            "mean": 170.33333333333334,
+            "min": 155.0,
+            "std": 14.613540144521982,
+            "values_by_seed": {
+              "0": 155.0,
+              "1": 166.0,
+              "2": 190.0
+            }
+          },
+          "oracle_frequency_improvement_possible_fraction_reference": {
+            "max": 0.7121,
+            "mean": 0.6863333333333334,
+            "min": 0.6359,
+            "std": 0.03566457937817605,
+            "values_by_seed": {
+              "0": 0.6359,
+              "1": 0.711,
+              "2": 0.7121
+            }
+          },
+          "oracle_mean_best_frequency_reference": {
+            "max": 2433.1251,
+            "mean": 2341.7242,
+            "min": 2187.0166,
+            "std": 109.99440028695413,
+            "values_by_seed": {
+              "0": 2187.0166,
+              "1": 2405.0309,
+              "2": 2433.1251
+            }
+          },
+          "removed_pattern_type_count": {
+            "max": 1579.0,
+            "mean": 1502.3333333333333,
+            "min": 1363.0,
+            "std": 98.6891866191811,
+            "values_by_seed": {
+              "0": 1363.0,
+              "1": 1565.0,
+              "2": 1579.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.49414438899046303,
+            "mean": 0.4874666211220209,
+            "min": 0.4744283138817725,
+            "std": 0.00922038503346814,
+            "values_by_seed": {
+              "0": 0.4744283138817725,
+              "1": 0.49414438899046303,
+              "2": 0.49382716049382713
+            }
+          },
+          "selected_source_occurrence_mass_reduction_fraction": {
+            "max": 0.36997530864197525,
+            "mean": 0.34942015615898697,
+            "min": 0.30980168896479743,
+            "std": 0.028021106355711443,
+            "values_by_seed": {
+              "0": 0.30980168896479743,
+              "1": 0.3684834708701883,
+              "2": 0.36997530864197525
+            }
+          },
+          "selected_source_pattern_eradication_fraction": {
+            "max": 0.27091004734350344,
+            "mean": 0.25672179868155914,
+            "min": 0.22926326635754765,
+            "std": 0.01941973073923935,
+            "values_by_seed": {
+              "0": 0.22926326635754765,
+              "1": 0.27091004734350344,
+              "2": 0.26999208234362626
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 3882.0,
+            "mean": 3824.3333333333335,
+            "min": 3789.0,
+            "std": 41.12041936664665,
+            "values_by_seed": {
+              "0": 3882.0,
+              "1": 3802.0,
+              "2": 3789.0
+            }
+          },
+          "selected_transition_count": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "selected_window_count": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_window_frequency_improvement_fraction": {
+            "max": 0.5759,
+            "mean": 0.5520333333333333,
+            "min": 0.5058,
+            "std": 0.032697638378873094,
+            "values_by_seed": {
+              "0": 0.5058,
+              "1": 0.5744,
+              "2": 0.5759
+            }
+          },
+          "selected_window_frequency_improvement_given_changed": {
+            "max": 0.9965391936321163,
+            "mean": 0.995731905454606,
+            "min": 0.9942991940239827,
+            "std": 0.0010157969761917607,
+            "values_by_seed": {
+              "0": 0.9942991940239827,
+              "1": 0.996357328707719,
+              "2": 0.9965391936321163
+            }
+          },
+          "selected_window_pattern_change_fraction": {
+            "max": 0.5779,
+            "mean": 0.5543666666666667,
+            "min": 0.5087,
+            "std": 0.032296267414190255,
+            "values_by_seed": {
+              "0": 0.5087,
+              "1": 0.5765,
+              "2": 0.5779
+            }
+          },
+          "strict_frequency_gain_fraction_vs_previous_pool": {
+            "max": 0.0885,
+            "mean": 0.0811,
+            "min": 0.0687,
+            "std": 0.00882269800004511,
+            "values_by_seed": {
+              "0": 0.0687,
+              "1": 0.0885,
+              "2": 0.0861
+            }
+          }
+        }
+      }
+    }
+  },
+  "schema_version": "csdpc-candidate-search-summary-v1",
+  "status": "DIAGNOSTIC_ONLY"
+}
