@@ -394,3 +394,85 @@ SELECTION_COMPLETION_BOTTLENECK_REMAINS
 CQL_CANDIDATE_SEARCH_SENSITIVITY_DEFERRED
 
 Canonical Gate B remains INCONCLUSIVE.
+
+## Selection-semantics diagnostic
+
+A separately frozen learner-free diagnostic compared:
+
+- S0: canonical occurrence-level selection with non-overlap;
+- S1: the same rare-pattern occurrence ordering with overlap allowed
+  and a unique-transition footprint budget;
+- S2: rare pattern types selected atomically as a strict prefix,
+  with all occurrences included and overlap allowed.
+
+At rho=0.01, three-seed means were:
+
+S0:
+- selected windows: 2000
+- selected source-pattern types: 1808
+- fully selected source-pattern fraction: 86.41%
+- source-occurrence completion: 89.06%
+
+S1:
+- selected windows: 2965
+- selected source-pattern types: 2617
+- fully selected source-pattern fraction: 99.92%
+- source-occurrence completion: 99.93%
+- overlap reuse fraction: 32.55%
+- overlapped unique-transition fraction: 33.65%
+
+S2:
+- selected windows: 2963
+- selected source-pattern types: 2615
+- fully selected source-pattern fraction: 100%
+- source-occurrence completion: 100%
+- budget utilization: 99.98%
+
+At rho=0.05:
+
+S0:
+- selected windows: 10000
+- selected source-pattern types: 3824.33
+- fully selected source-pattern fraction: 45.45%
+- source-occurrence completion: 48.75%
+
+S1:
+- selected windows: 18550.33
+- selected source-pattern types: 5105.67
+- fully selected source-pattern fraction: 99.97%
+- source-occurrence completion: 99.92%
+- overlap reuse fraction: 46.08%
+- overlapped unique-transition fraction: 50.54%
+
+S2:
+- selected windows: 18539.33
+- selected source-pattern types: 5104.33
+- fully selected source-pattern fraction: 100%
+- source-occurrence completion: 100%
+- budget utilization: 99.93%
+
+S1 and S2 are nearly identical structurally. Pattern-type atomicity
+therefore contributes little beyond permitting overlapping occurrences.
+
+The major difference from the canonical selector is the non-overlap
+constraint. Removing it approximately restores complete targeting of
+rare source-pattern occurrences and prevents the selector from moving
+as quickly into higher-frequency source patterns.
+
+However, the resulting overlap burden is substantial. At rho=0.05,
+approximately half of the unique selected transitions participate in
+more than one selected window, with transition multiplicity reaching 5.
+
+Independent per-window perturbations therefore cannot yet be treated
+as a uniquely defined poisoned dataset, because overlapping windows
+may prescribe incompatible modifications to the same transition.
+
+Status:
+
+SELECTION_SEMANTICS_DIAGNOSTIC_VALIDATED
+NONOVERLAP_CONSTRAINT_MAJOR_STRUCTURAL_BOTTLENECK
+PATTERN_TYPE_ATOMICITY_MINIMAL_INCREMENTAL_EFFECT
+OVERLAP_CONFLICT_RESOLUTION_REQUIRED
+CQL_DEFERRED
+
+Canonical Gate B remains INCONCLUSIVE.
