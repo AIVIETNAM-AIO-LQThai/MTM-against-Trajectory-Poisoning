@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from scripts.audit_csdpc_overlap_resolution import (
+    RULE_IDS,
     _build_merged_dataset,
     _build_requirements,
     _compute_rule_metrics,
@@ -282,35 +283,181 @@ def _compare_r0_reference(
         "new_pattern_type_count",
     ]
 
-    for key in keys:
-        a = actual[
-            key
-        ]
+    mismatches = []
 
-        e = expected[
-            key
-        ]
+    for key in keys:
+        a = actual[key]
+        e = expected[key]
 
         if isinstance(
             e,
             int,
         ):
-            if int(a) != int(e):
-                raise RuntimeError(
-                    "R0 reference mismatch: "
-                    f"{key}: {a} != {e}"
-                )
+            matches = (
+                int(a)
+                == int(e)
+            )
         else:
-            if not np.isclose(
+            matches = np.isclose(
                 float(a),
                 float(e),
                 rtol=0.0,
                 atol=1.0e-12,
-            ):
-                raise RuntimeError(
-                    "R0 reference mismatch: "
-                    f"{key}: {a} != {e}"
+            )
+
+        if not matches:
+            mismatches.append(
+                (
+                    key,
+                    a,
+                    e,
                 )
+            )
+
+    if mismatches:
+        lines = [
+            "R0 reference mismatches:"
+        ]
+
+        for key, actual_value, expected_value in mismatches:
+            lines.append(
+                f"  {key}: "
+                f"actual={actual_value}, "
+                f"expected={expected_value}"
+            )
+
+        raise RuntimeError(
+            "\n".join(
+                lines
+            )
+        )
+
+def _replay_resolution_rho(
+    *,
+    clean_dataset,
+    clean_labels,
+    prepared,
+    trajectories,
+    windows,
+    proposals,
+):
+    """
+    Replay the same R0 -> R1 -> R2 evaluation order used
+    by audit_csdpc_overlap_resolution.
+
+    Only R0 will later become an artifact. R1/R2 are
+    evaluated here solely so artifact validation follows
+    the already-validated diagnostic execution path.
+    """
+
+    requirements = (
+        _build_requirements(
+            selected_windows=(
+                windows
+            ),
+            proposals=(
+                proposals
+            ),
+        )
+    )
+
+    resolved_by_rule = {}
+    metrics_by_rule = {}
+
+    for rule_id in RULE_IDS:
+        resolved = (
+            _resolve_requirements(
+                requirements,
+                rule_id=rule_id,
+            )
+        )
+
+        merged_dataset = (
+            _build_merged_dataset(
+                clean_dataset=(
+                    clean_dataset
+                ),
+                resolved=resolved,
+            )
+        )
+
+        (
+            merged_labels,
+            selected_indices,
+        ) = (
+            _predict_selected_labels(
+                merged_dataset=(
+                    merged_dataset
+                ),
+                resolved=resolved,
+                model=(
+                    prepared.clustering_model
+                ),
+                clean_labels=(
+                    clean_labels
+                ),
+            )
+        )
+
+        metrics = (
+            _compute_rule_metrics(
+                rule_id=rule_id,
+                clean_dataset=(
+                    clean_dataset
+                ),
+                merged_dataset=(
+                    merged_dataset
+                ),
+                clean_labels=(
+                    clean_labels
+                ),
+                merged_labels=(
+                    merged_labels
+                ),
+                selected_windows=(
+                    windows
+                ),
+                proposals=(
+                    proposals
+                ),
+                clean_counts=(
+                    prepared.pattern_frequencies
+                ),
+                trajectories=(
+                    trajectories
+                ),
+                selected_indices=(
+                    selected_indices
+                ),
+                eta=float(
+                    prepared.eta
+                ),
+            )
+        )
+
+        resolved_by_rule[
+            rule_id
+        ] = resolved
+
+        metrics_by_rule[
+            rule_id
+        ] = metrics
+
+        del merged_dataset
+        del merged_labels
+        gc.collect()
+
+    return {
+        "requirements": (
+            requirements
+        ),
+        "resolved_by_rule": (
+            resolved_by_rule
+        ),
+        "metrics_by_rule": (
+            metrics_by_rule
+        ),
+    }
 
 
 def _run_seed(
@@ -488,6 +635,123 @@ def _run_seed(
         )
     )
 
+        # ---------------------------------------------------------
+    # PHASE A:
+    # Replay the already-validated resolution diagnostic path
+    # for BOTH rhos before writing any artifact.
+    # ---------------------------------------------------------
+
+    validated = {}
+
+    for rho in config[
+        "poison_rates"
+    ]:
+        rho = float(
+            rho
+        )
+
+        key = _rho_key(
+            rho
+        )
+
+        windows = selections[
+            rho
+        ]
+
+        proposals = max_proposals[
+            :len(
+                windows
+            )
+        ]
+
+        replay = (
+            _replay_resolution_rho(
+                clean_dataset=(
+                    clean_dataset
+                ),
+                clean_labels=(
+                    clean_labels
+                ),
+                prepared=(
+                    prepared
+                ),
+                trajectories=(
+                    trajectories
+                ),
+                windows=(
+                    windows
+                ),
+                proposals=(
+                    proposals
+                ),
+            )
+        )
+
+        r0_resolved = (
+            replay[
+                "resolved_by_rule"
+            ][R0]
+        )
+
+        r0_metrics = (
+            replay[
+                "metrics_by_rule"
+            ][R0]
+        )
+
+        expected = (
+            reference[
+                "rho_results"
+            ][key][
+                "rules"
+            ][R0]
+        )
+
+        _compare_r0_reference(
+            actual=(
+                r0_metrics
+            ),
+            expected=(
+                expected
+            ),
+        )
+
+        print(
+            f"rho={key} R0 "
+            "reference identity: PASS"
+        )
+
+        validated[
+            rho
+        ] = {
+            "windows": (
+                windows
+            ),
+            "proposals": (
+                proposals
+            ),
+            "resolved": (
+                r0_resolved
+            ),
+            "metrics": (
+                r0_metrics
+            ),
+        }
+
+    print(
+        "ALL R0 REFERENCES VALIDATED "
+        "BEFORE ARTIFACT WRITES: PASS"
+    )
+
+    # ---------------------------------------------------------
+    # PHASE B:
+    # Build and serialize only the predeclared R0 artifacts.
+    #
+    # No further KMeans prediction is required here: Phase A
+    # already validated that every chosen continuous row
+    # reproduces its resolved target label.
+    # ---------------------------------------------------------
+
     low_indices = None
     low_observations = None
     low_actions = None
@@ -509,31 +773,27 @@ def _run_seed(
             rho
         )
 
-        windows = selections[
+        item = validated[
             rho
         ]
 
-        proposals = max_proposals[
-            :len(
-                windows
-            )
+        windows = item[
+            "windows"
         ]
 
-        requirements = (
-            _build_requirements(
-                selected_windows=(
-                    windows
-                ),
-                proposals=(
-                    proposals
-                ),
-            )
-        )
+        resolved = item[
+            "resolved"
+        ]
 
-        resolved = (
-            _resolve_requirements(
-                requirements,
-                rule_id=R0,
+        metrics = item[
+            "metrics"
+        ]
+
+        selected_indices = tuple(
+            sorted(
+                int(index)
+                for index
+                in resolved
             )
         )
 
@@ -542,79 +802,10 @@ def _run_seed(
                 clean_dataset=(
                     clean_dataset
                 ),
-                resolved=resolved,
-            )
-        )
-
-        (
-            poisoned_labels,
-            selected_indices,
-        ) = _predict_selected_labels(
-            merged_dataset=(
-                poisoned
-            ),
-            resolved=resolved,
-            model=(
-                prepared.clustering_model
-            ),
-            clean_labels=(
-                clean_labels
-            ),
-        )
-
-        metrics = (
-            _compute_rule_metrics(
-                rule_id=R0,
-                clean_dataset=(
-                    clean_dataset
-                ),
-                merged_dataset=(
-                    poisoned
-                ),
-                clean_labels=(
-                    clean_labels
-                ),
-                merged_labels=(
-                    poisoned_labels
-                ),
-                selected_windows=(
-                    windows
-                ),
-                proposals=(
-                    proposals
-                ),
-                clean_counts=(
-                    prepared.pattern_frequencies
-                ),
-                trajectories=(
-                    trajectories
-                ),
-                selected_indices=(
-                    selected_indices
-                ),
-                eta=float(
-                    config[
-                        "eta"
-                    ]
+                resolved=(
+                    resolved
                 ),
             )
-        )
-
-        expected = (
-            reference[
-                "rho_results"
-            ][key][
-                "rules"
-            ][R0]
-        )
-
-        _compare_r0_reference(
-            actual=metrics,
-            expected=expected,
-        )
-
-        print(
-            f"rho={key} R0 reference identity: PASS"
         )
 
         _assert_dataset_schema_preserved(
@@ -785,7 +976,9 @@ def _run_seed(
 
             "r0_reference_identity": True,
 
-            "mechanism_metrics": metrics,
+            "mechanism_metrics": (
+                metrics
+            ),
 
             "integrity": {
                 "dataset_schema_preserved": True,
@@ -793,8 +986,8 @@ def _run_seed(
                 "nonselected_attack_rows_identical": True,
                 "resolved_labels_match_kmeans": True,
                 "written_hdf5_matches_in_memory": True,
-                "r0_reference_identity": True
-            }
+                "r0_reference_identity": True,
+            },
         }
 
         write_metadata_json(
@@ -831,6 +1024,12 @@ def _run_seed(
             rho,
             0.05,
         ):
+            if low_indices is None:
+                raise RuntimeError(
+                    "rho=0.01 artifact must "
+                    "precede rho=0.05"
+                )
+
             high_indices = set(
                 int(index)
                 for index
@@ -861,8 +1060,8 @@ def _run_seed(
                 ],
             ):
                 raise RuntimeError(
-                    "shared cross-rho observation "
-                    "rows differ"
+                    "shared cross-rho "
+                    "observation rows differ"
                 )
 
             if not np.array_equal(
@@ -876,12 +1075,13 @@ def _run_seed(
                 ],
             ):
                 raise RuntimeError(
-                    "shared cross-rho action "
-                    "rows differ"
+                    "shared cross-rho "
+                    "action rows differ"
                 )
 
             print(
-                "Cross-rho shared-row identity: PASS"
+                "Cross-rho shared-row "
+                "identity: PASS"
             )
 
         records.append(
@@ -908,11 +1108,13 @@ def _run_seed(
             }
         )
 
-        print("Wrote:", output_path)
+        print(
+            "Wrote:",
+            output_path,
+        )
 
         del poisoned
         del reloaded
-        del poisoned_labels
         gc.collect()
 
     manifest = {
