@@ -1,0 +1,122 @@
+{
+  "experiment": "CSDPC_CANDIDATE_SEARCH_SENSITIVITY",
+  "status": "DIAGNOSTIC_ONLY",
+
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "eta": 0.05,
+
+  "attack_seeds": [0, 1, 2],
+  "poison_rates": [0.01, 0.05],
+
+  "candidate_pools": [100, 500, 1000],
+
+  "search_design": {
+    "id": "NESTED_UNIFORM_EXTENSION_V1",
+
+    "canonical_prefix_size": 100,
+    "maximum_extension_size": 900,
+
+    "C100": "exact canonical 100-candidate result",
+
+    "C500": "best of canonical C100 result plus first 400 deterministic extension candidates",
+
+    "C1000": "best of canonical C100 result plus first 900 deterministic extension candidates",
+
+    "extension_distribution": "independent_uniform_minus1_plus1",
+
+    "extension_generation_layout": "candidate_major_concatenated_state_action_noise",
+
+    "extension_rng": "sha256_per_window_v1",
+
+    "extension_seed_fields": [
+      "literal:candidate_search_extension_v1",
+      "attack_seed",
+      "trajectory_id",
+      "global_start"
+    ],
+
+    "tie_break": [
+      "higher_clean_pattern_frequency",
+      "lower_total_linf_perturbation",
+      "lower_global_candidate_index"
+    ],
+
+    "extension_candidate_global_indices": {
+      "first": 100,
+      "last": 999
+    },
+
+    "nested_frequency_nonregression_required": true
+  },
+
+  "rho_reuse": {
+    "generate_extensions_for_max_rho_only": true,
+    "max_rho": 0.05,
+    "rho_001_must_be_exact_prefix_of_rho_005_selection": true,
+    "abort_if_prefix_check_fails": true
+  },
+
+  "oracle_reference": {
+    "path": "data/metadata/csdpc_reachability_oracle",
+    "read_only": true
+  },
+
+  "canonical_artifact_reference": {
+    "path": "data/poisoned/csdpc/walker2d-medium-v2",
+    "C100_selected_rows_must_match": true
+  },
+
+  "metrics": [
+    "selected_window_count",
+    "selected_transition_count",
+
+    "selected_window_pattern_change_fraction",
+    "selected_window_frequency_improvement_fraction",
+    "selected_window_frequency_improvement_given_changed",
+
+    "modified_transition_cluster_label_change_fraction",
+
+    "mean_source_pattern_frequency",
+    "mean_target_pattern_frequency",
+
+    "oracle_frequency_improvement_possible_fraction_reference",
+    "binary_oracle_opportunity_capture_ratio",
+
+    "oracle_mean_best_frequency_reference",
+    "mean_frequency_gap_to_oracle_reference",
+
+    "candidate_frequency_nonregression_fraction_vs_c100",
+    "candidate_frequency_nonregression_fraction_vs_previous_pool",
+    "strict_frequency_gain_fraction_vs_previous_pool",
+
+    "selected_source_pattern_type_count",
+    "fully_selected_source_pattern_fraction",
+    "selected_source_occurrence_completion_fraction",
+
+    "selected_source_pattern_eradication_fraction",
+    "selected_source_occurrence_mass_reduction_fraction",
+
+    "clean_to_poison_distinct_pattern_reduction_fraction",
+    "removed_pattern_type_count",
+    "new_pattern_type_count"
+  ],
+
+  "rules": [
+    "No CQL, DT, BC, or MTM learner is trained.",
+    "No new poisoned HDF5 artifact is written by this diagnostic.",
+    "C100 remains the canonical attack and must not be replaced.",
+    "C500 and C1000 are diagnostic candidate-search extensions only.",
+    "Canonical KMeans, sequence length, eta, selected windows, perturbation bounds, action clipping, and clean-pattern frequency objective remain unchanged.",
+    "The canonical 100-candidate result must reproduce the existing canonical artifacts.",
+    "C500 must contain the exact C100 optimum plus 400 extension candidates.",
+    "C1000 must contain the exact C500 candidate pool plus 500 additional extension candidates.",
+    "Candidate target frequency may never decrease as candidate-pool size increases.",
+    "No candidate-pool size may be chosen according to CQL or DT performance.",
+    "No learner is run until this attack-only diagnostic has been recorded and interpreted.",
+    "Canonical Gate B remains INCONCLUSIVE regardless of this sensitivity."
+  ]
+}
