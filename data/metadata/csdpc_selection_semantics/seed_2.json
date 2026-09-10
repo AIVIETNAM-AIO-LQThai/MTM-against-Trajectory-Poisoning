@@ -1,0 +1,221 @@
+{
+  "canonical_attack_is_unchanged": true,
+  "clean_pattern_baseline": {
+    "distinct_pattern_type_count": 6225,
+    "window_count": 995235
+  },
+  "clustering": {
+    "inertia": 33207056.0,
+    "n_iter": 24,
+    "num_clusters": 8,
+    "sequence_length": 5
+  },
+  "experiment": "CSDPC_SELECTION_SEMANTICS_DIAGNOSTIC",
+  "rho_results": {
+    "0.01": {
+      "requested_transition_budget": 10000,
+      "variants": {
+        "S0_CANONICAL_NONOVERLAP_OCCURRENCE": {
+          "diagnostics": {
+            "budget_rejection_count": 0,
+            "stopped_before_pattern": null,
+            "stopped_before_pattern_rank": null
+          },
+          "metrics": {
+            "fully_selected_source_pattern_fraction": 0.8651059085841695,
+            "fully_selected_source_pattern_type_count": 1552,
+            "max_selected_source_pattern_frequency": 2,
+            "max_transition_selection_multiplicity": 1,
+            "mean_selected_source_pattern_frequency_by_type": 1.249721293199554,
+            "overlap_rejection_count": 1538,
+            "overlap_reuse_fraction": 0.0,
+            "overlapped_unique_transition_fraction": 0.0,
+            "partially_selected_source_pattern_type_count": 242,
+            "requested_transition_budget": 10000,
+            "selected_source_occurrence_completion_fraction": 0.8920606601248885,
+            "selected_source_pattern_type_count": 1794,
+            "selected_source_pattern_type_fraction_of_all_clean_types": 0.28819277108433733,
+            "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": 0.0022527342788386663,
+            "selected_source_total_clean_occurrences": 2242,
+            "selected_window_count": 2000,
+            "selected_window_fraction_of_all_windows": 0.002009575627866785,
+            "selected_window_transition_slot_count": 10000,
+            "unique_transition_budget_utilization": 1.0,
+            "unique_transition_footprint": 10000,
+            "unique_transition_fraction_of_dataset": 0.01
+          }
+        },
+        "S1_OCCURRENCE_RANKED_OVERLAP_ALLOWED": {
+          "diagnostics": {
+            "budget_rejection_count": 2,
+            "stopped_before_pattern": null,
+            "stopped_before_pattern_rank": null
+          },
+          "metrics": {
+            "fully_selected_source_pattern_fraction": 0.9992310649750096,
+            "fully_selected_source_pattern_type_count": 2599,
+            "max_selected_source_pattern_frequency": 2,
+            "max_transition_selection_multiplicity": 5,
+            "mean_selected_source_pattern_frequency_by_type": 1.1449442522106883,
+            "overlap_rejection_count": 0,
+            "overlap_reuse_fraction": 0.32795698924731187,
+            "overlapped_unique_transition_fraction": 0.3385,
+            "partially_selected_source_pattern_type_count": 2,
+            "requested_transition_budget": 10000,
+            "selected_source_occurrence_completion_fraction": 0.9993284083277367,
+            "selected_source_pattern_type_count": 2601,
+            "selected_source_pattern_type_fraction_of_all_clean_types": 0.4178313253012048,
+            "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": 0.002992258109893643,
+            "selected_source_total_clean_occurrences": 2978,
+            "selected_window_count": 2976,
+            "selected_window_fraction_of_all_windows": 0.0029902485342657766,
+            "selected_window_transition_slot_count": 14880,
+            "unique_transition_budget_utilization": 1.0,
+            "unique_transition_footprint": 10000,
+            "unique_transition_fraction_of_dataset": 0.01
+          }
+        },
+        "S2_PATTERN_TYPE_ATOMIC_PREFIX": {
+          "diagnostics": {
+            "budget_rejection_count": 0,
+            "stopped_before_pattern": [
+              3,
+              2,
+              3,
+              4,
+              0
+            ],
+            "stopped_before_pattern_rank": 2599
+          },
+          "metrics": {
+            "fully_selected_source_pattern_fraction": 1.0,
+            "fully_selected_source_pattern_type_count": 2599,
+            "max_selected_source_pattern_frequency": 2,
+            "max_transition_selection_multiplicity": 5,
+            "mean_selected_source_pattern_frequency_by_type": 1.144286263947672,
+            "overlap_rejection_count": 0,
+            "overlap_reuse_fraction": 0.32763954270342976,
+            "overlapped_unique_transition_fraction": 0.33806761352270454,
+            "partially_selected_source_pattern_type_count": 0,
+            "requested_transition_budget": 10000,
+            "selected_source_occurrence_completion_fraction": 1.0,
+            "selected_source_pattern_type_count": 2599,
+            "selected_source_pattern_type_fraction_of_all_clean_types": 0.4175100401606426,
+            "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": 0.0029882389586379098,
+            "selected_source_total_clean_occurrences": 2974,
+            "selected_window_count": 2974,
+            "selected_window_fraction_of_all_windows": 0.0029882389586379098,
+            "selected_window_transition_slot_count": 14870,
+            "unique_transition_budget_utilization": 0.9998,
+            "unique_transition_footprint": 9998,
+            "unique_transition_fraction_of_dataset": 0.009998
+          }
+        }
+      }
+    },
+    "0.05": {
+      "requested_transition_budget": 50000,
+      "variants": {
+        "S0_CANONICAL_NONOVERLAP_OCCURRENCE": {
+          "diagnostics": {
+            "budget_rejection_count": 0,
+            "stopped_before_pattern": null,
+            "stopped_before_pattern_rank": null
+          },
+          "metrics": {
+            "fully_selected_source_pattern_fraction": 0.4542095539720243,
+            "fully_selected_source_pattern_type_count": 1721,
+            "max_selected_source_pattern_frequency": 31,
+            "max_transition_selection_multiplicity": 1,
+            "mean_selected_source_pattern_frequency_by_type": 5.344418052256532,
+            "overlap_rejection_count": 13956,
+            "overlap_reuse_fraction": 0.0,
+            "overlapped_unique_transition_fraction": 0.0,
+            "partially_selected_source_pattern_type_count": 2068,
+            "requested_transition_budget": 50000,
+            "selected_source_occurrence_completion_fraction": 0.49382716049382713,
+            "selected_source_pattern_type_count": 3789,
+            "selected_source_pattern_type_fraction_of_all_clean_types": 0.6086746987951808,
+            "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": 0.020346953232151202,
+            "selected_source_total_clean_occurrences": 20250,
+            "selected_window_count": 10000,
+            "selected_window_fraction_of_all_windows": 0.010047878139333926,
+            "selected_window_transition_slot_count": 50000,
+            "unique_transition_budget_utilization": 1.0,
+            "unique_transition_footprint": 50000,
+            "unique_transition_fraction_of_dataset": 0.05
+          }
+        },
+        "S1_OCCURRENCE_RANKED_OVERLAP_ALLOWED": {
+          "diagnostics": {
+            "budget_rejection_count": 0,
+            "stopped_before_pattern": null,
+            "stopped_before_pattern_rank": null
+          },
+          "metrics": {
+            "fully_selected_source_pattern_fraction": 0.9998019017432647,
+            "fully_selected_source_pattern_type_count": 5047,
+            "max_selected_source_pattern_frequency": 19,
+            "max_transition_selection_multiplicity": 5,
+            "mean_selected_source_pattern_frequency_by_type": 3.6491679873217118,
+            "overlap_rejection_count": 0,
+            "overlap_reuse_fraction": 0.45696443117024166,
+            "overlapped_unique_transition_fraction": 0.4998,
+            "partially_selected_source_pattern_type_count": 1,
+            "requested_transition_budget": 50000,
+            "selected_source_occurrence_completion_fraction": 0.9996742847836708,
+            "selected_source_pattern_type_count": 5048,
+            "selected_source_pattern_type_fraction_of_all_clean_types": 0.8109236947791164,
+            "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": 0.018509196320467027,
+            "selected_source_total_clean_occurrences": 18421,
+            "selected_window_count": 18415,
+            "selected_window_fraction_of_all_windows": 0.018503167593583426,
+            "selected_window_transition_slot_count": 92075,
+            "unique_transition_budget_utilization": 1.0,
+            "unique_transition_footprint": 50000,
+            "unique_transition_fraction_of_dataset": 0.05
+          }
+        },
+        "S2_PATTERN_TYPE_ATOMIC_PREFIX": {
+          "diagnostics": {
+            "budget_rejection_count": 0,
+            "stopped_before_pattern": [
+              7,
+              1,
+              0,
+              1,
+              3
+            ],
+            "stopped_before_pattern_rank": 5047
+          },
+          "metrics": {
+            "fully_selected_source_pattern_fraction": 1.0,
+            "fully_selected_source_pattern_type_count": 5047,
+            "max_selected_source_pattern_frequency": 19,
+            "max_transition_selection_multiplicity": 5,
+            "mean_selected_source_pattern_frequency_by_type": 3.6461264117297403,
+            "overlap_rejection_count": 0,
+            "overlap_reuse_fraction": 0.45715683077926317,
+            "overlapped_unique_transition_fraction": 0.5001902016137105,
+            "partially_selected_source_pattern_type_count": 0,
+            "requested_transition_budget": 50000,
+            "selected_source_occurrence_completion_fraction": 1.0,
+            "selected_source_pattern_type_count": 5047,
+            "selected_source_pattern_type_fraction_of_all_clean_types": 0.8107630522088354,
+            "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": 0.01849010535200229,
+            "selected_source_total_clean_occurrences": 18402,
+            "selected_window_count": 18402,
+            "selected_window_fraction_of_all_windows": 0.01849010535200229,
+            "selected_window_transition_slot_count": 92010,
+            "unique_transition_budget_utilization": 0.99894,
+            "unique_transition_footprint": 49947,
+            "unique_transition_fraction_of_dataset": 0.049947
+          }
+        }
+      }
+    }
+  },
+  "schema_version": "csdpc-selection-semantics-seed-v1",
+  "seed": 2,
+  "status": "DIAGNOSTIC_ONLY"
+}

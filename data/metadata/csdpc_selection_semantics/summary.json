@@ -1,0 +1,1426 @@
+{
+  "attack_seeds": [
+    0,
+    1,
+    2
+  ],
+  "canonical_attack_is_unchanged": true,
+  "experiment": "CSDPC_SELECTION_SEMANTICS_DIAGNOSTIC",
+  "interpretation_rules": {
+    "S0_is_canonical": true,
+    "S1_and_S2_are_diagnostic_only": true,
+    "canonical_gate_b_unchanged": true,
+    "no_learner_result_used": true,
+    "overlapping_windows_are_not_yet_a_poisoning_rule": true
+  },
+  "rho_results": {
+    "0.01": {
+      "variants": {
+        "S0_CANONICAL_NONOVERLAP_OCCURRENCE": {
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.8680593732820231,
+            "mean": 0.8641196991458999,
+            "min": 0.8591938155715074,
+            "std": 0.003685917811682712,
+            "values_by_seed": {
+              "0": 0.8680593732820231,
+              "1": 0.8591938155715074,
+              "2": 0.8651059085841695
+            }
+          },
+          "fully_selected_source_pattern_type_count": {
+            "max": 1579.0,
+            "mean": 1562.3333333333333,
+            "min": 1552.0,
+            "std": 11.897712198383164,
+            "values_by_seed": {
+              "0": 1579.0,
+              "1": 1556.0,
+              "2": 1552.0
+            }
+          },
+          "max_selected_source_pattern_frequency": {
+            "max": 2.0,
+            "mean": 2.0,
+            "min": 2.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 2.0,
+              "1": 2.0,
+              "2": 2.0
+            }
+          },
+          "max_transition_selection_multiplicity": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "mean_selected_source_pattern_frequency_by_type": {
+            "max": 1.249721293199554,
+            "mean": 1.2421118526025123,
+            "min": 1.2314458493677845,
+            "std": 0.0077676634487948955,
+            "values_by_seed": {
+              "0": 1.2314458493677845,
+              "1": 1.2451684152401987,
+              "2": 1.249721293199554
+            }
+          },
+          "overlap_rejection_count": {
+            "max": 1551.0,
+            "mean": 1532.0,
+            "min": 1507.0,
+            "std": 18.457157599876172,
+            "values_by_seed": {
+              "0": 1551.0,
+              "1": 1507.0,
+              "2": 1538.0
+            }
+          },
+          "overlap_reuse_fraction": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "overlapped_unique_transition_fraction": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "partially_selected_source_pattern_type_count": {
+            "max": 255.0,
+            "mean": 245.66666666666666,
+            "min": 240.0,
+            "std": 6.649979114420001,
+            "values_by_seed": {
+              "0": 240.0,
+              "1": 255.0,
+              "2": 242.0
+            }
+          },
+          "requested_transition_budget": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.8928571428571429,
+            "mean": 0.8906119210235744,
+            "min": 0.8869179600886918,
+            "std": 0.002632186255697441,
+            "values_by_seed": {
+              "0": 0.8928571428571429,
+              "1": 0.8869179600886918,
+              "2": 0.8920606601248885
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 1819.0,
+            "mean": 1808.0,
+            "min": 1794.0,
+            "std": 10.424330514074594,
+            "values_by_seed": {
+              "0": 1819.0,
+              "1": 1811.0,
+              "2": 1794.0
+            }
+          },
+          "selected_source_pattern_type_fraction_of_all_clean_types": {
+            "max": 0.2907368759030342,
+            "mean": 0.2878792463401845,
+            "min": 0.28470809203318204,
+            "std": 0.002471205112388757,
+            "values_by_seed": {
+              "0": 0.28470809203318204,
+              "1": 0.2907368759030342,
+              "2": 0.28819277108433733
+            }
+          },
+          "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": {
+            "max": 0.0022657965204198,
+            "mean": 0.0022564185008230888,
+            "min": 0.0022507247032107994,
+            "std": 6.681817977080708e-06,
+            "values_by_seed": {
+              "0": 0.0022507247032107994,
+              "1": 0.0022657965204198,
+              "2": 0.0022527342788386663
+            }
+          },
+          "selected_source_total_clean_occurrences": {
+            "max": 2255.0,
+            "mean": 2245.6666666666665,
+            "min": 2240.0,
+            "std": 6.649979114420001,
+            "values_by_seed": {
+              "0": 2240.0,
+              "1": 2255.0,
+              "2": 2242.0
+            }
+          },
+          "selected_window_count": {
+            "max": 2000.0,
+            "mean": 2000.0,
+            "min": 2000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 2000.0,
+              "1": 2000.0,
+              "2": 2000.0
+            }
+          },
+          "selected_window_fraction_of_all_windows": {
+            "max": 0.002009575627866785,
+            "mean": 0.002009575627866785,
+            "min": 0.002009575627866785,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.002009575627866785,
+              "1": 0.002009575627866785,
+              "2": 0.002009575627866785
+            }
+          },
+          "selected_window_transition_slot_count": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "unique_transition_budget_utilization": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "unique_transition_footprint": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "unique_transition_fraction_of_dataset": {
+            "max": 0.01,
+            "mean": 0.01,
+            "min": 0.01,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.01,
+              "1": 0.01,
+              "2": 0.01
+            }
+          }
+        },
+        "S1_OCCURRENCE_RANKED_OVERLAP_ALLOWED": {
+          "fully_selected_source_pattern_fraction": {
+            "max": 1.0,
+            "mean": 0.9992300776419011,
+            "min": 0.9984591679506933,
+            "std": 0.0006290424374463365,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 0.9984591679506933,
+              "2": 0.9992310649750096
+            }
+          },
+          "fully_selected_source_pattern_type_count": {
+            "max": 2654.0,
+            "mean": 2615.0,
+            "min": 2592.0,
+            "std": 27.72483844257107,
+            "values_by_seed": {
+              "0": 2654.0,
+              "1": 2592.0,
+              "2": 2599.0
+            }
+          },
+          "max_selected_source_pattern_frequency": {
+            "max": 2.0,
+            "mean": 2.0,
+            "min": 2.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 2.0,
+              "1": 2.0,
+              "2": 2.0
+            }
+          },
+          "max_transition_selection_multiplicity": {
+            "max": 5.0,
+            "mean": 5.0,
+            "min": 5.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 5.0,
+              "1": 5.0,
+              "2": 5.0
+            }
+          },
+          "mean_selected_source_pattern_frequency_by_type": {
+            "max": 1.1449442522106883,
+            "mean": 1.1338430246760114,
+            "min": 1.1190655614167295,
+            "std": 0.01088003342916059,
+            "values_by_seed": {
+              "0": 1.1190655614167295,
+              "1": 1.1375192604006163,
+              "2": 1.1449442522106883
+            }
+          },
+          "overlap_rejection_count": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "overlap_reuse_fraction": {
+            "max": 0.32795698924731187,
+            "mean": 0.3254534390676768,
+            "min": 0.321804001356392,
+            "std": 0.0026393949651191506,
+            "values_by_seed": {
+              "0": 0.32659932659932656,
+              "1": 0.321804001356392,
+              "2": 0.32795698924731187
+            }
+          },
+          "overlapped_unique_transition_fraction": {
+            "max": 0.3385,
+            "mean": 0.3365,
+            "min": 0.333,
+            "std": 0.002483277404291892,
+            "values_by_seed": {
+              "0": 0.338,
+              "1": 0.333,
+              "2": 0.3385
+            }
+          },
+          "partially_selected_source_pattern_type_count": {
+            "max": 4.0,
+            "mean": 2.0,
+            "min": 0.0,
+            "std": 1.632993161855452,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 4.0,
+              "2": 2.0
+            }
+          },
+          "requested_transition_budget": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 1.0,
+            "mean": 0.9993246178791971,
+            "min": 0.9986454453098544,
+            "std": 0.0005530011318698074,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 0.9986454453098544,
+              "2": 0.9993284083277367
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 2654.0,
+            "mean": 2617.0,
+            "min": 2596.0,
+            "std": 26.242459234352765,
+            "values_by_seed": {
+              "0": 2654.0,
+              "1": 2596.0,
+              "2": 2601.0
+            }
+          },
+          "selected_source_pattern_type_fraction_of_all_clean_types": {
+            "max": 0.4178313253012048,
+            "mean": 0.4166643704124045,
+            "min": 0.41540147127876037,
+            "std": 0.0009943009659006171,
+            "values_by_seed": {
+              "0": 0.41540147127876037,
+              "1": 0.41676031465724833,
+              "2": 0.4178313253012048
+            }
+          },
+          "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": {
+            "max": 0.002992258109893643,
+            "mean": 0.002981205443940376,
+            "min": 0.0029671384145453085,
+            "std": 1.0474240268956073e-05,
+            "values_by_seed": {
+              "0": 0.002984219807382176,
+              "1": 0.0029671384145453085,
+              "2": 0.002992258109893643
+            }
+          },
+          "selected_source_total_clean_occurrences": {
+            "max": 2978.0,
+            "mean": 2967.0,
+            "min": 2953.0,
+            "std": 10.424330514074594,
+            "values_by_seed": {
+              "0": 2970.0,
+              "1": 2953.0,
+              "2": 2978.0
+            }
+          },
+          "selected_window_count": {
+            "max": 2976.0,
+            "mean": 2965.0,
+            "min": 2949.0,
+            "std": 11.575836902790225,
+            "values_by_seed": {
+              "0": 2970.0,
+              "1": 2949.0,
+              "2": 2976.0
+            }
+          },
+          "selected_window_fraction_of_all_windows": {
+            "max": 0.0029902485342657766,
+            "mean": 0.002979195868312509,
+            "min": 0.0029631192632895748,
+            "std": 1.163125985600417e-05,
+            "values_by_seed": {
+              "0": 0.002984219807382176,
+              "1": 0.0029631192632895748,
+              "2": 0.0029902485342657766
+            }
+          },
+          "selected_window_transition_slot_count": {
+            "max": 14880.0,
+            "mean": 14825.0,
+            "min": 14745.0,
+            "std": 57.879184513951124,
+            "values_by_seed": {
+              "0": 14850.0,
+              "1": 14745.0,
+              "2": 14880.0
+            }
+          },
+          "unique_transition_budget_utilization": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "unique_transition_footprint": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "unique_transition_fraction_of_dataset": {
+            "max": 0.01,
+            "mean": 0.01,
+            "min": 0.01,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.01,
+              "1": 0.01,
+              "2": 0.01
+            }
+          }
+        },
+        "S2_PATTERN_TYPE_ATOMIC_PREFIX": {
+          "fully_selected_source_pattern_fraction": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "fully_selected_source_pattern_type_count": {
+            "max": 2654.0,
+            "mean": 2615.0,
+            "min": 2592.0,
+            "std": 27.72483844257107,
+            "values_by_seed": {
+              "0": 2654.0,
+              "1": 2592.0,
+              "2": 2599.0
+            }
+          },
+          "max_selected_source_pattern_frequency": {
+            "max": 2.0,
+            "mean": 2.0,
+            "min": 2.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 2.0,
+              "1": 2.0,
+              "2": 2.0
+            }
+          },
+          "max_transition_selection_multiplicity": {
+            "max": 5.0,
+            "mean": 5.0,
+            "min": 5.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 5.0,
+              "1": 5.0,
+              "2": 5.0
+            }
+          },
+          "mean_selected_source_pattern_frequency_by_type": {
+            "max": 1.144286263947672,
+            "mean": 1.1331800323231134,
+            "min": 1.1190655614167295,
+            "std": 0.010513739795179425,
+            "values_by_seed": {
+              "0": 1.1190655614167295,
+              "1": 1.1361882716049383,
+              "2": 1.144286263947672
+            }
+          },
+          "overlap_rejection_count": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "overlap_reuse_fraction": {
+            "max": 0.32763954270342976,
+            "mean": 0.32510848557969635,
+            "min": 0.3210865874363328,
+            "std": 0.002875443257714366,
+            "values_by_seed": {
+              "0": 0.32659932659932656,
+              "1": 0.3210865874363328,
+              "2": 0.32763954270342976
+            }
+          },
+          "overlapped_unique_transition_fraction": {
+            "max": 0.33806761352270454,
+            "mean": 0.3360890911402246,
+            "min": 0.3321996598979694,
+            "std": 0.0027503817236020837,
+            "values_by_seed": {
+              "0": 0.338,
+              "1": 0.3321996598979694,
+              "2": 0.33806761352270454
+            }
+          },
+          "partially_selected_source_pattern_type_count": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "requested_transition_budget": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 2654.0,
+            "mean": 2615.0,
+            "min": 2592.0,
+            "std": 27.72483844257107,
+            "values_by_seed": {
+              "0": 2654.0,
+              "1": 2592.0,
+              "2": 2599.0
+            }
+          },
+          "selected_source_pattern_type_fraction_of_all_clean_types": {
+            "max": 0.4175100401606426,
+            "mean": 0.41634322281564945,
+            "min": 0.41540147127876037,
+            "std": 0.0008754071989246527,
+            "values_by_seed": {
+              "0": 0.41540147127876037,
+              "1": 0.41611815700754534,
+              "2": 0.4175100401606426
+            }
+          },
+          "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": {
+            "max": 0.0029882389586379098,
+            "mean": 0.0029771862926846423,
+            "min": 0.002959100112033841,
+            "std": 1.2893689466923451e-05,
+            "values_by_seed": {
+              "0": 0.002984219807382176,
+              "1": 0.002959100112033841,
+              "2": 0.0029882389586379098
+            }
+          },
+          "selected_source_total_clean_occurrences": {
+            "max": 2974.0,
+            "mean": 2963.0,
+            "min": 2945.0,
+            "std": 12.832251036613439,
+            "values_by_seed": {
+              "0": 2970.0,
+              "1": 2945.0,
+              "2": 2974.0
+            }
+          },
+          "selected_window_count": {
+            "max": 2974.0,
+            "mean": 2963.0,
+            "min": 2945.0,
+            "std": 12.832251036613439,
+            "values_by_seed": {
+              "0": 2970.0,
+              "1": 2945.0,
+              "2": 2974.0
+            }
+          },
+          "selected_window_fraction_of_all_windows": {
+            "max": 0.0029882389586379098,
+            "mean": 0.0029771862926846423,
+            "min": 0.002959100112033841,
+            "std": 1.2893689466923451e-05,
+            "values_by_seed": {
+              "0": 0.002984219807382176,
+              "1": 0.002959100112033841,
+              "2": 0.0029882389586379098
+            }
+          },
+          "selected_window_transition_slot_count": {
+            "max": 14870.0,
+            "mean": 14815.0,
+            "min": 14725.0,
+            "std": 64.1612551830672,
+            "values_by_seed": {
+              "0": 14850.0,
+              "1": 14725.0,
+              "2": 14870.0
+            }
+          },
+          "unique_transition_budget_utilization": {
+            "max": 1.0,
+            "mean": 0.9998333333333335,
+            "min": 0.9997,
+            "std": 0.00012472191289245098,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 0.9997,
+              "2": 0.9998
+            }
+          },
+          "unique_transition_footprint": {
+            "max": 10000.0,
+            "mean": 9998.333333333334,
+            "min": 9997.0,
+            "std": 1.247219128924647,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 9997.0,
+              "2": 9998.0
+            }
+          },
+          "unique_transition_fraction_of_dataset": {
+            "max": 0.01,
+            "mean": 0.009998333333333333,
+            "min": 0.009997,
+            "std": 1.2472191289245037e-06,
+            "values_by_seed": {
+              "0": 0.01,
+              "1": 0.009997,
+              "2": 0.009998
+            }
+          }
+        }
+      }
+    },
+    "0.05": {
+      "variants": {
+        "S0_CANONICAL_NONOVERLAP_OCCURRENCE": {
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.4552866912151499,
+            "mean": 0.454461997579994,
+            "min": 0.4538897475528078,
+            "std": 0.0005975833165581873,
+            "values_by_seed": {
+              "0": 0.4538897475528078,
+              "1": 0.4552866912151499,
+              "2": 0.4542095539720243
+            }
+          },
+          "fully_selected_source_pattern_type_count": {
+            "max": 1762.0,
+            "mean": 1738.0,
+            "min": 1721.0,
+            "std": 17.45470328211473,
+            "values_by_seed": {
+              "0": 1762.0,
+              "1": 1731.0,
+              "2": 1721.0
+            }
+          },
+          "max_selected_source_pattern_frequency": {
+            "max": 31.0,
+            "mean": 30.666666666666668,
+            "min": 30.0,
+            "std": 0.4714045207910317,
+            "values_by_seed": {
+              "0": 31.0,
+              "1": 30.0,
+              "2": 31.0
+            }
+          },
+          "max_transition_selection_multiplicity": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "mean_selected_source_pattern_frequency_by_type": {
+            "max": 5.42967542503864,
+            "mean": 5.365606119645471,
+            "min": 5.322724881641242,
+            "std": 0.04616134987200432,
+            "values_by_seed": {
+              "0": 5.42967542503864,
+              "1": 5.322724881641242,
+              "2": 5.344418052256532
+            }
+          },
+          "overlap_rejection_count": {
+            "max": 15092.0,
+            "mean": 14314.333333333334,
+            "min": 13895.0,
+            "std": 550.4569818695089,
+            "values_by_seed": {
+              "0": 15092.0,
+              "1": 13895.0,
+              "2": 13956.0
+            }
+          },
+          "overlap_reuse_fraction": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "overlapped_unique_transition_fraction": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "partially_selected_source_pattern_type_count": {
+            "max": 2120.0,
+            "mean": 2086.3333333333335,
+            "min": 2068.0,
+            "std": 23.837412238374835,
+            "values_by_seed": {
+              "0": 2120.0,
+              "1": 2071.0,
+              "2": 2068.0
+            }
+          },
+          "requested_transition_budget": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.49414438899046303,
+            "mean": 0.4874666211220209,
+            "min": 0.4744283138817725,
+            "std": 0.00922038503346814,
+            "values_by_seed": {
+              "0": 0.4744283138817725,
+              "1": 0.49414438899046303,
+              "2": 0.49382716049382713
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 3882.0,
+            "mean": 3824.3333333333335,
+            "min": 3789.0,
+            "std": 41.12041936664665,
+            "values_by_seed": {
+              "0": 3882.0,
+              "1": 3802.0,
+              "2": 3789.0
+            }
+          },
+          "selected_source_pattern_type_fraction_of_all_clean_types": {
+            "max": 0.6103708460427035,
+            "mean": 0.6088841230223426,
+            "min": 0.6076068242291438,
+            "std": 0.0011380826058625321,
+            "values_by_seed": {
+              "0": 0.6076068242291438,
+              "1": 0.6103708460427035,
+              "2": 0.6086746987951808
+            }
+          },
+          "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": {
+            "max": 0.02117891754208805,
+            "mean": 0.020619920588269773,
+            "min": 0.020333890990570067,
+            "std": 0.00039530650666907876,
+            "values_by_seed": {
+              "0": 0.02117891754208805,
+              "1": 0.020333890990570067,
+              "2": 0.020346953232151202
+            }
+          },
+          "selected_source_total_clean_occurrences": {
+            "max": 21078.0,
+            "mean": 20521.666666666668,
+            "min": 20237.0,
+            "std": 393.42287116480094,
+            "values_by_seed": {
+              "0": 21078.0,
+              "1": 20237.0,
+              "2": 20250.0
+            }
+          },
+          "selected_window_count": {
+            "max": 10000.0,
+            "mean": 10000.0,
+            "min": 10000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 10000.0,
+              "1": 10000.0,
+              "2": 10000.0
+            }
+          },
+          "selected_window_fraction_of_all_windows": {
+            "max": 0.010047878139333926,
+            "mean": 0.010047878139333926,
+            "min": 0.010047878139333926,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.010047878139333926,
+              "1": 0.010047878139333926,
+              "2": 0.010047878139333926
+            }
+          },
+          "selected_window_transition_slot_count": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "unique_transition_budget_utilization": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "unique_transition_footprint": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "unique_transition_fraction_of_dataset": {
+            "max": 0.05,
+            "mean": 0.05000000000000001,
+            "min": 0.05,
+            "std": 6.938893903907228e-18,
+            "values_by_seed": {
+              "0": 0.05,
+              "1": 0.05,
+              "2": 0.05
+            }
+          }
+        },
+        "S1_OCCURRENCE_RANKED_OVERLAP_ALLOWED": {
+          "fully_selected_source_pattern_fraction": {
+            "max": 0.9998083556918359,
+            "mean": 0.9997380987464326,
+            "min": 0.9996040388041972,
+            "std": 9.483130442054141e-05,
+            "values_by_seed": {
+              "0": 0.9998083556918359,
+              "1": 0.9996040388041972,
+              "2": 0.9998019017432647
+            }
+          },
+          "fully_selected_source_pattern_type_count": {
+            "max": 5217.0,
+            "mean": 5104.333333333333,
+            "min": 5047.0,
+            "std": 79.67154796761236,
+            "values_by_seed": {
+              "0": 5217.0,
+              "1": 5049.0,
+              "2": 5047.0
+            }
+          },
+          "max_selected_source_pattern_frequency": {
+            "max": 20.0,
+            "mean": 19.333333333333332,
+            "min": 19.0,
+            "std": 0.4714045207910317,
+            "values_by_seed": {
+              "0": 20.0,
+              "1": 19.0,
+              "2": 19.0
+            }
+          },
+          "max_transition_selection_multiplicity": {
+            "max": 5.0,
+            "mean": 5.0,
+            "min": 5.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 5.0,
+              "1": 5.0,
+              "2": 5.0
+            }
+          },
+          "mean_selected_source_pattern_frequency_by_type": {
+            "max": 3.6491679873217118,
+            "mean": 3.636336872216583,
+            "min": 3.619969336910694,
+            "std": 0.012179764566237677,
+            "values_by_seed": {
+              "0": 3.619969336910694,
+              "1": 3.639873292417343,
+              "2": 3.6491679873217118
+            }
+          },
+          "overlap_rejection_count": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "overlap_reuse_fraction": {
+            "max": 0.4700863759207249,
+            "mean": 0.46084559528497326,
+            "min": 0.45548597876395314,
+            "std": 0.006562036038099618,
+            "values_by_seed": {
+              "0": 0.4700863759207249,
+              "1": 0.45548597876395314,
+              "2": 0.45696443117024166
+            }
+          },
+          "overlapped_unique_transition_fraction": {
+            "max": 0.51904,
+            "mean": 0.5054266666666667,
+            "min": 0.49744,
+            "std": 0.009674176393310615,
+            "values_by_seed": {
+              "0": 0.51904,
+              "1": 0.49744,
+              "2": 0.4998
+            }
+          },
+          "partially_selected_source_pattern_type_count": {
+            "max": 2.0,
+            "mean": 1.3333333333333333,
+            "min": 1.0,
+            "std": 0.4714045207910317,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 2.0,
+              "2": 1.0
+            }
+          },
+          "requested_transition_budget": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 0.9996742847836708,
+            "mean": 0.9992111686207155,
+            "min": 0.9989121566494424,
+            "std": 0.00033207174178827346,
+            "values_by_seed": {
+              "0": 0.9990470644290328,
+              "1": 0.9989121566494424,
+              "2": 0.9996742847836708
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 5218.0,
+            "mean": 5105.666666666667,
+            "min": 5048.0,
+            "std": 79.44110327084393,
+            "values_by_seed": {
+              "0": 5218.0,
+              "1": 5051.0,
+              "2": 5048.0
+            }
+          },
+          "selected_source_pattern_type_fraction_of_all_clean_types": {
+            "max": 0.8167162310220691,
+            "mean": 0.8128414993212171,
+            "min": 0.8108845721624659,
+            "std": 0.002739895613580185,
+            "values_by_seed": {
+              "0": 0.8167162310220691,
+              "1": 0.8108845721624659,
+              "2": 0.8109236947791164
+            }
+          },
+          "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": {
+            "max": 0.018979437017387853,
+            "mean": 0.018653885765673433,
+            "min": 0.018473023959165422,
+            "std": 0.00023067267292298604,
+            "values_by_seed": {
+              "0": 0.018979437017387853,
+              "1": 0.018473023959165422,
+              "2": 0.018509196320467027
+            }
+          },
+          "selected_source_total_clean_occurrences": {
+            "max": 18889.0,
+            "mean": 18565.0,
+            "min": 18385.0,
+            "std": 229.5735176365079,
+            "values_by_seed": {
+              "0": 18889.0,
+              "1": 18385.0,
+              "2": 18421.0
+            }
+          },
+          "selected_window_count": {
+            "max": 18871.0,
+            "mean": 18550.333333333332,
+            "min": 18365.0,
+            "std": 227.6625182638157,
+            "values_by_seed": {
+              "0": 18871.0,
+              "1": 18365.0,
+              "2": 18415.0
+            }
+          },
+          "selected_window_fraction_of_all_windows": {
+            "max": 0.018961350836737053,
+            "mean": 0.018639148877735746,
+            "min": 0.018452928202886756,
+            "std": 0.00022875252404087036,
+            "values_by_seed": {
+              "0": 0.018961350836737053,
+              "1": 0.018452928202886756,
+              "2": 0.018503167593583426
+            }
+          },
+          "selected_window_transition_slot_count": {
+            "max": 94355.0,
+            "mean": 92751.66666666667,
+            "min": 91825.0,
+            "std": 1138.3125913190786,
+            "values_by_seed": {
+              "0": 94355.0,
+              "1": 91825.0,
+              "2": 92075.0
+            }
+          },
+          "unique_transition_budget_utilization": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "unique_transition_footprint": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "unique_transition_fraction_of_dataset": {
+            "max": 0.05,
+            "mean": 0.05000000000000001,
+            "min": 0.05,
+            "std": 6.938893903907228e-18,
+            "values_by_seed": {
+              "0": 0.05,
+              "1": 0.05,
+              "2": 0.05
+            }
+          }
+        },
+        "S2_PATTERN_TYPE_ATOMIC_PREFIX": {
+          "fully_selected_source_pattern_fraction": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "fully_selected_source_pattern_type_count": {
+            "max": 5217.0,
+            "mean": 5104.333333333333,
+            "min": 5047.0,
+            "std": 79.67154796761236,
+            "values_by_seed": {
+              "0": 5217.0,
+              "1": 5049.0,
+              "2": 5047.0
+            }
+          },
+          "max_selected_source_pattern_frequency": {
+            "max": 20.0,
+            "mean": 19.333333333333332,
+            "min": 19.0,
+            "std": 0.4714045207910317,
+            "values_by_seed": {
+              "0": 20.0,
+              "1": 19.0,
+              "2": 19.0
+            }
+          },
+          "max_transition_selection_multiplicity": {
+            "max": 5.0,
+            "mean": 5.0,
+            "min": 5.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 5.0,
+              "1": 5.0,
+              "2": 5.0
+            }
+          },
+          "mean_selected_source_pattern_frequency_by_type": {
+            "max": 3.6461264117297403,
+            "mean": 3.632248292121909,
+            "min": 3.616829595553,
+            "std": 0.012009881835477056,
+            "values_by_seed": {
+              "0": 3.616829595553,
+              "1": 3.633788869082987,
+              "2": 3.6461264117297403
+            }
+          },
+          "overlap_rejection_count": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "overlap_reuse_fraction": {
+            "max": 0.470051407069797,
+            "mean": 0.460901683105625,
+            "min": 0.45549681146781495,
+            "std": 0.0065052287940293085,
+            "values_by_seed": {
+              "0": 0.470051407069797,
+              "1": 0.45549681146781495,
+              "2": 0.45715683077926317
+            }
+          },
+          "overlapped_unique_transition_fraction": {
+            "max": 0.5190207608304332,
+            "mean": 0.5055561399672004,
+            "min": 0.49745745745745745,
+            "std": 0.00958606571709992,
+            "values_by_seed": {
+              "0": 0.5190207608304332,
+              "1": 0.49745745745745745,
+              "2": 0.5001902016137105
+            }
+          },
+          "partially_selected_source_pattern_type_count": {
+            "max": 0.0,
+            "mean": 0.0,
+            "min": 0.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 0.0,
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "requested_transition_budget": {
+            "max": 50000.0,
+            "mean": 50000.0,
+            "min": 50000.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 50000.0,
+              "1": 50000.0,
+              "2": 50000.0
+            }
+          },
+          "selected_source_occurrence_completion_fraction": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0,
+            "values_by_seed": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0
+            }
+          },
+          "selected_source_pattern_type_count": {
+            "max": 5217.0,
+            "mean": 5104.333333333333,
+            "min": 5047.0,
+            "std": 79.67154796761236,
+            "values_by_seed": {
+              "0": 5217.0,
+              "1": 5049.0,
+              "2": 5047.0
+            }
+          },
+          "selected_source_pattern_type_fraction_of_all_clean_types": {
+            "max": 0.8165597120050087,
+            "mean": 0.8126287525171527,
+            "min": 0.8105634933376143,
+            "std": 0.002780801779720345,
+            "values_by_seed": {
+              "0": 0.8165597120050087,
+              "1": 0.8105634933376143,
+              "2": 0.8107630522088354
+            }
+          },
+          "selected_source_total_clean_occurrence_mass_fraction_of_all_windows": {
+            "max": 0.018959341261109184,
+            "mean": 0.018628096211782477,
+            "min": 0.018434842022235956,
+            "std": 0.00023530968379535506,
+            "values_by_seed": {
+              "0": 0.018959341261109184,
+              "1": 0.018434842022235956,
+              "2": 0.01849010535200229
+            }
+          },
+          "selected_source_total_clean_occurrences": {
+            "max": 18869.0,
+            "mean": 18539.333333333332,
+            "min": 18347.0,
+            "std": 234.1884331520714,
+            "values_by_seed": {
+              "0": 18869.0,
+              "1": 18347.0,
+              "2": 18402.0
+            }
+          },
+          "selected_window_count": {
+            "max": 18869.0,
+            "mean": 18539.333333333332,
+            "min": 18347.0,
+            "std": 234.1884331520714,
+            "values_by_seed": {
+              "0": 18869.0,
+              "1": 18347.0,
+              "2": 18402.0
+            }
+          },
+          "selected_window_fraction_of_all_windows": {
+            "max": 0.018959341261109184,
+            "mean": 0.018628096211782477,
+            "min": 0.018434842022235956,
+            "std": 0.00023530968379535506,
+            "values_by_seed": {
+              "0": 0.018959341261109184,
+              "1": 0.018434842022235956,
+              "2": 0.01849010535200229
+            }
+          },
+          "selected_window_transition_slot_count": {
+            "max": 94345.0,
+            "mean": 92696.66666666667,
+            "min": 91735.0,
+            "std": 1170.942165760357,
+            "values_by_seed": {
+              "0": 94345.0,
+              "1": 91735.0,
+              "2": 92010.0
+            }
+          },
+          "unique_transition_budget_utilization": {
+            "max": 0.99996,
+            "mean": 0.9993,
+            "min": 0.99894,
+            "std": 0.0004673328578218854,
+            "values_by_seed": {
+              "0": 0.99996,
+              "1": 0.999,
+              "2": 0.99894
+            }
+          },
+          "unique_transition_footprint": {
+            "max": 49998.0,
+            "mean": 49965.0,
+            "min": 49947.0,
+            "std": 23.366642891095847,
+            "values_by_seed": {
+              "0": 49998.0,
+              "1": 49950.0,
+              "2": 49947.0
+            }
+          },
+          "unique_transition_fraction_of_dataset": {
+            "max": 0.049998,
+            "mean": 0.049965,
+            "min": 0.049947,
+            "std": 2.3366642891096346e-05,
+            "values_by_seed": {
+              "0": 0.049998,
+              "1": 0.04995,
+              "2": 0.049947
+            }
+          }
+        }
+      }
+    }
+  },
+  "schema_version": "csdpc-selection-semantics-summary-v1",
+  "status": "DIAGNOSTIC_ONLY"
+}
