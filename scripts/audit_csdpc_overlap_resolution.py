@@ -93,27 +93,29 @@ RULE_IDS = (
 SCALAR_METRICS = (
     "selected_window_count",
     "unique_transition_footprint",
+
     "actual_modified_transition_count",
-    "actual_modified_fraction_of_selected_footprint",
-
-    "proposal_slot_target_label_preservation_fraction",
-    "window_exact_independent_target_pattern_preservation_fraction",
-
-    "merged_window_pattern_change_fraction",
-    "merged_window_frequency_improvement_fraction",
-    "merged_frequency_improvement_given_changed",
-
+    "selected_transition_modified_fraction",
     "modified_transition_cluster_label_change_fraction",
+
+    "resolved_label_difference_fraction_vs_r0",
+    "resolved_source_proposal_difference_fraction_vs_r0",
+    "resolved_continuous_row_difference_fraction_vs_r0",
+    "conflicted_transition_resolved_label_difference_fraction_vs_r0",
+
+    "selected_window_pattern_change_fraction",
+    "selected_window_frequency_improvement_fraction",
+
+    "independent_target_pattern_preservation_fraction",
+    "independent_raw_target_label_sequence_preservation_fraction",
+    "merged_frequency_below_independent_fraction",
+    "merged_frequency_above_independent_fraction",
 
     "mean_source_pattern_frequency",
     "mean_independent_target_pattern_frequency",
     "mean_merged_target_pattern_frequency",
-    "mean_frequency_delta_vs_independent",
+    "mean_merged_minus_independent_frequency",
 
-    "merged_frequency_at_least_independent_fraction",
-    "merged_frequency_strictly_better_than_independent_fraction",
-
-    "selected_source_pattern_type_count",
     "selected_source_pattern_eradication_fraction",
     "selected_source_occurrence_mass_reduction_fraction",
 
@@ -121,9 +123,9 @@ SCALAR_METRICS = (
     "removed_pattern_type_count",
     "new_pattern_type_count",
 
-    "state_perturbation_bound_valid_fraction",
-    "action_perturbation_bound_valid_fraction",
-    "action_rows_within_environment_bounds_fraction",
+    "mean_selected_state_linf_delta",
+    "mean_selected_action_linf_delta",
+    "modified_action_rows_at_bound_fraction",
 )
 
 PAIRWISE_METRICS = (
@@ -982,15 +984,19 @@ def _perturbation_integrity(
         dtype=np.int64,
     )
 
-    if len(
-        selected_indices
-    ) == 0:
+    if len(selected_indices) == 0:
         return {
             "actual_modified_transition_count": 0,
             "actual_modified_fraction_of_selected_footprint": 0.0,
+
+            "mean_selected_state_linf_delta": 0.0,
+            "mean_selected_action_linf_delta": 0.0,
+            "modified_action_rows_at_bound_fraction": 0.0,
+
             "state_perturbation_bound_valid_fraction": 1.0,
             "action_perturbation_bound_valid_fraction": 1.0,
             "action_rows_within_environment_bounds_fraction": 1.0,
+
             "nonselected_attack_rows_identical": True,
             "all_nonattack_arrays_identical": True,
         }
@@ -1099,16 +1105,41 @@ def _perturbation_integrity(
         )
     )
 
+    action_at_bound = (
+        np.any(
+            np.isclose(
+                poison_act,
+                -1.0,
+                rtol=0.0,
+                atol=1.0e-10,
+            )
+            | np.isclose(
+                poison_act,
+                1.0,
+                rtol=0.0,
+                atol=1.0e-10,
+            ),
+            axis=1,
+        )
+    )
+
+    if np.any(act_changed):
+        modified_action_rows_at_bound_fraction = float(
+            np.mean(
+                action_at_bound[
+                    act_changed
+                ]
+            )
+        )
+    else:
+        modified_action_rows_at_bound_fraction = 0.0
+
     selected_mask = np.zeros(
-        len(
-            observations
-        ),
+        len(observations),
         dtype=bool,
     )
 
-    selected_mask[
-        selected_indices
-    ] = True
+    selected_mask[selected_indices] = True
 
     nonselected_attack_rows_identical = bool(
         np.array_equal(
@@ -1160,11 +1191,19 @@ def _perturbation_integrity(
         ),
 
         "actual_modified_fraction_of_selected_footprint": (
-            float(
-                np.mean(
-                    modified
-                )
-            )
+            float(np.mean(modified))
+        ),
+
+        "mean_selected_state_linf_delta": float(
+            np.mean(actual_state)
+        ),
+
+        "mean_selected_action_linf_delta": float(
+            np.mean(actual_action)
+        ),
+
+        "modified_action_rows_at_bound_fraction": float(
+            modified_action_rows_at_bound_fraction
         ),
 
         "state_perturbation_bound_valid_fraction": float(
@@ -1240,8 +1279,11 @@ def _compute_rule_metrics(
     changed_and_improved = 0
 
     exact_target_preserved = 0
+    raw_target_sequence_preserved = 0
+
     frequency_at_least_independent = 0
     frequency_strictly_better = 0
+    frequency_below_independent = 0
 
     source_frequencies = []
     independent_frequencies = []
@@ -1326,6 +1368,11 @@ def _compute_rule_metrics(
             == proposal.target_pattern
         )
 
+        raw_target_sequence_preserved += int(
+            merged_raw_labels
+            == tuple(proposal.raw_target_labels)
+        )
+
         frequency_at_least_independent += int(
             merged_frequency
             >= independent_frequency
@@ -1334,6 +1381,11 @@ def _compute_rule_metrics(
         frequency_strictly_better += int(
             merged_frequency
             > independent_frequency
+        )
+
+        frequency_below_independent += int(
+            merged_frequency
+            < independent_frequency
         )
 
         source_frequencies.append(
@@ -1689,8 +1741,217 @@ def _compute_rule_metrics(
                 "action_rows_within_environment_bounds_fraction"
             ]
         ),
+
+        "selected_transition_modified_fraction": float(
+            integrity["actual_modified_fraction_of_selected_footprint"]
+        ),
+
+        "resolved_label_difference_fraction_vs_r0": 0.0,
+        "resolved_source_proposal_difference_fraction_vs_r0": 0.0,
+        "resolved_continuous_row_difference_fraction_vs_r0": 0.0,
+        "conflicted_transition_resolved_label_difference_fraction_vs_r0": 0.0,
+
+        "selected_window_pattern_change_fraction": (
+            _safe_fraction(
+                pattern_changed,
+                selected_window_count,
+            )
+        ),
+
+        "selected_window_frequency_improvement_fraction": (
+            _safe_fraction(
+                frequency_improved,
+                selected_window_count,
+            )
+        ),
+
+        "independent_target_pattern_preservation_fraction": (
+            _safe_fraction(
+                exact_target_preserved,
+                selected_window_count,
+            )
+        ),
+
+        "independent_raw_target_label_sequence_preservation_fraction": (
+            _safe_fraction(
+                raw_target_sequence_preserved,
+                selected_window_count,
+            )
+        ),
+
+        "merged_frequency_below_independent_fraction": (
+            _safe_fraction(
+                frequency_below_independent,
+                selected_window_count,
+            )
+        ),
+
+        "merged_frequency_above_independent_fraction": (
+            _safe_fraction(
+                frequency_strictly_better,
+                selected_window_count,
+            )
+        ),
+
+        "mean_merged_minus_independent_frequency": (
+            _mean(
+                frequency_deltas
+            )
+        ),
+
+        "mean_selected_state_linf_delta": float(
+            integrity[
+                "mean_selected_state_linf_delta"
+            ]
+        ),
+
+        "mean_selected_action_linf_delta": float(
+            integrity[
+                "mean_selected_action_linf_delta"
+            ]
+        ),
+
+        "modified_action_rows_at_bound_fraction": float(
+            integrity[
+                "modified_action_rows_at_bound_fraction"
+            ]
+        ),
     }
 
+def _resolution_difference_vs_r0(
+    *,
+    resolved,
+    r0_resolved,
+    requirements,
+):
+    if set(
+        resolved
+    ) != set(
+        r0_resolved
+    ):
+        raise ValueError(
+            "resolution footprint differs from R0"
+        )
+
+    indices = sorted(
+        resolved
+    )
+
+    if not indices:
+        return {
+            "resolved_label_difference_fraction_vs_r0": 0.0,
+            "resolved_source_proposal_difference_fraction_vs_r0": 0.0,
+            "resolved_continuous_row_difference_fraction_vs_r0": 0.0,
+            "conflicted_transition_resolved_label_difference_fraction_vs_r0": 0.0,
+        }
+
+    label_difference = 0
+    source_proposal_difference = 0
+    continuous_row_difference = 0
+
+    conflict_indices = []
+
+    for index in indices:
+        slots = requirements[
+            index
+        ]
+
+        if len(
+            {
+                int(
+                    slot.target_label
+                )
+                for slot
+                in slots
+            }
+        ) > 1:
+            conflict_indices.append(
+                index
+            )
+
+        current = resolved[
+            index
+        ]
+
+        reference = r0_resolved[
+            index
+        ]
+
+        label_difference += int(
+            current.target_label
+            != reference.target_label
+        )
+
+        source_proposal_difference += int(
+            current.window_id
+            != reference.window_id
+        )
+
+        same_observation = np.array_equal(
+            current.observation,
+            reference.observation,
+        )
+
+        same_action = np.array_equal(
+            current.action,
+            reference.action,
+        )
+
+        continuous_row_difference += int(
+            not (
+                same_observation
+                and same_action
+            )
+        )
+
+    conflicted_label_difference = sum(
+        resolved[
+            index
+        ].target_label
+        != r0_resolved[
+            index
+        ].target_label
+        for index
+        in conflict_indices
+    )
+
+    return {
+        "resolved_label_difference_fraction_vs_r0": (
+            _safe_fraction(
+                label_difference,
+                len(
+                    indices
+                ),
+            )
+        ),
+
+        "resolved_source_proposal_difference_fraction_vs_r0": (
+            _safe_fraction(
+                source_proposal_difference,
+                len(
+                    indices
+                ),
+            )
+        ),
+
+        "resolved_continuous_row_difference_fraction_vs_r0": (
+            _safe_fraction(
+                continuous_row_difference,
+                len(
+                    indices
+                ),
+            )
+        ),
+
+        "conflicted_transition_resolved_label_difference_fraction_vs_r0": (
+            _safe_fraction(
+                conflicted_label_difference,
+                len(
+                    conflict_indices
+                ),
+            )
+        ),
+    }
 
 def _pairwise_resolution_metrics(
     *,
@@ -1792,9 +2053,7 @@ def _load_conflict_seed(
         )
 
     return json.loads(
-        path.read_text(
-            encoding="utf-8"
-        )
+        path.read_text(encoding="utf-8")
     )
 
 
@@ -1808,29 +2067,11 @@ def _run_seed(
     prepared = (
         prepare_csdpc_attack(
             clean_dataset,
-            attack_seed=int(
-                seed
-            ),
-            num_clusters=int(
-                config[
-                    "num_clusters"
-                ]
-            ),
-            sequence_length=int(
-                config[
-                    "sequence_length"
-                ]
-            ),
-            eta=float(
-                config[
-                    "eta"
-                ]
-            ),
-            num_candidates=int(
-                config[
-                    "num_candidates"
-                ]
-            ),
+            attack_seed=int(seed),
+            num_clusters=int(config["num_clusters"]),
+            sequence_length=int(config["sequence_length"]),
+            eta=float(config["eta"]),
+            num_candidates=int(config["num_candidates"]),
         )
     )
 
@@ -1847,30 +2088,20 @@ def _run_seed(
     for rho in config[
         "poison_rates"
     ]:
-        rho = float(
-            rho
-        )
+        rho = float(rho)
 
         budget = (
             compute_transition_budget(
-                num_transitions=(
-                    prepared.num_transitions
-                ),
+                num_transitions=(prepared.num_transitions),
                 rho=rho,
             )
         )
 
         diagnostic = (
             _select_pattern_type_atomic_prefix(
-                occurrences_by_pattern=(
-                    occurrences
-                ),
-                ranked_patterns=(
-                    ranked_patterns
-                ),
-                transition_budget=(
-                    budget
-                ),
+                occurrences_by_pattern=(occurrences),
+                ranked_patterns=(ranked_patterns),
+                transition_budget=(budget),
             )
         )
 
@@ -1885,27 +2116,17 @@ def _run_seed(
         )
 
     if not _is_prefix(
-        selections[
-            0.01
-        ],
-        selections[
-            0.05
-        ],
+        selections[0.01],
+        selections[0.05],
     ):
         raise RuntimeError(
             "rho=0.01 S2 selection is not "
             "an exact rho=0.05 prefix"
         )
 
-    print(
-        "S2 rho-prefix check: PASS"
-    )
+    print("S2 rho-prefix check: PASS")
 
-    max_windows = (
-        selections[
-            0.05
-        ]
-    )
+    max_windows = selections[0.05]
 
     print(
         "Regenerating independent C100 "
@@ -1914,26 +2135,18 @@ def _run_seed(
 
     max_proposals = (
         _generate_proposals(
-            selected_windows=(
-                max_windows
-            ),
-            clean_dataset=(
-                clean_dataset
-            ),
+            selected_windows=(max_windows),
+            clean_dataset=(clean_dataset),
             prepared=prepared,
         )
     )
 
     terminals = np.asarray(
-        clean_dataset[
-            "terminals"
-        ]
+        clean_dataset["terminals"]
     )
 
     timeouts = np.asarray(
-        clean_dataset[
-            "timeouts"
-        ]
+        clean_dataset["timeouts"]
     )
 
     trajectories, _ = (
@@ -1954,56 +2167,28 @@ def _run_seed(
 
     conflict_seed = (
         _load_conflict_seed(
-            conflict_root=(
-                conflict_root
-            ),
+            conflict_root=(conflict_root),
             seed=seed,
         )
     )
 
     rho_results = {}
 
-    for rho in config[
-        "poison_rates"
-    ]:
-        rho = float(
-            rho
-        )
+    for rho in config["poison_rates"]:
+        rho = float(rho)
+        key = _rho_key(rho)
 
-        key = _rho_key(
-            rho
-        )
-
-        windows = selections[
-            rho
-        ]
-
-        proposals = max_proposals[
-            :len(
-                windows
-            )
-        ]
+        windows = selections[rho]
+        proposals = max_proposals[:len(windows)]
 
         reference = (
-            conflict_seed[
-                "rho_results"
-            ][
-                key
-            ][
-                "metrics"
-            ]
+            conflict_seed["rho_results"][key]["metrics"]
         )
 
         _verify_conflict_reference(
-            selected_windows=(
-                windows
-            ),
-            proposals=(
-                proposals
-            ),
-            reference=(
-                reference
-            ),
+            selected_windows=(windows),
+            proposals=(proposals),
+            reference=(reference),
         )
 
         print(
@@ -2013,12 +2198,8 @@ def _run_seed(
 
         requirements = (
             _build_requirements(
-                selected_windows=(
-                    windows
-                ),
-                proposals=(
-                    proposals
-                ),
+                selected_windows=(windows),
+                proposals=(proposals),
             )
         )
 
@@ -2031,17 +2212,13 @@ def _run_seed(
             resolved = (
                 _resolve_requirements(
                     requirements,
-                    rule_id=(
-                        rule_id
-                    ),
+                    rule_id=(rule_id),
                 )
             )
 
             merged_dataset = (
                 _build_merged_dataset(
-                    clean_dataset=(
-                        clean_dataset
-                    ),
+                    clean_dataset=(clean_dataset),
                     resolved=resolved,
                 )
             )
@@ -2051,49 +2228,25 @@ def _run_seed(
                 selected_indices,
             ) = (
                 _predict_selected_labels(
-                    merged_dataset=(
-                        merged_dataset
-                    ),
+                    merged_dataset=(merged_dataset),
                     resolved=resolved,
-                    model=(
-                        prepared.clustering_model
-                    ),
-                    clean_labels=(
-                        clean_labels
-                    ),
+                    model=(prepared.clustering_model),
+                    clean_labels=(clean_labels),
                 )
             )
 
             metrics = (
                 _compute_rule_metrics(
                     rule_id=rule_id,
-                    clean_dataset=(
-                        clean_dataset
-                    ),
-                    merged_dataset=(
-                        merged_dataset
-                    ),
-                    clean_labels=(
-                        clean_labels
-                    ),
-                    merged_labels=(
-                        merged_labels
-                    ),
-                    selected_windows=(
-                        windows
-                    ),
-                    proposals=(
-                        proposals
-                    ),
-                    clean_counts=(
-                        clean_counts
-                    ),
-                    trajectories=(
-                        trajectories
-                    ),
-                    selected_indices=(
-                        selected_indices
-                    ),
+                    clean_dataset=(clean_dataset),
+                    merged_dataset=(merged_dataset),
+                    clean_labels=(clean_labels),
+                    merged_labels=(merged_labels),
+                    selected_windows=(windows),
+                    proposals=(proposals),
+                    clean_counts=(clean_counts),
+                    trajectories=(trajectories),
+                    selected_indices=(selected_indices),
                     eta=float(
                         config[
                             "eta"
@@ -2102,21 +2255,42 @@ def _run_seed(
                 )
             )
 
-            rule_metrics[
-                rule_id
-            ] = metrics
+            rule_metrics[rule_id] = metrics
 
-            resolved_by_rule[
-                rule_id
-            ] = resolved
+            resolved_by_rule[rule_id] = resolved
 
-            print(
-                f"rho={key} {rule_id}: PASS"
-            )
+            print(f"rho={key} {rule_id}: PASS")
 
             del merged_dataset
             del merged_labels
             gc.collect()
+
+        r0_resolved = resolved_by_rule["R0_FIRST_RARE_WINS"]
+
+        for rule_id in (
+            RULE_IDS
+        ):
+            difference_metrics = (
+                _resolution_difference_vs_r0(
+                    resolved=(
+                        resolved_by_rule[
+                            rule_id
+                        ]
+                    ),
+                    r0_resolved=(
+                        r0_resolved
+                    ),
+                    requirements=(
+                        requirements
+                    ),
+                )
+            )
+
+            rule_metrics[
+                rule_id
+            ].update(
+                difference_metrics
+            )
 
         pairwise = {}
 
