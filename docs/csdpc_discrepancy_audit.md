@@ -476,3 +476,58 @@ OVERLAP_CONFLICT_RESOLUTION_REQUIRED
 CQL_DEFERRED
 
 Canonical Gate B remains INCONCLUSIVE.
+
+## Overlap target-conflict diagnostic
+
+A separately frozen learner-free diagnostic independently generated
+canonical C100 perturbation proposals for all windows selected under
+the S2 type-complete overlapping interpretation and measured whether
+overlapping windows requested incompatible KMeans target labels.
+
+At rho=0.01:
+
+- 33.61% of unique selected transitions participated in overlap;
+- 67.09% of selected windows touched at least one overlap;
+- 8.66% of overlapped transitions had incompatible target labels;
+- conflicting transitions represented only 2.91% of the complete
+  unique transition footprint;
+- 5.20% of proposal slots participated in a conflict;
+- pairwise label disagreement on overlaps was 7.55%;
+- 21.07% of selected windows touched at least one target-label conflict;
+- mean number of distinct proposed labels per overlapped transition
+  was 1.087.
+
+At rho=0.05:
+
+- 50.56% of unique selected transitions participated in overlap;
+- 85.06% of selected windows touched at least one overlap;
+- 7.60% of overlapped transitions had incompatible target labels;
+- conflicting transitions represented only 3.84% of the complete
+  unique transition footprint;
+- 6.25% of proposal slots participated in a conflict;
+- pairwise label disagreement on overlaps was 6.22%;
+- 24.76% of selected windows touched at least one target-label conflict;
+- mean number of distinct proposed labels per overlapped transition
+  was 1.077.
+
+Thus overlap itself is widespread, especially at rho=0.05, but most
+overlapping independent C100 proposals agree on the required KMeans
+target label.
+
+A realizable type-complete overlapping attack is therefore plausible,
+but an explicit conflict-resolution convention is still required.
+Because roughly one quarter of selected windows touch at least one
+conflicting transition at rho=0.05, the merge rule should be tested
+before any learner is trained.
+
+Status:
+
+OVERLAP_TARGET_CONFLICT_DIAGNOSTIC_VALIDATED
+OVERLAP_WIDESPREAD
+TARGET_LABEL_CONFLICT_SPARSE_PER_TRANSITION
+WINDOW_LEVEL_CONFLICT_EXPOSURE_NONTRIVIAL
+TYPE_COMPLETE_OVERLAP_REALIZATION_FEASIBLE
+CONFLICT_RESOLUTION_SENSITIVITY_REQUIRED
+CQL_DEFERRED
+
+Canonical Gate B remains INCONCLUSIVE.
