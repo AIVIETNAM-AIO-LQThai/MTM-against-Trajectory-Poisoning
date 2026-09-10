@@ -212,3 +212,52 @@ No offset is selected as preferred based on these results.
 
 Status:
 SEQUENCE_ENUMERATION_DIAGNOSTIC_NO_EXPLANATION
+
+## Deduplication-metric reconciliation
+
+A final clean-data-only diagnostic evaluated multiple possible
+deduplication statistics using the exact canonical k=8, raw-data,
+length-5, stride-1, window-then-deduplicate pipeline.
+
+No attack variant was introduced and no learner performance was used.
+
+Three-seed means were:
+
+- canonical distinct-type reduction: 43.46%
+- window-instance changed fraction: 94.61%
+- distinct raw-sequence-type changed fraction: 64.22%
+- total label-token reduction: 58.13%
+- average deduplicated pattern length: 2.0935
+- full-length pattern occurrence fraction: 5.39%
+- full-length distinct-pattern fraction: 63.27%
+- non-equivalent total-window denominator reduction: 99.37%
+
+The 99.37% quantity compares the number of unique deduplicated pattern
+types against the total number of window occurrences and therefore does
+not use equivalent pre/post distinct-pattern denominators. It cannot be
+interpreted as a reduction in the number of distinct decision patterns.
+
+The 94.61% window-instance quantity similarly measures how often
+deduplication changes an individual window, rather than reduction in the
+number of distinct pattern types.
+
+None of the predeclared semantically distinct metrics reconciles the
+canonical 43.46% distinct-type reduction with the source paper's
+descriptive nearly-80% distinct-pattern reduction.
+
+Together with the previously frozen source-fidelity diagnostics:
+
+- literal length-6 interpretation: no explanation;
+- per-dimension z-score preprocessing: no explanation;
+- trajectory-level deduplication before windowing: no explanation;
+- non-overlapping stride-5 enumeration and all offsets: no explanation;
+- k=6/k=10 cluster sensitivity: no strong learner degradation recovery.
+
+The source-fidelity discrepancy therefore remains unresolved.
+
+This is not evidence that any alternative metric should replace the
+canonical one. No additional attack interpretation will be selected
+post hoc solely to reproduce the source statistic.
+
+Status:
+SOURCE_FIDELITY_DISCREPANCY_UNRESOLVED
