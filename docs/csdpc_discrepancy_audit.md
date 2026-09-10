@@ -261,3 +261,70 @@ post hoc solely to reproduce the source statistic.
 
 Status:
 SOURCE_FIDELITY_DISCREPANCY_UNRESOLVED
+
+## Reachability-oracle diagnostic
+
+A separately frozen diagnostic tested whether higher-frequency CSDPC
+decision patterns are geometrically reachable inside the exact
+canonical eta=0.05 state/action perturbation boxes.
+
+The oracle used the frozen raw-data k=8 clustering and the canonical
+selected windows. It solved closed KMeans Voronoi-cell feasibility
+under the perturbation box constraints and did not train any learner.
+
+The strongest integrity check passed:
+
+- actual_pattern_reachable_fraction = 1.0 for every attack seed and
+  both rho=0.01 and rho=0.05.
+
+This confirms that every realized canonical poisoned pattern was
+contained in the oracle reachable-pattern set.
+
+For rho=0.01, three-seed means were:
+
+- transitions with more than one reachable cluster: 30.97%
+- transitions restricted to their source cluster: 69.03%
+- windows for which a pattern change is geometrically possible: 82.73%
+- windows for which a higher-frequency pattern is reachable: 72.33%
+- canonical 100-candidate frequency-improvement fraction: 54.48%
+- canonical attainment of oracle-best frequency: 61.63%
+- oracle search-gap fraction: 38.37%
+- mean source frequency: 1.31
+- mean realized target frequency: 420.62
+- mean oracle-best frequency: 1686.23
+
+For rho=0.05, three-seed means were:
+
+- transitions with more than one reachable cluster: 27.69%
+- transitions restricted to their source cluster: 72.31%
+- windows for which a pattern change is geometrically possible: 78.09%
+- windows for which a higher-frequency pattern is reachable: 68.63%
+- canonical 100-candidate frequency-improvement fraction: 51.26%
+- canonical attainment of oracle-best frequency: 66.67%
+- oracle search-gap fraction: 33.33%
+- mean source frequency: 10.94
+- mean realized target frequency: 785.73
+- mean oracle-best frequency: 2341.72
+
+The oracle therefore establishes two simultaneous limitations.
+
+First, eta=0.05 imposes genuine geometric restrictions. Approximately
+69--72% of individual selected transitions cannot leave their source
+cluster.
+
+Second, geometry does not explain the full weakness of the realized
+attack. At the sequence-window level, approximately 69--72% of
+selected windows can reach a higher-frequency pattern, whereas the
+canonical 100-candidate search realizes such an improvement in only
+approximately 51--54% of windows.
+
+The canonical uniform random candidate search therefore leaves a
+meaningful fraction of geometrically reachable attack strength unused.
+
+Status:
+
+REACHABILITY_ORACLE_VALIDATED
+CANDIDATE_SEARCH_BOTTLENECK_SUPPORTED
+GEOMETRY_LIMITATION_ALSO_PRESENT
+
+Canonical Gate B remains INCONCLUSIVE.
