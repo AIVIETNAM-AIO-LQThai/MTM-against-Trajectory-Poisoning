@@ -328,3 +328,69 @@ CANDIDATE_SEARCH_BOTTLENECK_SUPPORTED
 GEOMETRY_LIMITATION_ALSO_PRESENT
 
 Canonical Gate B remains INCONCLUSIVE.
+
+## Candidate-search sensitivity
+
+Following the reachability-oracle result, a separately frozen
+learner-free sensitivity examined nested uniform candidate pools:
+
+- C100: exact canonical 100-candidate result
+- C500: C100 plus 400 deterministic extension candidates
+- C1000: C500 plus another 500 extension candidates
+
+The pools were nested, so target-frequency performance could not
+decrease solely because different random candidate sets were used.
+
+All integrity checks passed, including exact C100 agreement with the
+canonical oracle reference.
+
+At rho=0.01, three-seed means changed from C100 to C1000 as follows:
+
+- frequency-improvement fraction: 54.48% -> 59.88%
+- binary oracle opportunity capture: 75.24% -> 82.71%
+- mean target-pattern frequency: 420.62 -> 588.91
+- selected-source-pattern eradication: 45.48% -> 50.42%
+- selected-source occurrence-mass reduction: 47.23% -> 51.89%
+- global distinct-pattern reduction: 18.22% -> 20.36%
+
+At rho=0.05:
+
+- frequency-improvement fraction: 51.26% -> 56.48%
+- binary oracle opportunity capture: 74.65% -> 82.26%
+- mean target-pattern frequency: 785.73 -> 1074.40
+- selected-source-pattern eradication: 23.28% -> 26.31%
+- selected-source occurrence-mass reduction: 31.95% -> 35.97%
+- global distinct-pattern reduction: 19.03% -> 21.75%
+
+The C500-to-C1000 increment was substantially smaller than the
+C100-to-C500 increment for both local and global metrics, indicating
+diminishing returns from simply increasing uniform candidate count.
+
+Candidate search therefore contributes to the weakness of the
+canonical attack, but increasing candidate count alone does not
+remove the larger coverage-collapse saturation.
+
+Selection-side quantities were invariant across candidate pools.
+
+At rho=0.01:
+- fully selected source-pattern fraction: 86.41%
+- selected-source occurrence completion: 89.06%
+
+At rho=0.05:
+- fully selected source-pattern fraction: 45.45%
+- selected-source occurrence completion: 48.75%
+
+The low completion at rho=0.05 cannot be corrected by candidate
+search because candidate generation occurs only after windows have
+already been selected.
+
+Status:
+
+CANDIDATE_SEARCH_SENSITIVITY_VALIDATED
+CANDIDATE_COUNT_EFFECT_SUPPORTED
+C500_TO_C1000_DIMINISHING_RETURNS
+CANDIDATE_SEARCH_BOTTLENECK_CONFIRMED_BUT_NOT_SUFFICIENT
+SELECTION_COMPLETION_BOTTLENECK_REMAINS
+CQL_CANDIDATE_SEARCH_SENSITIVITY_DEFERRED
+
+Canonical Gate B remains INCONCLUSIVE.
