@@ -1,0 +1,104 @@
+{
+  "experiment": "CSDPC_SELECTION_SEMANTICS_DIAGNOSTIC",
+  "status": "DIAGNOSTIC_ONLY",
+
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "attack_seeds": [0, 1, 2],
+  "poison_rates": [0.01, 0.05],
+
+  "budget": {
+    "definition": "floor(rho_times_original_transition_count)",
+    "accounting_for_diagnostic_variants": "unique_transition_footprint"
+  },
+
+  "ranking": {
+    "pattern_order": [
+      "lower_clean_pattern_frequency",
+      "lexicographic_pattern"
+    ],
+    "occurrence_order": [
+      "trajectory_id",
+      "global_start"
+    ]
+  },
+
+  "variants": [
+    {
+      "id": "S0_CANONICAL_NONOVERLAP_OCCURRENCE",
+      "selection_unit": "window_occurrence",
+      "pattern_types_atomic": false,
+      "allow_overlapping_selected_windows": false,
+      "budget_accounting": "unique_transitions",
+      "description": "Exact canonical selector"
+    },
+    {
+      "id": "S1_OCCURRENCE_RANKED_OVERLAP_ALLOWED",
+      "selection_unit": "window_occurrence",
+      "pattern_types_atomic": false,
+      "allow_overlapping_selected_windows": true,
+      "budget_accounting": "unique_transition_footprint",
+      "stop_when_budget_exact": true,
+      "description": "Same rare-pattern occurrence ordering as canonical, but selected windows may overlap"
+    },
+    {
+      "id": "S2_PATTERN_TYPE_ATOMIC_PREFIX",
+      "selection_unit": "pattern_type",
+      "pattern_types_atomic": true,
+      "complete_all_occurrences_of_selected_type": true,
+      "allow_overlapping_selected_windows": true,
+      "budget_accounting": "unique_transition_footprint",
+      "prefix_rule": "stop_before_first_pattern_type_whose_complete_occurrence_set_would_exceed_budget",
+      "stop_when_budget_exact": true,
+      "description": "Diagnostic interpretation of selecting a rare pattern set P and then targeting every raw sequence corresponding to each selected pattern"
+    }
+  ],
+
+  "metrics": [
+    "selected_window_count",
+    "selected_window_fraction_of_all_windows",
+
+    "selected_source_pattern_type_count",
+    "selected_source_pattern_type_fraction_of_all_clean_types",
+
+    "requested_transition_budget",
+    "unique_transition_footprint",
+    "unique_transition_budget_utilization",
+    "unique_transition_fraction_of_dataset",
+
+    "selected_window_transition_slot_count",
+    "overlap_reuse_fraction",
+    "overlapped_unique_transition_fraction",
+    "max_transition_selection_multiplicity",
+    "overlap_rejection_count",
+
+    "selected_source_total_clean_occurrences",
+    "selected_source_total_clean_occurrence_mass_fraction_of_all_windows",
+
+    "fully_selected_source_pattern_type_count",
+    "partially_selected_source_pattern_type_count",
+    "fully_selected_source_pattern_fraction",
+    "selected_source_occurrence_completion_fraction",
+
+    "mean_selected_source_pattern_frequency_by_type",
+    "max_selected_source_pattern_frequency"
+  ],
+
+  "rules": [
+    "No poisoned dataset is generated.",
+    "No candidate perturbation is generated.",
+    "No CQL, DT, BC, or MTM learner is trained.",
+    "All variants reuse the exact same canonical clean k=8 clustering and clean length-5 decision-pattern windows within each seed.",
+    "S0 must invoke the existing canonical selector.",
+    "S1 changes only overlap permission and corresponding unique-transition budget accounting.",
+    "S2 is a source-semantics diagnostic and does not claim to be the canonical CSDPC implementation.",
+    "S2 selects complete pattern types in rare-pattern prefix order and stops before the first type that cannot fit completely.",
+    "Overlapping windows in S1 and S2 are selection descriptions only; this diagnostic does not define how conflicting perturbations would be combined.",
+    "No variant may replace canonical Gate B.",
+    "No downstream learner result may be used to select a variant.",
+    "A realizable poisoning rule for overlapping windows may be designed only after this diagnostic is recorded and interpreted."
+  ]
+}
