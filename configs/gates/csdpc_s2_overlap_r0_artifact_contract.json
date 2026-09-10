@@ -1,0 +1,63 @@
+{
+  "experiment": "CSDPC_S2_OVERLAP_R0_ARTIFACT_REALIZATION",
+  "status": "REPRODUCTION_SENSITIVITY_ARTIFACT",
+
+  "variant_id": "csdpc_s2_overlap_r0_v1",
+
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+  "canonical_artifacts_are_read_only": true,
+
+  "selection": "S2_PATTERN_TYPE_ATOMIC_PREFIX",
+  "resolution": "R0_FIRST_RARE_WINS",
+  "proposal_generation": "independent_canonical_C100",
+
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "eta": 0.05,
+  "num_candidates": 100,
+
+  "attack_seeds": [0, 1, 2],
+  "poison_rates": [0.01, 0.05],
+
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+
+  "resolution_reference_root": "data/metadata/csdpc_overlap_resolution",
+
+  "output_root": "data/poisoned/csdpc_s2_overlap_r0_v1/walker2d-medium-v2",
+  "metadata_root": "data/metadata/csdpc_s2_overlap_r0_v1/walker2d-medium-v2",
+
+  "cross_rho_requirements": [
+    "rho_001_selection_is_exact_prefix_of_rho_005",
+    "generate_rho_005_independent_proposals_once",
+    "rho_001_uses_exact_proposal_prefix",
+    "rho_001_unique_footprint_is_subset_of_rho_005",
+    "shared_rho_001_rows_are_identical_in_rho_005"
+  ],
+
+  "artifact_integrity_requirements": [
+    "dataset_keys_preserved",
+    "dataset_shapes_preserved",
+    "dataset_dtypes_preserved",
+    "all_non_observation_action_arrays_identical",
+    "nonselected_observation_rows_identical",
+    "nonselected_action_rows_identical",
+    "all_selected_state_rows_respect_eta_bound",
+    "all_selected_action_rows_respect_eta_bound",
+    "all_actions_within_minus1_plus1",
+    "resolved_labels_match_kmeans_predictions",
+    "r0_mechanism_metrics_match_frozen_overlap_resolution_result",
+    "written_hdf5_logically_matches_in_memory_dataset"
+  ],
+
+  "rules": [
+    "This artifact does not replace canonical CSDPC.",
+    "The canonical data/poisoned/csdpc artifact tree must not be modified.",
+    "R0 is used because it was predeclared before observing overlap-resolution results.",
+    "No C500 or C1000 candidate search is used.",
+    "No CQL, DT, BC, or MTM learner result is used during artifact generation.",
+    "Rewards, terminals, timeouts, and all nonattack arrays remain unchanged.",
+    "Only observations and actions belonging to the selected unique transition footprint may change.",
+    "Artifacts must be versioned separately as csdpc_s2_overlap_r0_v1."
+  ]
+}
