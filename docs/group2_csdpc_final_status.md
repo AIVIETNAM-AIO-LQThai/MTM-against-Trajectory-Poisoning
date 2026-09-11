@@ -188,3 +188,41 @@ source paper's nearly-80-percent statistic.
 
 See:
 docs/csdpc_independent_dedup_safety_audit.md
+
+## Principal unresolved source-level ambiguity: candidate generation
+
+The most consequential remaining ambiguity in the public CSDPC
+specification is the generation of candidate poisoned sequences.
+
+The source method describes generating candidate sequences satisfying the
+stealth constraint and selecting the candidate whose resulting decision
+pattern has the greatest occurrence, but the public specification does not
+provide enough information to independently reconstruct:
+
+- the candidate-generation distribution or optimization procedure;
+- the number of candidates n;
+- whether perturbations are sampled independently per transition or jointly
+  at sequence level;
+- whether generation explicitly targets cluster centroids or target patterns;
+- whether gradient-based optimization or an auxiliary learned model is used.
+
+The canonical independent reproduction therefore instantiates this missing
+component explicitly:
+
+- 100 candidates per attacked window;
+- seeded candidate generation;
+- bounded state/action perturbations under eta = 0.05;
+- selection by resulting clean-pattern frequency, with the frozen
+  perturbation-cost tie-breaking rule.
+
+These are reproduction choices, not source-confirmed implementation details.
+
+Because candidate generation directly determines the optimization search space
+of the poisoning attack, it remains a plausible explanation for the gap
+between the independently reproduced attack effect and the source-paper
+effect.
+
+No alternative candidate-generation mechanism may now be selected according
+to downstream CQL or DT degradation. Reopening this component requires new
+primary-source information, such as author clarification or an official code
+release.
