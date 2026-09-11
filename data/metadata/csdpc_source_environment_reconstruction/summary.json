@@ -1,0 +1,142 @@
+{
+  "candidate": {
+    "array_sha256": {
+      "actions": "636ee6fdcf418b87c6ca93dff51a7af86e13288175df96c23751e149e7c98065",
+      "observations": "b9710057a79390d3e76815a5f9510b08b86ebc0504ea4f9d12bb56d7bc8a10ed",
+      "rewards": "10c568bdb5b5caa8a53f31e7a6acb983f88bf0e85eebf4eae9e823cf2b5efcb5",
+      "terminals": "5495a5c8e7ce91ca4ffb56b7233f9176fc91902ddf1dabb75a5822ee83477c7d"
+    },
+    "boundary_semantics": {
+      "completed_trajectory_count": 5315,
+      "explicit_timeout_count": 125,
+      "has_explicit_timeouts": true,
+      "mode": "explicit_timeouts",
+      "resolved_timeout_count": 125,
+      "terminal_count": 5190,
+      "trailing_transition_count": 0
+    },
+    "clustering": {
+      "inertia": 99322936.0,
+      "n_iter": 30,
+      "num_clusters": 8,
+      "seed": 0
+    },
+    "dedup_metrics": {
+      "average_deduplicated_pattern_length": 2.141863007540307,
+      "canonical_distinct_type_reduction_fraction": 0.45226781857451404,
+      "counts": {
+        "changed_raw_sequence_types": 10174,
+        "changed_window_instances": 946442,
+        "full_length_distinct_patterns": 6031,
+        "full_length_pattern_occurrences": 32298,
+        "total_deduplicated_label_tokens": 2096327,
+        "total_raw_label_tokens": 4893700
+      },
+      "deduplicated_distinct_pattern_type_count": 8876,
+      "full_length_distinct_pattern_fraction": 0.6794727354664263,
+      "full_length_pattern_occurrence_fraction": 0.032999570876841654,
+      "non_equivalent_total_window_denominator_reduction_fraction": 0.9909311972536118,
+      "raw_distinct_sequence_type_changed_fraction": 0.6278309163838321,
+      "raw_distinct_sequence_type_count": 16205,
+      "total_label_token_reduction_fraction": 0.5716273984919387,
+      "window_count": 978740,
+      "window_instance_changed_fraction": 0.9670004291231583
+    },
+    "env_id": "walker2d-medium-v0",
+    "file_sha256": "181a62086f3f287759201a9643e805b9e56438a8532a3915825dbaa6555bd173",
+    "path": "/home/quoc_thai/code/RL/MTM-against-Trajectory-Poisoning/data/raw/walker2d-medium-v0/walker2d_medium-v0.hdf5",
+    "shape": {
+      "action_dim": 6,
+      "observation_dim": 17,
+      "transitions": 1000000
+    },
+    "top_level_keys": [
+      "actions",
+      "observations",
+      "rewards",
+      "terminals",
+      "timeouts"
+    ]
+  },
+  "canonical_attack_is_unchanged": true,
+  "canonical_gate_b_is_unchanged": true,
+  "comparison": {
+    "actions_sha_equal": false,
+    "candidate_distance_to_source": 0.347732181425486,
+    "candidate_is_closer_to_source": true,
+    "candidate_reduction": 0.45226781857451404,
+    "observations_sha_equal": false,
+    "reference_distance_to_source": 0.3754300639466811,
+    "reference_reduction": 0.42456993605331894,
+    "rewards_sha_equal": false,
+    "source_target_reduction": 0.8,
+    "terminals_sha_equal": false
+  },
+  "experiment": "CSDPC_SOURCE_ENVIRONMENT_RECONSTRUCTION",
+  "learner_training_performed": false,
+  "poison_generation_performed": false,
+  "reference": {
+    "array_sha256": {
+      "actions": "a29bbc94007b2a65d7cb55d7f3e27c309a616c445af64a37a3330051e33d3157",
+      "observations": "fa8773423bc3a25555425916a7536ac790a4f8a6592adcbdb80b4a6db0e44571",
+      "rewards": "18c000965e519bc8b9645f3d7e90f70c17e9d3fc39b00e07146bd0652985ad88",
+      "terminals": "c9963d2f1edfc5c38c9d5bf1c78e952bf90b06f144deb832625fa67deb9fbddd"
+    },
+    "boundary_semantics": {
+      "completed_trajectory_count": 1190,
+      "explicit_timeout_count": 677,
+      "has_explicit_timeouts": true,
+      "mode": "explicit_timeouts",
+      "resolved_timeout_count": 677,
+      "terminal_count": 513,
+      "trailing_transition_count": 5
+    },
+    "clustering": {
+      "inertia": 33191496.0,
+      "n_iter": 14,
+      "num_clusters": 8,
+      "seed": 0
+    },
+    "dedup_metrics": {
+      "average_deduplicated_pattern_length": 2.046719618984461,
+      "canonical_distinct_type_reduction_fraction": 0.42456993605331894,
+      "counts": {
+        "changed_raw_sequence_types": 6989,
+        "changed_window_instances": 945069,
+        "full_length_distinct_patterns": 4114,
+        "full_length_pattern_occurrences": 50166,
+        "total_deduplicated_label_tokens": 2036967,
+        "total_raw_label_tokens": 4976175
+      },
+      "deduplicated_distinct_pattern_type_count": 6389,
+      "full_length_distinct_pattern_fraction": 0.6439192361871967,
+      "full_length_pattern_occurrence_fraction": 0.050406185473782575,
+      "non_equivalent_total_window_denominator_reduction_fraction": 0.9935804106567796,
+      "raw_distinct_sequence_type_changed_fraction": 0.6294695127443033,
+      "raw_distinct_sequence_type_count": 11103,
+      "total_label_token_reduction_fraction": 0.5906560762031078,
+      "window_count": 995235,
+      "window_instance_changed_fraction": 0.9495938145262174
+    },
+    "env_id": "walker2d-medium-v2",
+    "file_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "path": "/home/quoc_thai/code/RL/MTM-against-Trajectory-Poisoning/data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "shape": {
+      "action_dim": 6,
+      "observation_dim": 17,
+      "transitions": 1000000
+    },
+    "top_level_keys": [
+      "actions",
+      "infos",
+      "metadata",
+      "next_observations",
+      "observations",
+      "rewards",
+      "terminals",
+      "timeouts"
+    ]
+  },
+  "schema_version": "csdpc-source-environment-reconstruction-v1",
+  "status": "DIAGNOSTIC_ONLY"
+}
