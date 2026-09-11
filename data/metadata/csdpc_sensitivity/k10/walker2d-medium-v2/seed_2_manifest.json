@@ -1,0 +1,34 @@
+{
+  "artifacts": [
+    {
+      "actual_transition_budget": 10000,
+      "file_sha256": "75873ea75bad70e6a68fbc0d62581de31b70e080a9898fd793d26d4f7f9401cb",
+      "hdf5": "data/poisoned/csdpc_sensitivity/k10/walker2d-medium-v2/rho_001_seed_2.hdf5",
+      "logical_sha256": "ca6904750cdd7dc6ca8781219cdf374b844e99a210f500ff012c9910fa9ce194",
+      "metadata": "data/metadata/csdpc_sensitivity/k10/walker2d-medium-v2/rho_001_seed_2.json",
+      "rho": 0.01
+    },
+    {
+      "actual_transition_budget": 50000,
+      "file_sha256": "422ddb8f88b6ae31bc380f62674d7e87574fd615b593c5cee3f6f35865a682ac",
+      "hdf5": "data/poisoned/csdpc_sensitivity/k10/walker2d-medium-v2/rho_005_seed_2.hdf5",
+      "logical_sha256": "db5be4cc8ce056e69fe4b4c5e25dbeece09e0b764db1f79b69930fce35753e00",
+      "metadata": "data/metadata/csdpc_sensitivity/k10/walker2d-medium-v2/rho_005_seed_2.json",
+      "rho": 0.05
+    }
+  ],
+  "attack_seed": 2,
+  "clean_file_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "clean_logical_sha256": "ccee6f94a7108c8cf5c07e85680d70dd2d0564cb8e6eae3851878caba939d38e",
+  "cross_rho_consistency": {
+    "checked": true,
+    "low_indices_subset_of_high": true,
+    "shared_actions_identical": true,
+    "shared_observations_identical": true
+  },
+  "kmeans_inertia": 29922862.0,
+  "kmeans_inertia_is_reproducibility_gate": false,
+  "kmeans_iterations": 33,
+  "num_clusters": 10,
+  "schema_version": "csdpc-seed-manifest-v1"
+}
