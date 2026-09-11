@@ -161,3 +161,30 @@ causes larger DT or CQL degradation.
 If additional source implementation details become available from the authors
 or an official code release, they may motivate a separately versioned
 reproduction attempt.
+
+## Post-closure independent implementation safety audit
+
+After the initial Group-2 closure record, the clean-data distinct-pattern
+calculation was independently reimplemented without using the repository's
+CSDPC windowing or metric-counting functions.
+
+For walker2d-medium-v2, k=8 and seed=0, the independent implementation exactly
+reproduced the canonical L=5 episode-respecting result:
+
+- raw distinct sequence types: 11103
+- deduplicated distinct pattern types: 6389
+- reduction: 42.456994%
+
+Additional source-semantics checks produced:
+
+- L=5 without episode boundaries: 42.218105%
+- L=6 with episode boundaries: 53.989716%
+- L=6 without episode boundaries: 53.878019%
+
+Therefore the approximately 42.457% canonical result is not attributable to
+the repository's shared pattern-enumeration or metric-counting code, and the
+obvious L versus L+1 / trajectory-boundary interpretations do not recover the
+source paper's nearly-80-percent statistic.
+
+See:
+docs/csdpc_independent_dedup_safety_audit.md
