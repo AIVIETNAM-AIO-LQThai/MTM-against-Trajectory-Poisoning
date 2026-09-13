@@ -1,0 +1,52 @@
+{
+  "experiment": "CSDPC_SOURCE_ENVIRONMENT_RECONSTRUCTION",
+  "status": "DIAGNOSTIC_ONLY",
+  "canonical_attack_is_unchanged": true,
+  "canonical_gate_b_is_unchanged": true,
+
+  "reference_dataset": {
+    "env_id": "walker2d-medium-v2",
+    "path": "data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "expected_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda"
+  },
+
+  "candidate_dataset": {
+    "env_id": "walker2d-medium-v0",
+    "path": "data/raw/walker2d-medium-v0/walker2d_medium-v0.hdf5",
+    "official_d4rl_url": "http://rail.eecs.berkeley.edu/datasets/offline_rl/gym_mujoco/walker2d_medium.hdf5"
+  },
+
+  "source_reported_fingerprints": {
+    "deduplicated_distinct_pattern_reduction_approx": 0.80,
+    "clean_cql_raw_return": 3132.0
+  },
+
+  "clustering": {
+    "feature_preprocessing": "none",
+    "num_clusters": 8,
+    "seed": 0
+  },
+
+  "sequence": {
+    "length": 5,
+    "stride": 1,
+    "respect_episode_boundaries": true,
+    "deduplication": "remove consecutive duplicate cluster labels within each original window"
+  },
+
+  "legacy_timeout_fallback": {
+    "max_episode_steps": 1000,
+    "semantics": "match D4RL sequence_dataset fallback when explicit timeouts are absent"
+  },
+
+  "rules": {
+    "do_not_modify_canonical_artifacts": true,
+    "do_not_generate_poison": true,
+    "do_not_train_cql": true,
+    "do_not_train_dt": true,
+    "do_not_select_attack_settings_from_results": true,
+    "record_v0_and_v2_fingerprints_before_any_new_learner_run": true
+  },
+
+  "output": "data/metadata/csdpc_source_environment_reconstruction/summary.json"
+}

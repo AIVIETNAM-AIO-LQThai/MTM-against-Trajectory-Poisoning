@@ -1,0 +1,36 @@
+{
+  "canonical_attack_is_unchanged": true,
+  "clustering": {
+    "inertia": 33207056.0,
+    "n_iter": 24,
+    "num_clusters": 8
+  },
+  "completed_trajectory_count": 1190,
+  "dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "experiment": "CSDPC_DEDUP_METRIC_RECONCILIATION",
+  "metrics": {
+    "average_deduplicated_pattern_length": 2.1170276366888223,
+    "canonical_distinct_type_reduction_fraction": 0.439845226311527,
+    "counts": {
+      "changed_raw_sequence_types": 7208,
+      "changed_window_instances": 939869,
+      "full_length_distinct_patterns": 3905,
+      "full_length_pattern_occurrences": 55366,
+      "total_deduplicated_label_tokens": 2106940,
+      "total_raw_label_tokens": 4976175
+    },
+    "deduplicated_distinct_pattern_type_count": 6225,
+    "full_length_distinct_pattern_fraction": 0.6273092369477912,
+    "full_length_pattern_occurrence_fraction": 0.05563108210623621,
+    "non_equivalent_total_window_denominator_reduction_fraction": 0.9937451958582646,
+    "raw_distinct_sequence_type_changed_fraction": 0.6486097363448213,
+    "raw_distinct_sequence_type_count": 11113,
+    "total_label_token_reduction_fraction": 0.5765944726622356,
+    "window_count": 995235,
+    "window_instance_changed_fraction": 0.9443689178937638
+  },
+  "schema_version": "csdpc-dedup-metric-reconciliation-seed-v1",
+  "seed": 2,
+  "status": "DIAGNOSTIC_ONLY",
+  "trailing_transition_count": 5
+}

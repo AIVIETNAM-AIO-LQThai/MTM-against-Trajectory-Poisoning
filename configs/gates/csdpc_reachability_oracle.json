@@ -1,0 +1,71 @@
+{
+  "experiment": "CSDPC_REACHABILITY_ORACLE_DIAGNOSTIC",
+  "status": "DIAGNOSTIC_ONLY",
+
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "eta": 0.05,
+  "num_candidates_reference": 100,
+
+  "attack_seeds": [0, 1, 2],
+  "poison_rates": [0.01, 0.05],
+
+  "perturbation_geometry": {
+    "state_bound": "eta_times_per_transition_state_linf_norm",
+    "action_bound": "eta_times_per_transition_action_linf_norm",
+    "action_low": -1.0,
+    "action_high": 1.0,
+    "feature_preprocessing": "none"
+  },
+
+  "oracle": {
+    "cluster_geometry": "closed_kmeans_voronoi_cells",
+    "solver": "scipy.optimize.linprog",
+    "solver_method": "highs",
+    "pairwise_box_prescreen": true,
+    "combine_transition_reachability_independently": true,
+    "deduplicate_after_original_length_5_window": true,
+    "objective": "maximum_clean_pattern_occurrence_frequency"
+  },
+
+  "metrics": [
+    "selected_window_count",
+    "selected_transition_count",
+    "reachable_cluster_count_mean",
+    "reachable_cluster_count_max",
+    "multi_cluster_reachable_transition_fraction",
+    "source_only_reachable_transition_fraction",
+    "reachable_pattern_count_mean",
+    "reachable_pattern_count_max",
+    "oracle_pattern_change_possible_fraction",
+    "oracle_frequency_improvement_possible_fraction",
+    "actual_frequency_improvement_fraction",
+    "actual_attains_oracle_best_frequency_fraction",
+    "oracle_search_gap_fraction",
+    "actual_pattern_reachable_fraction",
+    "mean_source_pattern_frequency",
+    "mean_actual_target_frequency",
+    "mean_oracle_best_frequency",
+    "mean_oracle_minus_actual_frequency"
+  ],
+
+  "interpretation": {
+    "closed_voronoi_is_upper_bound": true,
+    "candidate_search_bottleneck_signal": "oracle improvement substantially exceeds actual improvement",
+    "geometry_bottleneck_signal": "oracle improvement remains close to actual improvement"
+  },
+
+  "rules": [
+    "No poisoned dataset is generated or modified.",
+    "Existing canonical poisoned artifacts are read only for comparison with the realized 100-candidate attack.",
+    "No CQL, DT, BC, or MTM learner is trained.",
+    "Canonical CSDPC selection, eta, clustering, action clipping, and artifacts remain unchanged.",
+    "The oracle cannot replace the canonical attack.",
+    "The oracle result cannot retrospectively change canonical Gate B.",
+    "No candidate-count sensitivity is run until this oracle has been recorded.",
+    "No candidate-count setting may be selected based on downstream learner performance."
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "experiment": "CSDPC_OVERLAP_RESOLUTION_SENSITIVITY",
+  "status": "DIAGNOSTIC_ONLY",
+
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+
+  "selection_reference": "S2_PATTERN_TYPE_ATOMIC_PREFIX",
+  "proposal_reference": "independent_canonical_C100",
+
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "eta": 0.05,
+  "num_candidates": 100,
+
+  "attack_seeds": [0, 1, 2],
+  "poison_rates": [0.01, 0.05],
+
+  "resolution_rules": [
+    {
+      "id": "R0_FIRST_RARE_WINS",
+      "description": "Use the proposal from the earliest S2-selected window touching the transition.",
+      "priority": "rare_pattern_prefix_then_occurrence_order"
+    },
+    {
+      "id": "R1_LAST_WINS",
+      "description": "Use the proposal from the latest S2-selected window touching the transition.",
+      "priority": "reverse_selected_window_order"
+    },
+    {
+      "id": "R2_MODE_LABEL_FIRST",
+      "description": "Choose the most frequently proposed target cluster label. On a label-count tie choose the label whose supporting proposal occurs earliest in S2 order, then use the earliest continuous proposal supporting that label.",
+      "priority": "modal_label_then_earliest_support"
+    }
+  ],
+
+  "predeclared_primary_if_resolution_sensitivity_is_small": "R0_FIRST_RARE_WINS",
+
+  "material_resolution_sensitivity": {
+    "absolute_fraction_range_threshold": 0.05,
+    "metrics": [
+      "selected_window_pattern_change_fraction",
+      "selected_window_frequency_improvement_fraction",
+      "selected_source_pattern_eradication_fraction",
+      "selected_source_occurrence_mass_reduction_fraction",
+      "clean_to_poison_distinct_pattern_reduction_fraction"
+    ],
+    "rule": "If the max-minus-min range across resolution rules exceeds 0.05 on any listed metric, mark overlap resolution as materially under-specified."
+  },
+
+  "metrics": [
+    "selected_window_count",
+    "unique_transition_footprint",
+
+    "actual_modified_transition_count",
+    "selected_transition_modified_fraction",
+    "modified_transition_cluster_label_change_fraction",
+
+    "resolved_label_difference_fraction_vs_r0",
+    "resolved_source_proposal_difference_fraction_vs_r0",
+    "resolved_continuous_row_difference_fraction_vs_r0",
+    "conflicted_transition_resolved_label_difference_fraction_vs_r0",
+
+    "selected_window_pattern_change_fraction",
+    "selected_window_frequency_improvement_fraction",
+
+    "independent_target_pattern_preservation_fraction",
+    "independent_raw_target_label_sequence_preservation_fraction",
+    "merged_frequency_below_independent_fraction",
+    "merged_frequency_above_independent_fraction",
+
+    "mean_source_pattern_frequency",
+    "mean_independent_target_pattern_frequency",
+    "mean_merged_target_pattern_frequency",
+    "mean_merged_minus_independent_frequency",
+
+    "selected_source_pattern_eradication_fraction",
+    "selected_source_occurrence_mass_reduction_fraction",
+
+    "clean_to_poison_distinct_pattern_reduction_fraction",
+    "removed_pattern_type_count",
+    "new_pattern_type_count",
+
+    "mean_selected_state_linf_delta",
+    "mean_selected_action_linf_delta",
+    "modified_action_rows_at_bound_fraction"
+  ],
+
+  "integrity_requirements": [
+    "proposal_reference_matches_previous_overlap_conflict_diagnostic",
+    "rho_001_selection_is_prefix_of_rho_005",
+    "all_selected_rows_respect_eta_state_bounds",
+    "all_selected_rows_respect_eta_action_bounds",
+    "all_actions_respect_minus1_plus1_bounds",
+    "resolved_target_labels_match_kmeans_prediction_after_dataset_dtype_cast",
+    "all_nonselected_observation_rows_are_identical",
+    "all_nonselected_action_rows_are_identical"
+  ],
+
+  "rules": [
+    "No CQL, DT, BC, or MTM learner is trained.",
+    "No poisoned HDF5 artifact is written.",
+    "Canonical CSDPC remains unchanged.",
+    "S2 remains diagnostic and does not replace the canonical selector.",
+    "All three rules use exactly the same independently generated C100 proposals.",
+    "No vector averaging is allowed.",
+    "Every resolved transition must use one actually generated valid continuous proposal.",
+    "R0 is predeclared as the primary deterministic reproduction convention if rule sensitivity is not material.",
+    "The strongest-performing resolution rule must not be selected post hoc.",
+    "Canonical Gate B remains INCONCLUSIVE."
+  ]
+}

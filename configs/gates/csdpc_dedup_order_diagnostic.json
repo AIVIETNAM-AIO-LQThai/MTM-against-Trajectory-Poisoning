@@ -1,0 +1,51 @@
+{
+  "experiment": "CSDPC_DEDUP_ORDER_DIAGNOSTIC",
+  "status": "DIAGNOSTIC_ONLY",
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+
+  "num_clusters": 8,
+  "attack_seeds": [0, 1, 2],
+
+  "canonical_reference": {
+    "sequence_length": 5,
+    "feature_preprocessing": "none",
+    "deduplication_order": "window_then_deduplicate"
+  },
+
+  "diagnostic_variants": [
+    {
+      "id": "D0_CANONICAL",
+      "sequence_length": 5,
+      "feature_preprocessing": "none",
+      "deduplication_order": "window_then_deduplicate"
+    },
+    {
+      "id": "D3_TRAJECTORY_DEDUP_BEFORE_WINDOW",
+      "sequence_length": 5,
+      "feature_preprocessing": "none",
+      "deduplication_order": "trajectory_deduplicate_then_window"
+    }
+  ],
+
+  "metrics": [
+    "original_transition_label_count",
+    "compressed_label_count",
+    "compressed_label_fraction",
+    "raw_window_count",
+    "diagnostic_window_count",
+    "raw_distinct_pattern_count",
+    "diagnostic_distinct_pattern_count",
+    "distinct_pattern_reduction_fraction",
+    "average_pattern_length"
+  ],
+
+  "rules": [
+    "No poisoned dataset is generated.",
+    "No learner is trained.",
+    "The same canonical raw KMeans clustering is reused for D0 and D3.",
+    "No CQL or DT result is used.",
+    "D3 is a source-interpretation diagnostic only.",
+    "D3 cannot replace the canonical attack or canonical Gate-B result."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "canonical_attack_is_unchanged": true,
+  "dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "experiment": "CSDPC_REACHABILITY_ORACLE_DIAGNOSTIC",
+  "rho_results": {
+    "0.01": {
+      "actual_attains_oracle_best_frequency_fraction": 0.596,
+      "actual_frequency_improvement_fraction": 0.5805,
+      "actual_pattern_reachable_fraction": 1.0,
+      "mean_actual_target_frequency": 555.3385,
+      "mean_oracle_best_frequency": 2052.221,
+      "mean_oracle_minus_actual_frequency": 1496.8825,
+      "mean_source_pattern_frequency": 1.327,
+      "multi_cluster_reachable_transition_fraction": 0.3249,
+      "oracle_frequency_improvement_possible_fraction": 0.7555,
+      "oracle_pattern_change_possible_fraction": 0.85,
+      "oracle_search_gap_fraction": 0.404,
+      "reachability_histograms": {
+        "reachable_cluster_count": {
+          "1": 6751,
+          "2": 2789,
+          "3": 427,
+          "4": 31,
+          "5": 2
+        }
+      },
+      "reachable_cluster_count_max": 5,
+      "reachable_cluster_count_mean": 1.3744,
+      "reachable_pattern_count_max": 94,
+      "reachable_pattern_count_mean": 4.516,
+      "selected_transition_count": 10000,
+      "selected_window_count": 2000,
+      "source_only_reachable_transition_fraction": 0.6751
+    },
+    "0.05": {
+      "actual_attains_oracle_best_frequency_fraction": 0.6506,
+      "actual_frequency_improvement_fraction": 0.5354,
+      "actual_pattern_reachable_fraction": 1.0,
+      "mean_actual_target_frequency": 802.4411,
+      "mean_oracle_best_frequency": 2433.1251,
+      "mean_oracle_minus_actual_frequency": 1630.684,
+      "mean_source_pattern_frequency": 10.9168,
+      "multi_cluster_reachable_transition_fraction": 0.28796,
+      "oracle_frequency_improvement_possible_fraction": 0.7121,
+      "oracle_pattern_change_possible_fraction": 0.8006,
+      "oracle_search_gap_fraction": 0.3494,
+      "reachability_histograms": {
+        "reachable_cluster_count": {
+          "1": 35602,
+          "2": 12628,
+          "3": 1655,
+          "4": 112,
+          "5": 3
+        }
+      },
+      "reachable_cluster_count_max": 5,
+      "reachable_cluster_count_mean": 1.32572,
+      "reachable_pattern_count_max": 94,
+      "reachable_pattern_count_mean": 3.6737,
+      "selected_transition_count": 50000,
+      "selected_window_count": 10000,
+      "source_only_reachable_transition_fraction": 0.71204
+    }
+  },
+  "schema_version": "csdpc-reachability-oracle-seed-v1",
+  "seed": 2,
+  "status": "DIAGNOSTIC_ONLY"
+}

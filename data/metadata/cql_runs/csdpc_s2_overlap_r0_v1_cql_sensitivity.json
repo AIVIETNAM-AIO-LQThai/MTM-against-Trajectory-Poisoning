@@ -1,0 +1,102 @@
+{
+  "canonical_gate_b_unchanged": true,
+  "canonical_gate_b_verdict": "INCONCLUSIVE",
+  "experiment": "CSDPC_S2_OVERLAP_R0_CQL_SENSITIVITY",
+  "primary_metric": {
+    "aggregation_within_run": "mean",
+    "end_epoch": 499,
+    "name": "late_window_evaluation_return",
+    "paired_degradation_formula": "(clean_return - poisoned_return) / abs(clean_return)",
+    "start_epoch": 400
+  },
+  "rho_results": {
+    "rho_001": {
+      "all_seed_pairs_degrade": false,
+      "canonical_mean_paired_degradation": 0.0014374201648481965,
+      "mean_degradation_change_vs_canonical": -0.0018907290692202153,
+      "mean_paired_degradation": -0.0004533089043720189,
+      "per_seed": {
+        "0": {
+          "clean_late_mean": 3721.7099099849347,
+          "dataset_logical_sha256": "3b87ad704ccf6ee57d9e16bcc473dce795e1ee8b4727ed9511aa2f0808b628cb",
+          "final_evaluation_normalized_return": 76.66727647680388,
+          "final_evaluation_raw_return": 3521.1714295770753,
+          "paired_degradation": 0.012602934092462317,
+          "poison_best_progress_return": 4040.926176386215,
+          "poison_final_progress_return": 3520.3954032570746,
+          "poison_late_mean": 3674.8054452781307,
+          "poison_late_std": 279.23331813147354
+        },
+        "1": {
+          "clean_late_mean": 3726.502190893922,
+          "dataset_logical_sha256": "160babe6faee166db48e20d858e0645ab7063ae79cf6ec0de4042f75ba318832",
+          "final_evaluation_normalized_return": 78.73135642563318,
+          "final_evaluation_raw_return": 3615.9265490396706,
+          "paired_degradation": 0.008727846177924829,
+          "poison_best_progress_return": 4083.740789520589,
+          "poison_final_progress_return": 3792.8296063904327,
+          "poison_late_mean": 3693.9778529901,
+          "poison_late_std": 301.4302614231903
+        },
+        "2": {
+          "clean_late_mean": 3634.5629112718952,
+          "dataset_logical_sha256": "8956ea24254502c785290958787029fda06c2cfc9724ce519fd7a8e331cd6161",
+          "final_evaluation_normalized_return": 79.5925906850848,
+          "final_evaluation_raw_return": 3655.462980361482,
+          "paired_degradation": -0.0226907069835032,
+          "poison_best_progress_return": 4147.552107059609,
+          "poison_final_progress_return": 3867.2661545332,
+          "poison_late_mean": 3717.033713304674,
+          "poison_late_std": 270.7047508222191
+        }
+      },
+      "std_paired_degradation": 0.015803596248610823
+    },
+    "rho_005": {
+      "all_seed_pairs_degrade": true,
+      "canonical_mean_paired_degradation": 0.014670751601370538,
+      "mean_degradation_change_vs_canonical": 0.007983115261282514,
+      "mean_paired_degradation": 0.02265386686265305,
+      "per_seed": {
+        "0": {
+          "clean_late_mean": 3721.7099099849347,
+          "dataset_logical_sha256": "6c0a4554210bef2e5efff7d0b608a3b813915d7cbdcb6ebac11992b98da7bfef",
+          "final_evaluation_normalized_return": 80.31360811869051,
+          "final_evaluation_raw_return": 3688.562518533282,
+          "paired_degradation": 0.045250466004580485,
+          "poison_best_progress_return": 4076.383918664621,
+          "poison_final_progress_return": 3742.426223761908,
+          "poison_late_mean": 3553.300802224251,
+          "poison_late_std": 567.4817930780715
+        },
+        "1": {
+          "clean_late_mean": 3726.502190893922,
+          "dataset_logical_sha256": "b66c1aef34e93132ce30c7d7a592012a7f4256521340b372356ef9c91b69798e",
+          "final_evaluation_normalized_return": 79.11412986040305,
+          "final_evaluation_raw_return": 3633.4984180747333,
+          "paired_degradation": 0.021054914030712604,
+          "poison_best_progress_return": 4024.34225923092,
+          "poison_final_progress_return": 3839.0812470999695,
+          "poison_late_mean": 3648.0410076293883,
+          "poison_late_std": 419.3444188861251
+        },
+        "2": {
+          "clean_late_mean": 3634.5629112718952,
+          "dataset_logical_sha256": "e1f670b8b2804ad7b4822bc8c9a8dca9b26d102b5c42d8e80d563f726352b3dc",
+          "final_evaluation_normalized_return": 76.71912204290345,
+          "final_evaluation_raw_return": 3523.551488940647,
+          "paired_degradation": 0.0016562205526660613,
+          "poison_best_progress_return": 4021.633453576787,
+          "poison_final_progress_return": 3685.487788055394,
+          "poison_late_mean": 3628.543273478289,
+          "poison_late_std": 459.1596259481836
+        }
+      },
+      "std_paired_degradation": 0.017833153520891327
+    }
+  },
+  "schema_version": "csdpc-s2-overlap-r0-cql-sensitivity-v1",
+  "sensitivity_verdict": "WEAK_EFFECT_UNDER_REUSED_GATE_B_RULE",
+  "status": "SENSITIVITY_ONLY",
+  "variant_id": "csdpc_s2_overlap_r0_v1"
+}

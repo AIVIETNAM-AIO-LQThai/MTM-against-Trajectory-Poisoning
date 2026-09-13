@@ -101,6 +101,12 @@ class PerturbedWindow:
 
     state_deltas: np.ndarray
     action_deltas: np.ndarray
+    # Exact per-transition KMeans labels produced during
+    # the original candidate-scoring prediction batch.
+    #
+    # This is diagnostic provenance only. It does not
+    # alter candidate selection or poisoned data.
+    raw_target_labels: Pattern = ()
 
     @property
     def transition_indices(self) -> Tuple[int, ...]:

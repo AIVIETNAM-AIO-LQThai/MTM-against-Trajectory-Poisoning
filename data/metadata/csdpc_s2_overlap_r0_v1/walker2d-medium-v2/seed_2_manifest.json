@@ -1,0 +1,22 @@
+{
+  "artifacts": [
+    {
+      "artifact": "data/poisoned/csdpc_s2_overlap_r0_v1/walker2d-medium-v2/rho_001_seed_2.hdf5",
+      "file_sha256": "5693f5bbaed8a8ab7fa4b9c4b3daa05756bd56644d307199cfebba069d4290d5",
+      "logical_sha256": "8956ea24254502c785290958787029fda06c2cfc9724ce519fd7a8e331cd6161",
+      "metadata": "data/metadata/csdpc_s2_overlap_r0_v1/walker2d-medium-v2/rho_001_seed_2.json",
+      "rho": 0.01
+    },
+    {
+      "artifact": "data/poisoned/csdpc_s2_overlap_r0_v1/walker2d-medium-v2/rho_005_seed_2.hdf5",
+      "file_sha256": "c951576f6c008a408db6d306b93e55c991438d88e1ca78e559f8d5af969d4675",
+      "logical_sha256": "e1f670b8b2804ad7b4822bc8c9a8dca9b26d102b5c42d8e80d563f726352b3dc",
+      "metadata": "data/metadata/csdpc_s2_overlap_r0_v1/walker2d-medium-v2/rho_005_seed_2.json",
+      "rho": 0.05
+    }
+  ],
+  "attack_seed": 2,
+  "cross_rho_consistency": true,
+  "schema_version": "csdpc-s2-overlap-r0-seed-manifest-v1",
+  "variant_id": "csdpc_s2_overlap_r0_v1"
+}

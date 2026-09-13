@@ -1,0 +1,55 @@
+{
+  "canonical_attack_is_unchanged": true,
+  "experiment": "CSDPC_OVERLAP_TARGET_CONFLICT_DIAGNOSTIC",
+  "rho_results": {
+    "0.01": {
+      "metrics": {
+        "conflict_transition_fraction_of_unique_footprint": 0.03250650130026005,
+        "conflicting_overlap_transition_fraction": 0.09615384615384616,
+        "independent_proposal_frequency_improvement_fraction": 0.5386684599865501,
+        "independent_proposal_pattern_change_fraction": 0.5457296570275723,
+        "max_distinct_target_labels_on_any_transition": 3,
+        "mean_distinct_target_labels_on_overlapped_transitions": 1.0967455621301776,
+        "mean_proposal_multiplicity_on_overlapped_transitions": 2.441420118343195,
+        "mean_source_pattern_frequency": 1.2521856086079355,
+        "mean_target_pattern_frequency": 374.3147276395427,
+        "overlap_reuse_fraction": 0.32763954270342976,
+        "overlapped_unique_transition_fraction": 0.33806761352270454,
+        "pairwise_label_disagreement_fraction_on_overlaps": 0.08440123729562528,
+        "proposal_slot_conflict_fraction": 0.05817081371889711,
+        "selected_window_count": 2974,
+        "selected_window_transition_slot_count": 14870,
+        "unique_transition_footprint": 9998,
+        "window_not_touching_label_conflict_fraction": 0.7683254875588433,
+        "window_touching_label_conflict_fraction": 0.2316745124411567,
+        "window_touching_overlap_fraction": 0.6701412239408204
+      }
+    },
+    "0.05": {
+      "metrics": {
+        "conflict_transition_fraction_of_unique_footprint": 0.039361723426832446,
+        "conflicting_overlap_transition_fraction": 0.07869351158787975,
+        "independent_proposal_frequency_improvement_fraction": 0.5221715030974894,
+        "independent_proposal_pattern_change_fraction": 0.524616889468536,
+        "max_distinct_target_labels_on_any_transition": 3,
+        "mean_distinct_target_labels_on_overlapped_transitions": 1.079133810991474,
+        "mean_proposal_multiplicity_on_overlapped_transitions": 2.683664892126646,
+        "mean_source_pattern_frequency": 8.070970546679709,
+        "mean_target_pattern_frequency": 865.0782523638735,
+        "overlap_reuse_fraction": 0.45715683077926317,
+        "overlapped_unique_transition_fraction": 0.5001902016137105,
+        "pairwise_label_disagreement_fraction_on_overlaps": 0.06596290152314885,
+        "proposal_slot_conflict_fraction": 0.06517769807629606,
+        "selected_window_count": 18402,
+        "selected_window_transition_slot_count": 92010,
+        "unique_transition_footprint": 49947,
+        "window_not_touching_label_conflict_fraction": 0.7440495598304532,
+        "window_touching_label_conflict_fraction": 0.25595044016954677,
+        "window_touching_overlap_fraction": 0.8457776328659928
+      }
+    }
+  },
+  "schema_version": "csdpc-overlap-conflict-seed-v1",
+  "seed": 2,
+  "status": "DIAGNOSTIC_ONLY"
+}

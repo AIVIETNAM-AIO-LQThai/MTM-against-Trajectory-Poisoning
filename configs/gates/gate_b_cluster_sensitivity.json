@@ -1,0 +1,35 @@
+{
+  "experiment": "CSDPC_CLUSTER_COUNT_SENSITIVITY",
+  "status": "SECONDARY_SENSITIVITY",
+  "dataset": "walker2d-medium-v2",
+
+  "canonical_num_clusters": 8,
+  "sensitivity_num_clusters": [6, 10],
+
+  "sequence_length": 5,
+  "eta": 0.05,
+  "num_candidates": 100,
+
+  "primary_poison_rate": 0.05,
+
+  "attack_seeds": [0, 1, 2],
+  "model_seeds": [0, 1, 2],
+  "pairing_rule": "attack_seed_equals_model_seed",
+
+  "cql_configuration": "configs/cql/gate_b_walker2d_medium_v2.json",
+  "training_epochs": 500,
+  "late_window": [400, 499],
+
+  "evaluation_rule": {
+    "minimum_mean_paired_degradation_for_strong_effect": 0.50,
+    "require_all_three_seed_pairs_to_degrade": true
+  },
+
+  "rules": [
+    "The canonical k=8 Gate-B result remains INCONCLUSIVE regardless of sensitivity results.",
+    "k=6 and k=10 are reported as separate sensitivity conditions.",
+    "Do not select a cluster count according to poisoned performance and relabel it as canonical.",
+    "Do not modify CQL hyperparameters between cluster-count conditions.",
+    "Do not modify sequence length, eta, candidate count, poison budget, or evaluation metric during this sensitivity."
+  ]
+}

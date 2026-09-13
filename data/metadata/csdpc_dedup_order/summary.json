@@ -1,0 +1,241 @@
+{
+  "aggregate_metrics": {
+    "D0_CANONICAL": {
+      "average_pattern_length": {
+        "max": 2.1170276366888223,
+        "mean": 2.0934546447154023,
+        "min": 2.046719618984461,
+        "std": 0.03304707948989962,
+        "values_by_seed": {
+          "0": 2.046719618984461,
+          "1": 2.1166166784729237,
+          "2": 2.1170276366888223
+        }
+      },
+      "compressed_label_count": {
+        "max": 999995.0,
+        "mean": 999995.0,
+        "min": 999995.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 999995.0,
+          "1": 999995.0,
+          "2": 999995.0
+        }
+      },
+      "compressed_label_fraction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0
+        }
+      },
+      "diagnostic_distinct_pattern_count": {
+        "max": 6389.0,
+        "mean": 6281.0,
+        "min": 6225.0,
+        "std": 76.38498979948002,
+        "values_by_seed": {
+          "0": 6389.0,
+          "1": 6229.0,
+          "2": 6225.0
+        }
+      },
+      "diagnostic_window_count": {
+        "max": 995235.0,
+        "mean": 995235.0,
+        "min": 995235.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 995235.0,
+          "1": 995235.0,
+          "2": 995235.0
+        }
+      },
+      "distinct_pattern_reduction_fraction": {
+        "max": 0.439845226311527,
+        "mean": 0.43458303191939507,
+        "min": 0.42456993605331894,
+        "std": 0.007083404159464143,
+        "values_by_seed": {
+          "0": 0.42456993605331894,
+          "1": 0.43933393339333937,
+          "2": 0.439845226311527
+        }
+      },
+      "original_transition_label_count": {
+        "max": 999995.0,
+        "mean": 999995.0,
+        "min": 999995.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 999995.0,
+          "1": 999995.0,
+          "2": 999995.0
+        }
+      },
+      "raw_distinct_pattern_count": {
+        "max": 11113.0,
+        "mean": 11108.666666666666,
+        "min": 11103.0,
+        "std": 4.189935029992178,
+        "values_by_seed": {
+          "0": 11103.0,
+          "1": 11110.0,
+          "2": 11113.0
+        }
+      },
+      "raw_window_count": {
+        "max": 995235.0,
+        "mean": 995235.0,
+        "min": 995235.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 995235.0,
+          "1": 995235.0,
+          "2": 995235.0
+        }
+      }
+    },
+    "D3_TRAJECTORY_DEDUP_BEFORE_WINDOW": {
+      "average_pattern_length": {
+        "max": 5.0,
+        "mean": 5.0,
+        "min": 5.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 5.0,
+          "1": 5.0,
+          "2": 5.0
+        }
+      },
+      "compressed_label_count": {
+        "max": 281198.0,
+        "mean": 275335.0,
+        "min": 263714.0,
+        "std": 8217.399710370672,
+        "values_by_seed": {
+          "0": 263714.0,
+          "1": 281093.0,
+          "2": 281198.0
+        }
+      },
+      "compressed_label_fraction": {
+        "max": 0.28119940599702997,
+        "mean": 0.27533637668188343,
+        "min": 0.26371531857659286,
+        "std": 0.008217440797574666,
+        "values_by_seed": {
+          "0": 0.26371531857659286,
+          "1": 0.28109440547202735,
+          "2": 0.28119940599702997
+        }
+      },
+      "diagnostic_distinct_pattern_count": {
+        "max": 9010.0,
+        "mean": 8884.666666666666,
+        "min": 8636.0,
+        "std": 175.83578197347154,
+        "values_by_seed": {
+          "0": 8636.0,
+          "1": 9010.0,
+          "2": 9008.0
+        }
+      },
+      "diagnostic_window_count": {
+        "max": 276438.0,
+        "mean": 270575.0,
+        "min": 258954.0,
+        "std": 8217.399710370672,
+        "values_by_seed": {
+          "0": 258954.0,
+          "1": 276333.0,
+          "2": 276438.0
+        }
+      },
+      "distinct_pattern_reduction_fraction": {
+        "max": 0.22219220030622355,
+        "mean": 0.20020963372352898,
+        "min": 0.189018901890189,
+        "std": 0.015544874930189537,
+        "values_by_seed": {
+          "0": 0.22219220030622355,
+          "1": 0.189018901890189,
+          "2": 0.18941779897417443
+        }
+      },
+      "original_transition_label_count": {
+        "max": 999995.0,
+        "mean": 999995.0,
+        "min": 999995.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 999995.0,
+          "1": 999995.0,
+          "2": 999995.0
+        }
+      },
+      "raw_distinct_pattern_count": {
+        "max": 11113.0,
+        "mean": 11108.666666666666,
+        "min": 11103.0,
+        "std": 4.189935029992178,
+        "values_by_seed": {
+          "0": 11103.0,
+          "1": 11110.0,
+          "2": 11113.0
+        }
+      },
+      "raw_window_count": {
+        "max": 995235.0,
+        "mean": 995235.0,
+        "min": 995235.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 995235.0,
+          "1": 995235.0,
+          "2": 995235.0
+        }
+      }
+    }
+  },
+  "attack_seeds": [
+    0,
+    1,
+    2
+  ],
+  "canonical_attack_is_unchanged": true,
+  "dataset": {
+    "action_dim": 6,
+    "completed_trajectory_count": 1190,
+    "completed_transition_count": 999995,
+    "decision_unit_dim": 23,
+    "name": "walker2d-medium-v2",
+    "num_transitions": 1000000,
+    "path": "data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "state_dim": 17,
+    "trailing_transition_count": 5
+  },
+  "experiment": "CSDPC_DEDUP_ORDER_DIAGNOSTIC",
+  "interpretation_rule": "D3 is source-fidelity diagnosis only and cannot replace canonical CSDPC or Gate B.",
+  "metric_semantics": {
+    "compressed_label_count": "label-stream length used before windowing; D0 equals original completed labels, D3 equals trajectory-wise consecutively deduplicated labels",
+    "compressed_label_fraction": "compressed_label_count divided by original_transition_label_count",
+    "diagnostic_window_count": "window count after applying each diagnostic interpretation",
+    "distinct_pattern_reduction_fraction": "1 - diagnostic_distinct_pattern_count / raw_distinct_pattern_count",
+    "original_transition_label_count": "cluster labels belonging to completed trajectories only; trailing incomplete fragment excluded",
+    "raw_window_count": "canonical length-5 original-position window count"
+  },
+  "schema_version": "csdpc-dedup-order-summary-v1",
+  "seed_result_files": {
+    "0": "data/metadata/csdpc_dedup_order/seed_0.json",
+    "1": "data/metadata/csdpc_dedup_order/seed_1.json",
+    "2": "data/metadata/csdpc_dedup_order/seed_2.json"
+  },
+  "status": "DIAGNOSTIC_ONLY"
+}

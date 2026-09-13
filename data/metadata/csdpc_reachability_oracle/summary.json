@@ -1,0 +1,413 @@
+{
+  "canonical_attack_is_unchanged": true,
+  "dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "experiment": "CSDPC_REACHABILITY_ORACLE_DIAGNOSTIC",
+  "interpretation": {
+    "candidate_search_gap_definition": "oracle can reach a higher clean pattern frequency than the realized canonical 100-candidate result",
+    "closed_voronoi_is_upper_bound": true
+  },
+  "rho_results": {
+    "0.01": {
+      "actual_attains_oracle_best_frequency_fraction": {
+        "max": 0.653,
+        "mean": 0.6163333333333334,
+        "min": 0.596,
+        "std": 0.02597862369119831,
+        "values_by_seed": {
+          "0": 0.653,
+          "1": 0.6,
+          "2": 0.596
+        }
+      },
+      "actual_frequency_improvement_fraction": {
+        "max": 0.5805,
+        "mean": 0.5448333333333333,
+        "min": 0.489,
+        "std": 0.03998402458760526,
+        "values_by_seed": {
+          "0": 0.489,
+          "1": 0.565,
+          "2": 0.5805
+        }
+      },
+      "actual_pattern_reachable_fraction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0
+        }
+      },
+      "mean_actual_target_frequency": {
+        "max": 555.3385,
+        "mean": 420.61866666666657,
+        "min": 347.175,
+        "std": 95.39073027670045,
+        "values_by_seed": {
+          "0": 347.175,
+          "1": 359.3425,
+          "2": 555.3385
+        }
+      },
+      "mean_oracle_best_frequency": {
+        "max": 2052.221,
+        "mean": 1686.2281666666665,
+        "min": 1203.8355,
+        "std": 355.9973595900053,
+        "values_by_seed": {
+          "0": 1203.8355,
+          "1": 1802.628,
+          "2": 2052.221
+        }
+      },
+      "mean_oracle_minus_actual_frequency": {
+        "max": 1496.8825,
+        "mean": 1265.6094999999998,
+        "min": 856.6605,
+        "std": 289.9972678641415,
+        "values_by_seed": {
+          "0": 856.6605,
+          "1": 1443.2855,
+          "2": 1496.8825
+        }
+      },
+      "mean_source_pattern_frequency": {
+        "max": 1.327,
+        "mean": 1.3148333333333333,
+        "min": 1.301,
+        "std": 0.010679679562400542,
+        "values_by_seed": {
+          "0": 1.301,
+          "1": 1.3165,
+          "2": 1.327
+        }
+      },
+      "multi_cluster_reachable_transition_fraction": {
+        "max": 0.3249,
+        "mean": 0.30973333333333336,
+        "min": 0.2821,
+        "std": 0.019570783212624766,
+        "values_by_seed": {
+          "0": 0.2821,
+          "1": 0.3222,
+          "2": 0.3249
+        }
+      },
+      "oracle_frequency_improvement_possible_fraction": {
+        "max": 0.7555,
+        "mean": 0.7233333333333333,
+        "min": 0.6675,
+        "std": 0.03963233808674706,
+        "values_by_seed": {
+          "0": 0.6675,
+          "1": 0.747,
+          "2": 0.7555
+        }
+      },
+      "oracle_pattern_change_possible_fraction": {
+        "max": 0.85,
+        "mean": 0.8273333333333334,
+        "min": 0.788,
+        "std": 0.027920522121829206,
+        "values_by_seed": {
+          "0": 0.788,
+          "1": 0.844,
+          "2": 0.85
+        }
+      },
+      "oracle_search_gap_fraction": {
+        "max": 0.404,
+        "mean": 0.38366666666666666,
+        "min": 0.347,
+        "std": 0.02597862369119831,
+        "values_by_seed": {
+          "0": 0.347,
+          "1": 0.4,
+          "2": 0.404
+        }
+      },
+      "reachable_cluster_count_max": {
+        "max": 5.0,
+        "mean": 4.666666666666667,
+        "min": 4.0,
+        "std": 0.4714045207910317,
+        "values_by_seed": {
+          "0": 4.0,
+          "1": 5.0,
+          "2": 5.0
+        }
+      },
+      "reachable_cluster_count_mean": {
+        "max": 1.3744,
+        "mean": 1.3564333333333334,
+        "min": 1.323,
+        "std": 0.023662957455811737,
+        "values_by_seed": {
+          "0": 1.323,
+          "1": 1.3719,
+          "2": 1.3744
+        }
+      },
+      "reachable_pattern_count_max": {
+        "max": 94.0,
+        "mean": 69.33333333333333,
+        "min": 48.0,
+        "std": 18.92675942210452,
+        "values_by_seed": {
+          "0": 66.0,
+          "1": 48.0,
+          "2": 94.0
+        }
+      },
+      "reachable_pattern_count_mean": {
+        "max": 4.516,
+        "mean": 4.284833333333333,
+        "min": 3.9135,
+        "std": 0.26518745990127224,
+        "values_by_seed": {
+          "0": 3.9135,
+          "1": 4.425,
+          "2": 4.516
+        }
+      },
+      "selected_transition_count": {
+        "max": 10000.0,
+        "mean": 10000.0,
+        "min": 10000.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 10000.0,
+          "1": 10000.0,
+          "2": 10000.0
+        }
+      },
+      "selected_window_count": {
+        "max": 2000.0,
+        "mean": 2000.0,
+        "min": 2000.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 2000.0,
+          "1": 2000.0,
+          "2": 2000.0
+        }
+      },
+      "source_only_reachable_transition_fraction": {
+        "max": 0.7179,
+        "mean": 0.6902666666666667,
+        "min": 0.6751,
+        "std": 0.019570783212624763,
+        "values_by_seed": {
+          "0": 0.7179,
+          "1": 0.6778,
+          "2": 0.6751
+        }
+      }
+    },
+    "0.05": {
+      "actual_attains_oracle_best_frequency_fraction": {
+        "max": 0.7012,
+        "mean": 0.6667,
+        "min": 0.6483,
+        "std": 0.024413247769739046,
+        "values_by_seed": {
+          "0": 0.7012,
+          "1": 0.6483,
+          "2": 0.6506
+        }
+      },
+      "actual_frequency_improvement_fraction": {
+        "max": 0.5354,
+        "mean": 0.5125666666666667,
+        "min": 0.4698,
+        "std": 0.030263766380864678,
+        "values_by_seed": {
+          "0": 0.4698,
+          "1": 0.5325,
+          "2": 0.5354
+        }
+      },
+      "actual_pattern_reachable_fraction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 1.0,
+          "1": 1.0,
+          "2": 1.0
+        }
+      },
+      "mean_actual_target_frequency": {
+        "max": 802.4411,
+        "mean": 785.7307999999999,
+        "min": 764.7651,
+        "std": 15.672727179615787,
+        "values_by_seed": {
+          "0": 789.9862,
+          "1": 764.7651,
+          "2": 802.4411
+        }
+      },
+      "mean_oracle_best_frequency": {
+        "max": 2433.1251,
+        "mean": 2341.7242,
+        "min": 2187.0166,
+        "std": 109.99440028695413,
+        "values_by_seed": {
+          "0": 2187.0166,
+          "1": 2405.0309,
+          "2": 2433.1251
+        }
+      },
+      "mean_oracle_minus_actual_frequency": {
+        "max": 1640.2658,
+        "mean": 1555.9934,
+        "min": 1397.0304,
+        "std": 112.47186092399576,
+        "values_by_seed": {
+          "0": 1397.0304,
+          "1": 1640.2658,
+          "2": 1630.684
+        }
+      },
+      "mean_source_pattern_frequency": {
+        "max": 11.0116,
+        "mean": 10.943600000000002,
+        "min": 10.9024,
+        "std": 0.048441304689283246,
+        "values_by_seed": {
+          "0": 11.0116,
+          "1": 10.9024,
+          "2": 10.9168
+        }
+      },
+      "multi_cluster_reachable_transition_fraction": {
+        "max": 0.28796,
+        "mean": 0.2769,
+        "min": 0.2557,
+        "std": 0.014995368173761755,
+        "values_by_seed": {
+          "0": 0.2557,
+          "1": 0.28704,
+          "2": 0.28796
+        }
+      },
+      "oracle_frequency_improvement_possible_fraction": {
+        "max": 0.7121,
+        "mean": 0.6863333333333334,
+        "min": 0.6359,
+        "std": 0.03566457937817605,
+        "values_by_seed": {
+          "0": 0.6359,
+          "1": 0.711,
+          "2": 0.7121
+        }
+      },
+      "oracle_pattern_change_possible_fraction": {
+        "max": 0.8006,
+        "mean": 0.7808666666666667,
+        "min": 0.7425,
+        "std": 0.027133046681532477,
+        "values_by_seed": {
+          "0": 0.7425,
+          "1": 0.7995,
+          "2": 0.8006
+        }
+      },
+      "oracle_search_gap_fraction": {
+        "max": 0.3517,
+        "mean": 0.3333,
+        "min": 0.2988,
+        "std": 0.024413247769739004,
+        "values_by_seed": {
+          "0": 0.2988,
+          "1": 0.3517,
+          "2": 0.3494
+        }
+      },
+      "reachable_cluster_count_max": {
+        "max": 5.0,
+        "mean": 5.0,
+        "min": 5.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 5.0,
+          "1": 5.0,
+          "2": 5.0
+        }
+      },
+      "reachable_cluster_count_mean": {
+        "max": 1.32572,
+        "mean": 1.3130066666666667,
+        "min": 1.28912,
+        "std": 0.01690212083996821,
+        "values_by_seed": {
+          "0": 1.28912,
+          "1": 1.32418,
+          "2": 1.32572
+        }
+      },
+      "reachable_pattern_count_max": {
+        "max": 94.0,
+        "mean": 79.33333333333333,
+        "min": 66.0,
+        "std": 11.469767022723502,
+        "values_by_seed": {
+          "0": 78.0,
+          "1": 66.0,
+          "2": 94.0
+        }
+      },
+      "reachable_pattern_count_mean": {
+        "max": 3.6737,
+        "mean": 3.541166666666667,
+        "min": 3.3038,
+        "std": 0.16822410317457165,
+        "values_by_seed": {
+          "0": 3.3038,
+          "1": 3.646,
+          "2": 3.6737
+        }
+      },
+      "selected_transition_count": {
+        "max": 50000.0,
+        "mean": 50000.0,
+        "min": 50000.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 50000.0,
+          "1": 50000.0,
+          "2": 50000.0
+        }
+      },
+      "selected_window_count": {
+        "max": 10000.0,
+        "mean": 10000.0,
+        "min": 10000.0,
+        "std": 0.0,
+        "values_by_seed": {
+          "0": 10000.0,
+          "1": 10000.0,
+          "2": 10000.0
+        }
+      },
+      "source_only_reachable_transition_fraction": {
+        "max": 0.7443,
+        "mean": 0.7231,
+        "min": 0.71204,
+        "std": 0.014995368173761719,
+        "values_by_seed": {
+          "0": 0.7443,
+          "1": 0.71296,
+          "2": 0.71204
+        }
+      }
+    }
+  },
+  "schema_version": "csdpc-reachability-oracle-summary-v1",
+  "status": "DIAGNOSTIC_ONLY"
+}

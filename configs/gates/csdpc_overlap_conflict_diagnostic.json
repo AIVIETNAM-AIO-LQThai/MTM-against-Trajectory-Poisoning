@@ -1,0 +1,72 @@
+{
+  "experiment": "CSDPC_OVERLAP_TARGET_CONFLICT_DIAGNOSTIC",
+  "status": "DIAGNOSTIC_ONLY",
+
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+
+  "selection_reference": "S2_PATTERN_TYPE_ATOMIC_PREFIX",
+
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "eta": 0.05,
+  "num_candidates": 100,
+
+  "attack_seeds": [0, 1, 2],
+  "poison_rates": [0.01, 0.05],
+
+  "proposal_generation": {
+    "method": "existing_canonical_perturb_selected_window",
+    "proposal_semantics": "independent_per_selected_window",
+    "rng": "numpy_default_rng_attack_seed",
+    "window_processing_order": "S2_rare_pattern_prefix_order",
+    "generate_max_rho_once": true,
+    "rho_001_must_be_prefix_of_rho_005": true
+  },
+
+  "conflict_definition": {
+    "transition_overlap": "same original transition belongs to at least two selected windows",
+    "target_label_conflict": "overlapping window proposals assign more than one distinct KMeans target label to the same original transition",
+    "exact_independent_targets_jointly_compatible": "no target-label conflict occurs on any transition required by those independent proposals"
+  },
+
+  "metrics": [
+    "selected_window_count",
+    "unique_transition_footprint",
+    "selected_window_transition_slot_count",
+    "overlap_reuse_fraction",
+
+    "overlapped_unique_transition_fraction",
+    "window_touching_overlap_fraction",
+
+    "conflicting_overlap_transition_fraction",
+    "conflict_transition_fraction_of_unique_footprint",
+    "proposal_slot_conflict_fraction",
+    "pairwise_label_disagreement_fraction_on_overlaps",
+
+    "window_touching_label_conflict_fraction",
+    "window_not_touching_label_conflict_fraction",
+
+    "mean_proposal_multiplicity_on_overlapped_transitions",
+    "mean_distinct_target_labels_on_overlapped_transitions",
+    "max_distinct_target_labels_on_any_transition",
+
+    "independent_proposal_pattern_change_fraction",
+    "independent_proposal_frequency_improvement_fraction",
+    "mean_source_pattern_frequency",
+    "mean_target_pattern_frequency"
+  ],
+
+  "rules": [
+    "No poisoned HDF5 dataset is generated.",
+    "No overlap conflict-resolution rule is introduced.",
+    "No CQL, DT, BC, or MTM learner is trained.",
+    "S2 is used only because it exactly represents the already-frozen type-complete diagnostic interpretation.",
+    "The existing canonical perturb_selected_window function is reused unchanged.",
+    "Each selected window is optimized independently before conflicts are measured.",
+    "The rho=0.01 selected-window list must be an exact prefix of rho=0.05 within each seed.",
+    "No first-wins, last-wins, averaging, voting, or overwrite rule is tested in this diagnostic.",
+    "No conflict-resolution strategy may be selected before these results are recorded.",
+    "Canonical Gate B remains unchanged."
+  ]
+}

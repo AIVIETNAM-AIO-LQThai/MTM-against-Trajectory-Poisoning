@@ -1,0 +1,43 @@
+{
+  "experiment": "CSDPC_DEDUP_METRIC_RECONCILIATION",
+  "status": "DIAGNOSTIC_ONLY",
+  "dataset": "walker2d-medium-v2",
+  "canonical_attack_is_unchanged": true,
+
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "attack_seeds": [0, 1, 2],
+
+  "pipeline": {
+    "feature_preprocessing": "none",
+    "window_stride": 1,
+    "respect_episode_boundaries": true,
+    "deduplication_order": "window_then_deduplicate"
+  },
+
+  "metrics": [
+    "window_count",
+    "raw_distinct_sequence_type_count",
+    "deduplicated_distinct_pattern_type_count",
+    "canonical_distinct_type_reduction_fraction",
+    "window_instance_changed_fraction",
+    "raw_distinct_sequence_type_changed_fraction",
+    "total_label_token_reduction_fraction",
+    "average_deduplicated_pattern_length",
+    "full_length_pattern_occurrence_fraction",
+    "full_length_distinct_pattern_fraction",
+    "non_equivalent_total_window_denominator_reduction_fraction"
+  ],
+
+  "rules": [
+    "No attack variant is introduced by this diagnostic.",
+    "No poisoned dataset is generated.",
+    "No learner is trained.",
+    "All metrics are computed from the exact canonical clean pattern pipeline.",
+    "All predeclared metrics must be reported.",
+    "No metric may be selected because it is numerically close to the paper's nearly-80-percent statement.",
+    "Only canonical_distinct_type_reduction_fraction directly corresponds to the project's current interpretation of distinct-pattern reduction.",
+    "Other metrics are semantic diagnostics and must not be silently relabeled as the source statistic.",
+    "Canonical Gate B remains unchanged."
+  ]
+}

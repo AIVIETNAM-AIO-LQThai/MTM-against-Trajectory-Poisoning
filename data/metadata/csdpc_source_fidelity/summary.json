@@ -1,0 +1,235 @@
+{
+  "aggregate_scalar_metrics": {
+    "D0_CANONICAL": {
+      "adjacent_same_cluster_fraction": {
+        "max": 0.7371619084806343,
+        "mean": 0.7255270047707011,
+        "min": 0.7196569901031733,
+        "std": 0.008227231251716469,
+        "values_by_seed": {
+          "0": 0.7371619084806343,
+          "1": 0.7197621157282953,
+          "2": 0.7196569901031733
+        }
+      },
+      "average_deduplicated_pattern_length": {
+        "max": 2.1170276366888223,
+        "mean": 2.0934546447154023,
+        "min": 2.046719618984461,
+        "std": 0.03304707948989962,
+        "values_by_seed": {
+          "0": 2.046719618984461,
+          "1": 2.1166166784729237,
+          "2": 2.1170276366888223
+        }
+      },
+      "dedup_affected_window_fraction": {
+        "max": 0.9495938145262174,
+        "mean": 0.9461296410730465,
+        "min": 0.9443689178937638,
+        "std": 0.002449652129271158,
+        "values_by_seed": {
+          "0": 0.9495938145262174,
+          "1": 0.944426190799158,
+          "2": 0.9443689178937638
+        }
+      },
+      "deduplicated_distinct_pattern_count": {
+        "max": 6389.0,
+        "mean": 6281.0,
+        "min": 6225.0,
+        "std": 76.38498979948002,
+        "values_by_seed": {
+          "0": 6389.0,
+          "1": 6229.0,
+          "2": 6225.0
+        }
+      },
+      "distinct_pattern_reduction_fraction": {
+        "max": 0.439845226311527,
+        "mean": 0.43458303191939507,
+        "min": 0.42456993605331894,
+        "std": 0.007083404159464143,
+        "values_by_seed": {
+          "0": 0.42456993605331894,
+          "1": 0.43933393339333937,
+          "2": 0.439845226311527
+        }
+      },
+      "raw_distinct_pattern_count": {
+        "max": 11113.0,
+        "mean": 11108.666666666666,
+        "min": 11103.0,
+        "std": 4.189935029992178,
+        "values_by_seed": {
+          "0": 11103.0,
+          "1": 11110.0,
+          "2": 11113.0
+        }
+      }
+    },
+    "D1_LITERAL_L_PLUS_ONE": {
+      "adjacent_same_cluster_fraction": {
+        "max": 0.7371619084806343,
+        "mean": 0.7255270047707011,
+        "min": 0.7196569901031733,
+        "std": 0.008227231251716469,
+        "values_by_seed": {
+          "0": 0.7371619084806343,
+          "1": 0.7197621157282953,
+          "2": 0.7196569901031733
+        }
+      },
+      "average_deduplicated_pattern_length": {
+        "max": 2.3949821185157614,
+        "mean": 2.3654901605728784,
+        "min": 2.307014269977717,
+        "std": 0.04134921892125571,
+        "values_by_seed": {
+          "0": 2.307014269977717,
+          "1": 2.394474093225156,
+          "2": 2.3949821185157614
+        }
+      },
+      "dedup_affected_window_fraction": {
+        "max": 0.9651464470924355,
+        "mean": 0.9631716873984578,
+        "min": 0.9621636847426425,
+        "std": 0.0013964674926310577,
+        "values_by_seed": {
+          "0": 0.9651464470924355,
+          "1": 0.9622049303602955,
+          "2": 0.9621636847426425
+        }
+      },
+      "deduplicated_distinct_pattern_count": {
+        "max": 12080.0,
+        "mean": 11870.333333333334,
+        "min": 11762.0,
+        "std": 148.28426154593149,
+        "values_by_seed": {
+          "0": 12080.0,
+          "1": 11762.0,
+          "2": 11769.0
+        }
+      },
+      "distinct_pattern_reduction_fraction": {
+        "max": 0.557988432359348,
+        "mean": 0.5518518277042236,
+        "min": 0.5398971624452485,
+        "std": 0.008454225123915223,
+        "values_by_seed": {
+          "0": 0.5398971624452485,
+          "1": 0.5576698883080742,
+          "2": 0.557988432359348
+        }
+      },
+      "raw_distinct_pattern_count": {
+        "max": 26626.0,
+        "mean": 26490.666666666668,
+        "min": 26255.0,
+        "std": 167.25296874960262,
+        "values_by_seed": {
+          "0": 26255.0,
+          "1": 26591.0,
+          "2": 26626.0
+        }
+      }
+    },
+    "D2_ZSCORE_PER_DIMENSION": {
+      "adjacent_same_cluster_fraction": {
+        "max": 0.8632856263234565,
+        "mean": 0.8610753183387482,
+        "min": 0.8599656589624601,
+        "std": 0.0015629280936612935,
+        "values_by_seed": {
+          "0": 0.8599746697303278,
+          "1": 0.8599656589624601,
+          "2": 0.8632856263234565
+        }
+      },
+      "average_deduplicated_pattern_length": {
+        "max": 1.5564555105075686,
+        "mean": 1.5534079890679087,
+        "min": 1.5473491185498902,
+        "std": 0.0042842938800160746,
+        "values_by_seed": {
+          "0": 1.556419338146267,
+          "1": 1.5564555105075686,
+          "2": 1.5473491185498902
+        }
+      },
+      "dedup_affected_window_fraction": {
+        "max": 0.9768778228257647,
+        "mean": 0.9768567222816721,
+        "min": 0.9768426552522771,
+        "std": 1.5194128317706928e-05,
+        "values_by_seed": {
+          "0": 0.9768426552522771,
+          "1": 0.9768496887669746,
+          "2": 0.9768778228257647
+        }
+      },
+      "deduplicated_distinct_pattern_count": {
+        "max": 2610.0,
+        "mean": 2268.6666666666665,
+        "min": 2097.0,
+        "std": 241.360495708989,
+        "values_by_seed": {
+          "0": 2097.0,
+          "1": 2099.0,
+          "2": 2610.0
+        }
+      },
+      "distinct_pattern_reduction_fraction": {
+        "max": 0.4852869053457577,
+        "mean": 0.4747304504824972,
+        "min": 0.45363198660247017,
+        "std": 0.01491886804783847,
+        "values_by_seed": {
+          "0": 0.4852724594992637,
+          "1": 0.4852869053457577,
+          "2": 0.45363198660247017
+        }
+      },
+      "raw_distinct_pattern_count": {
+        "max": 4777.0,
+        "mean": 4309.666666666667,
+        "min": 4074.0,
+        "std": 330.4586038959931,
+        "values_by_seed": {
+          "0": 4074.0,
+          "1": 4078.0,
+          "2": 4777.0
+        }
+      }
+    }
+  },
+  "attack_seeds": [
+    0,
+    1,
+    2
+  ],
+  "canonical_attack_is_unchanged": true,
+  "cluster_occupancy_note": "Cluster IDs are arbitrary across independent KMeans seeds, so cluster occupancy is preserved per seed and is not averaged by cluster ID.",
+  "dataset": {
+    "action_dim": 6,
+    "completed_trajectory_count": 1190,
+    "decision_unit_dim": 23,
+    "name": "walker2d-medium-v2",
+    "num_transitions": 1000000,
+    "path": "data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "state_dim": 17,
+    "trailing_transition_count": 5
+  },
+  "experiment": "CSDPC_SOURCE_FIDELITY_DIAGNOSTICS",
+  "interpretation_rule": "No diagnostic variant replaces the canonical Gate-B result.",
+  "schema_version": "csdpc-source-fidelity-summary-v1",
+  "seed_result_files": {
+    "0": "data/metadata/csdpc_source_fidelity/seed_0.json",
+    "1": "data/metadata/csdpc_source_fidelity/seed_1.json",
+    "2": "data/metadata/csdpc_source_fidelity/seed_2.json"
+  },
+  "status": "DIAGNOSTIC_ONLY"
+}

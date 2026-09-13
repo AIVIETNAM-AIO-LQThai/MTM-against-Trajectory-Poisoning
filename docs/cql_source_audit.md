@@ -347,3 +347,218 @@ SOURCE_TRANSCRIPTION_CORRECTION
 
 This is not downstream hyperparameter tuning; it restores the value
 explicitly specified by the CSDPC source.
+
+### Clean CQL policy-regime collapse
+
+Three clean Walker2d-medium-v2 runs were completed under the initial
+Gate-B configuration.
+
+All three seeds learned high-performing policies during the initial
+behavior-cloning policy phase, reaching returns above 3000.
+
+However, all three policies collapsed synchronously when the frozen
+CQL trainer crossed `policy_eval_start=40000`.
+
+With 1000 gradient updates per outer training epoch, this transition
+occurs around outer epoch 40-41.
+
+Observed evaluation returns:
+
+- seed 0: epoch 40 = 3594.77, epoch 41 = -7.52
+- seed 1: epoch 40 = 3411.04, epoch 41 = -6.54
+- seed 2: epoch 40 = 3779.42, epoch 41 = -7.89
+
+The frozen CQL implementation uses a behavior-cloning-style policy
+objective before `policy_eval_start` and switches to the Q-maximizing
+CQL/SAC policy objective afterwards.
+
+Q estimates subsequently grow rapidly and policy performance remains
+collapsed.
+
+Status:
+SOURCE_CONFIGURATION_INCOMPATIBILITY
+
+No poisoned CQL result has been observed.
+
+The next experiments are clean-only source-resolution diagnostics and
+must not be selected according to attack effectiveness.
+
+### Clean-only resolution of min_q_weight
+
+The official CQL D4RL MuJoCo guidance leaves
+`min_q_weight` underspecified as either 5.0 or 10.0 when using the
+non-Lagrange variant.
+
+Two clean-only source-resolution variants were evaluated before any
+poisoned CQL result was observed:
+
+- R5: with_lagrange=false, min_q_weight=5.0
+- R10: with_lagrange=false, min_q_weight=10.0
+
+Both variants retained the CSDPC-specified CQL learning rates:
+
+- actor learning rate = 0.001
+- critic learning rate = 0.003
+
+Selection was based only on clean Walker2d-medium-v2 stability over
+epochs 80-119 across model seeds 0, 1, and 2.
+
+Observed results:
+
+R5:
+- three-seed late-window mean = 3213.95
+- cross-seed standard deviation = 619.89
+- fraction of late-window epochs >= 3000:
+  seed 0 = 57.5%, seed 1 = 95.0%, seed 2 = 95.0%
+
+R10:
+- three-seed late-window mean = 3639.16
+- cross-seed standard deviation = 29.84
+- fraction of late-window epochs >= 3000:
+  seed 0 = 95.0%, seed 1 = 95.0%, seed 2 = 95.0%
+
+R10 is therefore selected as the canonical Gate-B CQL
+source-resolution variant.
+
+Frozen CQL-specific resolution:
+
+- with_lagrange = false
+- lagrange_thresh = -1.0
+- min_q_version = 3
+- min_q_weight = 10.0
+
+Status:
+CLEAN_ONLY_SOURCE_RESOLUTION_COMPLETE
+
+No poisoned CQL performance was used in this selection.
+
+### Frozen B2 clean-CQL acceptance criterion
+
+Before reviewing the complete three-seed canonical clean CQL results,
+the B2 clean-reproduction gate was frozen.
+
+Canonical clean evaluation uses:
+
+- dataset: Walker2d-medium-v2
+- model seeds: 0, 1, 2
+- training horizon: 500 epochs
+- late evaluation window: epochs 400-499
+
+B2 PASS requires:
+
+1. all three runs complete 500 epochs;
+2. no NaN or numerical divergence;
+3. each seed has mean evaluation return >= 2500 over epochs 400-499;
+4. the mean of the three seed-level late-window means is >= 3000;
+5. all three runs use the same frozen clean dataset and CQL configuration.
+
+The criterion is defined before poisoned CQL results are observed and
+must not be changed based on attack performance.
+
+Machine-readable specification:
+`configs/gates/gate_b_clean_cql.json`
+
+Status:
+FROZEN_BEFORE_GATE_B_RESULTS
+
+### B2 clean CQL reproduction result
+
+The canonical R10 clean CQL configuration completed the frozen
+500-epoch protocol for model seeds 0, 1, and 2.
+
+Late-window evaluation uses epochs 400-499.
+
+Observed aggregate results:
+
+- three-seed mean late return = 3694.26
+- cross-seed standard deviation = 42.26
+- minimum seed late mean = 3634.56
+- maximum seed late mean = 3726.50
+- configuration hashes identical across seeds = true
+- clean dataset logical hashes identical across seeds = true
+
+All frozen B2 acceptance requirements were satisfied.
+
+Status:
+B2_CLEAN_CQL_PASS
+
+The canonical CQL baseline is now frozen. Its hyperparameters,
+training horizon, seed protocol, and clean dataset must not be changed
+in response to downstream poisoned results.
+
+### Canonical Gate-B CSDPC result
+
+Canonical CSDPC artifacts were evaluated against the frozen R10 CQL
+baseline using 500 training epochs and paired attack/model seeds
+0, 1, and 2.
+
+The primary Gate-B poison rate was rho=0.05.
+
+Observed paired degradation:
+
+- seed 0: 2.38%
+- seed 1: 2.58%
+- seed 2: -0.56%
+
+Mean paired degradation:
+
+- rho=0.01: 0.14%
+- rho=0.05: 1.47%
+
+At rho=0.05, not all seed pairs degraded because seed 2 obtained
+slightly higher return on the poisoned dataset.
+
+According to the predeclared Gate-B criterion, the result is:
+
+GATE B: INCONCLUSIVE
+
+The canonical attack therefore does not establish convincing CQL
+degradation under the current reproduction.
+
+No canonical CQL hyperparameter, CSDPC artifact, poisoning rule,
+training horizon, evaluation metric, or Gate-B threshold will be
+modified in response to this result.
+
+Further investigation must be performed only as explicitly named
+sensitivity experiments and must remain separate from the canonical
+Gate-B result.
+
+Status:
+CANONICAL_GATE_B_INCONCLUSIVE
+
+### CSDPC cluster-count sensitivity result
+
+After the canonical k=8 Gate-B result was INCONCLUSIVE, the
+predeclared cluster-count sensitivity evaluated k=6 and k=10 at
+rho=0.05 using the same frozen 500k-update R10 CQL configuration.
+
+Observed paired degradation:
+
+k=6:
+- seed 0: 5.29%
+- seed 1: 1.24%
+- seed 2: 1.16%
+- mean: 2.56%
+- std: 1.93%
+- all seeds degraded: true
+
+k=10:
+- seed 0: 3.28%
+- seed 1: 4.10%
+- seed 2: 3.99%
+- mean: 3.79%
+- std: 0.36%
+- all seeds degraded: true
+
+Neither sensitivity condition produced the predeclared strong attack
+effect.
+
+Conclusion:
+cluster count alone does not explain the discrepancy between the
+current independent CSDPC reproduction and the attack effect reported
+in the source paper.
+
+The canonical k=8 Gate-B result remains INCONCLUSIVE.
+
+Status:
+CLUSTER_SENSITIVITY_NO_STRONG_EFFECT
