@@ -305,3 +305,33 @@ decoder.
 
 The implementation also explicitly handles the valid AUTO_MASK case
 where no tokens remain visible.
+
+## Real-data integration smoke
+
+The standalone MTM pipeline has been exercised end-to-end on the
+frozen `walker2d-medium-v2` dataset.
+
+The smoke pipeline uses:
+
+- frozen Group-1 raw dataset identity;
+- Group-1 trajectory segmentation;
+- trajectory length 4;
+- deterministic 95/5 trajectory split;
+- training-only padded tokenizer statistics;
+- official-style MTM future-value target;
+- states/actions/returns continuous tokenizers;
+- stochastic reference AUTO_MASK;
+- bidirectional MTM encoder-decoder;
+- full reconstruction training objective.
+
+Validation trajectories are excluded from:
+
+- training-window sampling;
+- tokenizer-statistic estimation.
+
+A fixed validation-window/mask bank is evaluated before and after
+training so that reconstruction improvement is not attributable to
+evaluation resampling.
+
+This smoke test uses a reduced 64-dimensional model and is an
+integration check, not the final reference-scale training run.
