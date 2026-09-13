@@ -190,6 +190,47 @@ reference reproduction.
 A masked-only objective may later be tested only as a separately
 named project variant.
 
+### Verified reconstruction-loss behavior
+
+The official continuous D4RL configuration uses:
+
+`norm: "none"`
+
+Therefore continuous targets are reconstructed using raw
+elementwise squared error in encoded/tokenized space.
+
+For each modality, the optimized reference loss is the full
+reconstruction loss:
+
+`raw_loss.mean(dim=(2, 3)).mean()`
+
+The total training objective is the sum of the selected
+per-modality full reconstruction losses.
+
+The implementation also reports:
+
+- masked reconstruction loss;
+- visible/conditioned reconstruction loss.
+
+These are diagnostics only.
+
+The official implementation contains a disabled masked-only branch
+(`if False`) and therefore does not train on masked-only loss.
+
+Another important scale detail is that masked and visible diagnostic
+losses divide by the number of selected tokens but not by the
+continuous feature dimension.
+
+Consequently, for a modality with feature dimension D > 1,
+masked/visible diagnostic magnitudes are not directly comparable
+to the ordinary full-element MSE without accounting for this
+reduction difference.
+
+If a realization contains no hidden tokens or no visible tokens,
+the corresponding diagnostic is undefined. Our implementation
+reports this explicitly as NaN while keeping the full training
+objective finite.
+
 ## Project adaptations
 
 The following are project adaptations and must not be described
