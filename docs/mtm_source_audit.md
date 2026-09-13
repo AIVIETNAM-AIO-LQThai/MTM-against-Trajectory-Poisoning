@@ -225,3 +225,42 @@ audited trajectory-poisoning stress conditions.
 See:
 
 `docs/mtm_experiment_plan.md`
+
+### Verified model execution path
+
+The continuous reference-style MTM architecture is implemented as:
+
+1. modality-specific linear encoder projection;
+2. learned per-modality/per-token encoder encoding;
+3. fixed 1D sin/cos timestep encoding divided by 2;
+4. flatten time/token dimensions within each modality;
+5. retain only `mask == 1` visible tokens;
+6. concatenate visible tokens across modalities;
+7. process visible tokens jointly with a bidirectional Transformer encoder;
+8. split the encoded visible representations back by modality;
+9. append learned mask tokens for hidden positions;
+10. restore each modality to its original token ordering;
+11. apply modality-specific decoder projection;
+12. add decoder modality/token encoding and timestep encoding;
+13. concatenate modalities and process them jointly with a
+    bidirectional Transformer decoder;
+14. split decoder output back by modality;
+15. reconstruct each modality with an independent output head.
+
+The output head is:
+
+`LayerNorm -> Linear -> GELU -> Linear`
+
+No causal Transformer attention mask is used in the standalone MTM
+path.
+
+A dedicated test verifies that altering a visible future token can
+change reconstruction of an earlier hidden token.
+
+A separate test verifies that altering the raw value of a hidden
+token cannot affect model output because the hidden token is removed
+before the encoder and replaced by a learned mask token before the
+decoder.
+
+The implementation also explicitly handles the valid AUTO_MASK case
+where no tokens remain visible.
