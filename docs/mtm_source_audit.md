@@ -210,3 +210,18 @@ First reproduce reference MTM behavior.
 
 Only after standalone MTM is credible may project-specific
 masking or DT integration begin.
+
+## Project attack-status boundary
+
+The independent CSDPC reproduction has been frozen with
+`GATE B: INCONCLUSIVE`.
+
+The standalone MTM reproduction remains scientifically independent
+of that result and should continue unchanged.
+
+Later CSDPC-derived experiments use the frozen datasets only as
+audited trajectory-poisoning stress conditions.
+
+See:
+
+`docs/mtm_experiment_plan.md`
