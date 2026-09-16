@@ -1400,7 +1400,7 @@ def main() -> None:
                 scheduler=scheduler,
                 args=args,
                 git_commit=git_commit,
-                batch_rng=batch_rng,
+                train_sampler=train_sampler,
                 mask_rng=mask_rng,
                 running_losses=running,
                 initial_eval=initial_eval,
