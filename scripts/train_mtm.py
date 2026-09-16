@@ -375,7 +375,6 @@ def evaluate(
     #
     # Therefore step 0, step 20000, etc. evaluate on
     # exactly the same windows and masks.
-
     batch_rng = (
         np.random.RandomState(
             seed + 100_000
@@ -405,7 +404,6 @@ def evaluate(
     model.eval()
 
     with torch.no_grad():
-
         for _ in range(
             num_batches
         ):
@@ -985,12 +983,6 @@ def main() -> None:
         MTMShuffledWindowSampler(
             ranges.train,
             seed=args.seed + 1_000,
-        )
-    )
-
-    mask_rng = (
-        np.random.RandomState(
-            args.seed + 2_000
         )
     )
 
