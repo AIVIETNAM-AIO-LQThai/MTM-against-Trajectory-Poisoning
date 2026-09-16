@@ -14,7 +14,9 @@ import torch
 
 from src.data.mtm_batching import (
     MTMBatch,
+    MTMShuffledWindowSampler,
     build_split_window_ranges,
+    get_mtm_batch,
     sample_mtm_batch,
 )
 
@@ -713,7 +715,7 @@ def save_checkpoint(
     scheduler,
     args: argparse.Namespace,
     git_commit: str | None,
-    batch_rng: np.random.RandomState,
+    train_sampler: MTMShuffledWindowSampler,
     mask_rng: np.random.RandomState,
     running_losses: list[float],
     initial_eval: dict,
@@ -727,95 +729,48 @@ def save_checkpoint(
 
     state = {
         "step": step,
-
-        "model_state_dict": (
-            model.state_dict()
-        ),
-
-        "optimizer_state_dict": (
-            optimizer.state_dict()
-        ),
-
-        "scheduler_state_dict": (
-            scheduler.state_dict()
-        ),
-
-        "args": vars(
-            args
-        ),
-
+        "model_state_dict": model.state_dict(),
+        "optimizer_state_dict": optimizer.state_dict(),
+        "scheduler_state_dict": scheduler.state_dict(),
+        "args": vars(args),
         "git_commit": git_commit,
 
         # Global RNGs
-        "python_random_state": (
-            random.getstate()
-        ),
-
-        "numpy_random_state": (
-            np.random.get_state()
-        ),
-
-        "torch_random_state": (
-            torch.get_rng_state()
-        ),
+        "python_random_state": random.getstate(),
+        "numpy_random_state": np.random.get_state(),
+        "torch_random_state": torch.get_rng_state(),
 
         # These two are the actual local RNG streams
         # used for training-window and mask sampling.
-        "batch_rng_state": (
-            batch_rng.get_state()
-        ),
-
-        "mask_rng_state": (
-            mask_rng.get_state()
-        ),
+        "train_sampler_state": train_sampler.state_dict(),
+        "mask_rng_state": mask_rng.get_state(),
 
         # Preserve running-100 logging exactly.
-        "running_losses": list(
-            running_losses
-        ),
-
-        "initial_eval": (
-            initial_eval
-        ),
-
-        "elapsed_seconds": float(
-            elapsed_seconds
-        ),
+        "running_losses": list(running_losses),
+        "initial_eval": initial_eval,
+        "elapsed_seconds": float(elapsed_seconds),
     }
 
     if torch.cuda.is_available():
-        state[
-            "cuda_random_states"
-        ] = (
-            torch.cuda
-            .get_rng_state_all()
+        state["cuda_random_states"] = (
+            torch.cuda.get_rng_state_all()
         )
 
-    torch.save(
-        state,
-        path,
-    )
+    torch.save(state, path)
 
 
 def main() -> None:
     args = parse_args()
 
     if (
-        args.num_updates
-        <= args.warmup_steps
+        args.num_updates <= args.warmup_steps
     ):
         raise ValueError(
-            "num-updates must exceed "
-            "warmup-steps"
+            "num-updates must exceed warmup-steps"
         )
 
-    set_seed(
-        args.seed
-    )
-
-    device = resolve_device(
-        args.device
-    )
+    set_seed(args.seed)
+    device = resolve_device(args.device)
 
     if (
         args.resume is not None
@@ -838,8 +793,7 @@ def main() -> None:
     )
 
     checkpoints_dir = (
-        args.output_dir
-        / "checkpoints"
+        args.output_dir / "checkpoints"
     )
 
     checkpoints_dir.mkdir(
@@ -848,13 +802,11 @@ def main() -> None:
     )
 
     metrics_path = (
-        args.output_dir
-        / "training_metrics.jsonl"
+        args.output_dir / "training_metrics.jsonl"
     )
 
     summary_path = (
-        args.output_dir
-        / "evaluation_summary.json"
+        args.output_dir / "evaluation_summary.json"
     )
 
     # Fresh run.
@@ -880,87 +832,30 @@ def main() -> None:
                 "was not found"
             )
 
-    git_commit = (
-        get_git_commit()
-    )
+    git_commit = get_git_commit()
 
-    print(
-        "=" * 72
-    )
-
-    print(
-        "REFERENCE-SCALE CLEAN MTM TRAINING"
-    )
-
-    print(
-        "=" * 72
-    )
-
-    print(
-        "device:",
-        device,
-    )
-
-    print(
-        "seed:",
-        args.seed,
-    )
-
-    print(
-        "updates:",
-        args.num_updates,
-    )
-
-    print(
-        "batch_size:",
-        args.batch_size,
-    )
-
-    print(
-        "git_commit:",
-        git_commit,
-    )
+    print("=" * 72)
+    print("REFERENCE-SCALE CLEAN MTM TRAINING")
+    print("=" * 72)
+    print("device:", device)
+    print("seed:", args.seed)
+    print("updates:", args.num_updates)
+    print("batch_size:", args.batch_size)
+    print("git_commit:", git_commit)
 
     # --------------------------------------------------
     # Dataset
     # --------------------------------------------------
-
     with h5py.File(
         DATASET_PATH,
         "r",
     ) as handle:
 
-        observations = (
-            handle[
-                "observations"
-            ][:]
-        )
-
-        actions = (
-            handle[
-                "actions"
-            ][:]
-        )
-
-        rewards = (
-            handle[
-                "rewards"
-            ][:]
-        )
-
-        terminals = (
-            handle[
-                "terminals"
-            ][:]
-            .astype(bool)
-        )
-
-        timeouts = (
-            handle[
-                "timeouts"
-            ][:]
-            .astype(bool)
-        )
+        observations = handle["observations"][:]
+        actions = handle["actions"][:]
+        rewards = handle["rewards"][:]
+        terminals = handle["terminals"][:].astype(bool)
+        timeouts = handle["timeouts"][:].astype(bool)
 
     dataset = ReferenceMTMDataset(
         observations,
@@ -968,12 +863,8 @@ def main() -> None:
         rewards,
         terminals,
         timeouts,
-        trajectory_length=(
-            TRAJ_LENGTH
-        ),
-        max_path_length=(
-            MAX_PATH_LENGTH
-        ),
+        trajectory_length=TRAJ_LENGTH,
+        max_path_length=MAX_PATH_LENGTH,
         discount=1.5,
     )
 
@@ -998,40 +889,29 @@ def main() -> None:
     split = (
         reference_trajectory_split(
             dataset.trajectories,
-            train_fraction=(
-                TRAIN_FRACTION
-            ),
+            train_fraction=TRAIN_FRACTION
         )
     )
 
     ranges = (
         build_split_window_ranges(
-            dataset,
-            split,
+            dataset, split
         )
     )
 
-    assert len(
-        split.train_trajectories
-    ) == 1130
-
-    assert len(
-        split.validation_trajectories
-    ) == 60
+    assert len(split.train_trajectories) == 1130
+    assert len(split.validation_trajectories) == 60
 
     # --------------------------------------------------
     # Train-only reference statistics
     # --------------------------------------------------
-
     statistics = (
         compute_reference_mtm_statistics(
             observations,
             actions,
             dataset.returns,
             split.train_trajectories,
-            max_path_length=(
-                MAX_PATH_LENGTH
-            ),
+            max_path_length=MAX_PATH_LENGTH
         )
     )
 
@@ -1039,11 +919,8 @@ def main() -> None:
         key: (
             ContinuousTokenizer
             .from_statistics(
-                statistics[
-                    key
-                ]
-            )
-            .to(device)
+                statistics[key]
+            ).to(device)
         )
         for key in (
             "states",
@@ -1055,41 +932,23 @@ def main() -> None:
     # --------------------------------------------------
     # Model
     # --------------------------------------------------
-
     data_shapes = {
-        "states": (
-            1,
-            STATE_DIM,
-        ),
-        "actions": (
-            1,
-            ACTION_DIM,
-        ),
-        "returns": (
-            1,
-            1,
-        ),
+        "states": (1, STATE_DIM),
+        "actions": (1,ACTION_DIM),
+        "returns": (1,1),
     }
 
     model = ReferenceMTM(
         data_shapes,
-        traj_length=(
-            TRAJ_LENGTH
-        ),
+        traj_length=TRAJ_LENGTH,
         config=MTMConfig(
             n_embd=args.n_embd,
             n_head=args.n_head,
-            n_enc_layer=(
-                args.n_enc_layer
-            ),
-            n_dec_layer=(
-                args.n_dec_layer
-            ),
+            n_enc_layer=args.n_enc_layer,
+            n_dec_layer=args.n_dec_layer,
             dropout=args.dropout,
         ),
-    ).to(
-        device
-    )
+    ).to(device)
 
     parameter_count = sum(
         parameter.numel()
@@ -1105,25 +964,16 @@ def main() -> None:
     # --------------------------------------------------
     # Optimizer / official schedule
     # --------------------------------------------------
-
     (
         optimizer,
         scheduler,
     ) = (
         create_reference_mtm_optimizer_and_scheduler(
             model.parameters(),
-            learning_rate=(
-                args.learning_rate
-            ),
-            weight_decay=(
-                args.weight_decay
-            ),
-            warmup_steps=(
-                args.warmup_steps
-            ),
-            num_train_steps=(
-                args.num_updates
-            ),
+            learning_rate=args.learning_rate,
+            weight_decay=args.weight_decay,
+            warmup_steps=args.warmup_steps,
+            num_train_steps=args.num_updates
         )
     )
 
@@ -1131,18 +981,22 @@ def main() -> None:
     # --------------------------------------------------
     # Training RNG streams
     # --------------------------------------------------
-
-    batch_rng = (
-        np.random.RandomState(
-            args.seed
-            + 1_000
+    train_sampler = (
+        MTMShuffledWindowSampler(
+            ranges.train,
+            seed=args.seed + 1_000,
         )
     )
 
     mask_rng = (
         np.random.RandomState(
-            args.seed
-            + 2_000
+            args.seed + 2_000
+        )
+    )
+
+    mask_rng = (
+        np.random.RandomState(
+            args.seed + 2_000
         )
     )
 
@@ -1153,7 +1007,6 @@ def main() -> None:
     # --------------------------------------------------
     # Fresh run or exact resume
     # --------------------------------------------------
-
     if args.resume is None:
 
         append_jsonl(
@@ -1162,42 +1015,18 @@ def main() -> None:
                 "type": "config",
                 "git_commit": git_commit,
                 "seed": args.seed,
-                "device": str(
-                    device
-                ),
-                "num_updates": (
-                    args.num_updates
-                ),
-                "batch_size": (
-                    args.batch_size
-                ),
-                "learning_rate": (
-                    args.learning_rate
-                ),
-                "weight_decay": (
-                    args.weight_decay
-                ),
-                "warmup_steps": (
-                    args.warmup_steps
-                ),
-                "n_embd": (
-                    args.n_embd
-                ),
-                "n_head": (
-                    args.n_head
-                ),
-                "n_enc_layer": (
-                    args.n_enc_layer
-                ),
-                "n_dec_layer": (
-                    args.n_dec_layer
-                ),
-                "dropout": (
-                    args.dropout
-                ),
-                "parameters": (
-                    parameter_count
-                ),
+                "device": str(device),
+                "num_updates": args.num_updates,
+                "batch_size": args.batch_size,
+                "learning_rate": args.learning_rate,
+                "weight_decay": args.weight_decay,
+                "warmup_steps": args.warmup_steps,
+                "n_embd": args.n_embd,
+                "n_head": args.n_head,
+                "n_enc_layer": args.n_enc_layer,
+                "n_dec_layer": args.n_dec_layer,
+                "dropout": args.dropout,
+                "parameters": parameter_count,
                 "train_trajectories": (
                     len(
                         split
@@ -1210,12 +1039,8 @@ def main() -> None:
                         .validation_trajectories
                     )
                 ),
-                "train_windows": (
-                    ranges.train.count
-                ),
-                "validation_windows": (
-                    ranges.validation.count
-                ),
+                "train_windows": ranges.train.count,
+                "validation_windows": ranges.validation.count
             },
         )
 
@@ -1229,18 +1054,14 @@ def main() -> None:
                 args.batch_size,
                 256,
             ),
-            num_batches=(
-                args.num_eval_batches
-            ),
+            num_batches=args.num_eval_batches,
             device=device,
         )
 
         append_jsonl(
             metrics_path,
             {
-                "type": (
-                    "validation"
-                ),
+                "type": "validation",
                 "step": 0,
                 **initial_eval,
             },
@@ -1261,9 +1082,7 @@ def main() -> None:
 
         validate_resume_config(
             args,
-            checkpoint[
-                "args"
-            ],
+            checkpoint["args"],
         )
 
         restore_checkpoint(
@@ -1275,21 +1094,15 @@ def main() -> None:
         )
 
         start_step = int(
-            checkpoint[
-                "step"
-            ]
+            checkpoint["step"]
         )
 
-        batch_rng.set_state(
-            checkpoint[
-                "batch_rng_state"
-            ]
+        train_sampler.load_state_dict(
+            checkpoint["train_sampler_state"]
         )
 
         mask_rng.set_state(
-            checkpoint[
-                "mask_rng_state"
-            ]
+            checkpoint["mask_rng_state"]
         )
 
         running = list(
@@ -1300,9 +1113,7 @@ def main() -> None:
         )
 
         initial_eval = (
-            checkpoint[
-                "initial_eval"
-            ]
+            checkpoint["initial_eval"]
         )
 
         elapsed_before = float(
@@ -1316,15 +1127,9 @@ def main() -> None:
             metrics_path,
             {
                 "type": "resume",
-                "step": (
-                    start_step
-                ),
-                "checkpoint": str(
-                    args.resume
-                ),
-                "git_commit": (
-                    git_commit
-                ),
+                "step": start_step,
+                "checkpoint": str(args.resume),
+                "git_commit": git_commit,
             },
         )
 
@@ -1336,7 +1141,6 @@ def main() -> None:
     # --------------------------------------------------
     # Requested stopping point
     # --------------------------------------------------
-
     if args.stop_after is None:
         target_step = (
             args.num_updates
@@ -1373,13 +1177,12 @@ def main() -> None:
 
         model.train()
 
-        batch = sample_mtm_batch(
-            dataset,
-            ranges.train,
-            batch_size=(
-                args.batch_size
-            ),
-            rng=batch_rng,
+        batch_indices = (
+            train_sampler.next_indices(args.batch_size)
+        )
+
+        batch = get_mtm_batch(
+            dataset, batch_indices,
         )
 
         if not bool(
