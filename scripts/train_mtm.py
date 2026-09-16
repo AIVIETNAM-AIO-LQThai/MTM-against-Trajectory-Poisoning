@@ -179,6 +179,28 @@ def parse_args() -> argparse.Namespace:
         default=None,
     )
 
+    parser.add_argument(
+        "--resume",
+        type=Path,
+        default=None,
+        help=(
+            "Resume from an MTM checkpoint. "
+            "The total --num-updates remains the "
+            "original training horizon."
+        ),
+    )
+
+    parser.add_argument(
+        "--stop-after",
+        type=int,
+        default=None,
+        help=(
+            "Optional absolute step at which to stop. "
+            "Used for interruption/resume testing without "
+            "changing the LR schedule horizon."
+        ),
+    )
+
     return parser.parse_args()
 
 
@@ -520,6 +542,167 @@ def evaluate(
 
     return result
 
+RESUME_LOCKED_FIELDS = (
+    "seed",
+    "num_updates",
+    "batch_size",
+    "learning_rate",
+    "weight_decay",
+    "warmup_steps",
+    "n_embd",
+    "n_head",
+    "n_enc_layer",
+    "n_dec_layer",
+    "dropout",
+    "log_every",
+    "eval_every",
+    "checkpoint_every",
+    "num_eval_batches",
+)
+
+
+def load_torch_checkpoint(
+    path: Path,
+    *,
+    device: torch.device,
+) -> dict:
+    """
+    Compatible with both old PyTorch 1.12 and newer versions
+    whose torch.load API supports weights_only.
+    """
+
+    try:
+        return torch.load(
+            path,
+            map_location=device,
+            weights_only=False,
+        )
+
+    except TypeError:
+        # torch 1.12.1 path
+        return torch.load(
+            path,
+            map_location=device,
+        )
+
+
+def validate_resume_config(
+    args: argparse.Namespace,
+    saved_args: dict,
+) -> None:
+    """
+    Prevent accidentally resuming a run under a different
+    scientific configuration.
+    """
+
+    mismatches = []
+
+    for field in RESUME_LOCKED_FIELDS:
+        if field not in saved_args:
+            raise ValueError(
+                f"checkpoint is missing "
+                f"configuration field: {field}"
+            )
+
+        current = getattr(
+            args,
+            field,
+        )
+
+        saved = saved_args[
+            field
+        ]
+
+        if current != saved:
+            mismatches.append(
+                (
+                    field,
+                    saved,
+                    current,
+                )
+            )
+
+    if mismatches:
+        lines = [
+            "resume configuration mismatch:"
+        ]
+
+        for (
+            field,
+            saved,
+            current,
+        ) in mismatches:
+            lines.append(
+                f"  {field}: "
+                f"checkpoint={saved!r}, "
+                f"current={current!r}"
+            )
+
+        raise ValueError(
+            "\n".join(
+                lines
+            )
+        )
+
+
+def restore_checkpoint(
+    checkpoint: dict,
+    *,
+    model: ReferenceMTM,
+    optimizer,
+    scheduler,
+    device: torch.device,
+) -> None:
+    model.load_state_dict(
+        checkpoint[
+            "model_state_dict"
+        ]
+    )
+
+    optimizer.load_state_dict(
+        checkpoint[
+            "optimizer_state_dict"
+        ]
+    )
+
+    scheduler.load_state_dict(
+        checkpoint[
+            "scheduler_state_dict"
+        ]
+    )
+
+    random.setstate(
+        checkpoint[
+            "python_random_state"
+        ]
+    )
+
+    np.random.set_state(
+        checkpoint[
+            "numpy_random_state"
+        ]
+    )
+
+    torch.set_rng_state(
+        checkpoint[
+            "torch_random_state"
+        ].cpu()
+    )
+
+    if (
+        device.type == "cuda"
+        and "cuda_random_states"
+        in checkpoint
+    ):
+        torch.cuda.set_rng_state_all(
+            [
+                state.cpu()
+                for state
+                in checkpoint[
+                    "cuda_random_states"
+                ]
+            ]
+        )
 
 def save_checkpoint(
     path: Path,
@@ -530,6 +713,11 @@ def save_checkpoint(
     scheduler,
     args: argparse.Namespace,
     git_commit: str | None,
+    batch_rng: np.random.RandomState,
+    mask_rng: np.random.RandomState,
+    running_losses: list[float],
+    initial_eval: dict,
+    elapsed_seconds: float,
 ) -> None:
 
     path.parent.mkdir(
@@ -558,6 +746,7 @@ def save_checkpoint(
 
         "git_commit": git_commit,
 
+        # Global RNGs
         "python_random_state": (
             random.getstate()
         ),
@@ -568,6 +757,29 @@ def save_checkpoint(
 
         "torch_random_state": (
             torch.get_rng_state()
+        ),
+
+        # These two are the actual local RNG streams
+        # used for training-window and mask sampling.
+        "batch_rng_state": (
+            batch_rng.get_state()
+        ),
+
+        "mask_rng_state": (
+            mask_rng.get_state()
+        ),
+
+        # Preserve running-100 logging exactly.
+        "running_losses": list(
+            running_losses
+        ),
+
+        "initial_eval": (
+            initial_eval
+        ),
+
+        "elapsed_seconds": float(
+            elapsed_seconds
         ),
     }
 
@@ -605,7 +817,15 @@ def main() -> None:
         args.device
     )
 
-    if args.output_dir is None:
+    if (
+        args.resume is not None
+        and args.output_dir is None
+    ):
+        args.output_dir = (
+            args.resume.parent.parent
+        )
+
+    elif args.output_dir is None:
         args.output_dir = Path(
             "experiments/mtm/"
             "walker2d_medium_reference/"
@@ -638,10 +858,27 @@ def main() -> None:
     )
 
     # Fresh run.
-    metrics_path.write_text(
-        "",
-        encoding="utf-8",
-    )
+    if args.resume is None:
+        # Fresh run.
+        metrics_path.write_text(
+            "",
+            encoding="utf-8",
+        )
+
+    else:
+        if not args.resume.exists():
+            raise FileNotFoundError(
+                f"resume checkpoint "
+                f"does not exist: "
+                f"{args.resume}"
+            )
+
+        if not metrics_path.exists():
+            raise FileNotFoundError(
+                "resume requested but existing "
+                "training_metrics.jsonl "
+                "was not found"
+            )
 
     git_commit = (
         get_git_commit()
@@ -891,102 +1128,6 @@ def main() -> None:
     )
 
     # --------------------------------------------------
-    # Record immutable run setup
-    # --------------------------------------------------
-
-    append_jsonl(
-        metrics_path,
-        {
-            "type": "config",
-            "git_commit": git_commit,
-            "seed": args.seed,
-            "device": str(
-                device
-            ),
-            "num_updates": (
-                args.num_updates
-            ),
-            "batch_size": (
-                args.batch_size
-            ),
-            "learning_rate": (
-                args.learning_rate
-            ),
-            "weight_decay": (
-                args.weight_decay
-            ),
-            "warmup_steps": (
-                args.warmup_steps
-            ),
-            "n_embd": args.n_embd,
-            "n_head": args.n_head,
-            "n_enc_layer": (
-                args.n_enc_layer
-            ),
-            "n_dec_layer": (
-                args.n_dec_layer
-            ),
-            "dropout": (
-                args.dropout
-            ),
-            "parameters": (
-                parameter_count
-            ),
-            "train_trajectories": (
-                len(
-                    split
-                    .train_trajectories
-                )
-            ),
-            "validation_trajectories": (
-                len(
-                    split
-                    .validation_trajectories
-                )
-            ),
-            "train_windows": (
-                ranges.train.count
-            ),
-            "validation_windows": (
-                ranges.validation.count
-            ),
-        },
-    )
-
-    # --------------------------------------------------
-    # Initial fixed validation bank
-    # --------------------------------------------------
-
-    initial_eval = evaluate(
-        model,
-        dataset,
-        ranges.validation,
-        tokenizers,
-        seed=args.seed,
-        batch_size=min(
-            args.batch_size,
-            256,
-        ),
-        num_batches=(
-            args.num_eval_batches
-        ),
-        device=device,
-    )
-
-    append_jsonl(
-        metrics_path,
-        {
-            "type": "validation",
-            "step": 0,
-            **initial_eval,
-        },
-    )
-
-    print(
-        "initial validation:",
-        initial_eval,
-    )
-
     # --------------------------------------------------
     # Training RNG streams
     # --------------------------------------------------
@@ -1005,13 +1146,229 @@ def main() -> None:
         )
     )
 
-    running = []
+    start_step = 0
+    running: list[float] = []
+    elapsed_before = 0.0
 
-    start_time = time.time()
+    # --------------------------------------------------
+    # Fresh run or exact resume
+    # --------------------------------------------------
+
+    if args.resume is None:
+
+        append_jsonl(
+            metrics_path,
+            {
+                "type": "config",
+                "git_commit": git_commit,
+                "seed": args.seed,
+                "device": str(
+                    device
+                ),
+                "num_updates": (
+                    args.num_updates
+                ),
+                "batch_size": (
+                    args.batch_size
+                ),
+                "learning_rate": (
+                    args.learning_rate
+                ),
+                "weight_decay": (
+                    args.weight_decay
+                ),
+                "warmup_steps": (
+                    args.warmup_steps
+                ),
+                "n_embd": (
+                    args.n_embd
+                ),
+                "n_head": (
+                    args.n_head
+                ),
+                "n_enc_layer": (
+                    args.n_enc_layer
+                ),
+                "n_dec_layer": (
+                    args.n_dec_layer
+                ),
+                "dropout": (
+                    args.dropout
+                ),
+                "parameters": (
+                    parameter_count
+                ),
+                "train_trajectories": (
+                    len(
+                        split
+                        .train_trajectories
+                    )
+                ),
+                "validation_trajectories": (
+                    len(
+                        split
+                        .validation_trajectories
+                    )
+                ),
+                "train_windows": (
+                    ranges.train.count
+                ),
+                "validation_windows": (
+                    ranges.validation.count
+                ),
+            },
+        )
+
+        initial_eval = evaluate(
+            model,
+            dataset,
+            ranges.validation,
+            tokenizers,
+            seed=args.seed,
+            batch_size=min(
+                args.batch_size,
+                256,
+            ),
+            num_batches=(
+                args.num_eval_batches
+            ),
+            device=device,
+        )
+
+        append_jsonl(
+            metrics_path,
+            {
+                "type": (
+                    "validation"
+                ),
+                "step": 0,
+                **initial_eval,
+            },
+        )
+
+        print(
+            "initial validation:",
+            initial_eval,
+        )
+
+    else:
+        checkpoint = (
+            load_torch_checkpoint(
+                args.resume,
+                device=device,
+            )
+        )
+
+        validate_resume_config(
+            args,
+            checkpoint[
+                "args"
+            ],
+        )
+
+        restore_checkpoint(
+            checkpoint,
+            model=model,
+            optimizer=optimizer,
+            scheduler=scheduler,
+            device=device,
+        )
+
+        start_step = int(
+            checkpoint[
+                "step"
+            ]
+        )
+
+        batch_rng.set_state(
+            checkpoint[
+                "batch_rng_state"
+            ]
+        )
+
+        mask_rng.set_state(
+            checkpoint[
+                "mask_rng_state"
+            ]
+        )
+
+        running = list(
+            checkpoint.get(
+                "running_losses",
+                [],
+            )
+        )
+
+        initial_eval = (
+            checkpoint[
+                "initial_eval"
+            ]
+        )
+
+        elapsed_before = float(
+            checkpoint.get(
+                "elapsed_seconds",
+                0.0,
+            )
+        )
+
+        append_jsonl(
+            metrics_path,
+            {
+                "type": "resume",
+                "step": (
+                    start_step
+                ),
+                "checkpoint": str(
+                    args.resume
+                ),
+                "git_commit": (
+                    git_commit
+                ),
+            },
+        )
+
+        print(
+            "resumed from step:",
+            start_step,
+        )
+
+    # --------------------------------------------------
+    # Requested stopping point
+    # --------------------------------------------------
+
+    if args.stop_after is None:
+        target_step = (
+            args.num_updates
+        )
+
+    else:
+        target_step = int(
+            args.stop_after
+        )
+
+        if target_step > (
+            args.num_updates
+        ):
+            raise ValueError(
+                "--stop-after cannot exceed "
+                "--num-updates"
+            )
+
+    if target_step <= start_step:
+        raise ValueError(
+            "target step must be greater "
+            "than checkpoint step"
+        )
+
+    start_time = (
+        time.time()
+        - elapsed_before
+    )
 
     for step in range(
-        1,
-        args.num_updates + 1,
+        start_step + 1,
+        target_step + 1,
     ):
 
         model.train()
@@ -1186,11 +1543,8 @@ def main() -> None:
             )
 
         if (
-            step
-            % args.eval_every
-            == 0
-            or step
-            == args.num_updates
+            step % args.eval_every == 0
+            or step == target_step
         ):
 
             evaluation = evaluate(
@@ -1227,11 +1581,8 @@ def main() -> None:
             )
 
         if (
-            step
-            % args.checkpoint_every
-            == 0
-            or step
-            == args.num_updates
+            step % args.checkpoint_every == 0
+            or step == target_step
         ):
 
             save_checkpoint(
@@ -1245,9 +1596,12 @@ def main() -> None:
                 optimizer=optimizer,
                 scheduler=scheduler,
                 args=args,
-                git_commit=(
-                    git_commit
-                ),
+                git_commit=git_commit,
+                batch_rng=batch_rng,
+                mask_rng=mask_rng,
+                running_losses=running,
+                initial_eval=initial_eval,
+                elapsed_seconds=time.time() - start_time,
             )
 
     # --------------------------------------------------
@@ -1273,21 +1627,17 @@ def main() -> None:
     summary = {
         "seed": args.seed,
         "git_commit": git_commit,
-        "parameters": (
-            parameter_count
-        ),
-        "num_updates": (
-            args.num_updates
-        ),
-        "initial_validation": (
-            initial_eval
-        ),
-        "final_validation": (
-            final_eval
-        ),
-        "elapsed_seconds": (
-            time.time()
-            - start_time
+        "parameters": parameter_count,
+        "num_updates": args.num_updates,
+        "initial_validation": initial_eval,
+        "final_validation": final_eval,
+        "elapsed_seconds": time.time() - start_time,
+        "final_step": target_step,
+        "status": (
+            "complete"
+            if target_step
+            == args.num_updates
+            else "partial"
         ),
     }
 
