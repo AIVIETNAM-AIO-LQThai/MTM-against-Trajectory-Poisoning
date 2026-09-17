@@ -51,6 +51,13 @@ Using 16 clean initialization batches, compute the shared-parameter gradient nor
 
 `r = median(||g_MTM|| / ||g_DT||)`.
 
+Reference AUTO_MASK can legitimately produce a batch with zero MTM gradient on
+the shared DT state/action embeddings (for example, when all state/action input
+tokens are hidden). Such a batch is part of the frozen mask distribution and is
+recorded as ratio `0.0`; it is not resampled or discarded. Its gradient cosine
+is undefined and is omitted only from the cosine-summary statistic. A zero or
+non-finite DT shared gradient remains a calibration error.
+
 Choose the largest candidate satisfying
 
 `lambda_mtm * r <= 0.25`.

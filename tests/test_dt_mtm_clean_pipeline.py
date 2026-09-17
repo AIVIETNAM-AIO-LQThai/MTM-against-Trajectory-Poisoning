@@ -121,3 +121,30 @@ def test_lambda_selection_uses_largest_candidate_under_cap():
     assert result.recommended_lambda == 0.1
     assert result.median_raw_gradient_ratio == 2.0
     assert result.candidate_scaled_ratios[0.1] == 0.2
+
+def test_lambda_selection_preserves_zero_shared_gradient_samples():
+    result = choose_lambda_from_gradient_ratios(
+        [0.0, 0.0, 2.0, 2.0],
+        [-0.2, 0.2],
+        candidates=(0.1, 0.3),
+        target_max_scaled_ratio=0.25,
+    )
+
+    # Zeros are valid mask outcomes and must participate in the median.
+    # median([0, 0, 2, 2]) = 1.0. If zeros were discarded this would be 2.0.
+    assert result.median_raw_gradient_ratio == 1.0
+    assert result.recommended_lambda == 0.1
+
+
+def test_lambda_selection_accepts_all_zero_shared_mtm_ratios():
+    result = choose_lambda_from_gradient_ratios(
+        [0.0, 0.0, 0.0],
+        [],
+        candidates=(0.1, 0.3, 1.0),
+        target_max_scaled_ratio=0.25,
+    )
+
+    assert result.median_raw_gradient_ratio == 0.0
+    assert result.recommended_lambda == 1.0
+    assert np.isnan(result.median_cosine_similarity)
+

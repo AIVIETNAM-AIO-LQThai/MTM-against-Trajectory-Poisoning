@@ -50,11 +50,18 @@ def choose_lambda_from_gradient_ratios(
     ratios = np.asarray(list(raw_gradient_ratios), dtype=np.float64)
     cosines = np.asarray(list(cosine_similarities), dtype=np.float64)
 
-    ratios = ratios[np.isfinite(ratios) & (ratios > 0.0)]
+    # A zero MTM/DT shared-gradient ratio is scientifically valid.
+    # Reference AUTO_MASK can hide every state/action input for a sampled
+    # window, in which case the MTM branch has no path to the parameters
+    # shared with DT on that batch. Preserve those samples as ratio 0.0 so
+    # the calibration statistic reflects the actual frozen mask distribution.
+    ratios = ratios[np.isfinite(ratios) & (ratios >= 0.0)]
     cosines = cosines[np.isfinite(cosines)]
 
     if ratios.size == 0:
-        raise ValueError("no finite positive gradient ratios were supplied")
+        raise ValueError(
+            "no finite non-negative gradient ratios were supplied"
+        )
 
     candidate_values = sorted({float(value) for value in candidates})
     if not candidate_values or candidate_values[0] <= 0.0:

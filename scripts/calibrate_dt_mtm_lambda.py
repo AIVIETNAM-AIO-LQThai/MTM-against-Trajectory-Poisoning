@@ -182,18 +182,36 @@ def main() -> None:
 
         if not (
             math.isfinite(diagnostic.dt_norm)
-            and math.isfinite(diagnostic.mtm_norm_unscaled)
             and diagnostic.dt_norm > 0.0
-            and diagnostic.mtm_norm_unscaled > 0.0
         ):
             raise RuntimeError(
-                "Non-finite/zero clean shared gradient during calibration"
+                "Non-finite/zero DT shared gradient during calibration"
             )
 
+        if not (
+            math.isfinite(diagnostic.mtm_norm_unscaled)
+            and diagnostic.mtm_norm_unscaled >= 0.0
+        ):
+            raise RuntimeError(
+                "Non-finite/negative MTM shared gradient during calibration"
+            )
+
+        # Zero MTM shared gradient is a valid reference-mask outcome.
+        # In particular, AUTO_MASK can hide all state/action inputs, so the
+        # MTM objective has no path to the DT state/action embeddings on that
+        # batch. Keep the sample as ratio 0 instead of resampling or aborting.
         ratio = diagnostic.mtm_norm_unscaled / diagnostic.dt_norm
         ratios.append(float(ratio))
-        if math.isfinite(diagnostic.cosine_similarity):
+
+        cosine_is_finite = math.isfinite(
+            diagnostic.cosine_similarity
+        )
+        if cosine_is_finite:
             cosines.append(float(diagnostic.cosine_similarity))
+
+        zero_shared_mtm_gradient = (
+            diagnostic.mtm_norm_unscaled == 0.0
+        )
 
         row = {
             "batch": batch_index + 1,
@@ -202,18 +220,29 @@ def main() -> None:
             "shared_dt_grad_norm": diagnostic.dt_norm,
             "shared_mtm_grad_norm": diagnostic.mtm_norm_unscaled,
             "raw_gradient_ratio": float(ratio),
-            "shared_grad_cosine": diagnostic.cosine_similarity,
+            "shared_grad_cosine": (
+                float(diagnostic.cosine_similarity)
+                if cosine_is_finite
+                else None
+            ),
+            "zero_shared_mtm_gradient": zero_shared_mtm_gradient,
             "mask_mode": audit.mask_mode,
             "mask_position": audit.mask_position,
         }
         rows.append(row)
+
+        cosine_text = (
+            f"{diagnostic.cosine_similarity:+.4f}"
+            if cosine_is_finite
+            else "undefined"
+        )
 
         print(
             f"batch={batch_index + 1:02d} "
             f"dt={row['dt_loss']:.6f} "
             f"mtm={row['mtm_loss']:.6f} "
             f"ratio={ratio:.4f} "
-            f"cos={diagnostic.cosine_similarity:+.4f}"
+            f"cos={cosine_text}"
         )
 
         # Explicitly release the graphs before the next large MTM batch.
@@ -229,7 +258,7 @@ def main() -> None:
     assert bridge_audit is not None
 
     payload = {
-        "protocol": "group4b_clean_gradient_balance_v1",
+        "protocol": "group4b_clean_gradient_balance_v2",
         "seed": args.seed,
         "device": str(device),
         "num_batches": args.num_batches,
@@ -237,6 +266,12 @@ def main() -> None:
         "mtm_batch_size": args.mtm_batch_size,
         "candidate_lambdas": [float(x) for x in args.candidate_lambdas],
         "target_max_scaled_ratio": args.target_max_scaled_ratio,
+        "zero_shared_mtm_gradient_policy": (
+            "include_as_ratio_zero_and_omit_undefined_cosine"
+        ),
+        "num_zero_shared_mtm_gradient_batches": sum(
+            int(row["zero_shared_mtm_gradient"]) for row in rows
+        ),
         "recommended_lambda": result.recommended_lambda,
         "median_raw_gradient_ratio": result.median_raw_gradient_ratio,
         "median_cosine_similarity": result.median_cosine_similarity,
