@@ -32,16 +32,49 @@ class DTMTMTrainMetrics:
     mtm_state_loss: float
     mtm_action_loss: float
     mtm_return_loss: float
+
+    # Gradient diagnostics before any clipping.
     grad_norm_pre_clip: float
+    dt_grad_norm_pre_clip: float
+    auxiliary_grad_norm_pre_clip: float
+
+    # Objective interaction on the parameters shared by both losses.
     shared_dt_grad_norm: float
     shared_mtm_grad_norm: float
     shared_mtm_scaled_grad_norm: float
     shared_grad_cosine: float
+
     learning_rate: float
 
 
+def _parameter_grad_norm(parameters) -> torch.Tensor:
+    """Compute an L2 norm over existing gradients without mutating them."""
+
+    squares: list[torch.Tensor] = []
+    for parameter in parameters:
+        gradient = parameter.grad
+        if gradient is not None:
+            squares.append(
+                torch.sum(
+                    gradient.detach().to(torch.float32) ** 2
+                )
+            )
+
+    if not squares:
+        return torch.zeros((), dtype=torch.float32)
+
+    return torch.sqrt(torch.stack(squares).sum())
+
+
 class DTMTMTrainer:
-    """One-step trainer for the clean joint DT + MTM objective."""
+    """
+    One-step trainer for the joint DT + MTM objective.
+
+    The Group-1 Decision Transformer clipping contract is preserved on the
+    DT parameter set itself. Auxiliary-only MTM/bridge parameters are clipped
+    separately so a large MTM-only gradient cannot shrink the entire DT update
+    merely by inflating a global clipping norm.
+    """
 
     def __init__(
         self,
@@ -52,6 +85,7 @@ class DTMTMTrainer:
         *,
         lambda_mtm: float,
         grad_clip_norm: float = 0.25,
+        auxiliary_grad_clip_norm: float | None = None,
         diagnose_shared_gradients: bool = True,
     ) -> None:
         if lambda_mtm < 0.0:
@@ -59,12 +93,18 @@ class DTMTMTrainer:
         if grad_clip_norm <= 0.0:
             raise ValueError("grad_clip_norm must be positive")
 
+        if auxiliary_grad_clip_norm is None:
+            auxiliary_grad_clip_norm = grad_clip_norm
+        if auxiliary_grad_clip_norm <= 0.0:
+            raise ValueError("auxiliary_grad_clip_norm must be positive")
+
         self.model = model
         self.optimizer = optimizer
         self.scheduler = scheduler
         self.device = device
         self.lambda_mtm = float(lambda_mtm)
         self.grad_clip_norm = float(grad_clip_norm)
+        self.auxiliary_grad_clip_norm = float(auxiliary_grad_clip_norm)
         self.diagnose_shared_gradients = bool(diagnose_shared_gradients)
 
     def _tensor(
@@ -74,6 +114,22 @@ class DTMTMTrainer:
         dtype: torch.dtype,
     ) -> torch.Tensor:
         return torch.as_tensor(value, dtype=dtype, device=self.device)
+
+    def _parameter_partitions(self) -> tuple[tuple[torch.nn.Parameter, ...], tuple[torch.nn.Parameter, ...]]:
+        dt_parameters = tuple(
+            parameter
+            for parameter in self.model.dt.parameters()
+            if parameter.requires_grad
+        )
+        dt_ids = {id(parameter) for parameter in dt_parameters}
+
+        auxiliary_parameters = tuple(
+            parameter
+            for parameter in self.model.parameters()
+            if parameter.requires_grad and id(parameter) not in dt_ids
+        )
+
+        return dt_parameters, auxiliary_parameters
 
     def train_step(self, batch: DTMTMTrainBatch) -> DTMTMTrainMetrics:
         self.model.train()
@@ -142,9 +198,8 @@ class DTMTMTrainer:
             shared_cosine = float("nan")
 
         # At lambda=0, backpropagate the DT loss directly rather than
-        # ``dt_loss + 0 * mtm_loss``. This keeps MTM-only parameter.grad as
-        # None, preventing decoupled weight decay from moving MTM parameters
-        # during the lambda-zero equivalence check.
+        # dt_loss + 0 * mtm_loss. This keeps MTM-only parameter.grad as None,
+        # so AdamW cannot move the auxiliary branch via decoupled weight decay.
         backward_loss = (
             dt_loss
             if self.lambda_mtm == 0.0
@@ -152,20 +207,35 @@ class DTMTMTrainer:
         )
         backward_loss.backward()
 
-        trainable_parameters = tuple(
-            parameter
-            for parameter in self.model.parameters()
-            if parameter.requires_grad
-        )
-        grad_norm = torch.nn.utils.clip_grad_norm_(
-            trainable_parameters,
+        dt_parameters, auxiliary_parameters = self._parameter_partitions()
+        all_parameters = dt_parameters + auxiliary_parameters
+
+        global_grad_norm = _parameter_grad_norm(all_parameters)
+        dt_grad_norm = _parameter_grad_norm(dt_parameters)
+        auxiliary_grad_norm = _parameter_grad_norm(auxiliary_parameters)
+
+        for name, value in (
+            ("global", global_grad_norm),
+            ("dt", dt_grad_norm),
+            ("auxiliary", auxiliary_grad_norm),
+        ):
+            if not torch.isfinite(value):
+                raise FloatingPointError(
+                    f"Non-finite {name} gradient norm detected: {value.item()}"
+                )
+
+        # Preserve Group-1 clipping semantics on the complete DT parameter set.
+        torch.nn.utils.clip_grad_norm_(
+            dt_parameters,
             max_norm=self.grad_clip_norm,
         )
 
-        if not torch.isfinite(grad_norm):
-            raise FloatingPointError(
-                "Non-finite joint gradient norm detected: "
-                f"{grad_norm.item()}"
+        # Clip auxiliary-only parameters independently. This prevents the size
+        # of the MTM branch from changing the clipping scale applied to DT.
+        if auxiliary_parameters:
+            torch.nn.utils.clip_grad_norm_(
+                auxiliary_parameters,
+                max_norm=self.auxiliary_grad_clip_norm,
             )
 
         self.optimizer.step()
@@ -190,7 +260,9 @@ class DTMTMTrainer:
             mtm_state_loss=float(full["states"].detach().cpu()),
             mtm_action_loss=float(full["actions"].detach().cpu()),
             mtm_return_loss=float(full["returns"].detach().cpu()),
-            grad_norm_pre_clip=float(grad_norm.detach().cpu()),
+            grad_norm_pre_clip=float(global_grad_norm.detach().cpu()),
+            dt_grad_norm_pre_clip=float(dt_grad_norm.detach().cpu()),
+            auxiliary_grad_norm_pre_clip=float(auxiliary_grad_norm.detach().cpu()),
             shared_dt_grad_norm=shared_dt_norm,
             shared_mtm_grad_norm=shared_mtm_norm,
             shared_mtm_scaled_grad_norm=shared_mtm_scaled_norm,
