@@ -131,7 +131,11 @@ Required:
 
 Verdict:
 
-`MTM REPRODUCTION: PASS / FAIL / INCONCLUSIVE`
+`MTM REPRODUCTION: PASS`
+
+Recorded result:
+
+`docs/mtm_stage_a_result.md`
 
 Do not begin DT+MTM robustness claims unless this stage passes.
 
