@@ -39,3 +39,18 @@ results/figures/*
 
 # Generated CSDPC poisoned datasets
 /data/poisoned/
+# Local downloads / transferred artifacts
+downloads/
+
+# Generated experiment runtime metadata/results
+experiments/**/run_manifest.json
+experiments/**/summary.json
+
+# Group 4C generated artifacts
+experiments/dt_stress/preflight_artifacts.json
+experiments/dt_stress/walker2d_medium/
+
+# Generated Group 4B probe/evaluation artifacts
+experiments/**/clean_probe.jsonl
+experiments/**/eval_*/episodes.jsonl
+experiments/dt_mtm/walker2d_medium_clean/lambda_calibration_seed_*.json
