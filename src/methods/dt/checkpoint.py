@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import os
+import pathlib
+
 from pathlib import Path
 from typing import Union
 
@@ -37,10 +40,25 @@ def load_dt_checkpoint_compat(
     Those buffers are NOT learned model parameters.
     """
 
-    checkpoint = torch.load(
-        checkpoint_path,
-        map_location=device,
-    )
+    # Checkpoints trained on Windows may contain pathlib.WindowsPath
+    # objects inside saved runtime arguments. Linux cannot instantiate
+    # WindowsPath during unpickling, even though those paths are only
+    # metadata and are not required to load the model weights.
+    #
+    # Temporarily map WindowsPath -> PosixPath while unpickling, then
+    # restore pathlib immediately afterward.
+    original_windows_path = pathlib.WindowsPath
+
+    try:
+        if os.name != "nt":
+            pathlib.WindowsPath = pathlib.PosixPath
+
+        checkpoint = torch.load(
+            checkpoint_path,
+            map_location=device,
+        )
+    finally:
+        pathlib.WindowsPath = original_windows_path
 
     # Normalize historical checkpoint progress naming.
     #
