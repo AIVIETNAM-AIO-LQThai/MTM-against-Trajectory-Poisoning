@@ -27,7 +27,7 @@ def rho_value(slug: str) -> float:
 
 
 def classify(mean_degradation: float, positive_count: int, practical_floor: float) -> str:
-    if mean_degradation >= practical_floor and positive_count >= 7:
+    if mean_degradation >= practical_floor and positive_count == 3:
         return "consistent degradation"
     if mean_degradation > 0.0:
         return "weak/inconsistent degradation"
@@ -67,30 +67,32 @@ def main() -> None:
 
     for condition in CONDITIONS:
         for rho_slug in RHO_SLUGS:
-            for attack_seed in ATTACK_SEEDS:
-                for train_seed in TRAIN_SEEDS:
-                    path = (
-                        args.root
-                        / condition
-                        / f"rho_{rho_slug}"
-                        / f"attack_seed_{attack_seed}"
-                        / f"train_seed_{train_seed}"
-                        / "eval_5000"
-                        / "summary.json"
-                    )
-                    payload = load_json(path)
-                    score = float(payload["normalized_return_mean"])
-                    degradation = clean[train_seed] - score
-                    groups[(condition, rho_slug)].append(
-                        {
-                            "attack_seed": attack_seed,
-                            "training_seed": train_seed,
-                            "poison_return": score,
-                            "clean_return": clean[train_seed],
-                            "degradation": degradation,
-                            "summary_path": str(path),
-                        }
-                    )
+            for seed in TRAIN_SEEDS:
+                attack_seed = seed
+                train_seed = seed
+
+                path = (
+                    args.root
+                    / condition
+                    / f"rho_{rho_slug}"
+                    / f"attack_seed_{attack_seed}"
+                    / f"train_seed_{train_seed}"
+                    / "eval_5000"
+                    / "summary.json"
+                )
+                payload = load_json(path)
+                score = float(payload["normalized_return_mean"])
+                degradation = clean[train_seed] - score
+                groups[(condition, rho_slug)].append(
+                    {
+                        "attack_seed": attack_seed,
+                        "training_seed": train_seed,
+                        "poison_return": score,
+                        "clean_return": clean[train_seed],
+                        "degradation": degradation,
+                        "summary_path": str(path),
+                    }
+                )
 
     result = {
         "group4c_clean": clean,
@@ -135,7 +137,7 @@ def main() -> None:
             print(
                 f"{condition:14s} rho={rho_value(rho_slug):.2f} | "
                 f"mean_D={mean_d:+.4f} median_D={median_d:+.4f} "
-                f"positive={positive_count}/9 | {label}"
+                f"positive={positive_count}/3 | {label}"
             )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)

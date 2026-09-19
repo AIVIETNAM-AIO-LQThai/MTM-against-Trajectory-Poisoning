@@ -62,23 +62,26 @@ The filename seed is treated as the frozen attack-artifact seed. The preflight s
 
 ## Matrix
 
-For every poisoned artifact:
+The poisoned runs use a paired-seed design.
 
-- attack-artifact seeds: 0, 1, 2
-- DT training seeds: 0, 1, 2
+For attack-artifact seed `s`, train the DT with training seed `s`,
+for `s in {0, 1, 2}`.
 
-Thus each `(condition, rho)` has 9 poisoned DT runs.
+Thus each `(condition, rho)` has 3 poisoned DT runs.
 
 Frozen poisoned matrix:
 
-- canonical, rho=0.01: 9 runs
-- canonical, rho=0.05: 9 runs
-- s2_overlap_r0, rho=0.01: 9 runs
-- s2_overlap_r0, rho=0.05: 9 runs
+- canonical, rho=0.01: 3 paired runs
+- canonical, rho=0.05: 3 paired runs
+- s2_overlap_r0, rho=0.01: 3 paired runs
+- s2_overlap_r0, rho=0.05: 3 paired runs
 
-Total poisoned DT runs: 36.
+Total poisoned DT runs: 12.
 
 Fresh matched clean controls: 3 runs.
+
+The pairing rule is frozen before any Group-4C poisoned-DT
+outcome is examined.
 
 ## Paired degradation
 
@@ -92,9 +95,9 @@ Positive `Delta_DT` means degradation.
 
 This rule is frozen before Group-4C poison outcomes are examined.
 
-Let the practical-effect floor be 5% of the fresh Group-4C three-seed clean mean. For each `(condition, rho)`, summarize the 9 paired degradations.
+Let the practical-effect floor be 5% of the fresh Group-4C three-seed clean mean. For each `(condition, rho)`, summarize the 3 paired degradations.
 
-- `consistent degradation`: mean paired degradation is at least the 5% practical-effect floor **and** at least 7 of 9 paired runs degrade (`Delta_DT > 0`).
+- `consistent degradation`: mean paired degradation is at least the 5% practical-effect floor **and all 3 paired runs degrade** (`Delta_DT > 0`).
 - `weak/inconsistent degradation`: mean paired degradation is positive but the condition fails one or both consistency requirements above.
 - `no detectable degradation`: mean paired degradation is zero or negative.
 
