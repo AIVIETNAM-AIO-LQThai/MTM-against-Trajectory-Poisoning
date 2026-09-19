@@ -42,6 +42,28 @@ def load_dt_checkpoint_compat(
         map_location=device,
     )
 
+    # Normalize historical checkpoint progress naming.
+    #
+    # Group 4C stress checkpoints originally used "step",
+    # while the evaluator expects "update".
+    if "update" not in checkpoint and "step" in checkpoint:
+        checkpoint["update"] = checkpoint["step"]
+
+    if "step" not in checkpoint and "update" in checkpoint:
+        checkpoint["step"] = checkpoint["update"]
+
+    if "step" not in checkpoint or "update" not in checkpoint:
+        raise RuntimeError(
+            "Checkpoint does not contain training progress "
+            "under either 'step' or 'update'."
+        )
+
+    if int(checkpoint["step"]) != int(checkpoint["update"]):
+        raise RuntimeError(
+            "Checkpoint has inconsistent 'step' and 'update' values: "
+            f"{checkpoint['step']} vs {checkpoint['update']}"
+        )
+
     if "model_state_dict" not in checkpoint:
         raise RuntimeError(
             "Checkpoint does not contain "

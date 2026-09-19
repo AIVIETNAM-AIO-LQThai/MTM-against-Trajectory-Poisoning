@@ -151,6 +151,7 @@ def save_checkpoint(
     path.parent.mkdir(parents=True, exist_ok=True)
     state = {
         "step": step,
+        "update": step,
         "seed": args.seed,
         "condition": args.condition,
         "rho": args.rho,
