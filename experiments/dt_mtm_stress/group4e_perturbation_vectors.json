@@ -1,0 +1,463 @@
+{
+  "analysis": "group4e_perturbation_vectors",
+  "canonical_vs_s2": [
+    {
+      "absolute_G_difference": 4.428002339626062,
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.027598635833423323,
+          "mean_row_cosine": 0.02601430882385329,
+          "median_row_cosine": 0.02486337505624886,
+          "normalized_direct_distance": 1.39456673045587,
+          "sign_agreement": 0.5077083373531172,
+          "valid_row_cosines": 8638
+        },
+        "observations": {
+          "global_cosine": 0.03538559455915378,
+          "mean_row_cosine": 0.03496750350737654,
+          "median_row_cosine": 0.02995608624384746,
+          "normalized_direct_distance": 1.3889668253149565,
+          "sign_agreement": 0.5151927870013484,
+          "valid_row_cosines": 8638
+        }
+      },
+      "overlap": 8638,
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "absolute_G_difference": 11.879443335511183,
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.03861541279162423,
+          "mean_row_cosine": 0.03483543844757293,
+          "median_row_cosine": 0.026763640218949072,
+          "normalized_direct_distance": 1.3866400215826247,
+          "sign_agreement": 0.5165436937975559,
+          "valid_row_cosines": 8674
+        },
+        "observations": {
+          "global_cosine": 0.0430577454923716,
+          "mean_row_cosine": 0.04504677404335133,
+          "median_row_cosine": 0.02617389968834663,
+          "normalized_direct_distance": 1.383432347411037,
+          "sign_agreement": 0.5198022487759226,
+          "valid_row_cosines": 8674
+        }
+      },
+      "overlap": 8674,
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "absolute_G_difference": 10.09677404559173,
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.023335050758527986,
+          "mean_row_cosine": 0.020870050009487506,
+          "median_row_cosine": 0.01787360049942887,
+          "normalized_direct_distance": 1.3976166648762893,
+          "sign_agreement": 0.5065110186469409,
+          "valid_row_cosines": 8652
+        },
+        "observations": {
+          "global_cosine": 0.036564774471219585,
+          "mean_row_cosine": 0.0317419759179555,
+          "median_row_cosine": 0.022722789156739656,
+          "normalized_direct_distance": 1.3881180416344476,
+          "sign_agreement": 0.5132101384243017,
+          "valid_row_cosines": 8652
+        }
+      },
+      "overlap": 8652,
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "absolute_G_difference": 11.988953861803665,
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.013518861961695019,
+          "mean_row_cosine": 0.01175869340898814,
+          "median_row_cosine": 0.011371287727686547,
+          "normalized_direct_distance": 1.404622051300766,
+          "sign_agreement": 0.500571111820335,
+          "valid_row_cosines": 39689
+        },
+        "observations": {
+          "global_cosine": 0.01673126184361964,
+          "mean_row_cosine": 0.017128913666113396,
+          "median_row_cosine": 0.015107566744775055,
+          "normalized_direct_distance": 1.4023333543123682,
+          "sign_agreement": 0.5066131919989566,
+          "valid_row_cosines": 39689
+        }
+      },
+      "overlap": 39689,
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "absolute_G_difference": 7.704093378280156,
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.017816452203831233,
+          "mean_row_cosine": 0.01575210603844309,
+          "median_row_cosine": 0.016936906770515743,
+          "normalized_direct_distance": 1.4015588608516956,
+          "sign_agreement": 0.5027321949187838,
+          "valid_row_cosines": 40017
+        },
+        "observations": {
+          "global_cosine": 0.022818578127139326,
+          "mean_row_cosine": 0.021339598312979508,
+          "median_row_cosine": 0.017559717288937772,
+          "normalized_direct_distance": 1.3979853245943359,
+          "sign_agreement": 0.5083413078853252,
+          "valid_row_cosines": 40017
+        }
+      },
+      "overlap": 40017,
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "absolute_G_difference": 5.768529171349115,
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.015525776422476626,
+          "mean_row_cosine": 0.012683934048986793,
+          "median_row_cosine": 0.01331992331117115,
+          "normalized_direct_distance": 1.403192269438378,
+          "sign_agreement": 0.5011779422495569,
+          "valid_row_cosines": 39971
+        },
+        "observations": {
+          "global_cosine": 0.022243757249735187,
+          "mean_row_cosine": 0.019417583640493098,
+          "median_row_cosine": 0.016206223553053817,
+          "normalized_direct_distance": 1.3983965271412844,
+          "sign_agreement": 0.5070286355087372,
+          "valid_row_cosines": 39971
+        }
+      },
+      "overlap": 39971,
+      "rho": 0.05,
+      "seed": 2
+    }
+  ],
+  "within_condition_seed_pairs": [
+    {
+      "absolute_G_difference": 14.541724811042883,
+      "condition": "canonical",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.012098985250666865,
+          "mean_row_cosine": 0.011426730254202766,
+          "median_row_cosine": 0.018611460395399064,
+          "normalized_direct_distance": 1.405634588198411,
+          "sign_agreement": 0.4982361039408019,
+          "valid_row_cosines": 3874
+        },
+        "observations": {
+          "global_cosine": -0.0030468096905070757,
+          "mean_row_cosine": -0.0030940535226929755,
+          "median_row_cosine": -0.005719654448977365,
+          "normalized_direct_distance": 1.4163670969614468,
+          "sign_agreement": 0.49764645145616326,
+          "valid_row_cosines": 3874
+        }
+      },
+      "overlap": 3874,
+      "rho": 0.01,
+      "seed_a": 0,
+      "seed_b": 1
+    },
+    {
+      "absolute_G_difference": 0.41059174816916766,
+      "condition": "canonical",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.009846105003888272,
+          "mean_row_cosine": 0.0078065775554214765,
+          "median_row_cosine": 0.018988476476457475,
+          "normalized_direct_distance": 1.4072351450662552,
+          "sign_agreement": 0.4987016359387172,
+          "valid_row_cosines": 3851
+        },
+        "observations": {
+          "global_cosine": 0.005354413875638038,
+          "mean_row_cosine": 0.005268043261911087,
+          "median_row_cosine": 0.004157244552457045,
+          "normalized_direct_distance": 1.410423313993258,
+          "sign_agreement": 0.5009088548428979,
+          "valid_row_cosines": 3851
+        }
+      },
+      "overlap": 3851,
+      "rho": 0.01,
+      "seed_a": 0,
+      "seed_b": 2
+    },
+    {
+      "absolute_G_difference": 14.131133062873715,
+      "condition": "canonical",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.008222339298143106,
+          "mean_row_cosine": 0.004677588734212844,
+          "median_row_cosine": 0.0014604736799809347,
+          "normalized_direct_distance": 1.4083890350738673,
+          "sign_agreement": 0.5011216303562602,
+          "valid_row_cosines": 8767
+        },
+        "observations": {
+          "global_cosine": 0.017569618348986175,
+          "mean_row_cosine": 0.014274922681568812,
+          "median_row_cosine": 0.014901740204961959,
+          "normalized_direct_distance": 1.4017355185795093,
+          "sign_agreement": 0.503968759854803,
+          "valid_row_cosines": 8767
+        }
+      },
+      "overlap": 8767,
+      "rho": 0.01,
+      "seed_a": 1,
+      "seed_b": 2
+    },
+    {
+      "absolute_G_difference": 6.573223662636572,
+      "condition": "canonical",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.008317015250162705,
+          "mean_row_cosine": 0.006506501793638899,
+          "median_row_cosine": 0.009691283934420505,
+          "normalized_direct_distance": 1.4083202715670438,
+          "sign_agreement": 0.4990998740438082,
+          "valid_row_cosines": 27126
+        },
+        "observations": {
+          "global_cosine": 0.002612919384022694,
+          "mean_row_cosine": 0.003160202823405205,
+          "median_row_cosine": 0.0037196138747145535,
+          "normalized_direct_distance": 1.412365182920205,
+          "sign_agreement": 0.5005941770647653,
+          "valid_row_cosines": 27126
+        }
+      },
+      "overlap": 27126,
+      "rho": 0.05,
+      "seed_a": 0,
+      "seed_b": 1
+    },
+    {
+      "absolute_G_difference": 5.488123747728324,
+      "condition": "canonical",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.011863937043547523,
+          "mean_row_cosine": 0.011233400112812434,
+          "median_row_cosine": 0.009881223791473983,
+          "normalized_direct_distance": 1.4058016155011,
+          "sign_agreement": 0.5016138812158926,
+          "valid_row_cosines": 27212
+        },
+        "observations": {
+          "global_cosine": 0.0038329705878632895,
+          "mean_row_cosine": 0.003747103932932591,
+          "median_row_cosine": 0.004150160083384919,
+          "normalized_direct_distance": 1.4115011367285735,
+          "sign_agreement": 0.5006841719573804,
+          "valid_row_cosines": 27212
+        }
+      },
+      "overlap": 27212,
+      "rho": 0.05,
+      "seed_a": 0,
+      "seed_b": 2
+    },
+    {
+      "absolute_G_difference": 1.0850999149082483,
+      "condition": "canonical",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.012604523568576735,
+          "mean_row_cosine": 0.01028754562460933,
+          "median_row_cosine": 0.010779903681878438,
+          "normalized_direct_distance": 1.4052726860446212,
+          "sign_agreement": 0.5015824866856426,
+          "valid_row_cosines": 48131
+        },
+        "observations": {
+          "global_cosine": 0.017269745823778517,
+          "mean_row_cosine": 0.014782330004200905,
+          "median_row_cosine": 0.01633908668778618,
+          "normalized_direct_distance": 1.4019493668728604,
+          "sign_agreement": 0.5049130680276599,
+          "valid_row_cosines": 48131
+        }
+      },
+      "overlap": 48131,
+      "rho": 0.05,
+      "seed_a": 1,
+      "seed_b": 2
+    },
+    {
+      "absolute_G_difference": 1.7657208640943622,
+      "condition": "s2_overlap_r0",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.0199230631249405,
+          "mean_row_cosine": 0.013960994566161865,
+          "median_row_cosine": 0.009149598831685729,
+          "normalized_direct_distance": 1.4000561382528627,
+          "sign_agreement": 0.5032119075597337,
+          "valid_row_cosines": 4255
+        },
+        "observations": {
+          "global_cosine": 0.0008652946429900933,
+          "mean_row_cosine": 5.7893783793641696e-06,
+          "median_row_cosine": -0.0012655081489318521,
+          "normalized_direct_distance": 1.4136015877838441,
+          "sign_agreement": 0.5007534388608558,
+          "valid_row_cosines": 4255
+        }
+      },
+      "overlap": 4255,
+      "rho": 0.01,
+      "seed_a": 0,
+      "seed_b": 1
+    },
+    {
+      "absolute_G_difference": 6.079363454134835,
+      "condition": "s2_overlap_r0",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.023973849883039435,
+          "mean_row_cosine": 0.022559988886911075,
+          "median_row_cosine": 0.026442893064684503,
+          "normalized_direct_distance": 1.39715885503481,
+          "sign_agreement": 0.501762814303979,
+          "valid_row_cosines": 4302
+        },
+        "observations": {
+          "global_cosine": 0.009715202266468825,
+          "mean_row_cosine": 0.007986241436494883,
+          "median_row_cosine": 0.01023160516379824,
+          "normalized_direct_distance": 1.4073284051366033,
+          "sign_agreement": 0.5036371591872453,
+          "valid_row_cosines": 4302
+        }
+      },
+      "overlap": 4302,
+      "rho": 0.01,
+      "seed_a": 0,
+      "seed_b": 2
+    },
+    {
+      "absolute_G_difference": 7.845084318229198,
+      "condition": "s2_overlap_r0",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.008588064808001573,
+          "mean_row_cosine": 0.008319695145403944,
+          "median_row_cosine": 0.0015380827574132637,
+          "normalized_direct_distance": 1.4081306626204912,
+          "sign_agreement": 0.5014225560487083,
+          "valid_row_cosines": 8787
+        },
+        "observations": {
+          "global_cosine": 0.013632439516461302,
+          "mean_row_cosine": 0.010591106430304174,
+          "median_row_cosine": 0.014075346334135663,
+          "normalized_direct_distance": 1.4045431830391804,
+          "sign_agreement": 0.5042475850019079,
+          "valid_row_cosines": 8787
+        }
+      },
+      "overlap": 8787,
+      "rho": 0.01,
+      "seed_a": 1,
+      "seed_b": 2
+    },
+    {
+      "absolute_G_difference": 13.11982357744725,
+      "condition": "s2_overlap_r0",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.01257788030511077,
+          "mean_row_cosine": 0.009422830652602215,
+          "median_row_cosine": 0.01174596498917687,
+          "normalized_direct_distance": 1.405291514917205,
+          "sign_agreement": 0.5007736921736738,
+          "valid_row_cosines": 29082
+        },
+        "observations": {
+          "global_cosine": 0.0021701795874237407,
+          "mean_row_cosine": 0.002912054789124902,
+          "median_row_cosine": 0.002841360089846723,
+          "normalized_direct_distance": 1.412679907803175,
+          "sign_agreement": 0.5008818877251746,
+          "valid_row_cosines": 29082
+        }
+      },
+      "overlap": 29082,
+      "rho": 0.05,
+      "seed_a": 0,
+      "seed_b": 1
+    },
+    {
+      "absolute_G_difference": 12.269359285424457,
+      "condition": "s2_overlap_r0",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.010902561779184215,
+          "mean_row_cosine": 0.009106409744970161,
+          "median_row_cosine": 0.011130550188898825,
+          "normalized_direct_distance": 1.406484991011296,
+          "sign_agreement": 0.500664079344545,
+          "valid_row_cosines": 28988
+        },
+        "observations": {
+          "global_cosine": 0.004040963224572885,
+          "mean_row_cosine": 0.004133275378698932,
+          "median_row_cosine": 0.004206194148671066,
+          "normalized_direct_distance": 1.4113548131984044,
+          "sign_agreement": 0.502020109781958,
+          "valid_row_cosines": 28988
+        }
+      },
+      "overlap": 28988,
+      "rho": 0.05,
+      "seed_a": 0,
+      "seed_b": 2
+    },
+    {
+      "absolute_G_difference": 0.8504642920227923,
+      "condition": "s2_overlap_r0",
+      "metrics": {
+        "actions": {
+          "global_cosine": 0.013342749489503036,
+          "mean_row_cosine": 0.010667434028253776,
+          "median_row_cosine": 0.01056800685345193,
+          "normalized_direct_distance": 1.404747429114279,
+          "sign_agreement": 0.500971363521721,
+          "valid_row_cosines": 48901
+        },
+        "observations": {
+          "global_cosine": 0.013918060491246517,
+          "mean_row_cosine": 0.01174693217937581,
+          "median_row_cosine": 0.012765928667796364,
+          "normalized_direct_distance": 1.4043375231861623,
+          "sign_agreement": 0.5045325724513903,
+          "valid_row_cosines": 48901
+        }
+      },
+      "overlap": 48901,
+      "rho": 0.05,
+      "seed_a": 1,
+      "seed_b": 2
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "analysis": "group4e_state_representation",
+  "rows": [
+    {
+      "A_history": 0.007149670273065567,
+      "changed_states": 10000,
+      "condition": "canonical",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.575505256652832,
+          "dt_mean": 13.003174781799316,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.427669525146484,
+          "ratio_joint_over_dt": 0.571219694404362
+        },
+        "token": {
+          "B_joint_minus_dt": -0.2175126075744629,
+          "dt_mean": 3.9762399196624756,
+          "fraction_joint_gt_dt": 0.3477,
+          "joint_mean": 3.7587273120880127,
+          "ratio_joint_over_dt": 0.9452969106567715
+        }
+      },
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "A_history": 0.006367366760969162,
+      "changed_states": 50000,
+      "condition": "canonical",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.4741716384887695,
+          "dt_mean": 12.735158920288086,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.260987281799316,
+          "ratio_joint_over_dt": 0.5701528600661148
+        },
+        "token": {
+          "B_joint_minus_dt": -0.26265716552734375,
+          "dt_mean": 4.04014253616333,
+          "fraction_joint_gt_dt": 0.32268,
+          "joint_mean": 3.7774853706359863,
+          "ratio_joint_over_dt": 0.934988143814919
+        }
+      },
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "A_history": 0.008882176131010056,
+      "changed_states": 10000,
+      "condition": "s2_overlap_r0",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.554205417633057,
+          "dt_mean": 12.950299263000488,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.396093845367432,
+          "ratio_joint_over_dt": 0.5711137399347821
+        },
+        "token": {
+          "B_joint_minus_dt": -0.21034812927246094,
+          "dt_mean": 3.94126296043396,
+          "fraction_joint_gt_dt": 0.3437,
+          "joint_mean": 3.730914831161499,
+          "ratio_joint_over_dt": 0.9466292578330661
+        }
+      },
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "A_history": 0.0071827732026577,
+      "changed_states": 49998,
+      "condition": "s2_overlap_r0",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.490213871002197,
+          "dt_mean": 12.774604797363281,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.284390926361084,
+          "ratio_joint_over_dt": 0.5702243663822801
+        },
+        "token": {
+          "B_joint_minus_dt": -0.2508544921875,
+          "dt_mean": 4.022387504577637,
+          "fraction_joint_gt_dt": 0.32927317092683706,
+          "joint_mean": 3.7715330123901367,
+          "ratio_joint_over_dt": 0.9376354237618938
+        }
+      },
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "A_history": 0.011265434324741364,
+      "changed_states": 10000,
+      "condition": "canonical",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.690807819366455,
+          "dt_mean": 13.181471824645996,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.490664005279541,
+          "ratio_joint_over_dt": 0.5682722009292877
+        },
+        "token": {
+          "B_joint_minus_dt": -0.24743938446044922,
+          "dt_mean": 3.8653624057769775,
+          "fraction_joint_gt_dt": 0.3289,
+          "joint_mean": 3.6179230213165283,
+          "ratio_joint_over_dt": 0.935985463072861
+        }
+      },
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "A_history": 0.00972803682088852,
+      "changed_states": 50000,
+      "condition": "canonical",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.499706745147705,
+          "dt_mean": 12.756709098815918,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.257002353668213,
+          "ratio_joint_over_dt": 0.5688773097711574
+        },
+        "token": {
+          "B_joint_minus_dt": -0.3043181896209717,
+          "dt_mean": 3.9727838039398193,
+          "fraction_joint_gt_dt": 0.2973,
+          "joint_mean": 3.6684656143188477,
+          "ratio_joint_over_dt": 0.9233992573871999
+        }
+      },
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "A_history": 0.011453714221715927,
+      "changed_states": 9997,
+      "condition": "s2_overlap_r0",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.717750072479248,
+          "dt_mean": 13.22795295715332,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.510202884674072,
+          "ratio_joint_over_dt": 0.5677524639677668
+        },
+        "token": {
+          "B_joint_minus_dt": -0.25040125846862793,
+          "dt_mean": 3.86967134475708,
+          "fraction_joint_gt_dt": 0.3201960588176453,
+          "joint_mean": 3.619270086288452,
+          "ratio_joint_over_dt": 0.9352913371289721
+        }
+      },
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "A_history": 0.009580407291650772,
+      "changed_states": 49950,
+      "condition": "s2_overlap_r0",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.54686975479126,
+          "dt_mean": 12.855098724365234,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.308228969573975,
+          "ratio_joint_over_dt": 0.5685081947851222
+        },
+        "token": {
+          "B_joint_minus_dt": -0.29944372177124023,
+          "dt_mean": 3.959298610687256,
+          "fraction_joint_gt_dt": 0.2971771771771772,
+          "joint_mean": 3.6598548889160156,
+          "ratio_joint_over_dt": 0.9243695029811891
+        }
+      },
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "A_history": 0.0069648511707782745,
+      "changed_states": 10000,
+      "condition": "canonical",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.6744065284729,
+          "dt_mean": 13.233007431030273,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.558600902557373,
+          "ratio_joint_over_dt": 0.5711929764984888
+        },
+        "token": {
+          "B_joint_minus_dt": -0.17802929878234863,
+          "dt_mean": 3.865892171859741,
+          "fraction_joint_gt_dt": 0.3784,
+          "joint_mean": 3.6878628730773926,
+          "ratio_joint_over_dt": 0.9539487158800761
+        }
+      },
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "A_history": 0.006196692585945129,
+      "changed_states": 50000,
+      "condition": "canonical",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.509521484375,
+          "dt_mean": 12.867953300476074,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.358431816101074,
+          "ratio_joint_over_dt": 0.571841663104906
+        },
+        "token": {
+          "B_joint_minus_dt": -0.24459552764892578,
+          "dt_mean": 3.97637939453125,
+          "fraction_joint_gt_dt": 0.3367,
+          "joint_mean": 3.731783866882324,
+          "ratio_joint_over_dt": 0.9384878797062829
+        }
+      },
+      "rho": 0.05,
+      "seed": 2
+    },
+    {
+      "A_history": 0.009720087051391602,
+      "changed_states": 9998,
+      "condition": "s2_overlap_r0",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.711236953735352,
+          "dt_mean": 13.369619369506836,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.658382415771484,
+          "ratio_joint_over_dt": 0.5728197792405368
+        },
+        "token": {
+          "B_joint_minus_dt": -0.16480255126953125,
+          "dt_mean": 3.898973226547241,
+          "fraction_joint_gt_dt": 0.38057611522304463,
+          "joint_mean": 3.73417067527771,
+          "ratio_joint_over_dt": 0.9577318074029375
+        }
+      },
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "A_history": 0.006644114851951599,
+      "changed_states": 49947,
+      "condition": "s2_overlap_r0",
+      "representations": {
+        "raw": {
+          "B_joint_minus_dt": -5.53788948059082,
+          "dt_mean": 12.93453598022461,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 7.396646499633789,
+          "ratio_joint_over_dt": 0.5718524816771026
+        },
+        "token": {
+          "B_joint_minus_dt": -0.23145580291748047,
+          "dt_mean": 3.951855421066284,
+          "fraction_joint_gt_dt": 0.34312371113380186,
+          "joint_mean": 3.7203996181488037,
+          "ratio_joint_over_dt": 0.9414311055802819
+        }
+      },
+      "rho": 0.05,
+      "seed": 2
+    }
+  ]
+}

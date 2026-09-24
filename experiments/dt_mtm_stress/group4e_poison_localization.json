@@ -1,0 +1,2285 @@
+{
+  "clean_dataset": "data\\raw\\walker2d-medium-v2\\walker2d_medium-v2.hdf5",
+  "runs": [
+    {
+      "changed_trajectories": 923,
+      "condition": "canonical",
+      "dataset": "data\\poisoned\\csdpc\\walker2d-medium-v2\\rho_001_seed_0.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 10000,
+          "dtype": "float32",
+          "max_abs_change": 0.04995506023988128,
+          "mean_abs_change_changed_elements": 0.0217730766833691,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 10000,
+          "dtype": "float32",
+          "max_abs_change": 0.499971866607666,
+          "mean_abs_change_changed_elements": 0.17209214434838538,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.01,
+      "seed": 0,
+      "union_changed_transitions": 10000
+    },
+    {
+      "changed_trajectories": 935,
+      "condition": "canonical",
+      "dataset": "data\\poisoned\\csdpc\\walker2d-medium-v2\\rho_001_seed_1.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 10000,
+          "dtype": "float32",
+          "max_abs_change": 0.04997639358043671,
+          "mean_abs_change_changed_elements": 0.02191814775105195,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 10000,
+          "dtype": "float32",
+          "max_abs_change": 0.4999990463256836,
+          "mean_abs_change_changed_elements": 0.1760644355784097,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.01,
+      "seed": 1,
+      "union_changed_transitions": 10000
+    },
+    {
+      "changed_trajectories": 922,
+      "condition": "canonical",
+      "dataset": "data\\poisoned\\csdpc\\walker2d-medium-v2\\rho_001_seed_2.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 10000,
+          "dtype": "float32",
+          "max_abs_change": 0.04997330904006958,
+          "mean_abs_change_changed_elements": 0.021894011446830577,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 10000,
+          "dtype": "float32",
+          "max_abs_change": 0.4999208450317383,
+          "mean_abs_change_changed_elements": 0.176188385599912,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.01,
+      "seed": 2,
+      "union_changed_transitions": 10000
+    },
+    {
+      "changed_trajectories": 1189,
+      "condition": "canonical",
+      "dataset": "data\\poisoned\\csdpc\\walker2d-medium-v2\\rho_005_seed_0.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 50000,
+          "dtype": "float32",
+          "max_abs_change": 0.04997432231903076,
+          "mean_abs_change_changed_elements": 0.02195711085726102,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 50000,
+          "dtype": "float32",
+          "max_abs_change": 0.49999523162841797,
+          "mean_abs_change_changed_elements": 0.16892977249937174,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.05,
+      "seed": 0,
+      "union_changed_transitions": 50000
+    },
+    {
+      "changed_trajectories": 1186,
+      "condition": "canonical",
+      "dataset": "data\\poisoned\\csdpc\\walker2d-medium-v2\\rho_005_seed_1.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 50000,
+          "dtype": "float32",
+          "max_abs_change": 0.04998224973678589,
+          "mean_abs_change_changed_elements": 0.021931883326475457,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 50000,
+          "dtype": "float32",
+          "max_abs_change": 0.4999990463256836,
+          "mean_abs_change_changed_elements": 0.1707253306378351,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.05,
+      "seed": 1,
+      "union_changed_transitions": 50000
+    },
+    {
+      "changed_trajectories": 1187,
+      "condition": "canonical",
+      "dataset": "data\\poisoned\\csdpc\\walker2d-medium-v2\\rho_005_seed_2.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 50000,
+          "dtype": "float32",
+          "max_abs_change": 0.049988389015197754,
+          "mean_abs_change_changed_elements": 0.021989062046158022,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 50000,
+          "dtype": "float32",
+          "max_abs_change": 0.49999813362956047,
+          "mean_abs_change_changed_elements": 0.17140552631488765,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.05,
+      "seed": 2,
+      "union_changed_transitions": 50000
+    },
+    {
+      "changed_trajectories": 857,
+      "condition": "s2_overlap_r0",
+      "dataset": "data\\poisoned\\csdpc_s2_overlap_r0_v1\\walker2d-medium-v2\\rho_001_seed_0.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 10000,
+          "dtype": "float32",
+          "max_abs_change": 0.04996424913406372,
+          "mean_abs_change_changed_elements": 0.021818744199688826,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 10000,
+          "dtype": "float32",
+          "max_abs_change": 0.49998992681503296,
+          "mean_abs_change_changed_elements": 0.1724701170142463,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.01,
+      "seed": 0,
+      "union_changed_transitions": 10000
+    },
+    {
+      "changed_trajectories": 874,
+      "condition": "s2_overlap_r0",
+      "dataset": "data\\poisoned\\csdpc_s2_overlap_r0_v1\\walker2d-medium-v2\\rho_001_seed_1.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 9997,
+          "dtype": "float32",
+          "max_abs_change": 0.04992532730102539,
+          "mean_abs_change_changed_elements": 0.02187053334958824,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 9997,
+          "dtype": "float32",
+          "max_abs_change": 0.4999959468841553,
+          "mean_abs_change_changed_elements": 0.17712666942192273,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.01,
+      "seed": 1,
+      "union_changed_transitions": 9997
+    },
+    {
+      "changed_trajectories": 868,
+      "condition": "s2_overlap_r0",
+      "dataset": "data\\poisoned\\csdpc_s2_overlap_r0_v1\\walker2d-medium-v2\\rho_001_seed_2.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 9998,
+          "dtype": "float32",
+          "max_abs_change": 0.04996104538440704,
+          "mean_abs_change_changed_elements": 0.02189727546772342,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 9998,
+          "dtype": "float32",
+          "max_abs_change": 0.49998366832733154,
+          "mean_abs_change_changed_elements": 0.17727723239951673,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.01,
+      "seed": 2,
+      "union_changed_transitions": 9998
+    },
+    {
+      "changed_trajectories": 1189,
+      "condition": "s2_overlap_r0",
+      "dataset": "data\\poisoned\\csdpc_s2_overlap_r0_v1\\walker2d-medium-v2\\rho_005_seed_0.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 49998,
+          "dtype": "float32",
+          "max_abs_change": 0.049965620040893555,
+          "mean_abs_change_changed_elements": 0.02190444893868931,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 49998,
+          "dtype": "float32",
+          "max_abs_change": 0.49999022483825684,
+          "mean_abs_change_changed_elements": 0.16985561122861456,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.05,
+      "seed": 0,
+      "union_changed_transitions": 49998
+    },
+    {
+      "changed_trajectories": 1180,
+      "condition": "s2_overlap_r0",
+      "dataset": "data\\poisoned\\csdpc_s2_overlap_r0_v1\\walker2d-medium-v2\\rho_005_seed_1.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 49950,
+          "dtype": "float32",
+          "max_abs_change": 0.04999196529388428,
+          "mean_abs_change_changed_elements": 0.02191348032943169,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 49950,
+          "dtype": "float32",
+          "max_abs_change": 0.4999959468841553,
+          "mean_abs_change_changed_elements": 0.17222658862390813,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.05,
+      "seed": 1,
+      "union_changed_transitions": 49950
+    },
+    {
+      "changed_trajectories": 1182,
+      "condition": "s2_overlap_r0",
+      "dataset": "data\\poisoned\\csdpc_s2_overlap_r0_v1\\walker2d-medium-v2\\rho_005_seed_2.hdf5",
+      "keys": {
+        "actions": {
+          "changed_rows": 49947,
+          "dtype": "float32",
+          "max_abs_change": 0.049986377358436584,
+          "mean_abs_change_changed_elements": 0.021937169086393624,
+          "shape": [
+            1000000,
+            6
+          ]
+        },
+        "infos/action_log_probs": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "infos/qpos": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "infos/qvel": {
+          "changed_rows": 0,
+          "dtype": "float64",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            9
+          ]
+        },
+        "metadata/algorithm": {
+          "changed_rows": 0,
+          "dtype": "|S3",
+          "shape": []
+        },
+        "metadata/iteration": {
+          "changed_rows": 0,
+          "dtype": "int32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": []
+        },
+        "metadata/policy/fc0/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc0/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            17
+          ]
+        },
+        "metadata/policy/fc1/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256
+          ]
+        },
+        "metadata/policy/fc1/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            256,
+            256
+          ]
+        },
+        "metadata/policy/last_fc/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/last_fc_log_std/bias": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6
+          ]
+        },
+        "metadata/policy/last_fc_log_std/weight": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "metadata/policy/nonlinearity": {
+          "changed_rows": 0,
+          "dtype": "|S4",
+          "shape": []
+        },
+        "metadata/policy/output_distribution": {
+          "changed_rows": 0,
+          "dtype": "|S13",
+          "shape": []
+        },
+        "next_observations": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "observations": {
+          "changed_rows": 49947,
+          "dtype": "float32",
+          "max_abs_change": 0.4999949038028717,
+          "mean_abs_change_changed_elements": 0.17209213919496094,
+          "shape": [
+            1000000,
+            17
+          ]
+        },
+        "rewards": {
+          "changed_rows": 0,
+          "dtype": "float32",
+          "max_abs_change": 0.0,
+          "mean_abs_change_changed_elements": 0.0,
+          "shape": [
+            1000000
+          ]
+        },
+        "terminals": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        },
+        "timeouts": {
+          "changed_rows": 0,
+          "dtype": "bool",
+          "shape": [
+            1000000
+          ]
+        }
+      },
+      "rho": 0.05,
+      "seed": 2,
+      "union_changed_transitions": 49947
+    }
+  ]
+}

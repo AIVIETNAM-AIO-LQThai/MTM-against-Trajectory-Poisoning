@@ -1,0 +1,473 @@
+{
+  "analysis": "group4e_layerwise_history",
+  "rows": [
+    {
+      "G": 3.7595204990486906,
+      "condition": "canonical",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.0077010467648506165,
+          "dt_mean": 0.042319171130657196,
+          "fraction_joint_gt_dt": 0.6654,
+          "joint_mean": 0.05002021789550781
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.007491812109947205,
+          "dt_mean": 0.19707965850830078,
+          "fraction_joint_gt_dt": 0.4972,
+          "joint_mean": 0.20457147061824799
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.0887652337551117,
+          "dt_mean": 0.3273218870162964,
+          "fraction_joint_gt_dt": 0.7102,
+          "joint_mean": 0.4160871207714081
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.1022743284702301,
+          "dt_mean": 0.3277004659175873,
+          "fraction_joint_gt_dt": 0.7958,
+          "joint_mean": 0.4299747943878174
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "G": 0.5617002691579813,
+      "condition": "canonical",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.0057565271854400635,
+          "dt_mean": 0.03962796926498413,
+          "fraction_joint_gt_dt": 0.6536,
+          "joint_mean": 0.045384496450424194
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.006757467985153198,
+          "dt_mean": 0.19174860417842865,
+          "fraction_joint_gt_dt": 0.4884,
+          "joint_mean": 0.19850607216358185
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.08023855090141296,
+          "dt_mean": 0.3328167200088501,
+          "fraction_joint_gt_dt": 0.6816,
+          "joint_mean": 0.41305527091026306
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.09267380833625793,
+          "dt_mean": 0.32315969467163086,
+          "fraction_joint_gt_dt": 0.7904,
+          "joint_mean": 0.4158335030078888
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "G": -0.6684818405773711,
+      "condition": "s2_overlap_r0",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.00920167937874794,
+          "dt_mean": 0.039206188172101974,
+          "fraction_joint_gt_dt": 0.6746,
+          "joint_mean": 0.048407867550849915
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.0085906982421875,
+          "dt_mean": 0.183700829744339,
+          "fraction_joint_gt_dt": 0.4962,
+          "joint_mean": 0.1922915279865265
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.09213244915008545,
+          "dt_mean": 0.3112514019012451,
+          "fraction_joint_gt_dt": 0.7216,
+          "joint_mean": 0.40338385105133057
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.10891687870025635,
+          "dt_mean": 0.31390899419784546,
+          "fraction_joint_gt_dt": 0.8048,
+          "joint_mean": 0.4228258728981018
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "G": -11.427253592645684,
+      "condition": "s2_overlap_r0",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.007259353995323181,
+          "dt_mean": 0.03918108344078064,
+          "fraction_joint_gt_dt": 0.6774,
+          "joint_mean": 0.04644043743610382
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.0023823976516723633,
+          "dt_mean": 0.1886252909898758,
+          "fraction_joint_gt_dt": 0.4932,
+          "joint_mean": 0.19100768864154816
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.08697524666786194,
+          "dt_mean": 0.33458033204078674,
+          "fraction_joint_gt_dt": 0.7004,
+          "joint_mean": 0.4215555787086487
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.10139331221580505,
+          "dt_mean": 0.3267803192138672,
+          "fraction_joint_gt_dt": 0.7996,
+          "joint_mean": 0.42817363142967224
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "G": -10.782204311994192,
+      "condition": "canonical",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.012115396559238434,
+          "dt_mean": 0.04001172259449959,
+          "fraction_joint_gt_dt": 0.659,
+          "joint_mean": 0.05212711915373802
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.0030907243490219116,
+          "dt_mean": 0.1782289743423462,
+          "fraction_joint_gt_dt": 0.438,
+          "joint_mean": 0.1813196986913681
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.13058990240097046,
+          "dt_mean": 0.34923696517944336,
+          "fraction_joint_gt_dt": 0.6624,
+          "joint_mean": 0.4798268675804138
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.12069827318191528,
+          "dt_mean": 0.33136802911758423,
+          "fraction_joint_gt_dt": 0.7356,
+          "joint_mean": 0.4520663022994995
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "G": -6.0115233934785905,
+      "condition": "canonical",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.008991200476884842,
+          "dt_mean": 0.041389502584934235,
+          "fraction_joint_gt_dt": 0.6646,
+          "joint_mean": 0.05038070306181908
+        },
+        "block1": {
+          "C_joint_minus_dt": -0.008394405245780945,
+          "dt_mean": 0.19012269377708435,
+          "fraction_joint_gt_dt": 0.4234,
+          "joint_mean": 0.1817282885313034
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.1175616979598999,
+          "dt_mean": 0.37887170910835266,
+          "fraction_joint_gt_dt": 0.6534,
+          "joint_mean": 0.49643340706825256
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.1084187924861908,
+          "dt_mean": 0.34179702401161194,
+          "fraction_joint_gt_dt": 0.7366,
+          "joint_mean": 0.45021581649780273
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "G": 1.097239023516991,
+      "condition": "s2_overlap_r0",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.011128030717372894,
+          "dt_mean": 0.04343406483530998,
+          "fraction_joint_gt_dt": 0.6494,
+          "joint_mean": 0.05456209555268288
+        },
+        "block1": {
+          "C_joint_minus_dt": -0.0003610849380493164,
+          "dt_mean": 0.18361833691596985,
+          "fraction_joint_gt_dt": 0.4462,
+          "joint_mean": 0.18325725197792053
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.1280079185962677,
+          "dt_mean": 0.3644399344921112,
+          "fraction_joint_gt_dt": 0.6674,
+          "joint_mean": 0.4924478530883789
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.11781254410743713,
+          "dt_mean": 0.346270889043808,
+          "fraction_joint_gt_dt": 0.7256,
+          "joint_mean": 0.4640834331512451
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "G": 1.6925699848015654,
+      "condition": "s2_overlap_r0",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.009613852947950363,
+          "dt_mean": 0.04130302369594574,
+          "fraction_joint_gt_dt": 0.6504,
+          "joint_mean": 0.0509168766438961
+        },
+        "block1": {
+          "C_joint_minus_dt": -0.010680928826332092,
+          "dt_mean": 0.19303745031356812,
+          "fraction_joint_gt_dt": 0.4356,
+          "joint_mean": 0.18235652148723602
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.12047001719474792,
+          "dt_mean": 0.3943212330341339,
+          "fraction_joint_gt_dt": 0.6584,
+          "joint_mean": 0.5147912502288818
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.11113116145133972,
+          "dt_mean": 0.35589930415153503,
+          "fraction_joint_gt_dt": 0.7364,
+          "joint_mean": 0.46703046560287476
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "G": 3.348928750879523,
+      "condition": "canonical",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.007292315363883972,
+          "dt_mean": 0.04081845283508301,
+          "fraction_joint_gt_dt": 0.6238,
+          "joint_mean": 0.04811076819896698
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.015195205807685852,
+          "dt_mean": 0.18468831479549408,
+          "fraction_joint_gt_dt": 0.4792,
+          "joint_mean": 0.19988352060317993
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.10278156399726868,
+          "dt_mean": 0.3104856312274933,
+          "fraction_joint_gt_dt": 0.7018,
+          "joint_mean": 0.41326719522476196
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.09093737602233887,
+          "dt_mean": 0.3144699037075043,
+          "fraction_joint_gt_dt": 0.6978,
+          "joint_mean": 0.40540727972984314
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "G": -4.926423478570342,
+      "condition": "canonical",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.005887065082788467,
+          "dt_mean": 0.04158928990364075,
+          "fraction_joint_gt_dt": 0.6318,
+          "joint_mean": 0.047476354986429214
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.004350870847702026,
+          "dt_mean": 0.19604992866516113,
+          "fraction_joint_gt_dt": 0.4912,
+          "joint_mean": 0.20040079951286316
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.09286481142044067,
+          "dt_mean": 0.3465806841850281,
+          "fraction_joint_gt_dt": 0.6974,
+          "joint_mean": 0.43944549560546875
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.08357375860214233,
+          "dt_mean": 0.3270935118198395,
+          "fraction_joint_gt_dt": 0.728,
+          "joint_mean": 0.4106672704219818
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 2
+    },
+    {
+      "G": -6.7478452947122065,
+      "condition": "s2_overlap_r0",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.009346548467874527,
+          "dt_mean": 0.04390266537666321,
+          "fraction_joint_gt_dt": 0.6426,
+          "joint_mean": 0.053249213844537735
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.01262734830379486,
+          "dt_mean": 0.1942078322172165,
+          "fraction_joint_gt_dt": 0.493,
+          "joint_mean": 0.20683518052101135
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.11259761452674866,
+          "dt_mean": 0.3268703520298004,
+          "fraction_joint_gt_dt": 0.7154,
+          "joint_mean": 0.4394679665565491
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.10411152243614197,
+          "dt_mean": 0.33109650015830994,
+          "fraction_joint_gt_dt": 0.7358,
+          "joint_mean": 0.4352080225944519
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "G": 0.8421056927787731,
+      "condition": "s2_overlap_r0",
+      "levels": {
+        "action": {
+          "C_joint_minus_dt": 0.006400018930435181,
+          "dt_mean": 0.04350637272000313,
+          "fraction_joint_gt_dt": 0.642,
+          "joint_mean": 0.04990639165043831
+        },
+        "block1": {
+          "C_joint_minus_dt": 0.004054605960845947,
+          "dt_mean": 0.20175307989120483,
+          "fraction_joint_gt_dt": 0.4918,
+          "joint_mean": 0.20580768585205078
+        },
+        "block2": {
+          "C_joint_minus_dt": 0.09936770796775818,
+          "dt_mean": 0.35981443524360657,
+          "fraction_joint_gt_dt": 0.709,
+          "joint_mean": 0.45918214321136475
+        },
+        "block3": {
+          "C_joint_minus_dt": 0.08920976519584656,
+          "dt_mean": 0.3436627984046936,
+          "fraction_joint_gt_dt": 0.7346,
+          "joint_mean": 0.43287256360054016
+        },
+        "input": {
+          "C_joint_minus_dt": 0.0,
+          "dt_mean": 0.0,
+          "fraction_joint_gt_dt": 0.0,
+          "joint_mean": 0.0
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 2
+    }
+  ]
+}

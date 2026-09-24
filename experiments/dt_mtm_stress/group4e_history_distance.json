@@ -1,0 +1,747 @@
+{
+  "analysis": "group4e_history_distance",
+  "distance_bins": [
+    {
+      "max": 3,
+      "min": 1,
+      "name": "1-3"
+    },
+    {
+      "max": 7,
+      "min": 4,
+      "name": "4-7"
+    },
+    {
+      "max": 12,
+      "min": 8,
+      "name": "8-12"
+    },
+    {
+      "max": 19,
+      "min": 13,
+      "name": "13-19"
+    }
+  ],
+  "rows": [
+    {
+      "G": 3.7595204990486906,
+      "condition": "canonical",
+      "distance_bin": "1-3",
+      "population": 5715,
+      "rho": 0.01,
+      "seed": 0,
+      "summary": {
+        "A": 0.01490456610918045,
+        "dt_mean": 0.10676594078540802,
+        "fraction_joint_gt_dt": 0.6046,
+        "joint_mean": 0.12167050689458847,
+        "n": 5000
+      }
+    },
+    {
+      "G": 3.7595204990486906,
+      "condition": "canonical",
+      "distance_bin": "4-7",
+      "population": 7237,
+      "rho": 0.01,
+      "seed": 0,
+      "summary": {
+        "A": 0.005522727966308594,
+        "dt_mean": 0.05023275315761566,
+        "fraction_joint_gt_dt": 0.6136,
+        "joint_mean": 0.055755481123924255,
+        "n": 5000
+      }
+    },
+    {
+      "G": 3.7595204990486906,
+      "condition": "canonical",
+      "distance_bin": "8-12",
+      "population": 8640,
+      "rho": 0.01,
+      "seed": 0,
+      "summary": {
+        "A": 0.0063323527574539185,
+        "dt_mean": 0.026378601789474487,
+        "fraction_joint_gt_dt": 0.6758,
+        "joint_mean": 0.032710954546928406,
+        "n": 5000
+      }
+    },
+    {
+      "G": 3.7595204990486906,
+      "condition": "canonical",
+      "distance_bin": "13-19",
+      "population": 11625,
+      "rho": 0.01,
+      "seed": 0,
+      "summary": {
+        "A": 0.005993515253067017,
+        "dt_mean": 0.015730608254671097,
+        "fraction_joint_gt_dt": 0.7332,
+        "joint_mean": 0.021724123507738113,
+        "n": 5000
+      }
+    },
+    {
+      "G": 0.5617002691579813,
+      "condition": "canonical",
+      "distance_bin": "1-3",
+      "population": 27272,
+      "rho": 0.05,
+      "seed": 0,
+      "summary": {
+        "A": 0.011525183916091919,
+        "dt_mean": 0.10101379454135895,
+        "fraction_joint_gt_dt": 0.5894,
+        "joint_mean": 0.11253897845745087,
+        "n": 5000
+      }
+    },
+    {
+      "G": 0.5617002691579813,
+      "condition": "canonical",
+      "distance_bin": "4-7",
+      "population": 33058,
+      "rho": 0.05,
+      "seed": 0,
+      "summary": {
+        "A": 0.0056380294263362885,
+        "dt_mean": 0.045322343707084656,
+        "fraction_joint_gt_dt": 0.6094,
+        "joint_mean": 0.050960373133420944,
+        "n": 5000
+      }
+    },
+    {
+      "G": 0.5617002691579813,
+      "condition": "canonical",
+      "distance_bin": "8-12",
+      "population": 37989,
+      "rho": 0.05,
+      "seed": 0,
+      "summary": {
+        "A": 0.004865417256951332,
+        "dt_mean": 0.022867895662784576,
+        "fraction_joint_gt_dt": 0.6654,
+        "joint_mean": 0.02773331291973591,
+        "n": 5000
+      }
+    },
+    {
+      "G": 0.5617002691579813,
+      "condition": "canonical",
+      "distance_bin": "13-19",
+      "population": 48755,
+      "rho": 0.05,
+      "seed": 0,
+      "summary": {
+        "A": 0.004209012724459171,
+        "dt_mean": 0.011797976680099964,
+        "fraction_joint_gt_dt": 0.7538,
+        "joint_mean": 0.016006989404559135,
+        "n": 5000
+      }
+    },
+    {
+      "G": -0.6684818405773711,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "1-3",
+      "population": 4830,
+      "rho": 0.01,
+      "seed": 0,
+      "summary": {
+        "A": 0.018324926495552063,
+        "dt_mean": 0.09915322810411453,
+        "fraction_joint_gt_dt": 0.6190476190476191,
+        "joint_mean": 0.1174781545996666,
+        "n": 4830
+      }
+    },
+    {
+      "G": -0.6684818405773711,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "4-7",
+      "population": 6234,
+      "rho": 0.01,
+      "seed": 0,
+      "summary": {
+        "A": 0.007670462131500244,
+        "dt_mean": 0.04783016815781593,
+        "fraction_joint_gt_dt": 0.6188,
+        "joint_mean": 0.05550063028931618,
+        "n": 5000
+      }
+    },
+    {
+      "G": -0.6684818405773711,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "8-12",
+      "population": 7461,
+      "rho": 0.01,
+      "seed": 0,
+      "summary": {
+        "A": 0.006914475932717323,
+        "dt_mean": 0.027005484327673912,
+        "fraction_joint_gt_dt": 0.68,
+        "joint_mean": 0.033919960260391235,
+        "n": 5000
+      }
+    },
+    {
+      "G": -0.6684818405773711,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "13-19",
+      "population": 10053,
+      "rho": 0.01,
+      "seed": 0,
+      "summary": {
+        "A": 0.006368669681251049,
+        "dt_mean": 0.015286474488675594,
+        "fraction_joint_gt_dt": 0.7438,
+        "joint_mean": 0.021655144169926643,
+        "n": 5000
+      }
+    },
+    {
+      "G": -11.427253592645684,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "1-3",
+      "population": 20718,
+      "rho": 0.05,
+      "seed": 0,
+      "summary": {
+        "A": 0.012717895209789276,
+        "dt_mean": 0.10187182575464249,
+        "fraction_joint_gt_dt": 0.5972,
+        "joint_mean": 0.11458972096443176,
+        "n": 5000
+      }
+    },
+    {
+      "G": -11.427253592645684,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "4-7",
+      "population": 25895,
+      "rho": 0.05,
+      "seed": 0,
+      "summary": {
+        "A": 0.007241100072860718,
+        "dt_mean": 0.045738477259874344,
+        "fraction_joint_gt_dt": 0.6192,
+        "joint_mean": 0.05297957733273506,
+        "n": 5000
+      }
+    },
+    {
+      "G": -11.427253592645684,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "8-12",
+      "population": 30188,
+      "rho": 0.05,
+      "seed": 0,
+      "summary": {
+        "A": 0.006196819245815277,
+        "dt_mean": 0.02393917925655842,
+        "fraction_joint_gt_dt": 0.6706,
+        "joint_mean": 0.030135998502373695,
+        "n": 5000
+      }
+    },
+    {
+      "G": -11.427253592645684,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "13-19",
+      "population": 39164,
+      "rho": 0.05,
+      "seed": 0,
+      "summary": {
+        "A": 0.0045085325837135315,
+        "dt_mean": 0.012801168486475945,
+        "fraction_joint_gt_dt": 0.7562,
+        "joint_mean": 0.017309701070189476,
+        "n": 5000
+      }
+    },
+    {
+      "G": -10.782204311994192,
+      "condition": "canonical",
+      "distance_bin": "1-3",
+      "population": 5750,
+      "rho": 0.01,
+      "seed": 1,
+      "summary": {
+        "A": 0.0290498286485672,
+        "dt_mean": 0.10261501371860504,
+        "fraction_joint_gt_dt": 0.667,
+        "joint_mean": 0.13166484236717224,
+        "n": 5000
+      }
+    },
+    {
+      "G": -10.782204311994192,
+      "condition": "canonical",
+      "distance_bin": "4-7",
+      "population": 7342,
+      "rho": 0.01,
+      "seed": 1,
+      "summary": {
+        "A": 0.011221256107091904,
+        "dt_mean": 0.0470048189163208,
+        "fraction_joint_gt_dt": 0.6272,
+        "joint_mean": 0.058226075023412704,
+        "n": 5000
+      }
+    },
+    {
+      "G": -10.782204311994192,
+      "condition": "canonical",
+      "distance_bin": "8-12",
+      "population": 8749,
+      "rho": 0.01,
+      "seed": 1,
+      "summary": {
+        "A": 0.007608678191900253,
+        "dt_mean": 0.0261959470808506,
+        "fraction_joint_gt_dt": 0.6352,
+        "joint_mean": 0.033804625272750854,
+        "n": 5000
+      }
+    },
+    {
+      "G": -10.782204311994192,
+      "condition": "canonical",
+      "distance_bin": "13-19",
+      "population": 11677,
+      "rho": 0.01,
+      "seed": 1,
+      "summary": {
+        "A": 0.006655961275100708,
+        "dt_mean": 0.01704382337629795,
+        "fraction_joint_gt_dt": 0.6826,
+        "joint_mean": 0.02369978465139866,
+        "n": 5000
+      }
+    },
+    {
+      "G": -6.0115233934785905,
+      "condition": "canonical",
+      "distance_bin": "1-3",
+      "population": 27546,
+      "rho": 0.05,
+      "seed": 1,
+      "summary": {
+        "A": 0.020823195576667786,
+        "dt_mean": 0.101021409034729,
+        "fraction_joint_gt_dt": 0.6362,
+        "joint_mean": 0.12184460461139679,
+        "n": 5000
+      }
+    },
+    {
+      "G": -6.0115233934785905,
+      "condition": "canonical",
+      "distance_bin": "4-7",
+      "population": 33545,
+      "rho": 0.05,
+      "seed": 1,
+      "summary": {
+        "A": 0.01058657094836235,
+        "dt_mean": 0.04620421305298805,
+        "fraction_joint_gt_dt": 0.6162,
+        "joint_mean": 0.0567907840013504,
+        "n": 5000
+      }
+    },
+    {
+      "G": -6.0115233934785905,
+      "condition": "canonical",
+      "distance_bin": "8-12",
+      "population": 38467,
+      "rho": 0.05,
+      "seed": 1,
+      "summary": {
+        "A": 0.006520505994558334,
+        "dt_mean": 0.02282993122935295,
+        "fraction_joint_gt_dt": 0.6512,
+        "joint_mean": 0.029350437223911285,
+        "n": 5000
+      }
+    },
+    {
+      "G": -6.0115233934785905,
+      "condition": "canonical",
+      "distance_bin": "13-19",
+      "population": 49344,
+      "rho": 0.05,
+      "seed": 1,
+      "summary": {
+        "A": 0.004059125669300556,
+        "dt_mean": 0.012545443139970303,
+        "fraction_joint_gt_dt": 0.6876,
+        "joint_mean": 0.01660456880927086,
+        "n": 5000
+      }
+    },
+    {
+      "G": 1.097239023516991,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "1-3",
+      "population": 4929,
+      "rho": 0.01,
+      "seed": 1,
+      "summary": {
+        "A": 0.02770080417394638,
+        "dt_mean": 0.10363387316465378,
+        "fraction_joint_gt_dt": 0.6486102657739906,
+        "joint_mean": 0.13133467733860016,
+        "n": 4929
+      }
+    },
+    {
+      "G": 1.097239023516991,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "4-7",
+      "population": 6307,
+      "rho": 0.01,
+      "seed": 1,
+      "summary": {
+        "A": 0.011040221899747849,
+        "dt_mean": 0.0485428161919117,
+        "fraction_joint_gt_dt": 0.6266,
+        "joint_mean": 0.059583038091659546,
+        "n": 5000
+      }
+    },
+    {
+      "G": 1.097239023516991,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "8-12",
+      "population": 7555,
+      "rho": 0.01,
+      "seed": 1,
+      "summary": {
+        "A": 0.0083710215985775,
+        "dt_mean": 0.0275324285030365,
+        "fraction_joint_gt_dt": 0.6346,
+        "joint_mean": 0.035903450101614,
+        "n": 5000
+      }
+    },
+    {
+      "G": 1.097239023516991,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "13-19",
+      "population": 10140,
+      "rho": 0.01,
+      "seed": 1,
+      "summary": {
+        "A": 0.005908487364649773,
+        "dt_mean": 0.01614532247185707,
+        "fraction_joint_gt_dt": 0.669,
+        "joint_mean": 0.022053809836506844,
+        "n": 5000
+      }
+    },
+    {
+      "G": 1.6925699848015654,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "1-3",
+      "population": 21136,
+      "rho": 0.05,
+      "seed": 1,
+      "summary": {
+        "A": 0.026149019598960876,
+        "dt_mean": 0.10699018836021423,
+        "fraction_joint_gt_dt": 0.642,
+        "joint_mean": 0.1331392079591751,
+        "n": 5000
+      }
+    },
+    {
+      "G": 1.6925699848015654,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "4-7",
+      "population": 26334,
+      "rho": 0.05,
+      "seed": 1,
+      "summary": {
+        "A": 0.009766168892383575,
+        "dt_mean": 0.04817560315132141,
+        "fraction_joint_gt_dt": 0.6078,
+        "joint_mean": 0.05794177204370499,
+        "n": 5000
+      }
+    },
+    {
+      "G": 1.6925699848015654,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "8-12",
+      "population": 30608,
+      "rho": 0.05,
+      "seed": 1,
+      "summary": {
+        "A": 0.006993165239691734,
+        "dt_mean": 0.025559240952134132,
+        "fraction_joint_gt_dt": 0.6458,
+        "joint_mean": 0.03255240619182587,
+        "n": 5000
+      }
+    },
+    {
+      "G": 1.6925699848015654,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "13-19",
+      "population": 39700,
+      "rho": 0.05,
+      "seed": 1,
+      "summary": {
+        "A": 0.004956361837685108,
+        "dt_mean": 0.013107719831168652,
+        "fraction_joint_gt_dt": 0.6942,
+        "joint_mean": 0.01806408166885376,
+        "n": 5000
+      }
+    },
+    {
+      "G": 3.348928750879523,
+      "condition": "canonical",
+      "distance_bin": "1-3",
+      "population": 5773,
+      "rho": 0.01,
+      "seed": 2,
+      "summary": {
+        "A": 0.018688827753067017,
+        "dt_mean": 0.10237832367420197,
+        "fraction_joint_gt_dt": 0.619,
+        "joint_mean": 0.12106715142726898,
+        "n": 5000
+      }
+    },
+    {
+      "G": 3.348928750879523,
+      "condition": "canonical",
+      "distance_bin": "4-7",
+      "population": 7360,
+      "rho": 0.01,
+      "seed": 2,
+      "summary": {
+        "A": 0.005073249340057373,
+        "dt_mean": 0.04638078063726425,
+        "fraction_joint_gt_dt": 0.5644,
+        "joint_mean": 0.051454029977321625,
+        "n": 5000
+      }
+    },
+    {
+      "G": 3.348928750879523,
+      "condition": "canonical",
+      "distance_bin": "8-12",
+      "population": 8791,
+      "rho": 0.01,
+      "seed": 2,
+      "summary": {
+        "A": 0.004415817558765411,
+        "dt_mean": 0.026431778445839882,
+        "fraction_joint_gt_dt": 0.5898,
+        "joint_mean": 0.030847596004605293,
+        "n": 5000
+      }
+    },
+    {
+      "G": 3.348928750879523,
+      "condition": "canonical",
+      "distance_bin": "13-19",
+      "population": 11738,
+      "rho": 0.01,
+      "seed": 2,
+      "summary": {
+        "A": 0.005048085004091263,
+        "dt_mean": 0.016590122133493423,
+        "fraction_joint_gt_dt": 0.6852,
+        "joint_mean": 0.021638207137584686,
+        "n": 5000
+      }
+    },
+    {
+      "G": -4.926423478570342,
+      "condition": "canonical",
+      "distance_bin": "1-3",
+      "population": 27567,
+      "rho": 0.05,
+      "seed": 2,
+      "summary": {
+        "A": 0.011943772435188293,
+        "dt_mean": 0.10991919040679932,
+        "fraction_joint_gt_dt": 0.5928,
+        "joint_mean": 0.12186296284198761,
+        "n": 5000
+      }
+    },
+    {
+      "G": -4.926423478570342,
+      "condition": "canonical",
+      "distance_bin": "4-7",
+      "population": 33508,
+      "rho": 0.05,
+      "seed": 2,
+      "summary": {
+        "A": 0.00393550843000412,
+        "dt_mean": 0.047108039259910583,
+        "fraction_joint_gt_dt": 0.5652,
+        "joint_mean": 0.0510435476899147,
+        "n": 5000
+      }
+    },
+    {
+      "G": -4.926423478570342,
+      "condition": "canonical",
+      "distance_bin": "8-12",
+      "population": 38331,
+      "rho": 0.05,
+      "seed": 2,
+      "summary": {
+        "A": 0.0037326402962207794,
+        "dt_mean": 0.023604176938533783,
+        "fraction_joint_gt_dt": 0.6186,
+        "joint_mean": 0.027336817234754562,
+        "n": 5000
+      }
+    },
+    {
+      "G": -4.926423478570342,
+      "condition": "canonical",
+      "distance_bin": "13-19",
+      "population": 49166,
+      "rho": 0.05,
+      "seed": 2,
+      "summary": {
+        "A": 0.004665757529437542,
+        "dt_mean": 0.012286410667002201,
+        "fraction_joint_gt_dt": 0.7226,
+        "joint_mean": 0.016952168196439743,
+        "n": 5000
+      }
+    },
+    {
+      "G": -6.7478452947122065,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "1-3",
+      "population": 4925,
+      "rho": 0.01,
+      "seed": 2,
+      "summary": {
+        "A": 0.02227608859539032,
+        "dt_mean": 0.10662387311458588,
+        "fraction_joint_gt_dt": 0.6211167512690355,
+        "joint_mean": 0.1288999617099762,
+        "n": 4925
+      }
+    },
+    {
+      "G": -6.7478452947122065,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "4-7",
+      "population": 6318,
+      "rho": 0.01,
+      "seed": 2,
+      "summary": {
+        "A": 0.008198138326406479,
+        "dt_mean": 0.05195310711860657,
+        "fraction_joint_gt_dt": 0.5746,
+        "joint_mean": 0.060151245445013046,
+        "n": 5000
+      }
+    },
+    {
+      "G": -6.7478452947122065,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "8-12",
+      "population": 7595,
+      "rho": 0.01,
+      "seed": 2,
+      "summary": {
+        "A": 0.006977707147598267,
+        "dt_mean": 0.029102321714162827,
+        "fraction_joint_gt_dt": 0.618,
+        "joint_mean": 0.03608002886176109,
+        "n": 5000
+      }
+    },
+    {
+      "G": -6.7478452947122065,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "13-19",
+      "population": 10176,
+      "rho": 0.01,
+      "seed": 2,
+      "summary": {
+        "A": 0.006166519597172737,
+        "dt_mean": 0.01664777286350727,
+        "fraction_joint_gt_dt": 0.6898,
+        "joint_mean": 0.022814292460680008,
+        "n": 5000
+      }
+    },
+    {
+      "G": 0.8421056927787731,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "1-3",
+      "population": 21085,
+      "rho": 0.05,
+      "seed": 2,
+      "summary": {
+        "A": 0.012761011719703674,
+        "dt_mean": 0.10776181519031525,
+        "fraction_joint_gt_dt": 0.594,
+        "joint_mean": 0.12052282691001892,
+        "n": 5000
+      }
+    },
+    {
+      "G": 0.8421056927787731,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "4-7",
+      "population": 26243,
+      "rho": 0.05,
+      "seed": 2,
+      "summary": {
+        "A": 0.004499651491641998,
+        "dt_mean": 0.049449577927589417,
+        "fraction_joint_gt_dt": 0.5698,
+        "joint_mean": 0.053949229419231415,
+        "n": 5000
+      }
+    },
+    {
+      "G": 0.8421056927787731,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "8-12",
+      "population": 30488,
+      "rho": 0.05,
+      "seed": 2,
+      "summary": {
+        "A": 0.004522619768977165,
+        "dt_mean": 0.026187285780906677,
+        "fraction_joint_gt_dt": 0.621,
+        "joint_mean": 0.030709905549883842,
+        "n": 5000
+      }
+    },
+    {
+      "G": 0.8421056927787731,
+      "condition": "s2_overlap_r0",
+      "distance_bin": "13-19",
+      "population": 39549,
+      "rho": 0.05,
+      "seed": 2,
+      "summary": {
+        "A": 0.00460090022534132,
+        "dt_mean": 0.013304653577506542,
+        "fraction_joint_gt_dt": 0.7044,
+        "joint_mean": 0.017905553802847862,
+        "n": 5000
+      }
+    }
+  ]
+}

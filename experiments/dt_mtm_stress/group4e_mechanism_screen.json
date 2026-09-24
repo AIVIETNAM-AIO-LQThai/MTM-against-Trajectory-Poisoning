@@ -1,0 +1,461 @@
+{
+  "analysis": "group4e_mechanism_screen",
+  "rows": [
+    {
+      "G": -11.427253592645684,
+      "clean": {
+        "final_probe_dt_action_mse": 0.035440362989902496,
+        "final_probe_mtm_total_loss": 0.08934468030929565,
+        "final_probe_step": 100000,
+        "median_cosine": 0.001564847189001739,
+        "median_dt_loss": 0.04431096278131008,
+        "median_mtm_loss": 0.1921558827161789,
+        "median_scaled_mtm_to_dt_grad_ratio": 9.313627854540698,
+        "negative_cosine_fraction": 0.48675914249684743,
+        "zero_shared_mtm_fraction": 0.12278761061946902
+      },
+      "condition": "s2_overlap_r0",
+      "poison": {
+        "final_probe_dt_action_mse": 0.03602904453873634,
+        "final_probe_mtm_total_loss": 0.09016123414039612,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0020671927486546338,
+        "median_dt_loss": 0.045308373868465424,
+        "median_mtm_loss": 0.21802332997322083,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.030648296748167,
+        "negative_cosine_fraction": 0.4835443037974684,
+        "zero_shared_mtm_fraction": 0.12319644839067703
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.000588681548833847,
+        "final_probe_mtm_total_loss_delta": 0.0008165538311004639,
+        "median_cosine_delta": 0.0005023455596528947,
+        "median_dt_loss_delta": 0.000997411087155342,
+        "median_mtm_loss_delta": 0.02586744725704193,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -1.2829795577925314,
+        "negative_cosine_fraction_delta": -0.0032148386993790523,
+        "zero_shared_mtm_fraction_delta": 0.00040883777120800935
+      },
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "G": -10.782204311994192,
+      "clean": {
+        "final_probe_dt_action_mse": 0.0360872745513916,
+        "final_probe_mtm_total_loss": 0.11847911775112152,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0025995747419074178,
+        "median_dt_loss": 0.04406399838626385,
+        "median_mtm_loss": 0.1870776042342186,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.902403383726469,
+        "negative_cosine_fraction": 0.478643216080402,
+        "zero_shared_mtm_fraction": 0.12719298245614036
+      },
+      "condition": "canonical",
+      "poison": {
+        "final_probe_dt_action_mse": 0.03653378784656525,
+        "final_probe_mtm_total_loss": 0.11734672635793686,
+        "final_probe_step": 100000,
+        "median_cosine": -0.0005181982996873558,
+        "median_dt_loss": 0.04445817321538925,
+        "median_mtm_loss": 0.19478508830070496,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.406734633939346,
+        "negative_cosine_fraction": 0.5019108280254777,
+        "zero_shared_mtm_fraction": 0.12874583795782463
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.000446513295173645,
+        "final_probe_mtm_total_loss_delta": -0.0011323913931846619,
+        "median_cosine_delta": -0.0031177730415947735,
+        "median_dt_loss_delta": 0.00039417482912540436,
+        "median_mtm_loss_delta": 0.007707484066486359,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -0.4956687497871233,
+        "negative_cosine_fraction_delta": 0.023267611945075706,
+        "zero_shared_mtm_fraction_delta": 0.0015528555016842693
+      },
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "G": -6.7478452947122065,
+      "clean": {
+        "final_probe_dt_action_mse": 0.03500178083777428,
+        "final_probe_mtm_total_loss": 0.801845908164978,
+        "final_probe_step": 100000,
+        "median_cosine": -0.003813899355009198,
+        "median_dt_loss": 0.04408423975110054,
+        "median_mtm_loss": 0.1844080314040184,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.66011313492448,
+        "negative_cosine_fraction": 0.5247410817031071,
+        "zero_shared_mtm_fraction": 0.11866125760649088
+      },
+      "condition": "s2_overlap_r0",
+      "poison": {
+        "final_probe_dt_action_mse": 0.035226304084062576,
+        "final_probe_mtm_total_loss": 0.8105496764183044,
+        "final_probe_step": 100000,
+        "median_cosine": -0.0028813325334340334,
+        "median_dt_loss": 0.044668447226285934,
+        "median_mtm_loss": 0.19293555617332458,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.302041427651385,
+        "negative_cosine_fraction": 0.5189393939393939,
+        "zero_shared_mtm_fraction": 0.12097669256381798
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.00022452324628829956,
+        "final_probe_mtm_total_loss_delta": 0.008703768253326416,
+        "median_cosine_delta": 0.0009325668215751648,
+        "median_dt_loss_delta": 0.0005842074751853943,
+        "median_mtm_loss_delta": 0.008527524769306183,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -0.3580717072730941,
+        "negative_cosine_fraction_delta": -0.005801687763713148,
+        "zero_shared_mtm_fraction_delta": 0.0023154349573270977
+      },
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "G": -6.0115233934785905,
+      "clean": {
+        "final_probe_dt_action_mse": 0.0360872745513916,
+        "final_probe_mtm_total_loss": 0.11847911775112152,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0025995747419074178,
+        "median_dt_loss": 0.04406399838626385,
+        "median_mtm_loss": 0.1870776042342186,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.902403383726469,
+        "negative_cosine_fraction": 0.478643216080402,
+        "zero_shared_mtm_fraction": 0.12719298245614036
+      },
+      "condition": "canonical",
+      "poison": {
+        "final_probe_dt_action_mse": 0.036963481456041336,
+        "final_probe_mtm_total_loss": 0.12366735190153122,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0027231459971517324,
+        "median_dt_loss": 0.045193176716566086,
+        "median_mtm_loss": 0.21472549438476562,
+        "median_scaled_mtm_to_dt_grad_ratio": 7.830730210550448,
+        "negative_cosine_fraction": 0.4802547770700637,
+        "zero_shared_mtm_fraction": 0.12874583795782463
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.0008762069046497345,
+        "final_probe_mtm_total_loss_delta": 0.0051882341504096985,
+        "median_cosine_delta": 0.00012357125524431467,
+        "median_dt_loss_delta": 0.0011291783303022385,
+        "median_mtm_loss_delta": 0.027647890150547028,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -1.0716731731760207,
+        "negative_cosine_fraction_delta": 0.0016115609896616978,
+        "zero_shared_mtm_fraction_delta": 0.0015528555016842693
+      },
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "G": -4.926423478570342,
+      "clean": {
+        "final_probe_dt_action_mse": 0.03500178083777428,
+        "final_probe_mtm_total_loss": 0.801845908164978,
+        "final_probe_step": 100000,
+        "median_cosine": -0.003813899355009198,
+        "median_dt_loss": 0.04408423975110054,
+        "median_mtm_loss": 0.1844080314040184,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.66011313492448,
+        "negative_cosine_fraction": 0.5247410817031071,
+        "zero_shared_mtm_fraction": 0.11866125760649088
+      },
+      "condition": "canonical",
+      "poison": {
+        "final_probe_dt_action_mse": 0.03642669692635536,
+        "final_probe_mtm_total_loss": 0.8001629114151001,
+        "final_probe_step": 100000,
+        "median_cosine": -0.0013060791534371674,
+        "median_dt_loss": 0.04531210660934448,
+        "median_mtm_loss": 0.2111513614654541,
+        "median_scaled_mtm_to_dt_grad_ratio": 7.7919608881159155,
+        "negative_cosine_fraction": 0.51010101010101,
+        "zero_shared_mtm_fraction": 0.12097669256381798
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.0014249160885810852,
+        "final_probe_mtm_total_loss_delta": -0.0016829967498779297,
+        "median_cosine_delta": 0.0025078202015720308,
+        "median_dt_loss_delta": 0.0012278668582439423,
+        "median_mtm_loss_delta": 0.0267433300614357,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -0.8681522468085641,
+        "negative_cosine_fraction_delta": -0.014640071602097016,
+        "zero_shared_mtm_fraction_delta": 0.0023154349573270977
+      },
+      "rho": 0.05,
+      "seed": 2
+    },
+    {
+      "G": -0.6684818405773711,
+      "clean": {
+        "final_probe_dt_action_mse": 0.035440362989902496,
+        "final_probe_mtm_total_loss": 0.08934468030929565,
+        "final_probe_step": 100000,
+        "median_cosine": 0.001564847189001739,
+        "median_dt_loss": 0.04431096278131008,
+        "median_mtm_loss": 0.1921558827161789,
+        "median_scaled_mtm_to_dt_grad_ratio": 9.313627854540698,
+        "negative_cosine_fraction": 0.48675914249684743,
+        "zero_shared_mtm_fraction": 0.12278761061946902
+      },
+      "condition": "s2_overlap_r0",
+      "poison": {
+        "final_probe_dt_action_mse": 0.03576144203543663,
+        "final_probe_mtm_total_loss": 0.09311296045780182,
+        "final_probe_step": 100000,
+        "median_cosine": -0.0008764793747104704,
+        "median_dt_loss": 0.04463433474302292,
+        "median_mtm_loss": 0.19943228363990784,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.966161250379159,
+        "negative_cosine_fraction": 0.5063291139240507,
+        "zero_shared_mtm_fraction": 0.12319644839067703
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.0003210790455341339,
+        "final_probe_mtm_total_loss_delta": 0.0037682801485061646,
+        "median_cosine_delta": -0.0024413265637122095,
+        "median_dt_loss_delta": 0.0003233719617128372,
+        "median_mtm_loss_delta": 0.007276400923728943,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -0.3474666041615393,
+        "negative_cosine_fraction_delta": 0.019569971427203237,
+        "zero_shared_mtm_fraction_delta": 0.00040883777120800935
+      },
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "G": 0.5617002691579813,
+      "clean": {
+        "final_probe_dt_action_mse": 0.035440362989902496,
+        "final_probe_mtm_total_loss": 0.08934468030929565,
+        "final_probe_step": 100000,
+        "median_cosine": 0.001564847189001739,
+        "median_dt_loss": 0.04431096278131008,
+        "median_mtm_loss": 0.1921558827161789,
+        "median_scaled_mtm_to_dt_grad_ratio": 9.313627854540698,
+        "negative_cosine_fraction": 0.48675914249684743,
+        "zero_shared_mtm_fraction": 0.12278761061946902
+      },
+      "condition": "canonical",
+      "poison": {
+        "final_probe_dt_action_mse": 0.0362478643655777,
+        "final_probe_mtm_total_loss": 0.08836422860622406,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0014940283726900816,
+        "median_dt_loss": 0.04538654536008835,
+        "median_mtm_loss": 0.21785715222358704,
+        "median_scaled_mtm_to_dt_grad_ratio": 7.885194974120413,
+        "negative_cosine_fraction": 0.4873417721518987,
+        "zero_shared_mtm_fraction": 0.12319644839067703
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.0008075013756752014,
+        "final_probe_mtm_total_loss_delta": -0.0009804517030715942,
+        "median_cosine_delta": -7.081881631165743e-05,
+        "median_dt_loss_delta": 0.001075582578778267,
+        "median_mtm_loss_delta": 0.025701269507408142,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -1.428432880420285,
+        "negative_cosine_fraction_delta": 0.0005826296550512922,
+        "zero_shared_mtm_fraction_delta": 0.00040883777120800935
+      },
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "G": 0.8421056927787731,
+      "clean": {
+        "final_probe_dt_action_mse": 0.03500178083777428,
+        "final_probe_mtm_total_loss": 0.801845908164978,
+        "final_probe_step": 100000,
+        "median_cosine": -0.003813899355009198,
+        "median_dt_loss": 0.04408423975110054,
+        "median_mtm_loss": 0.1844080314040184,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.66011313492448,
+        "negative_cosine_fraction": 0.5247410817031071,
+        "zero_shared_mtm_fraction": 0.11866125760649088
+      },
+      "condition": "s2_overlap_r0",
+      "poison": {
+        "final_probe_dt_action_mse": 0.0361739844083786,
+        "final_probe_mtm_total_loss": 0.8128030300140381,
+        "final_probe_step": 100000,
+        "median_cosine": 0.001470313873142004,
+        "median_dt_loss": 0.04543666914105415,
+        "median_mtm_loss": 0.20967590808868408,
+        "median_scaled_mtm_to_dt_grad_ratio": 7.770411657102907,
+        "negative_cosine_fraction": 0.4936868686868687,
+        "zero_shared_mtm_fraction": 0.12097669256381798
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.0011722035706043243,
+        "final_probe_mtm_total_loss_delta": 0.010957121849060059,
+        "median_cosine_delta": 0.005284213228151202,
+        "median_dt_loss_delta": 0.0013524293899536133,
+        "median_mtm_loss_delta": 0.02526787668466568,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -0.8897014778215722,
+        "negative_cosine_fraction_delta": -0.031054213016238397,
+        "zero_shared_mtm_fraction_delta": 0.0023154349573270977
+      },
+      "rho": 0.05,
+      "seed": 2
+    },
+    {
+      "G": 1.097239023516991,
+      "clean": {
+        "final_probe_dt_action_mse": 0.0360872745513916,
+        "final_probe_mtm_total_loss": 0.11847911775112152,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0025995747419074178,
+        "median_dt_loss": 0.04406399838626385,
+        "median_mtm_loss": 0.1870776042342186,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.902403383726469,
+        "negative_cosine_fraction": 0.478643216080402,
+        "zero_shared_mtm_fraction": 0.12719298245614036
+      },
+      "condition": "s2_overlap_r0",
+      "poison": {
+        "final_probe_dt_action_mse": 0.03649292513728142,
+        "final_probe_mtm_total_loss": 0.11631104350090027,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0020286377985030413,
+        "median_dt_loss": 0.04448981583118439,
+        "median_mtm_loss": 0.1956348419189453,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.596242127188034,
+        "negative_cosine_fraction": 0.46878980891719746,
+        "zero_shared_mtm_fraction": 0.12874583795782463
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.0004056505858898163,
+        "final_probe_mtm_total_loss_delta": -0.0021680742502212524,
+        "median_cosine_delta": -0.0005709369434043765,
+        "median_dt_loss_delta": 0.00042581744492053986,
+        "median_mtm_loss_delta": 0.008557237684726715,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -0.3061612565384344,
+        "negative_cosine_fraction_delta": -0.009853407163204542,
+        "zero_shared_mtm_fraction_delta": 0.0015528555016842693
+      },
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "G": 1.6925699848015654,
+      "clean": {
+        "final_probe_dt_action_mse": 0.0360872745513916,
+        "final_probe_mtm_total_loss": 0.11847911775112152,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0025995747419074178,
+        "median_dt_loss": 0.04406399838626385,
+        "median_mtm_loss": 0.1870776042342186,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.902403383726469,
+        "negative_cosine_fraction": 0.478643216080402,
+        "zero_shared_mtm_fraction": 0.12719298245614036
+      },
+      "condition": "s2_overlap_r0",
+      "poison": {
+        "final_probe_dt_action_mse": 0.03700406849384308,
+        "final_probe_mtm_total_loss": 0.11887138336896896,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0022061853669583797,
+        "median_dt_loss": 0.04523169994354248,
+        "median_mtm_loss": 0.2154352366924286,
+        "median_scaled_mtm_to_dt_grad_ratio": 7.879762683395965,
+        "negative_cosine_fraction": 0.4853503184713376,
+        "zero_shared_mtm_fraction": 0.12874583795782463
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.000916793942451477,
+        "final_probe_mtm_total_loss_delta": 0.0003922656178474426,
+        "median_cosine_delta": -0.00039338937494903803,
+        "median_dt_loss_delta": 0.0011677015572786331,
+        "median_mtm_loss_delta": 0.02835763245820999,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -1.0226407003305038,
+        "negative_cosine_fraction_delta": 0.006707102390935582,
+        "zero_shared_mtm_fraction_delta": 0.0015528555016842693
+      },
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "G": 3.348928750879523,
+      "clean": {
+        "final_probe_dt_action_mse": 0.03500178083777428,
+        "final_probe_mtm_total_loss": 0.801845908164978,
+        "final_probe_step": 100000,
+        "median_cosine": -0.003813899355009198,
+        "median_dt_loss": 0.04408423975110054,
+        "median_mtm_loss": 0.1844080314040184,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.66011313492448,
+        "negative_cosine_fraction": 0.5247410817031071,
+        "zero_shared_mtm_fraction": 0.11866125760649088
+      },
+      "condition": "canonical",
+      "poison": {
+        "final_probe_dt_action_mse": 0.03579523786902428,
+        "final_probe_mtm_total_loss": 0.8065938353538513,
+        "final_probe_step": 100000,
+        "median_cosine": -0.0011860880767926574,
+        "median_dt_loss": 0.04474511370062828,
+        "median_mtm_loss": 0.19311682879924774,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.178483250761607,
+        "negative_cosine_fraction": 0.5037878787878788,
+        "zero_shared_mtm_fraction": 0.12097669256381798
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.00079345703125,
+        "final_probe_mtm_total_loss_delta": 0.004747927188873291,
+        "median_cosine_delta": 0.002627811278216541,
+        "median_dt_loss_delta": 0.0006608739495277405,
+        "median_mtm_loss_delta": 0.00870879739522934,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -0.48162988416287256,
+        "negative_cosine_fraction_delta": -0.020953202915228286,
+        "zero_shared_mtm_fraction_delta": 0.0023154349573270977
+      },
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "G": 3.7595204990486906,
+      "clean": {
+        "final_probe_dt_action_mse": 0.035440362989902496,
+        "final_probe_mtm_total_loss": 0.08934468030929565,
+        "final_probe_step": 100000,
+        "median_cosine": 0.001564847189001739,
+        "median_dt_loss": 0.04431096278131008,
+        "median_mtm_loss": 0.1921558827161789,
+        "median_scaled_mtm_to_dt_grad_ratio": 9.313627854540698,
+        "negative_cosine_fraction": 0.48675914249684743,
+        "zero_shared_mtm_fraction": 0.12278761061946902
+      },
+      "condition": "canonical",
+      "poison": {
+        "final_probe_dt_action_mse": 0.03568529710173607,
+        "final_probe_mtm_total_loss": 0.09180474281311035,
+        "final_probe_step": 100000,
+        "median_cosine": 0.0008552799990866333,
+        "median_dt_loss": 0.044722333550453186,
+        "median_mtm_loss": 0.19858695566654205,
+        "median_scaled_mtm_to_dt_grad_ratio": 8.788252811228459,
+        "negative_cosine_fraction": 0.4962025316455696,
+        "zero_shared_mtm_fraction": 0.12319644839067703
+      },
+      "poison_minus_clean": {
+        "final_probe_dt_action_mse_delta": 0.0002449341118335724,
+        "final_probe_mtm_total_loss_delta": 0.0024600625038146973,
+        "median_cosine_delta": -0.0007095671899151057,
+        "median_dt_loss_delta": 0.00041137076914310455,
+        "median_mtm_loss_delta": 0.006431072950363159,
+        "median_scaled_mtm_to_dt_grad_ratio_delta": -0.5253750433122395,
+        "negative_cosine_fraction_delta": 0.00944338914872217,
+        "zero_shared_mtm_fraction_delta": 0.00040883777120800935
+      },
+      "rho": 0.01,
+      "seed": 0
+    }
+  ]
+}

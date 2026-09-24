@@ -1,0 +1,366 @@
+{
+  "analysis": "group4e_parameter_direction",
+  "note": "Exploratory same-rho same-seed comparison selected after Group-4D outcomes.",
+  "rows": [
+    {
+      "G_canonical": 3.7595204990486906,
+      "G_difference_s2_minus_canonical": -4.428002339626062,
+      "G_s2": -0.6684818405773711,
+      "absolute_G_difference": 4.428002339626062,
+      "groups": {
+        "bridges": {
+          "angle_degrees": 39.94337188629173,
+          "canonical_displacement_norm": 1.1032247090187357,
+          "canonical_s2_direct_distance": 0.750774059225504,
+          "canonical_to_s2_norm_ratio": 1.0077385908172267,
+          "cosine": 0.7666793660951784,
+          "direct_distance_over_mean_displacement": 0.6831498812836541,
+          "parameter_count": 132096,
+          "s2_displacement_norm": 1.0947528645529656
+        },
+        "dt_backbone_nonshared": {
+          "angle_degrees": 53.661034922186964,
+          "canonical_displacement_norm": 16.01557888764208,
+          "canonical_s2_direct_distance": 14.372120366250117,
+          "canonical_to_s2_norm_ratio": 1.0120752959695916,
+          "cosine": 0.5925611286170922,
+          "direct_distance_over_mean_displacement": 0.9027693288995612,
+          "parameter_count": 857880,
+          "s2_displacement_norm": 15.824493445715193
+        },
+        "mtm": {
+          "angle_degrees": 45.46883216714385,
+          "canonical_displacement_norm": 59.37513877201669,
+          "canonical_s2_direct_distance": 45.91005091348906,
+          "canonical_to_s2_norm_ratio": 0.9992255192612878,
+          "cosine": 0.7012971554851503,
+          "direct_distance_over_mean_displacement": 0.7729205649104308,
+          "parameter_count": 11071000,
+          "s2_displacement_norm": 59.4211593153774
+        },
+        "shared_embeddings": {
+          "angle_degrees": 25.97826311166499,
+          "canonical_displacement_norm": 0.5746182551664587,
+          "canonical_s2_direct_distance": 0.2546104410519621,
+          "canonical_to_s2_norm_ratio": 1.035449696947035,
+          "cosine": 0.8989602909780242,
+          "direct_distance_over_mean_displacement": 0.4508119474433273,
+          "parameter_count": 3200,
+          "s2_displacement_norm": 0.554945601760909
+        },
+        "whole_dt": {
+          "angle_degrees": 53.633657050587026,
+          "canonical_displacement_norm": 16.02588385223908,
+          "canonical_s2_direct_distance": 14.374375475083225,
+          "canonical_to_s2_norm_ratio": 1.0121043380731038,
+          "cosine": 0.5929459684205356,
+          "direct_distance_over_mean_displacement": 0.9023432598518878,
+          "parameter_count": 861080,
+          "s2_displacement_norm": 15.83422108707583
+        }
+      },
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "G_canonical": -10.782204311994192,
+      "G_difference_s2_minus_canonical": 11.879443335511183,
+      "G_s2": 1.097239023516991,
+      "absolute_G_difference": 11.879443335511183,
+      "groups": {
+        "bridges": {
+          "angle_degrees": 41.26234689954742,
+          "canonical_displacement_norm": 1.10014321823148,
+          "canonical_s2_direct_distance": 0.7837709747595204,
+          "canonical_to_s2_norm_ratio": 0.9792949104651424,
+          "cosine": 0.7516977049235,
+          "direct_distance_over_mean_displacement": 0.7049737327704919,
+          "parameter_count": 132096,
+          "s2_displacement_norm": 1.123403385919731
+        },
+        "dt_backbone_nonshared": {
+          "angle_degrees": 54.0639798753054,
+          "canonical_displacement_norm": 16.358579373093296,
+          "canonical_s2_direct_distance": 14.933583833852387,
+          "canonical_to_s2_norm_ratio": 0.9915297842989299,
+          "cosine": 0.5868814895216791,
+          "direct_distance_over_mean_displacement": 0.9090073879000239,
+          "parameter_count": 857880,
+          "s2_displacement_norm": 16.498323733823877
+        },
+        "mtm": {
+          "angle_degrees": 46.25261912652354,
+          "canonical_displacement_norm": 58.91952405770047,
+          "canonical_s2_direct_distance": 46.54034200488276,
+          "canonical_to_s2_norm_ratio": 0.9891372244378218,
+          "cosine": 0.6914800340828646,
+          "direct_distance_over_mean_displacement": 0.7855831095670687,
+          "parameter_count": 11071000,
+          "s2_displacement_norm": 59.566582474121844
+        },
+        "shared_embeddings": {
+          "angle_degrees": 25.71030313744488,
+          "canonical_displacement_norm": 0.5593609444573351,
+          "canonical_s2_direct_distance": 0.25678499211013817,
+          "canonical_to_s2_norm_ratio": 0.9513455844861886,
+          "cosine": 0.9009990245847935,
+          "direct_distance_over_mean_displacement": 0.4476221925736909,
+          "parameter_count": 3200,
+          "s2_displacement_norm": 0.5879681932391462
+        },
+        "whole_dt": {
+          "angle_degrees": 54.03696416056881,
+          "canonical_displacement_norm": 16.368139899572512,
+          "canonical_s2_direct_distance": 14.935791397005728,
+          "canonical_to_s2_norm_ratio": 0.9914798438740163,
+          "cosine": 0.5872631956801773,
+          "direct_distance_over_mean_displacement": 0.9085877584499732,
+          "parameter_count": 861080,
+          "s2_displacement_norm": 16.508797431137047
+        }
+      },
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "G_canonical": 3.348928750879523,
+      "G_difference_s2_minus_canonical": -10.09677404559173,
+      "G_s2": -6.7478452947122065,
+      "absolute_G_difference": 10.09677404559173,
+      "groups": {
+        "bridges": {
+          "angle_degrees": 40.69400629448494,
+          "canonical_displacement_norm": 1.1253701970214025,
+          "canonical_s2_direct_distance": 0.7890580056004576,
+          "canonical_to_s2_norm_ratio": 0.9841979652916626,
+          "cosine": 0.7582025479952754,
+          "direct_distance_over_mean_displacement": 0.6955702191116079,
+          "parameter_count": 132096,
+          "s2_displacement_norm": 1.1434388575340326
+        },
+        "dt_backbone_nonshared": {
+          "angle_degrees": 53.88862920184285,
+          "canonical_displacement_norm": 15.691062593159598,
+          "canonical_s2_direct_distance": 14.474808197625675,
+          "canonical_to_s2_norm_ratio": 0.9664702727949058,
+          "cosine": 0.5893566976978346,
+          "direct_distance_over_mean_displacement": 0.9067583703530796,
+          "parameter_count": 857880,
+          "s2_displacement_norm": 16.23543220608548
+        },
+        "mtm": {
+          "angle_degrees": 46.51999852895203,
+          "canonical_displacement_norm": 60.48192266732863,
+          "canonical_s2_direct_distance": 47.51401808689527,
+          "canonical_to_s2_norm_ratio": 1.0109597462895428,
+          "cosine": 0.6881013489701493,
+          "direct_distance_over_mean_displacement": 0.7898718782227404,
+          "parameter_count": 11071000,
+          "s2_displacement_norm": 59.826242231018924
+        },
+        "shared_embeddings": {
+          "angle_degrees": 26.23364688040768,
+          "canonical_displacement_norm": 0.5490304695586555,
+          "canonical_s2_direct_distance": 0.25697561922109174,
+          "canonical_to_s2_norm_ratio": 0.9515782102285855,
+          "cosine": 0.8969989411718173,
+          "direct_distance_over_mean_displacement": 0.4564403166695386,
+          "parameter_count": 3200,
+          "s2_displacement_norm": 0.576968307655781
+        },
+        "whole_dt": {
+          "angle_degrees": 53.861533979746994,
+          "canonical_displacement_norm": 15.700664946394985,
+          "canonical_s2_direct_distance": 14.477089100607397,
+          "canonical_to_s2_norm_ratio": 0.9664516335549677,
+          "cosine": 0.589738675571506,
+          "direct_distance_over_mean_displacement": 0.9063377152561545,
+          "parameter_count": 861080,
+          "s2_displacement_norm": 16.245681005930063
+        }
+      },
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "G_canonical": 0.5617002691579813,
+      "G_difference_s2_minus_canonical": -11.988953861803665,
+      "G_s2": -11.427253592645684,
+      "absolute_G_difference": 11.988953861803665,
+      "groups": {
+        "bridges": {
+          "angle_degrees": 28.854729733518163,
+          "canonical_displacement_norm": 2.048617233478671,
+          "canonical_s2_direct_distance": 1.022945734535271,
+          "canonical_to_s2_norm_ratio": 0.9959457221184755,
+          "cosine": 0.8758461024504413,
+          "direct_distance_over_mean_displacement": 0.4983204537175525,
+          "parameter_count": 132096,
+          "s2_displacement_norm": 2.0569567075603907
+        },
+        "dt_backbone_nonshared": {
+          "angle_degrees": 45.446391434047435,
+          "canonical_displacement_norm": 25.646074887872366,
+          "canonical_s2_direct_distance": 19.771912540675473,
+          "canonical_to_s2_norm_ratio": 1.0042007298072226,
+          "cosine": 0.7015763073205383,
+          "direct_distance_over_mean_displacement": 0.7725686607739772,
+          "parameter_count": 857880,
+          "s2_displacement_norm": 25.538793317541867
+        },
+        "mtm": {
+          "angle_degrees": 41.01346132822293,
+          "canonical_displacement_norm": 85.11138697389444,
+          "canonical_s2_direct_distance": 59.67255142292774,
+          "canonical_to_s2_norm_ratio": 0.9986451235230488,
+          "cosine": 0.7545554219346142,
+          "direct_distance_over_mean_displacement": 0.700635974472509,
+          "parameter_count": 11071000,
+          "s2_displacement_norm": 85.2268588401404
+        },
+        "shared_embeddings": {
+          "angle_degrees": 14.613550371658267,
+          "canonical_displacement_norm": 1.2686943246942013,
+          "canonical_s2_direct_distance": 0.32388124539575813,
+          "canonical_to_s2_norm_ratio": 0.9934438316380562,
+          "cosine": 0.9676495293693673,
+          "direct_distance_over_mean_displacement": 0.25444745617916953,
+          "parameter_count": 3200,
+          "s2_displacement_norm": 1.2770669908949963
+        },
+        "whole_dt": {
+          "angle_degrees": 45.39358477743444,
+          "canonical_displacement_norm": 25.677436446107095,
+          "canonical_s2_direct_distance": 19.77456509198721,
+          "canonical_to_s2_norm_ratio": 1.0041740426366097,
+          "cosine": 0.7022327718402752,
+          "direct_distance_over_mean_displacement": 0.7717183575013499,
+          "parameter_count": 861080,
+          "s2_displacement_norm": 25.57070324053202
+        }
+      },
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "G_canonical": -6.0115233934785905,
+      "G_difference_s2_minus_canonical": 7.704093378280156,
+      "G_s2": 1.6925699848015654,
+      "absolute_G_difference": 7.704093378280156,
+      "groups": {
+        "bridges": {
+          "angle_degrees": 29.48929963100979,
+          "canonical_displacement_norm": 2.0170231681983246,
+          "canonical_s2_direct_distance": 1.0282910477921339,
+          "canonical_to_s2_norm_ratio": 0.9969662293769038,
+          "cosine": 0.8704476441455515,
+          "direct_distance_over_mean_displacement": 0.509031772545804,
+          "parameter_count": 132096,
+          "s2_displacement_norm": 2.023160974527644
+        },
+        "dt_backbone_nonshared": {
+          "angle_degrees": 45.36257541903611,
+          "canonical_displacement_norm": 25.4133841122726,
+          "canonical_s2_direct_distance": 19.659255219259784,
+          "canonical_to_s2_norm_ratio": 0.993945345594211,
+          "cosine": 0.7026179858863575,
+          "direct_distance_over_mean_displacement": 0.7712298140259799,
+          "parameter_count": 857880,
+          "s2_displacement_norm": 25.568190670563187
+        },
+        "mtm": {
+          "angle_degrees": 42.01926725037337,
+          "canonical_displacement_norm": 83.09362091495579,
+          "canonical_s2_direct_distance": 59.74440297436068,
+          "canonical_to_s2_norm_ratio": 0.9946356679670649,
+          "cosine": 0.7429197702593903,
+          "direct_distance_over_mean_displacement": 0.7170674108666679,
+          "parameter_count": 11071000,
+          "s2_displacement_norm": 83.54176669009848
+        },
+        "shared_embeddings": {
+          "angle_degrees": 14.94348786090148,
+          "canonical_displacement_norm": 1.3034559918472304,
+          "canonical_s2_direct_distance": 0.33969827686911674,
+          "canonical_to_s2_norm_ratio": 0.9960929828124224,
+          "cosine": 0.9661806355552741,
+          "direct_distance_over_mean_displacement": 0.2601034301072282,
+          "parameter_count": 3200,
+          "s2_displacement_norm": 1.3085685918256211
+        },
+        "whole_dt": {
+          "angle_degrees": 45.30698655111078,
+          "canonical_displacement_norm": 25.446789376276758,
+          "canonical_s2_direct_distance": 19.662189875375045,
+          "canonical_to_s2_norm_ratio": 0.9939509623500675,
+          "cosine": 0.703308023887474,
+          "direct_distance_over_mean_displacement": 0.7703345405329086,
+          "parameter_count": 861080,
+          "s2_displacement_norm": 25.60165474975762
+        }
+      },
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "G_canonical": -4.926423478570342,
+      "G_difference_s2_minus_canonical": 5.768529171349115,
+      "G_s2": 0.8421056927787731,
+      "absolute_G_difference": 5.768529171349115,
+      "groups": {
+        "bridges": {
+          "angle_degrees": 28.944834482966865,
+          "canonical_displacement_norm": 2.1403148665102694,
+          "canonical_s2_direct_distance": 1.0715799048479173,
+          "canonical_to_s2_norm_ratio": 0.9967034917338153,
+          "cosine": 0.8750860860242706,
+          "direct_distance_over_mean_displacement": 0.49983802363281987,
+          "parameter_count": 132096,
+          "s2_displacement_norm": 2.1473937678156303
+        },
+        "dt_backbone_nonshared": {
+          "angle_degrees": 45.4104500488076,
+          "canonical_displacement_norm": 25.467206943254286,
+          "canonical_s2_direct_distance": 19.700310151376975,
+          "canonical_to_s2_norm_ratio": 0.9959578171616921,
+          "cosine": 0.7020231764825636,
+          "direct_distance_over_mean_displacement": 0.7719893835384892,
+          "parameter_count": 857880,
+          "s2_displacement_norm": 25.5705678537977
+        },
+        "mtm": {
+          "angle_degrees": 40.77073170525622,
+          "canonical_displacement_norm": 86.79514719381683,
+          "canonical_s2_direct_distance": 60.454354168699986,
+          "canonical_to_s2_norm_ratio": 1.0004242568890092,
+          "cosine": 0.7573287424820596,
+          "direct_distance_over_mean_displacement": 0.6966653953821931,
+          "parameter_count": 11071000,
+          "s2_displacement_norm": 86.75833937065885
+        },
+        "shared_embeddings": {
+          "angle_degrees": 14.509857430560517,
+          "canonical_displacement_norm": 1.2713276241135498,
+          "canonical_s2_direct_distance": 0.3206526399481535,
+          "canonical_to_s2_norm_ratio": 1.0029089395506208,
+          "cosine": 0.9681045495176297,
+          "direct_distance_over_mean_displacement": 0.25258504265987375,
+          "parameter_count": 3200,
+          "s2_displacement_norm": 1.267640135586186
+        },
+        "whole_dt": {
+          "angle_degrees": 45.35758222813538,
+          "canonical_displacement_norm": 25.49891965198474,
+          "canonical_s2_direct_distance": 19.702919534321616,
+          "canonical_to_s2_norm_ratio": 0.9959749176816666,
+          "cosine": 0.7026799946123886,
+          "direct_distance_over_mean_displacement": 0.7711380286722966,
+          "parameter_count": 861080,
+          "s2_displacement_norm": 25.601969687487358
+        }
+      },
+      "rho": 0.05,
+      "seed": 2
+    }
+  ]
+}

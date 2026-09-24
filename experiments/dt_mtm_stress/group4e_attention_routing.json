@@ -1,0 +1,293 @@
+{
+  "analysis": "group4e_attention_routing",
+  "rows": [
+    {
+      "G": 3.7595204990486906,
+      "condition": "canonical",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.0008575702061913359,
+          "dt_reroute": 0.00626475712844822,
+          "joint_reroute": 0.005407186922256884
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.00013271615931481975,
+          "dt_reroute": 0.005055110968269199,
+          "joint_reroute": 0.005187827127584019
+        },
+        "block3": {
+          "D_joint_minus_dt": 0.00015197418794821258,
+          "dt_reroute": 0.002022075589227022,
+          "joint_reroute": 0.0021740497771752347
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "G": 0.5617002691579813,
+      "condition": "canonical",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.0005617706564429886,
+          "dt_reroute": 0.0039617089295383365,
+          "joint_reroute": 0.003399938273095348
+        },
+        "block2": {
+          "D_joint_minus_dt": -0.00038194344048052883,
+          "dt_reroute": 0.004381804406841685,
+          "joint_reroute": 0.003999860966361156
+        },
+        "block3": {
+          "D_joint_minus_dt": 0.0005643848929482384,
+          "dt_reroute": 0.0015385013154338436,
+          "joint_reroute": 0.002102886208382082
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "G": -0.6684818405773711,
+      "condition": "s2_overlap_r0",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.0006395155026915145,
+          "dt_reroute": 0.005042641145024063,
+          "joint_reroute": 0.004403125642332548
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.0007347379539300817,
+          "dt_reroute": 0.004211692747104611,
+          "joint_reroute": 0.004946430701034693
+        },
+        "block3": {
+          "D_joint_minus_dt": 0.00027528047578529195,
+          "dt_reroute": 0.0019157099831672397,
+          "joint_reroute": 0.0021909904589525317
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 0
+    },
+    {
+      "G": -11.427253592645684,
+      "condition": "s2_overlap_r0",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.0006086213085040228,
+          "dt_reroute": 0.004239191377292406,
+          "joint_reroute": 0.0036305700687883835
+        },
+        "block2": {
+          "D_joint_minus_dt": -0.00028779012288570726,
+          "dt_reroute": 0.00435131682993476,
+          "joint_reroute": 0.004063526707049053
+        },
+        "block3": {
+          "D_joint_minus_dt": 0.0003745695895243221,
+          "dt_reroute": 0.001963138880917289,
+          "joint_reroute": 0.002337708470441611
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 0
+    },
+    {
+      "G": -10.782204311994192,
+      "condition": "canonical",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.0003964494520663172,
+          "dt_reroute": 0.004014805643800512,
+          "joint_reroute": 0.0036183561917341946
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.002964560249377999,
+          "dt_reroute": 0.005540493717806424,
+          "joint_reroute": 0.008505053967184423
+        },
+        "block3": {
+          "D_joint_minus_dt": -0.0003239597995065315,
+          "dt_reroute": 0.0009416669170222436,
+          "joint_reroute": 0.0006177071175157121
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "G": -6.0115233934785905,
+      "condition": "canonical",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.0007544156712937602,
+          "dt_reroute": 0.003052028941637427,
+          "joint_reroute": 0.0022976132703436667
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.0020644613738298864,
+          "dt_reroute": 0.00462823477262676,
+          "joint_reroute": 0.006692696146456646
+        },
+        "block3": {
+          "D_joint_minus_dt": -0.0006472336306723632,
+          "dt_reroute": 0.000799018420104922,
+          "joint_reroute": 0.00015178478943255882
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "G": 1.097239023516991,
+      "condition": "s2_overlap_r0",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.00015372226065577064,
+          "dt_reroute": 0.003770003443070819,
+          "joint_reroute": 0.003616281182415048
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.002317102385899456,
+          "dt_reroute": 0.005534550811212005,
+          "joint_reroute": 0.007851653197111461
+        },
+        "block3": {
+          "D_joint_minus_dt": -0.0005825570378158279,
+          "dt_reroute": 0.0011324652438935087,
+          "joint_reroute": 0.0005499082060776808
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 1
+    },
+    {
+      "G": 1.6925699848015654,
+      "condition": "s2_overlap_r0",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.000686116027178189,
+          "dt_reroute": 0.003563787280088097,
+          "joint_reroute": 0.002877671252909908
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.002147848636117459,
+          "dt_reroute": 0.004980819579448092,
+          "joint_reroute": 0.007128668215565551
+        },
+        "block3": {
+          "D_joint_minus_dt": -0.0004996920721634329,
+          "dt_reroute": 0.0009129021876519044,
+          "joint_reroute": 0.00041321011548847144
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 1
+    },
+    {
+      "G": 3.348928750879523,
+      "condition": "canonical",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": 0.00018302221462046346,
+          "dt_reroute": 0.005523320508517308,
+          "joint_reroute": 0.0057063427231377715
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.0019898722965827212,
+          "dt_reroute": 0.002409040267534278,
+          "joint_reroute": 0.004398912564116999
+        },
+        "block3": {
+          "D_joint_minus_dt": -0.0007254755609345991,
+          "dt_reroute": 0.0017846215361785093,
+          "joint_reroute": 0.0010591459752439102
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "G": -4.926423478570342,
+      "condition": "canonical",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": -0.0001277384730397936,
+          "dt_reroute": 0.004650241735792323,
+          "joint_reroute": 0.00452250326275253
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.0015066840144426583,
+          "dt_reroute": 0.0021812592626872305,
+          "joint_reroute": 0.003687943277129889
+        },
+        "block3": {
+          "D_joint_minus_dt": -0.00044269565962725213,
+          "dt_reroute": 0.0013851675924300738,
+          "joint_reroute": 0.0009424719328028217
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 2
+    },
+    {
+      "G": -6.7478452947122065,
+      "condition": "s2_overlap_r0",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": 0.0005127779072712129,
+          "dt_reroute": 0.004689605887737271,
+          "joint_reroute": 0.005202383795008484
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.001902904793708539,
+          "dt_reroute": 0.002275637921398064,
+          "joint_reroute": 0.004178542715106603
+        },
+        "block3": {
+          "D_joint_minus_dt": -0.00026488105057156106,
+          "dt_reroute": 0.00132928357568731,
+          "joint_reroute": 0.001064402525115749
+        }
+      },
+      "n": 5000,
+      "rho": 0.01,
+      "seed": 2
+    },
+    {
+      "G": 0.8421056927787731,
+      "condition": "s2_overlap_r0",
+      "layers": {
+        "block1": {
+          "D_joint_minus_dt": 0.00016855111768237369,
+          "dt_reroute": 0.004274725259761202,
+          "joint_reroute": 0.004443276377443576
+        },
+        "block2": {
+          "D_joint_minus_dt": 0.001323984892449631,
+          "dt_reroute": 0.0025776402677975202,
+          "joint_reroute": 0.003901625160247151
+        },
+        "block3": {
+          "D_joint_minus_dt": -0.00023609519907875768,
+          "dt_reroute": 0.0011806898610723837,
+          "joint_reroute": 0.000944594661993626
+        }
+      },
+      "n": 5000,
+      "rho": 0.05,
+      "seed": 2
+    }
+  ]
+}

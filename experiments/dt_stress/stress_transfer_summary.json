@@ -1,0 +1,166 @@
+{
+  "conditions": [
+    {
+      "classification": "no detectable degradation",
+      "condition": "canonical",
+      "eligible_for_defense_claim": false,
+      "mean_degradation": -1.3607257725876565,
+      "median_degradation": 0.253018530362084,
+      "num_pairs": 3,
+      "pairs": [
+        {
+          "attack_seed": 0,
+          "clean_return": 73.71602103011918,
+          "degradation": 1.1827829301839614,
+          "poison_return": 72.53323809993522,
+          "summary_path": "experiments/dt_stress/walker2d_medium/canonical/rho_001/attack_seed_0/train_seed_0/eval_5000/summary.json",
+          "training_seed": 0
+        },
+        {
+          "attack_seed": 1,
+          "clean_return": 65.34119398127181,
+          "degradation": -5.517978778309015,
+          "poison_return": 70.85917275958083,
+          "summary_path": "experiments/dt_stress/walker2d_medium/canonical/rho_001/attack_seed_1/train_seed_1/eval_5000/summary.json",
+          "training_seed": 1
+        },
+        {
+          "attack_seed": 2,
+          "clean_return": 67.01262394242659,
+          "degradation": 0.253018530362084,
+          "poison_return": 66.7596054120645,
+          "summary_path": "experiments/dt_stress/walker2d_medium/canonical/rho_001/attack_seed_2/train_seed_2/eval_5000/summary.json",
+          "training_seed": 2
+        }
+      ],
+      "positive_degradation_pairs": 2,
+      "rho": 0.01,
+      "rho_slug": "001",
+      "std_degradation": 2.964026526532051
+    },
+    {
+      "classification": "no detectable degradation",
+      "condition": "canonical",
+      "eligible_for_defense_claim": false,
+      "mean_degradation": -2.8700748533826377,
+      "median_degradation": -2.6468381922440045,
+      "num_pairs": 3,
+      "pairs": [
+        {
+          "attack_seed": 0,
+          "clean_return": 73.71602103011918,
+          "degradation": -0.31195247658463643,
+          "poison_return": 74.02797350670382,
+          "summary_path": "experiments/dt_stress/walker2d_medium/canonical/rho_005/attack_seed_0/train_seed_0/eval_5000/summary.json",
+          "training_seed": 0
+        },
+        {
+          "attack_seed": 1,
+          "clean_return": 65.34119398127181,
+          "degradation": -5.651433891319272,
+          "poison_return": 70.99262787259109,
+          "summary_path": "experiments/dt_stress/walker2d_medium/canonical/rho_005/attack_seed_1/train_seed_1/eval_5000/summary.json",
+          "training_seed": 1
+        },
+        {
+          "attack_seed": 2,
+          "clean_return": 67.01262394242659,
+          "degradation": -2.6468381922440045,
+          "poison_return": 69.65946213467059,
+          "summary_path": "experiments/dt_stress/walker2d_medium/canonical/rho_005/attack_seed_2/train_seed_2/eval_5000/summary.json",
+          "training_seed": 2
+        }
+      ],
+      "positive_degradation_pairs": 0,
+      "rho": 0.05,
+      "rho_slug": "005",
+      "std_degradation": 2.185542098996858
+    },
+    {
+      "classification": "no detectable degradation",
+      "condition": "s2_overlap_r0",
+      "eligible_for_defense_claim": false,
+      "mean_degradation": -0.44717730369672876,
+      "median_degradation": 0.3803611726123961,
+      "num_pairs": 3,
+      "pairs": [
+        {
+          "attack_seed": 0,
+          "clean_return": 73.71602103011918,
+          "degradation": 2.8241061434972323,
+          "poison_return": 70.89191488662195,
+          "summary_path": "experiments/dt_stress/walker2d_medium/s2_overlap_r0/rho_001/attack_seed_0/train_seed_0/eval_5000/summary.json",
+          "training_seed": 0
+        },
+        {
+          "attack_seed": 1,
+          "clean_return": 65.34119398127181,
+          "degradation": 0.3803611726123961,
+          "poison_return": 64.96083280865942,
+          "summary_path": "experiments/dt_stress/walker2d_medium/s2_overlap_r0/rho_001/attack_seed_1/train_seed_1/eval_5000/summary.json",
+          "training_seed": 1
+        },
+        {
+          "attack_seed": 2,
+          "clean_return": 67.01262394242659,
+          "degradation": -4.545999227199815,
+          "poison_return": 71.5586231696264,
+          "summary_path": "experiments/dt_stress/walker2d_medium/s2_overlap_r0/rho_001/attack_seed_2/train_seed_2/eval_5000/summary.json",
+          "training_seed": 2
+        }
+      ],
+      "positive_degradation_pairs": 2,
+      "rho": 0.01,
+      "rho_slug": "001",
+      "std_degradation": 3.0652056201961813
+    },
+    {
+      "classification": "no detectable degradation",
+      "condition": "s2_overlap_r0",
+      "eligible_for_defense_claim": false,
+      "mean_degradation": -1.987933739044749,
+      "median_degradation": -2.342209078144549,
+      "num_pairs": 3,
+      "pairs": [
+        {
+          "attack_seed": 0,
+          "clean_return": 73.71602103011918,
+          "degradation": -2.4807029473175533,
+          "poison_return": 76.19672397743673,
+          "summary_path": "experiments/dt_stress/walker2d_medium/s2_overlap_r0/rho_005/attack_seed_0/train_seed_0/eval_5000/summary.json",
+          "training_seed": 0
+        },
+        {
+          "attack_seed": 1,
+          "clean_return": 65.34119398127181,
+          "degradation": -2.342209078144549,
+          "poison_return": 67.68340305941636,
+          "summary_path": "experiments/dt_stress/walker2d_medium/s2_overlap_r0/rho_005/attack_seed_1/train_seed_1/eval_5000/summary.json",
+          "training_seed": 1
+        },
+        {
+          "attack_seed": 2,
+          "clean_return": 67.01262394242659,
+          "degradation": -1.1408891916721444,
+          "poison_return": 68.15351313409873,
+          "summary_path": "experiments/dt_stress/walker2d_medium/s2_overlap_r0/rho_005/attack_seed_2/train_seed_2/eval_5000/summary.json",
+          "training_seed": 2
+        }
+      ],
+      "positive_degradation_pairs": 0,
+      "rho": 0.05,
+      "rho_slug": "005",
+      "std_degradation": 0.6016136561364902
+    }
+  ],
+  "group1_90pct_floor": 62.828448913487236,
+  "group1_reference_mean": 69.80938768165248,
+  "group4c_clean": {
+    "0": 73.71602103011918,
+    "1": 65.34119398127181,
+    "2": 67.01262394242659
+  },
+  "group4c_clean_mean": 68.6899463179392,
+  "practical_effect_floor_fraction": 0.05,
+  "practical_effect_floor_points": 3.4344973158969605
+}
