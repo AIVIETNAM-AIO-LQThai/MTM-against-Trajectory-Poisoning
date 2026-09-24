@@ -6,18 +6,13 @@ from statistics import median
 
 import numpy as np
 
-
 CLEAN_ROOT = Path("experiments/dt_mtm/walker2d_medium_clean")
 POISON_ROOT = Path("experiments/dt_mtm_stress/walker2d_medium")
-
-GROUP4D = Path(
-    "experiments/dt_mtm_stress/group4d_stress_comparison.json"
-)
+GROUP4D = Path("experiments/dt_mtm_stress/group4d_stress_comparison.json")
 
 CONDITIONS = ("canonical", "s2_overlap_r0")
 RHOS = (("001", "0.01"), ("005", "0.05"))
 SEEDS = (0, 1, 2)
-
 
 def read_jsonl(path):
     if not path.exists():
@@ -72,7 +67,6 @@ def summarize_run(run_dir):
 
         if mtm == 0.0:
             zero_mtm += 1
-
         if dt > 0.0:
             ratios.append(mtm / dt)
 
@@ -84,12 +78,8 @@ def summarize_run(run_dir):
             sum(x < 0.0 for x in cosine) / len(cosine)
             if cosine else None
         ),
-        "zero_shared_mtm_fraction": (
-            zero_mtm / diag_count if diag_count else None
-        ),
-        "median_scaled_mtm_to_dt_grad_ratio": (
-            median(ratios) if ratios else None
-        ),
+        "zero_shared_mtm_fraction": zero_mtm / diag_count if diag_count else None,
+        "median_scaled_mtm_to_dt_grad_ratio": median(ratios) if ratios else None,
         "median_dt_loss": median(float(r["dt_loss"]) for r in train),
         "median_mtm_loss": median(float(r["mtm_loss"]) for r in train),
         "final_probe_step": int(last_probe["step"]),
@@ -121,10 +111,48 @@ def difference(poison, clean):
 def main():
     group4d = json.loads(GROUP4D.read_text(encoding="utf-8"))
 
+    def find_clean_run(seed: int) -> Path:
+        candidates = []
+
+        for metrics_path in CLEAN_ROOT.rglob("training_metrics.jsonl"):
+            run_dir = metrics_path.parent
+            summary_path = run_dir / "summary.json"
+
+            if not summary_path.exists():
+                continue
+
+            summary = json.loads(
+                summary_path.read_text(encoding="utf-8")
+            )
+
+            if int(summary.get("seed", -1)) != seed:
+                continue
+
+            if abs(
+                float(summary.get("lambda_mtm", -1.0)) - 1.0
+            ) > 1e-12:
+                continue
+
+            if (
+                summary.get("status") == "complete"
+                and int(summary.get("final_step", -1)) == 100000
+            ):
+                candidates.append(run_dir)
+
+        if len(candidates) != 1:
+            raise RuntimeError(
+                f"Expected exactly one completed clean Group-4B run "
+                f"for seed={seed}, lambda=1.0; "
+                f"found {len(candidates)}: {candidates}"
+            )
+
+        return candidates[0]
+
     clean = {}
 
     for seed in SEEDS:
-        run = CLEAN_ROOT / f"seed_{seed}" / "lambda_1"
+        run = find_clean_run(seed)
+        print(f"clean seed {seed} -> {run}")
         clean[seed] = summarize_run(run)
 
     rows = []
@@ -190,9 +218,7 @@ def main():
         "rows": rows,
     }
 
-    out = Path(
-        "experiments/dt_mtm_stress/group4e_mechanism_screen.json"
-    )
+    out = Path("experiments/dt_mtm_stress/group4e_mechanism_screen.json")
 
     out.write_text(
         json.dumps(output, indent=2, sort_keys=True),
@@ -201,7 +227,6 @@ def main():
 
     print()
     print("output ->", out)
-
 
 if __name__ == "__main__":
     main()
