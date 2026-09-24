@@ -43,3 +43,17 @@ were observed.
 
 A relationship between parameter displacement and G is descriptive and
 does not establish causality.
+
+## Availability amendment
+
+Intermediate Group-4B clean joint checkpoints had previously been
+removed as part of storage cleanup.
+
+Therefore the planned temporal parameter-divergence analysis at
+10K increments cannot be performed from the retained artifacts.
+
+The analysis is restricted to the retained final 100K clean and
+poisoned joint checkpoints.
+
+This amendment changes artifact availability only; the parameter
+groups and displacement metrics remain unchanged.

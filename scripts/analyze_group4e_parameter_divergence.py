@@ -18,7 +18,9 @@ GROUP4D = Path(
 CONDITIONS = ("canonical", "s2_overlap_r0")
 RHOS = (("001", "0.01"), ("005", "0.05"))
 SEEDS = (0, 1, 2)
-STEPS = tuple(range(10000, 100001, 10000))
+# Intermediate clean checkpoints were removed during storage cleanup.
+# Final-state parameter divergence remains available.
+STEPS = (100000,)
 
 
 def load_checkpoint(path: Path):
