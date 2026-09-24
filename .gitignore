@@ -19,14 +19,7 @@ data/poisoned/*
 !data/poisoned/.gitkeep
 !data/metadata/.gitkeep
 
-experiments/**/checkpoints/*
-experiments/**/stdout.log
-experiments/**/training_metrics.jsonl
-experiments/**/evaluation_episodes.jsonl
-experiments/**/evaluation_summary.json
-experiments/**/normalization_stats.npz
-experiments/**/*.pt
-# Generated experiment runtime outputs
+# Experiment runtime artifacts
 experiments/**/checkpoints/*
 experiments/**/stdout.log
 experiments/**/training_metrics.jsonl
@@ -37,6 +30,14 @@ experiments/**/*.pt
 experiments/**/run_manifest.json
 experiments/**/summary.json
 experiments/**/episodes.jsonl
+experiments/**/clean_probe.jsonl
+
+# Group 4C generated runtime artifacts
+experiments/dt_stress/preflight_artifacts.json
+experiments/dt_stress/walker2d_medium/
+
+# Group 4B generated calibration artifacts
+experiments/dt_mtm/walker2d_medium_clean/lambda_calibration_seed_*.json
 
 # Keep frozen Group-1 evaluation evidence
 !experiments/dt/walker2d_medium_clean/**/episodes.jsonl
@@ -55,10 +56,6 @@ results/figures/*
 
 # Local downloads / transferred artifacts
 downloads/
-
-# Generated experiment runtime metadata/results
-experiments/**/run_manifest.json
-experiments/**/summary.json
 
 # Group 4C generated artifacts
 experiments/dt_stress/preflight_artifacts.json
