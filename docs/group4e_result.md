@@ -417,3 +417,115 @@ but not the large seed-dependent return variation.
 The final localization analysis tests whether the block-2 effect is
 associated with changed causal attention routing toward corrupted
 historical state tokens.
+
+## 14. Historical-state attention routing
+
+The final Group-4E probe examined whether the layerwise amplification of
+historical state corruption was associated with altered causal attention
+routing toward corrupted historical state positions.
+
+Mean joint-minus-DT perturbation-induced attention rerouting was:
+
+- block 1:
+  mean D = -0.00032680;
+  D > 0 in 3/12 artifacts;
+
+- block 2:
+  mean D = +0.00136793;
+  D > 0 in 10/12 artifacts;
+
+- block 3:
+  mean D = -0.00019637;
+  D > 0 in 4/12 artifacts.
+
+Thus block 2 is the only Transformer layer showing a clear tendency for
+the DT+MTM model to reroute more endpoint-state attention toward
+corrupted historical state positions after perturbation.
+
+This aligns with the independent layerwise representation result, where
+joint-minus-DT hidden-state sensitivity became strongly and
+systematically positive by block 2.
+
+However:
+
+- the block-2 attention effect is not positive in every artifact;
+- its magnitude is small;
+- corr(G,D_block2) = -0.1190;
+- attention weights alone are not a causal decomposition of the full
+  Transformer computation.
+
+Therefore the supported interpretation is that altered block-2
+attention routing is consistent with, and may contribute to, the
+observed temporal amplification. The evidence does not establish that
+attention rerouting alone causes the amplification or the downstream
+Group-4D return differences.
+
+## Group 4E final conclusion
+
+Group 4E investigated why masked trajectory modeling changes the
+response of a causal Decision Transformer to frozen trajectory
+perturbations.
+
+Several simple explanations were not supported:
+
+1. Aggregate gradient conflict, gradient-ratio changes, and clean-probe
+   losses did not track the stress-response gap G.
+
+2. Global parameter displacement magnitude strongly tracked rho but not
+   behavioral response.
+
+3. Canonical and S2 models often moved in different parameter-space
+   directions, but directional disagreement did not explain differences
+   in G.
+
+4. Poison count, trajectory coverage, temporal clustering, and DT/MTM
+   window exposure differed structurally between conditions but were
+   nearly invariant across seeds relative to the large variation in G.
+
+5. Selected dataset regions and raw perturbation-vector geometry were
+   insufficient to explain G.
+
+6. Frozen clean-policy sensitivity also did not explain the
+   seed-dependent return response.
+
+Despite this, Group 4E identified a consistent model-level effect of
+joint MTM training:
+
+- direct endpoint corruption produces LESS action sensitivity in
+  DT+MTM than vanilla DT;
+
+- history-only corruption produces MORE action sensitivity in DT+MTM
+  than vanilla DT;
+
+- the excess historical sensitivity is positive across the entire
+  20-step causal context and is strongest for recent corrupted history;
+
+- the effect is almost entirely attributable to corrupted observations
+  / states rather than historical actions;
+
+- MTM does NOT amplify these perturbations at the shared state embedding
+  or pre-Transformer token level; it actually contracts them there;
+
+- the excess sensitivity emerges during causal temporal processing,
+  becoming systematic by Transformer block 2;
+
+- block 2 is also the only layer showing a consistent tendency toward
+  increased attention routing to corrupted historical state positions.
+
+The resulting mechanism supported by the experiments is therefore:
+
+    MTM auxiliary training changes how the causal DT backbone
+    integrates historical state information. Although the shared
+    state representation itself becomes less locally sensitive,
+    perturbations occurring in earlier states propagate more strongly
+    to the current policy representation during deeper causal temporal
+    processing, with the clearest amplification emerging around the
+    second Transformer block.
+
+This is a consistent architectural effect, not a defense result.
+
+It does not explain the large seed-dependent Group-4D stress-response
+gap, and the frozen Group2 perturbations did not establish a successful
+vanilla-DT attack under the predeclared Group4C criterion.
+
+Therefore Group 4E is closed without further post-hoc mechanism search.
