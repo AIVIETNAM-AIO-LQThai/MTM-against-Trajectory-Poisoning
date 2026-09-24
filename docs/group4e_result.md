@@ -367,3 +367,53 @@ temporal mixing inside the Decision Transformer backbone.
 
 The next analysis traces this amplification layer by layer through the
 three causal GPT-2 blocks.
+
+## 13. Layerwise historical-state propagation
+
+The excess DT+MTM sensitivity to corrupted historical states emerges
+inside the causal Transformer rather than at its input.
+
+For history-only state corruption:
+
+- transformer input:
+  mean C = 0 exactly;
+  the current endpoint is clean and therefore has identical input tokens;
+
+- block 1:
+  mean C = +0.003759;
+  C > 0 in 9/12 artifacts;
+
+- block 2:
+  mean C = +0.104363;
+  C > 0 in 12/12 artifacts;
+
+- block 3:
+  mean C = +0.102596;
+  C > 0 in 12/12 artifacts;
+
+- final action prediction:
+  mean C = +0.008391;
+  C > 0 in 12/12 artifacts.
+
+Thus the clearest amplification appears between block 1 and block 2
+and persists through the remaining causal backbone into the action
+prediction.
+
+Combined with the previous representation audit, the evidence indicates:
+
+1. MTM training contracts direct observation perturbations in the shared
+   state embedding;
+
+2. historical observation corruption nevertheless produces greater
+   endpoint-policy sensitivity;
+
+3. this reversal is generated during causal temporal processing,
+   becoming systematic by Transformer block 2.
+
+Layerwise C remains only weakly correlated with Group-4D G, so this
+mechanism explains a consistent representational effect of MTM training
+but not the large seed-dependent return variation.
+
+The final localization analysis tests whether the block-2 effect is
+associated with changed causal attention routing toward corrupted
+historical state tokens.
