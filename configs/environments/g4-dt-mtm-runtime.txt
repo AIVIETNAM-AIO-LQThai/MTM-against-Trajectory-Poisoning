@@ -1,0 +1,10 @@
+﻿environment=g3-mtm-gpu
+python=3.10.21 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:35:39) [MSC v.1942 64 bit (AMD64)]
+platform=Windows-10-10.0.26200-SP0
+numpy=1.23.5
+torch=2.7.1+cu128
+cuda_runtime=12.8
+cuda_available=True
+gpu=NVIDIA GeForce RTX 5050 Laptop GPU
+transformers=4.45.2
+h5py=3.8.0

@@ -323,6 +323,35 @@ The research was developed incrementally:
 - `docs/group4d_result.md`
 - `docs/group4e_result.md`
 
+## Environments and testing
+
+This project spans several historically distinct software environments.
+
+A single Python environment is not intended to execute every test accumulated across Groups 1–4.
+
+The main environment records are:
+
+- Group 1 DT: `environment.reference.yml`
+- Group 2 CQL: `configs/environments/g2-cql.yml`
+- Group 3 MTM: `environment.group3-mtm.yml`
+- Group 4 DT+MTM: `configs/environments/g4-dt-mtm.yml`
+
+Additional runtime and lock snapshots are retained where available.
+
+Tests should be executed in the environment corresponding to the experimental stage they validate.
+
+In particular, the MTM/DT+MTM environment is not expected to contain the legacy D4RL/Gym/MuJoCo stack required by Group-2 tests.
+
+The clean-DT evaluation-reproducibility integration test also requires a local trained checkpoint that is intentionally excluded from the final Git tree.
+
+See:
+
+`docs/testing_environments.md`
+
+and:
+
+`tests/README.md`
+
 ## Future work
 
 The following were part of the broader research plan but are **not part of the completed evidence base**:
