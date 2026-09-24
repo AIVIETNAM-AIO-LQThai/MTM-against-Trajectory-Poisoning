@@ -258,3 +258,43 @@ context.
 The next analysis tests whether this additional history sensitivity
 depends on the temporal distance between a poisoned token and the clean
 prediction endpoint.
+
+## 10. Historical-distance sensitivity
+
+The excess history sensitivity of the clean DT+MTM policy persists
+throughout the entire causal DT context.
+
+Mean A = sensitivity_joint - sensitivity_DT by nearest poisoned-token
+distance was:
+
+- distance 1-3:  +0.018905
+- distance 4-7:  +0.007533
+- distance 8-12: +0.006121
+- distance 13-19:+0.005262
+
+A was positive for all 12 artifacts in every distance bin.
+
+Thus DT+MTM's excess sensitivity is strongest for recently corrupted
+history, but remains detectable even when the nearest corrupted token is
+13-19 transitions behind the clean prediction endpoint.
+
+The near-history effect is approximately 3.6 times the far-history
+effect.
+
+The fraction of contexts for which joint sensitivity exceeded vanilla
+DT sensitivity was also above 0.60 in every bin and reached approximately
+0.71 in the farthest bin.
+
+Correlations between A and Group-4D G remained weak to moderate:
+
+- 1-3:   -0.1114
+- 4-7:   -0.3455
+- 8-12:  -0.2020
+- 13-19: -0.0382
+
+Therefore this establishes a consistent representation/policy effect of
+MTM training, but does not by itself explain the heterogeneous Group-4D
+return response.
+
+The next analysis decomposes the history effect into observation
+perturbations versus action perturbations.
