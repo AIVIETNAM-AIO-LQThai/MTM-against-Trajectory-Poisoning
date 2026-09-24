@@ -50,6 +50,8 @@ The clean three-seed DT baseline achieved normalized returns of approximately:
 
 The clean DT baseline passed the project acceptance gate and became the frozen reference learner.
 
+See: `docs/group1_clean_result.md`
+
 ## Group 2 — Independent CSDPC reproduction
 
 CSDPC was independently implemented from the published specification and subjected to structural, integrity, budget, perturbation, reachability, replay, and learner-response audits.
@@ -162,6 +164,8 @@ Therefore:
 > DT + MTM does not show a consistent robustness advantage over vanilla DT under the frozen stress conditions.
 
 Because Group 4C did not establish an effective vanilla-DT attack, this result must not be interpreted as a successful or failed defense against a validated attack. It is a matched stress-response comparison.
+
+See: `docs/group4d_result.md`
 
 ## Group 4E — Mechanism analysis
 
@@ -308,10 +312,15 @@ The research was developed incrementally:
 
 ## Important documents
 
+## Important documents
+
+- `docs/project_final_report.md`
+- `docs/group1_clean_result.md`
 - `docs/group2_csdpc_final_status.md`
 - `docs/mtm_stage_a_result.md`
 - `docs/group4_clean_result.md`
 - `docs/group4c_stress_transfer_result.md`
+- `docs/group4d_result.md`
 - `docs/group4e_result.md`
 
 ## Future work
