@@ -185,3 +185,30 @@ transitions are insufficient to explain the seed-dependent response.
 
 The next analysis compares the actual observation/action perturbation
 vectors on shared selected transitions.
+
+## 8. Perturbation-vector direction
+
+On transitions modified by two attack artifacts, the actual observation
+and action perturbation vectors are nearly orthogonal.
+
+Within-condition attack-seed comparisons produced mean/global
+perturbation cosines generally close to zero for both observations and
+actions.
+
+Canonical-vs-S2 comparisons on the same rho/seed also produced only
+small positive cosines.
+
+However, disagreement in perturbation direction was only weakly related
+to the corresponding behavioral difference |dG|.
+
+Within-condition descriptive correlations between |dG| and directional
+or normalized-distance metrics were approximately 0.23-0.28.
+
+Canonical-vs-S2 correlations were small and negative, approximately
+-0.08 to -0.18.
+
+Therefore neither selected-transition identity nor raw perturbation-vector
+geometry sufficiently explains Group-4D behavioral heterogeneity.
+
+The next analysis is model-aware: measure the response of frozen clean
+DT and clean DT+MTM policies to the exact poisoned contexts.
