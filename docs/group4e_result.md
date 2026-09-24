@@ -85,3 +85,35 @@ Group-4D behavioral response.
 The next analysis moves from model-level geometry to data-level
 localization: exactly which transitions and trajectory regions differ
 between the clean and poisoned datasets.
+
+## 5. Raw poison localization
+
+The frozen trajectory perturbations modify observations and actions only.
+
+No changes were detected in rewards, terminals, or timeouts. Therefore
+the Group-4D stress response is not caused by direct reward or RTG
+corruption.
+
+At rho=0.01:
+
+- canonical modifies exactly 10,000 transitions per seed and touches
+  922-935 of 1,190 completed trajectories (~77.9% on average);
+- s2_overlap_r0 modifies 9,997-10,000 realized transitions and touches
+  857-874 trajectories (~72.8% on average).
+
+At rho=0.05:
+
+- canonical modifies 50,000 transitions and touches 1,186-1,189
+  trajectories (~99.8%);
+- s2_overlap_r0 modifies 49,947-49,998 realized transitions and touches
+  1,180-1,189 trajectories (~99.5%).
+
+The perturbation magnitudes are similar across conditions:
+
+- action maximum absolute change is approximately 0.05;
+- observation maximum absolute change is approximately 0.5.
+
+Thus gross perturbation count and magnitude do not explain the strongly
+different Group-4D behavioral responses. The next analysis examines the
+sequential organization of poisoned transitions and their exposure in
+DT and MTM training windows.
