@@ -153,3 +153,35 @@ insufficient to explain the seed-dependent behavioral response.
 
 The next analysis examines which trajectories and state/action regions
 are selected, rather than how many windows they affect.
+
+## 7. Poison selection localization
+
+The aggregate behavioral region occupied by selected transitions is
+similar across attack seeds within each condition/rho.
+
+Mean trajectory return, trajectory length, relative trajectory position,
+clean reward, action norm, and observation norm vary only modestly
+between seeds.
+
+Attack-seed overlap reveals a more informative pattern.
+
+At rho=0.01:
+
+- canonical seed1 vs seed2 transition Jaccard = 0.7805;
+- S2 seed1 vs seed2 transition Jaccard = 0.7840.
+
+Despite this high overlap, their Group-4D responses differ strongly:
+
+- canonical: seed1 G=-10.7822 vs seed2 G=+3.3489;
+- S2: seed1 G=+1.0972 vs seed2 G=-6.7478.
+
+At rho=0.05, seed1 vs seed2 overlap is even higher:
+
+- canonical transition Jaccard = 0.9279;
+- S2 transition Jaccard = 0.9589.
+
+Therefore the identity and gross behavioral region of selected
+transitions are insufficient to explain the seed-dependent response.
+
+The next analysis compares the actual observation/action perturbation
+vectors on shared selected transitions.
