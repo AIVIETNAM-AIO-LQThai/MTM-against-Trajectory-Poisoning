@@ -117,3 +117,39 @@ Thus gross perturbation count and magnitude do not explain the strongly
 different Group-4D behavioral responses. The next analysis examines the
 sequential organization of poisoned transitions and their exposure in
 DT and MTM training windows.
+
+## 6. Sequential poison and window exposure
+
+S2 perturbations are more temporally clustered than canonical
+perturbations.
+
+At rho=0.01:
+
+- canonical poison-run mean is approximately 5.1 transitions;
+- S2 poison-run mean is approximately 6.0 transitions;
+- canonical DT-context exposure is approximately 4.3%;
+- S2 DT-context exposure is approximately 3.9%;
+- canonical MTM-window exposure is approximately 1.58%;
+- S2 MTM-window exposure is approximately 1.50%.
+
+At rho=0.05:
+
+- canonical poison-run mean is approximately 5.25 transitions;
+- S2 poison-run mean is approximately 6.95 transitions;
+- canonical DT-context exposure is approximately 19.8%;
+- S2 DT-context exposure is approximately 16.7%;
+- canonical MTM-window exposure is approximately 7.7%;
+- S2 MTM-window exposure is approximately 7.1%.
+
+Thus S2 concentrates modified transitions into longer contiguous runs
+while exposing fewer distinct DT and MTM windows.
+
+However, these structural exposure quantities are nearly constant across
+seeds within a condition/rho while Group-4D G varies strongly and can
+change sign.
+
+Therefore perturbation clustering and total window-exposure breadth are
+insufficient to explain the seed-dependent behavioral response.
+
+The next analysis examines which trajectories and state/action regions
+are selected, rather than how many windows they affect.
