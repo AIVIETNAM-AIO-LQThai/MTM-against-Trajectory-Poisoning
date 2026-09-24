@@ -26,6 +26,22 @@ experiments/**/evaluation_episodes.jsonl
 experiments/**/evaluation_summary.json
 experiments/**/normalization_stats.npz
 experiments/**/*.pt
+# Generated experiment runtime outputs
+experiments/**/checkpoints/*
+experiments/**/stdout.log
+experiments/**/training_metrics.jsonl
+experiments/**/evaluation_episodes.jsonl
+experiments/**/evaluation_summary.json
+experiments/**/normalization_stats.npz
+experiments/**/*.pt
+experiments/**/run_manifest.json
+experiments/**/summary.json
+experiments/**/episodes.jsonl
+
+# Keep frozen Group-1 evaluation evidence
+!experiments/dt/walker2d_medium_clean/**/episodes.jsonl
+!experiments/dt/walker2d_medium_clean/**/summary.json
+!experiments/dt/walker2d_medium_clean/**/run_manifest.json
 
 results/episodes/*
 results/summaries/*
@@ -37,8 +53,6 @@ results/figures/*
 .env
 *.local.yaml
 
-# Generated CSDPC poisoned datasets
-/data/poisoned/
 # Local downloads / transferred artifacts
 downloads/
 
