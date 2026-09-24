@@ -212,3 +212,49 @@ geometry sufficiently explains Group-4D behavioral heterogeneity.
 
 The next analysis is model-aware: measure the response of frozen clean
 DT and clean DT+MTM policies to the exact poisoned contexts.
+
+## 9. Frozen clean-policy sensitivity
+
+Frozen clean vanilla-DT and clean DT+MTM policy branches were evaluated
+on paired clean and poisoned causal contexts without retraining.
+
+A systematic distinction emerged between direct endpoint corruption and
+history-only corruption.
+
+For all 12 frozen perturbation artifacts:
+
+- A_direct = sensitivity_joint - sensitivity_DT was negative;
+- A_history was positive.
+
+Direct endpoint effects:
+
+- A_direct ranged approximately from -0.112 to -0.089.
+
+History-only effects:
+
+- A_history ranged approximately from +0.0062 to +0.0115.
+
+Thus the clean DT+MTM policy was consistently less locally sensitive
+than vanilla DT when the current transition itself was perturbed, but
+consistently more sensitive when the current endpoint remained clean
+and perturbations occurred only earlier in its causal context.
+
+The aggregate sensitivity difference remained negative because the
+direct effect was substantially larger in magnitude.
+
+Correlations with Group-4D G were weak:
+
+- all contexts: corr(G,A) = -0.0934;
+- direct endpoints: corr(G,A) = -0.0203;
+- history-only: corr(G,A) = -0.2628.
+
+Therefore frozen-policy local sensitivity does not explain the
+seed-dependent Group-4D return response.
+
+However, the sign-consistent history-only effect suggests that MTM
+training changes how the final causal policy uses preceding trajectory
+context.
+
+The next analysis tests whether this additional history sensitivity
+depends on the temporal distance between a poisoned token and the clean
+prediction endpoint.
