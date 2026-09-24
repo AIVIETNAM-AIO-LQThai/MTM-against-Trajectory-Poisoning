@@ -298,3 +298,40 @@ return response.
 
 The next analysis decomposes the history effect into observation
 perturbations versus action perturbations.
+
+## 11. Historical modality sensitivity
+
+The excess historical sensitivity of DT+MTM is almost entirely carried
+by observation/state perturbations.
+
+Across all 12 frozen artifacts:
+
+- state-only:
+  mean A = +0.008445;
+  median A = +0.008044;
+  A > 0 in 12/12 artifacts;
+
+- action-only:
+  mean A = +0.000023;
+  median A = +0.000016;
+  A > 0 in 8/12 artifacts;
+
+- state+action:
+  mean A = +0.008429;
+  median A = +0.008035;
+  A > 0 in 12/12 artifacts.
+
+The state-only and combined effects are nearly identical, while
+historical action corruption contributes essentially no excess
+DT+MTM sensitivity.
+
+Therefore the consistent history effect identified previously is a
+state/observation-channel phenomenon.
+
+Its correlation with Group-4D G remains weak
+(corr(G,A_state) = -0.2601), so this does not explain the complete
+seed-dependent return response.
+
+The next analysis localizes the state effect within the policy:
+whether amplification is already present in the shared DT state
+embedding or emerges later through causal temporal processing.
