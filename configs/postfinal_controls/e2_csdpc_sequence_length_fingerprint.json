@@ -1,0 +1,71 @@
+{
+  "experiment": "E2_CSDPC_SEQUENCE_LENGTH_FINGERPRINT",
+  "status": "POSTFINAL_DIAGNOSTIC_ONLY",
+  "dataset": "walker2d-medium-v2",
+  "dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "canonical_attack_is_unchanged": true,
+  "num_clusters": 8,
+  "attack_seeds": [
+    0,
+    1,
+    2
+  ],
+  "actual_sequence_lengths": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "pipeline": {
+    "decision_unit": "concat(state, action)",
+    "feature_preprocessing": "none",
+    "kmeans_init": "k-means++",
+    "kmeans_n_init": 10,
+    "kmeans_max_iter": 300,
+    "kmeans_tol": 0.0001,
+    "kmeans_algorithm": "lloyd",
+    "window_stride": 1,
+    "respect_episode_boundaries": true,
+    "deduplication_order": "window_then_deduplicate",
+    "deduplication": "remove_consecutive_duplicate_cluster_labels"
+  },
+  "source_reference": {
+    "description": "The frozen Group-2 audit records the source paper as reporting nearly 80% distinct-pattern reduction.",
+    "reference_fraction": 0.8,
+    "approximate": true,
+    "is_acceptance_gate": false
+  },
+  "historical_regression_anchors": [
+    {
+      "attack_seed": 0,
+      "actual_sequence_length": 5,
+      "canonical_distinct_type_reduction_fraction": 0.42456994,
+      "absolute_tolerance": 5e-07,
+      "origin": "docs/csdpc_independent_dedup_safety_audit.md"
+    },
+    {
+      "attack_seed": 0,
+      "actual_sequence_length": 6,
+      "canonical_distinct_type_reduction_fraction": 0.53989716,
+      "absolute_tolerance": 5e-07,
+      "origin": "docs/csdpc_independent_dedup_safety_audit.md"
+    }
+  ],
+  "rules": [
+    "No poisoned dataset is generated.",
+    "No candidate poisoning sequence is generated.",
+    "No CQL, DT, MTM, or other learner is trained or evaluated.",
+    "The clean dataset, clustering semantics, feature preprocessing, and k remain frozen.",
+    "The only swept variable is actual fixed-length decision-unit window length.",
+    "All integer actual window lengths from 2 through 10 are reported; no length may be omitted after seeing the results.",
+    "The source's nearly-80-percent value is a descriptive reference only, not a gate.",
+    "The length numerically closest to the source reference may be reported descriptively but must not be promoted to a new attack configuration.",
+    "The endpoint-span notation l = L - 1 is reported only as a notation view; it is not asserted to be the source authors' intended implementation.",
+    "Canonical Gate B and the frozen Group-2 conclusion remain unchanged."
+  ]
+}
