@@ -43,12 +43,12 @@ All models remain in inference mode.
 
 Use the same 12 frozen CSDPC artifacts:
 
-| Condition       | Poison rate | Seeds     |
-| --------------- | ----------: | --------- |
-| `canonical`     |      `0.01` | `0, 1, 2` |
-| `canonical`     |      `0.05` | `0, 1, 2` |
-| `s2_overlap_r0` |      `0.01` | `0, 1, 2` |
-| `s2_overlap_r0` |      `0.05` | `0, 1, 2` |
+| Condition | Poison rate | Seeds |
+| --- | ---: | --- |
+| `canonical` | `0.01` | `0, 1, 2` |
+| `canonical` | `0.05` | `0, 1, 2` |
+| `s2_overlap_r0` | `0.01` | `0, 1, 2` |
+| `s2_overlap_r0` | `0.05` | `0, 1, 2` |
 
 Only state perturbations are used in E1B.
 

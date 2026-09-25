@@ -48,16 +48,16 @@ These differences are floating-point storage effects.
 
 ## Main Result
 
-| Metric                                          |   CSDPC state | Matched random-sign control |
-| ----------------------------------------------- | ------------: | --------------------------: |
-| Mean direct action-sensitivity gap `A_direct`   |   `-0.098942` |                 `-0.097112` |
-| Positive `A_direct` artifacts                   |        `0/12` |                      `0/12` |
-| Mean history-only gap `A_history`               |   `+0.008444` |                 `+0.007930` |
-| Positive `A_history` artifacts                  |       `12/12` |                     `12/12` |
-| Mean block-2 propagation gap `C_block2`         |   `+0.104385` |                 `+0.102296` |
-| Positive `C_block2` artifacts                   |       `12/12` |                     `12/12` |
-| Mean block-2 attention-rerouting gap `D_block2` | `+0.00136793` |               `+0.00139770` |
-| Positive `D_block2` artifacts                   |       `10/12` |                     `11/12` |
+| Metric | CSDPC state | Matched random-sign control |
+| --- | ---: | ---: |
+| Mean direct action-sensitivity gap `A_direct` | `-0.098942` | `-0.097112` |
+| Positive `A_direct` artifacts | `0/12` | `0/12` |
+| Mean history-only gap `A_history` | `+0.008444` | `+0.007930` |
+| Positive `A_history` artifacts | `12/12` | `12/12` |
+| Mean block-2 propagation gap `C_block2` | `+0.104385` | `+0.102296` |
+| Positive `C_block2` artifacts | `12/12` | `12/12` |
+| Mean block-2 attention-rerouting gap `D_block2` | `+0.00136793` | `+0.00139770` |
+| Positive `D_block2` artifacts | `10/12` | `11/12` |
 
 The matched random-sign control retained approximately:
 
@@ -79,10 +79,10 @@ median = -0.00548719
 ## Seed-Level Block-2 Result
 
 | Clean model seed | CSDPC mean `C_block2` | Random-sign mean `C_block2` |
-| ---------------: | --------------------: | --------------------------: |
-|              `0` |           `+0.087076` |                 `+0.086461` |
-|              `1` |           `+0.124253` |                 `+0.126367` |
-|              `2` |           `+0.101827` |                 `+0.094060` |
+| ---: | ---: | ---: |
+| `0` | `+0.087076` | `+0.086461` |
+| `1` | `+0.124253` | `+0.126367` |
+| `2` | `+0.101827` | `+0.094060` |
 
 All three distinct clean DT / DT+MTM model pairs retained positive block-2 amplification under the matched random-sign control.
 

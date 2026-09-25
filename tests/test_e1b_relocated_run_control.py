@@ -1,4 +1,4 @@
-﻿import copy
+import copy
 
 import numpy as np
 
@@ -272,8 +272,15 @@ def test_relocation_transfers_exact_delta_sequences():
         )
     )
 
-    source_delta = poison["observations"] - clean["observations"]
-    target_delta = control["observations"] - clean["observations"]
+    source_delta = (
+        poison["observations"]
+        - clean["observations"]
+    )
+
+    target_delta = (
+        control["observations"]
+        - clean["observations"]
+    )
 
     for record in records:
         s0 = record["source_start"]
@@ -281,6 +288,19 @@ def test_relocation_transfers_exact_delta_sequences():
         t0 = record["target_start"]
         t1 = record["target_end"]
 
+        expected_observation = (
+            clean["observations"][t0:t1]
+            + source_delta[s0:s1]
+        )
+
+        # This is the actual construction invariant.
+        np.testing.assert_array_equal(
+            control["observations"][t0:t1],
+            expected_observation,
+        )
+
+        # Recovering the delta by subtracting float32 values
+        # introduces an additional rounding step.
         np.testing.assert_allclose(
             target_delta[t0:t1],
             source_delta[s0:s1],
@@ -309,9 +329,26 @@ def test_validation_passes():
         used_n=24,
     )
 
-    assert result["source_modified_count"] == 5
-    assert result["relocated_modified_count"] == 5
-    assert result["source_target_overlap_count"] == 0
-    assert result["per_trajectory_count_match"] is True
-    assert result["per_trajectory_run_length_match"] is True
-    assert result["max_delta_transfer_error"] <= 1e-5
+    assert result[
+        "source_modified_count"
+    ] == 5
+
+    assert result[
+        "relocated_modified_count"
+    ] == 5
+
+    assert result[
+        "source_target_overlap_count"
+    ] == 0
+
+    assert result[
+        "per_trajectory_count_match"
+    ] is True
+
+    assert result[
+        "per_trajectory_run_length_match"
+    ] is True
+
+    assert result[
+        "max_delta_transfer_error"
+    ] <= 1e-5

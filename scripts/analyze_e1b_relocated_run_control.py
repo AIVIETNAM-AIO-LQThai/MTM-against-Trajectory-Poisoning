@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
@@ -54,6 +54,12 @@ LAYERWISE_SEED_BASE = 4_300_000
 ATTENTION_SEED_BASE = 4_400_000
 
 ATOL = 1e-5
+MAX_RELOCATION_ATTEMPTS = 10_000
+
+PARTIAL_OUTPUT = Path(
+    "experiments/postfinal_controls/"
+    "e1b_relocated_run_control.partial.json"
+)
 
 
 def trajectory_ranges(clean, used_n):
@@ -230,9 +236,10 @@ def relocate_runs_within_trajectory(
         if not runs:
             continue
 
-        # Place longer runs first. This makes failure
-        # due to interval packing less likely while
-        # remaining deterministic before RNG choice.
+        # Keep the predeclared longest-first construction,
+        # but restart the entire trajectory if an unlucky
+        # sequence of uniform candidate choices creates a
+        # later dead end. No scientific constraint changes.
         ordered_runs = sorted(
             runs,
             key=lambda run: (
@@ -241,43 +248,121 @@ def relocate_runs_within_trajectory(
             ),
         )
 
-        for run in ordered_runs:
-            source_start = int(
-                run[0]
-            )
+        placed = False
+        successful_plan = None
+        successful_attempt = None
 
-            source_end = int(
-                run[-1]
-            ) + 1
+        for attempt in range(
+            1,
+            MAX_RELOCATION_ATTEMPTS + 1,
+        ):
+            # Current trajectory has not been committed yet,
+            # so it is safe to clear only this slice. Marks
+            # from previously completed trajectories lie
+            # outside this range.
+            target_mask[
+                traj_start:traj_end
+            ] = False
 
-            length = (
-                source_end
-                - source_start
-            )
+            trial_plan = []
+            failed = False
 
-            candidates = candidate_starts(
-                traj_start=traj_start,
-                traj_end=traj_end,
-                length=length,
-                source_mask=source_mask,
-                target_mask=target_mask,
-            )
-
-            if len(candidates) == 0:
-                raise RuntimeError(
-                    "No legal E1B relocation interval: "
-                    f"trajectory={trajectory_id}, "
-                    f"range=[{traj_start},{traj_end}), "
-                    f"source=[{source_start},{source_end}), "
-                    f"length={length}"
+            for run in ordered_runs:
+                source_start = int(
+                    run[0]
                 )
 
-            target_start = int(
-                rng.choice(candidates)
+                source_end = int(
+                    run[-1]
+                ) + 1
+
+                length = (
+                    source_end
+                    - source_start
+                )
+
+                candidates = candidate_starts(
+                    traj_start=traj_start,
+                    traj_end=traj_end,
+                    length=length,
+                    source_mask=source_mask,
+                    target_mask=target_mask,
+                )
+
+                if len(candidates) == 0:
+                    failed = True
+                    break
+
+                # Predeclared rule: choose uniformly from the
+                # currently valid locations using the frozen
+                # deterministic RNG stream.
+                target_start = int(
+                    rng.choice(candidates)
+                )
+
+                target_end = (
+                    target_start + length
+                )
+
+                target_mask[
+                    target_start:target_end
+                ] = True
+
+                trial_plan.append(
+                    {
+                        "source_start": source_start,
+                        "source_end": source_end,
+                        "target_start": target_start,
+                        "target_end": target_end,
+                        "length": int(length),
+                    }
+                )
+
+            if not failed:
+                placed = True
+                successful_plan = trial_plan
+                successful_attempt = attempt
+                break
+
+        if not placed:
+            # Leave this trajectory uncommitted on failure.
+            target_mask[
+                traj_start:traj_end
+            ] = False
+
+            source_run_lengths = [
+                int(len(run))
+                for run in ordered_runs
+            ]
+
+            source_count = int(
+                source_mask[
+                    traj_start:traj_end
+                ].sum()
             )
 
-            target_end = (
-                target_start + length
+            raise RuntimeError(
+                "No legal E1B relocation plan after "
+                f"{MAX_RELOCATION_ATTEMPTS} attempts: "
+                f"trajectory={trajectory_id}, "
+                f"range=[{traj_start},{traj_end}), "
+                f"length={traj_end - traj_start}, "
+                f"source_modified_count={source_count}, "
+                f"source_run_lengths={source_run_lengths}"
+            )
+
+        for plan in successful_plan:
+            source_start = int(
+                plan["source_start"]
+            )
+            source_end = int(
+                plan["source_end"]
+            )
+            target_start = int(
+                plan["target_start"]
+            )
+            target_end = int(
+                plan["target_end"]
             )
 
             delta_sequence = (
@@ -294,10 +379,6 @@ def relocate_runs_within_trajectory(
                 ]
                 + delta_sequence
             )
-
-            target_mask[
-                target_start:target_end
-            ] = True
 
             records.append(
                 {
@@ -323,7 +404,10 @@ def relocate_runs_within_trajectory(
                         target_end
                     ),
                     "length": int(
-                        length
+                        plan["length"]
+                    ),
+                    "placement_attempt": int(
+                        successful_attempt
                     ),
                 }
             )
@@ -1107,10 +1191,36 @@ def main():
 
     rows = []
 
+    if PARTIAL_OUTPUT.exists():
+        partial = json.loads(
+            PARTIAL_OUTPUT.read_text(
+                encoding="utf-8"
+            )
+        )
+        rows = list(
+            partial.get("rows", [])
+        )
+        print(
+            "resume rows:",
+            len(rows),
+            "from",
+            PARTIAL_OUTPUT,
+        )
+
+    completed = {
+        (
+            row["condition"],
+            float(row["rho"]),
+            int(row["seed"]),
+            int(row["replicate"]),
+        )
+        for row in rows
+    }
+
     print()
     print("=" * 150)
     print(
-        "E1B â€” WITHIN-TRAJECTORY "
+        "E1B - WITHIN-TRAJECTORY "
         "RELOCATED-RUN CONTROL"
     )
     print("=" * 150)
@@ -1159,6 +1269,23 @@ def main():
                 )
 
                 for replicate in REPLICATES:
+                    row_key = (
+                        condition,
+                        rho,
+                        seed,
+                        int(replicate),
+                    )
+
+                    if row_key in completed:
+                        print(
+                            f"{condition:15s} "
+                            f"{rho:.2f} "
+                            f"{seed:4d} "
+                            f"{replicate:3d} "
+                            "SKIP (checkpointed)"
+                        )
+                        continue
+
                     relocation_seed = (
                         RELOCATION_SEED_BASE
                         + condition_index
@@ -1234,6 +1361,27 @@ def main():
                         }
                     )
 
+                    completed.add(row_key)
+
+                    PARTIAL_OUTPUT.parent.mkdir(
+                        parents=True,
+                        exist_ok=True,
+                    )
+
+                    PARTIAL_OUTPUT.write_text(
+                        json.dumps(
+                            {
+                                "analysis": (
+                                    "e1b_relocated_run_control_partial"
+                                ),
+                                "rows": rows,
+                            },
+                            indent=2,
+                            sort_keys=True,
+                        ),
+                        encoding="utf-8",
+                    )
+
                     print(
                         f"{condition:15s} "
                         f"{rho:.2f} "
@@ -1281,6 +1429,9 @@ def main():
         encoding="utf-8",
     )
 
+    if PARTIAL_OUTPUT.exists():
+        PARTIAL_OUTPUT.unlink()
+
     print()
     print("=" * 150)
     print("E1B SUMMARY")
@@ -1307,4 +1458,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
