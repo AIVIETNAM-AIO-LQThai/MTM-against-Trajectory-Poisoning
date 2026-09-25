@@ -312,8 +312,6 @@ The research was developed incrementally:
 
 ## Important documents
 
-## Important documents
-
 - `docs/project_final_report.md`
 - `docs/group1_clean_result.md`
 - `docs/group2_csdpc_final_status.md`
