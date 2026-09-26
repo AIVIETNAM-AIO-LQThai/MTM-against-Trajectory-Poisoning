@@ -1,0 +1,52 @@
+{
+  "attack_rows": [
+    {
+      "actual_transition_budget": 49961,
+      "attack_seed": 10,
+      "budget_utilization": 0.999239984799696,
+      "max_selected_target_return_error": 0.00016620587530269404,
+      "poisoned_dataset": "/mnt/c/Users/Dell ProMax Tower T2/Downloads/code/RL/MTM-against-Trajectory-Poisoning/data/poisoned/rtg_inflation/walker2d-medium-v2/attack_seed_10.hdf5",
+      "poisoned_dataset_sha256": "0c8e47454ebca78ef98222fdfcdad32e839bed5c16d030cfc9e23c612be750a2",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 86
+    },
+    {
+      "actual_transition_budget": 49991,
+      "attack_seed": 11,
+      "budget_utilization": 0.999839996799936,
+      "max_selected_target_return_error": 0.00013378094854488154,
+      "poisoned_dataset": "/mnt/c/Users/Dell ProMax Tower T2/Downloads/code/RL/MTM-against-Trajectory-Poisoning/data/poisoned/rtg_inflation/walker2d-medium-v2/attack_seed_11.hdf5",
+      "poisoned_dataset_sha256": "7c6232bf8d7b27241cd0cde4ce6fded7508ad365db484c18238444a67fbd0928",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 82
+    },
+    {
+      "actual_transition_budget": 49952,
+      "attack_seed": 12,
+      "budget_utilization": 0.999059981199624,
+      "max_selected_target_return_error": 0.00017520952997074346,
+      "poisoned_dataset": "/mnt/c/Users/Dell ProMax Tower T2/Downloads/code/RL/MTM-against-Trajectory-Poisoning/data/poisoned/rtg_inflation/walker2d-medium-v2/attack_seed_12.hdf5",
+      "poisoned_dataset_sha256": "26d024953a71c1f3817d38f2c2bd485bff34a1b96014fabdf5599ecfd6d33485",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 85
+    }
+  ],
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "experiment": "A2_VANILLA_DT_ATTACK_QUALIFICATION",
+  "matrix": {
+    "attack_seeds": [
+      10,
+      11,
+      12
+    ],
+    "clean_runs": 3,
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "poisoned_runs": 9,
+    "total_training_runs": 12
+  },
+  "status": "PREFLIGHT_PASS"
+}
