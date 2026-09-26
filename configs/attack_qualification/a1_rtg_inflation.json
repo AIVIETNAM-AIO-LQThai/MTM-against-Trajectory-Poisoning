@@ -1,0 +1,63 @@
+{
+  "experiment": "A1_RTG_INFLATION_ATTACK_QUALIFICATION",
+  "status": "PREDECLARED_ATTACK_GENERATION",
+  "dataset": "walker2d-medium-v2",
+  "dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "attack_name": "low_return_rtg_inflation",
+  "attack_seeds": [
+    10,
+    11,
+    12
+  ],
+  "transition_budget_fraction": 0.05,
+  "low_return_candidate_quantile": 0.3,
+  "target_return_quantile": 0.9,
+  "minimum_budget_utilization": 0.98,
+  "selection": {
+    "unit": "complete_trajectory",
+    "candidate_pool": "trajectory_return <= clean_q30",
+    "sampling": "seeded_shuffle_then_greedy_complete_trajectory_fit",
+    "no_partial_trajectory": true
+  },
+  "reward_transform": {
+    "type": "uniform_additive_shift_per_selected_trajectory",
+    "formula": "r'_t = r_t + (Q90_return - R_trajectory) / trajectory_length",
+    "states_unchanged": true,
+    "actions_unchanged": true,
+    "terminals_unchanged": true,
+    "timeouts_unchanged": true
+  },
+  "planned_a2_qualification_gate": {
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "attack_seeds": [
+      10,
+      11,
+      12
+    ],
+    "num_crossed_cells": 9,
+    "evaluation_environment": "Walker2d-v3",
+    "target_return": 5000.0,
+    "evaluation_episodes": 100,
+    "evaluation_seed_base": 30000,
+    "mean_degradation_floor_fraction_of_matched_clean_mean": 0.05,
+    "minimum_positive_cells": 7,
+    "require_positive_mean_degradation_for_each_model_seed": true,
+    "require_positive_mean_degradation_for_each_attack_seed": true,
+    "if_gate_fails": "do_not_compare_DT_plus_MTM_or_RDT_under_this_attack"
+  },
+  "rules": [
+    "No victim performance is consulted during attack generation.",
+    "No attack parameter may be changed after A2 outcomes are observed.",
+    "All three attack seeds are generated before victim training.",
+    "Only rewards are modified; observations, actions, terminals, timeouts, and all other arrays remain identical.",
+    "Only completed trajectories are eligible; the trailing incomplete fragment is untouched.",
+    "Selected trajectories must come from the clean bottom-30-percent return candidate pool.",
+    "Each selected trajectory is relabeled to the same clean 90th-percentile trajectory return.",
+    "The transition footprint must not exceed floor(0.05 * used_completed_transitions).",
+    "Budget utilization must be at least 0.98 or generation aborts."
+  ]
+}
