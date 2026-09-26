@@ -1,0 +1,1993 @@
+{
+  "actual_sequence_lengths": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "aggregate_by_length": {
+    "10": {
+      "actual_sequence_length": 10,
+      "endpoint_span_l": 9,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 3.504131771936297,
+          "mean": 3.4508225637708043,
+          "min": 3.345092667936944,
+          "std": 0.07476320628913484,
+          "values_by_seed": {
+            "0": 3.345092667936944,
+            "1": 3.5032432514391707,
+            "2": 3.504131771936297
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.7125226860254084,
+          "mean": 0.7055348109410602,
+          "min": 0.6917829858119364,
+          "std": 0.00972443850623566,
+          "values_by_seed": {
+            "0": 0.6917829858119364,
+            "1": 0.7125226860254084,
+            "2": 0.712298760985836
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 42926.0,
+          "mean": 42837.333333333336,
+          "min": 42768.0,
+          "std": 65.93599590174972,
+          "values_by_seed": {
+            "0": 42926.0,
+            "1": 42768.0,
+            "2": 42818.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.11105157713274007,
+          "mean": 0.10126446395782683,
+          "min": 0.09636134336026904,
+          "std": 0.006920538499963203,
+          "values_by_seed": {
+            "0": 0.11105157713274007,
+            "1": 0.09638047138047139,
+            "2": 0.09636134336026904
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.008976179766194777,
+          "mean": 0.008852858377515075,
+          "min": 0.008773002724189693,
+          "std": 8.845782502376618e-05,
+          "values_by_seed": {
+            "0": 0.008976179766194777,
+            "1": 0.008773002724189693,
+            "2": 0.008809392642160753
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.9567687774503808,
+          "mean": 0.9566986931639181,
+          "min": 0.9566090661437301,
+          "std": 6.665015228344854e-05,
+          "values_by_seed": {
+            "0": 0.9566090661437301,
+            "1": 0.9567687774503808,
+            "2": 0.9567182358976433
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.9722928009679371,
+          "mean": 0.9701138458551299,
+          "min": 0.9657720144752714,
+          "std": 0.003070145428766475,
+          "values_by_seed": {
+            "0": 0.9657720144752714,
+            "1": 0.9722928009679371,
+            "2": 0.9722767221221813
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 148828.0,
+          "mean": 145623.33333333334,
+          "min": 139272.0,
+          "std": 4491.133289295945,
+          "values_by_seed": {
+            "0": 139272.0,
+            "1": 148770.0,
+            "2": 148828.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.6654907332063056,
+          "mean": 0.6549177436229195,
+          "min": 0.6495868228063703,
+          "std": 0.007476320628913495,
+          "values_by_seed": {
+            "0": 0.6654907332063056,
+            "1": 0.6496756748560829,
+            "2": 0.6495868228063703
+          }
+        },
+        "window_count": {
+          "max": 989285.0,
+          "mean": 989285.0,
+          "min": 989285.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 989285.0,
+            "1": 989285.0,
+            "2": 989285.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.9912269972758103,
+          "mean": 0.991147141622485,
+          "min": 0.9910238202338052,
+          "std": 8.845782502378339e-05,
+          "values_by_seed": {
+            "0": 0.9910238202338052,
+            "1": 0.9912269972758103,
+            "2": 0.9911906073578393
+          }
+        }
+      }
+    },
+    "2": {
+      "actual_sequence_length": 2,
+      "endpoint_span_l": 1,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 1.2803430098968267,
+          "mean": 1.274472995229299,
+          "min": 1.2628380915193655,
+          "std": 0.008227231251716495,
+          "values_by_seed": {
+            "0": 1.2628380915193655,
+            "1": 1.2802378842717046,
+            "2": 1.2803430098968267
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.0,
+          "mean": 0.0,
+          "min": 0.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 0.0,
+            "1": 0.0,
+            "2": 0.0
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 64.0,
+          "mean": 64.0,
+          "min": 64.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 64.0,
+            "1": 64.0,
+            "2": 64.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.875,
+          "mean": 0.875,
+          "min": 0.875,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 0.875,
+            "1": 0.875,
+            "2": 0.875
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.2803430098968267,
+          "mean": 0.274472995229299,
+          "min": 0.26283809151936566,
+          "std": 0.008227231251716469,
+          "values_by_seed": {
+            "0": 0.26283809151936566,
+            "1": 0.2802378842717047,
+            "2": 0.2803430098968267
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.999935923428497,
+          "mean": 0.999935923428497,
+          "min": 0.999935923428497,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 0.999935923428497,
+            "1": 0.999935923428497,
+            "2": 0.999935923428497
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.125,
+          "mean": 0.125,
+          "min": 0.125,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 0.125,
+            "1": 0.125,
+            "2": 0.125
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 64.0,
+          "mean": 64.0,
+          "min": 64.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 64.0,
+            "1": 64.0,
+            "2": 64.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.3685809542403172,
+          "mean": 0.36276350238535054,
+          "min": 0.35982849505158665,
+          "std": 0.004113615625858247,
+          "values_by_seed": {
+            "0": 0.3685809542403172,
+            "1": 0.3598810578641477,
+            "2": 0.35982849505158665
+          }
+        },
+        "window_count": {
+          "max": 998805.0,
+          "mean": 998805.0,
+          "min": 998805.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 998805.0,
+            "1": 998805.0,
+            "2": 998805.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.7371619084806343,
+          "mean": 0.7255270047707011,
+          "min": 0.7196569901031733,
+          "std": 0.008227231251716469,
+          "values_by_seed": {
+            "0": 0.7371619084806343,
+            "1": 0.7197621157282953,
+            "2": 0.7196569901031733
+          }
+        }
+      }
+    },
+    "3": {
+      "actual_sequence_length": 3,
+      "endpoint_span_l": 2,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 1.5599143958340642,
+          "mean": 1.5481583576830742,
+          "min": 1.5248557810377752,
+          "std": 0.01647763193461691,
+          "values_by_seed": {
+            "0": 1.5248557810377752,
+            "1": 1.559704896177383,
+            "2": 1.5599143958340642
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.11133200795228626,
+          "mean": 0.11067395911330487,
+          "min": 0.11023622047244097,
+          "std": 0.0004737017259783821,
+          "values_by_seed": {
+            "0": 0.11133200795228626,
+            "1": 0.11023622047244097,
+            "2": 0.11045364891518739
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 452.0,
+          "mean": 450.0,
+          "min": 447.0,
+          "std": 2.160246899469287,
+          "values_by_seed": {
+            "0": 447.0,
+            "1": 452.0,
+            "2": 451.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.8584070796460177,
+          "mean": 0.8577744907503554,
+          "min": 0.8568232662192393,
+          "std": 0.0006847202561857743,
+          "values_by_seed": {
+            "0": 0.8568232662192393,
+            "1": 0.8584070796460177,
+            "2": 0.8580931263858093
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.1446690356500253,
+          "mean": 0.14013956619871729,
+          "min": 0.13119289505470547,
+          "std": 0.0063264178611978986,
+          "values_by_seed": {
+            "0": 0.13119289505470547,
+            "1": 0.14455676789142105,
+            "2": 0.1446690356500253
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.9995519313562847,
+          "mean": 0.9995489241841793,
+          "min": 0.9995469194027756,
+          "std": 2.1654114056721717e-06,
+          "values_by_seed": {
+            "0": 0.9995519313562847,
+            "1": 0.9995469194027756,
+            "2": 0.9995479217934774
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.23856858846918488,
+          "mean": 0.2371584838142247,
+          "min": 0.23622047244094488,
+          "std": 0.0010150751270965746,
+          "values_by_seed": {
+            "0": 0.23856858846918488,
+            "1": 0.23622047244094488,
+            "2": 0.23668639053254437
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 508.0,
+          "mean": 506.0,
+          "min": 503.0,
+          "std": 2.160246899469287,
+          "values_by_seed": {
+            "0": 503.0,
+            "1": 508.0,
+            "2": 507.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.491714739654075,
+          "mean": 0.48394721410564195,
+          "min": 0.4800285347219786,
+          "std": 0.005492543978205654,
+          "values_by_seed": {
+            "0": 0.491714739654075,
+            "1": 0.48009836794087235,
+            "2": 0.4800285347219786
+          }
+        },
+        "window_count": {
+          "max": 997615.0,
+          "mean": 997615.0,
+          "min": 997615.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 997615.0,
+            "1": 997615.0,
+            "2": 997615.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.8688071049452946,
+          "mean": 0.8598604338012827,
+          "min": 0.8553309643499747,
+          "std": 0.0063264178611979055,
+          "values_by_seed": {
+            "0": 0.8688071049452946,
+            "1": 0.855443232108579,
+            "2": 0.8553309643499747
+          }
+        }
+      }
+    },
+    "4": {
+      "actual_sequence_length": 4,
+      "endpoint_span_l": 3,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 1.8386451564342525,
+          "mean": 1.8209970645056075,
+          "min": 1.7860140000501794,
+          "std": 0.024737092391244327,
+          "values_by_seed": {
+            "0": 1.7860140000501794,
+            "1": 1.8383320370323908,
+            "2": 1.8386451564342525
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.25693101225016124,
+          "mean": 0.255584181378069,
+          "min": 0.2529733204757313,
+          "std": 0.0018464668935328746,
+          "values_by_seed": {
+            "0": 0.2529733204757313,
+            "1": 0.25693101225016124,
+            "2": 0.2568482114083145
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 2324.0,
+          "mean": 2311.6666666666665,
+          "min": 2305.0,
+          "std": 8.73053390247253,
+          "values_by_seed": {
+            "0": 2324.0,
+            "1": 2305.0,
+            "2": 2306.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.8115318416523236,
+          "mean": 0.8083548618737278,
+          "min": 0.8065075921908894,
+          "std": 0.002256378716254536,
+          "values_by_seed": {
+            "0": 0.8115318416523236,
+            "1": 0.8065075921908894,
+            "2": 0.8070251517779705
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.08517449883332916,
+          "mean": 0.08236278027280863,
+          "min": 0.07681360865092707,
+          "std": 0.003923974015197101,
+          "values_by_seed": {
+            "0": 0.07681360865092707,
+            "1": 0.08510023333416966,
+            "2": 0.08517449883332916
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.9976867300599643,
+          "mean": 0.9976800394744544,
+          "min": 0.9976676618912612,
+          "std": 8.76185754320914e-06,
+          "values_by_seed": {
+            "0": 0.9976676618912612,
+            "1": 0.9976867300599643,
+            "2": 0.9976857264721379
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.40070921985815605,
+          "mean": 0.3982436992927103,
+          "min": 0.3937640630022501,
+          "std": 0.003172937393394051,
+          "values_by_seed": {
+            "0": 0.3937640630022501,
+            "1": 0.40070921985815605,
+            "2": 0.4002578150177248
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 3111.0,
+          "mean": 3105.3333333333335,
+          "min": 3102.0,
+          "std": 4.027681991198191,
+          "values_by_seed": {
+            "0": 3111.0,
+            "1": 3102.0,
+            "2": 3103.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.5534964999874552,
+          "mean": 0.5447507338735981,
+          "min": 0.5403387108914368,
+          "std": 0.00618427309781112,
+          "values_by_seed": {
+            "0": 0.5534964999874552,
+            "1": 0.5404169907419023,
+            "2": 0.5403387108914368
+          }
+        },
+        "window_count": {
+          "max": 996425.0,
+          "mean": 996425.0,
+          "min": 996425.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 996425.0,
+            "1": 996425.0,
+            "2": 996425.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.923186391349073,
+          "mean": 0.9176372197271915,
+          "min": 0.9148255011666708,
+          "std": 0.003923974015197117,
+          "values_by_seed": {
+            "0": 0.923186391349073,
+            "1": 0.9148997666658304,
+            "2": 0.9148255011666708
+          }
+        }
+      }
+    },
+    "5": {
+      "actual_sequence_length": 5,
+      "endpoint_span_l": 4,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 2.1170276366888223,
+          "mean": 2.0934546447154023,
+          "min": 2.046719618984461,
+          "std": 0.03304707948989962,
+          "values_by_seed": {
+            "0": 2.046719618984461,
+            "1": 2.1166166784729237,
+            "2": 2.1170276366888223
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.439845226311527,
+          "mean": 0.43458303191939507,
+          "min": 0.42456993605331894,
+          "std": 0.007083404159464143,
+          "values_by_seed": {
+            "0": 0.42456993605331894,
+            "1": 0.43933393339333937,
+            "2": 0.439845226311527
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 6389.0,
+          "mean": 6281.0,
+          "min": 6225.0,
+          "std": 76.38498979948002,
+          "values_by_seed": {
+            "0": 6389.0,
+            "1": 6229.0,
+            "2": 6225.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.6439192361871967,
+          "mean": 0.6326581130817059,
+          "min": 0.6267458661101301,
+          "std": 0.007966137369011602,
+          "values_by_seed": {
+            "0": 0.6439192361871967,
+            "1": 0.6267458661101301,
+            "2": 0.6273092369477912
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.05563108210623621,
+          "mean": 0.0538703589269536,
+          "min": 0.050406185473782575,
+          "std": 0.002449652129271177,
+          "values_by_seed": {
+            "0": 0.050406185473782575,
+            "1": 0.05557380920084201,
+            "2": 0.05563108210623621
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.9937451958582646,
+          "mean": 0.9936889277406843,
+          "min": 0.9935804106567796,
+          "std": 7.675070691791455e-05,
+          "values_by_seed": {
+            "0": 0.9935804106567796,
+            "1": 0.9937411767070089,
+            "2": 0.9937451958582646
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.6486097363448213,
+          "mean": 0.6422280365250578,
+          "min": 0.6294695127443033,
+          "std": 0.009021638902902925,
+          "values_by_seed": {
+            "0": 0.6294695127443033,
+            "1": 0.6486048604860486,
+            "2": 0.6486097363448213
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 11113.0,
+          "mean": 11108.666666666666,
+          "min": 11103.0,
+          "std": 4.189935029992178,
+          "values_by_seed": {
+            "0": 11103.0,
+            "1": 11110.0,
+            "2": 11113.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.5906560762031078,
+          "mean": 0.5813090710569195,
+          "min": 0.5765944726622356,
+          "std": 0.006609415897979883,
+          "values_by_seed": {
+            "0": 0.5906560762031078,
+            "1": 0.5766766643054153,
+            "2": 0.5765944726622356
+          }
+        },
+        "window_count": {
+          "max": 995235.0,
+          "mean": 995235.0,
+          "min": 995235.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 995235.0,
+            "1": 995235.0,
+            "2": 995235.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.9495938145262174,
+          "mean": 0.9461296410730465,
+          "min": 0.9443689178937638,
+          "std": 0.002449652129271158,
+          "values_by_seed": {
+            "0": 0.9495938145262174,
+            "1": 0.944426190799158,
+            "2": 0.9443689178937638
+          }
+        }
+      }
+    },
+    "6": {
+      "actual_sequence_length": 6,
+      "endpoint_span_l": 5,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 2.3949821185157614,
+          "mean": 2.3654901605728784,
+          "min": 2.307014269977717,
+          "std": 0.04134921892125571,
+          "values_by_seed": {
+            "0": 2.307014269977717,
+            "1": 2.394474093225156,
+            "2": 2.3949821185157614
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.557988432359348,
+          "mean": 0.5518518277042236,
+          "min": 0.5398971624452485,
+          "std": 0.008454225123915223,
+          "values_by_seed": {
+            "0": 0.5398971624452485,
+            "1": 0.5576698883080742,
+            "2": 0.557988432359348
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 12080.0,
+          "mean": 11870.333333333334,
+          "min": 11762.0,
+          "std": 148.28426154593149,
+          "values_by_seed": {
+            "0": 12080.0,
+            "1": 11762.0,
+            "2": 11769.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.4427980132450331,
+          "mean": 0.4349366682890236,
+          "min": 0.43070779165604556,
+          "std": 0.005564140191504595,
+          "values_by_seed": {
+            "0": 0.4427980132450331,
+            "1": 0.4313041999659922,
+            "2": 0.43070779165604556
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.03783631525735756,
+          "mean": 0.036828312601542186,
+          "min": 0.03485355290756455,
+          "std": 0.0013964674926310512,
+          "values_by_seed": {
+            "0": 0.03485355290756455,
+            "1": 0.03779506963970444,
+            "2": 0.03783631525735756
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.9881675376869257,
+          "mean": 0.9880585553638584,
+          "min": 0.9878476326524454,
+          "std": 0.000149172584285327,
+          "values_by_seed": {
+            "0": 0.9878476326524454,
+            "1": 0.9881675376869257,
+            "2": 0.9881604957522043
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.809622173815068,
+          "mean": 0.8050369055044225,
+          "min": 0.7962673776423539,
+          "std": 0.0062031532948408725,
+          "values_by_seed": {
+            "0": 0.7962673776423539,
+            "1": 0.809221165055846,
+            "2": 0.809622173815068
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 26626.0,
+          "mean": 26490.666666666668,
+          "min": 26255.0,
+          "std": 167.25296874960262,
+          "values_by_seed": {
+            "0": 26255.0,
+            "1": 26591.0,
+            "2": 26626.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.6154976216703805,
+          "mean": 0.6057516399045203,
+          "min": 0.6008363135807064,
+          "std": 0.006891536486875934,
+          "values_by_seed": {
+            "0": 0.6154976216703805,
+            "1": 0.6009209844624741,
+            "2": 0.6008363135807064
+          }
+        },
+        "window_count": {
+          "max": 994045.0,
+          "mean": 994045.0,
+          "min": 994045.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 994045.0,
+            "1": 994045.0,
+            "2": 994045.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.9651464470924355,
+          "mean": 0.9631716873984578,
+          "min": 0.9621636847426425,
+          "std": 0.0013964674926310577,
+          "values_by_seed": {
+            "0": 0.9651464470924355,
+            "1": 0.9622049303602955,
+            "2": 0.9621636847426425
+          }
+        }
+      }
+    },
+    "7": {
+      "actual_sequence_length": 7,
+      "endpoint_span_l": 6,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 2.6726803007488504,
+          "mean": 2.637252166731295,
+          "min": 2.5669992093508114,
+          "std": 0.04967695315042669,
+          "values_by_seed": {
+            "0": 2.5669992093508114,
+            "1": 2.672076990094223,
+            "2": 2.6726803007488504
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.6234600528562716,
+          "mean": 0.6172044530829695,
+          "min": 0.6049024115016508,
+          "std": 0.008699276102641377,
+          "values_by_seed": {
+            "0": 0.6049024115016508,
+            "1": 0.6232508948909861,
+            "2": 0.6234600528562716
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 18907.0,
+          "mean": 18651.0,
+          "min": 18522.0,
+          "std": 181.02117739829964,
+          "values_by_seed": {
+            "0": 18907.0,
+            "1": 18524.0,
+            "2": 18522.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.30285079600148096,
+          "mean": 0.29422347823151673,
+          "min": 0.2894935752078609,
+          "std": 0.006109894604161101,
+          "values_by_seed": {
+            "0": 0.30285079600148096,
+            "1": 0.2903260634852084,
+            "2": 0.2894935752078609
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.02621127959268977,
+          "mean": 0.025700966740695608,
+          "min": 0.024722643286280474,
+          "std": 0.0006919946802174149,
+          "values_by_seed": {
+            "0": 0.024722643286280474,
+            "1": 0.02616897734311657,
+            "2": 0.02621127959268977
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.9813447079382186,
+          "mean": 0.9812147796002438,
+          "min": 0.9809569373171309,
+          "std": 0.00018232388153186833,
+          "values_by_seed": {
+            "0": 0.9809569373171309,
+            "1": 0.9813426935453817,
+            "2": 0.9813447079382186
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.890994104492783,
+          "mean": 0.8873194669033059,
+          "min": 0.8803443808250094,
+          "std": 0.0049344958351382915,
+          "values_by_seed": {
+            "0": 0.8803443808250094,
+            "1": 0.8906199153921249,
+            "2": 0.890994104492783
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 49190.0,
+          "mean": 48737.333333333336,
+          "min": 47854.0,
+          "std": 624.6755602355158,
+          "values_by_seed": {
+            "0": 47854.0,
+            "1": 49168.0,
+            "2": 49190.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.6332858272355983,
+          "mean": 0.6232496904669579,
+          "min": 0.6181885284644499,
+          "std": 0.0070967075929180825,
+          "values_by_seed": {
+            "0": 0.6332858272355983,
+            "1": 0.6182747157008253,
+            "2": 0.6181885284644499
+          }
+        },
+        "window_count": {
+          "max": 992855.0,
+          "mean": 992855.0,
+          "min": 992855.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 992855.0,
+            "1": 992855.0,
+            "2": 992855.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.9752773567137195,
+          "mean": 0.9742990332593044,
+          "min": 0.9737887204073102,
+          "std": 0.0006919946802173949,
+          "values_by_seed": {
+            "0": 0.9752773567137195,
+            "1": 0.9738310226568835,
+            "2": 0.9737887204073102
+          }
+        }
+      }
+    },
+    "8": {
+      "actual_sequence_length": 8,
+      "endpoint_span_l": 7,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 2.950211008757998,
+          "mean": 2.9088334602243027,
+          "min": 2.8267761794557638,
+          "std": 0.05802395902982304,
+          "values_by_seed": {
+            "0": 2.8267761794557638,
+            "1": 2.949513192459147,
+            "2": 2.950211008757998
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.6625367059914482,
+          "mean": 0.6563009027414733,
+          "min": 0.6438864336413552,
+          "std": 0.008778386277251426,
+          "values_by_seed": {
+            "0": 0.6438864336413552,
+            "1": 0.6625367059914482,
+            "2": 0.6624795685916164
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 26591.0,
+          "mean": 26339.333333333332,
+          "min": 26202.0,
+          "std": 178.202755933297,
+          "values_by_seed": {
+            "0": 26591.0,
+            "1": 26202.0,
+            "2": 26225.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.21462148847354368,
+          "mean": 0.20335559785108712,
+          "min": 0.19748331744518588,
+          "std": 0.007968584145480656,
+          "values_by_seed": {
+            "0": 0.21462148847354368,
+            "1": 0.1979619876345317,
+            "2": 0.19748331744518588
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.01830961060438757,
+          "mean": 0.01810557664802798,
+          "min": 0.01774187855777909,
+          "std": 0.00025781051947057173,
+          "values_by_seed": {
+            "0": 0.01774187855777909,
+            "1": 0.01826524078191728,
+            "2": 0.01830961060438757
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.9735777707189424,
+          "mean": 0.9734392830912321,
+          "min": 0.9731855011521028,
+          "std": 0.00017970056010172656,
+          "values_by_seed": {
+            "0": 0.9731855011521028,
+            "1": 0.9735777707189424,
+            "2": 0.9735545774026511
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.9333453454999421,
+          "mean": 0.9300369391289328,
+          "min": 0.9235703763224856,
+          "std": 0.0045729618161595206,
+          "values_by_seed": {
+            "0": 0.9235703763224856,
+            "1": 0.9331950955643707,
+            "2": 0.9333453454999421
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 77699.0,
+          "mean": 76671.0,
+          "min": 74670.0,
+          "std": 1415.098818693121,
+          "values_by_seed": {
+            "0": 74670.0,
+            "1": 77644.0,
+            "2": 77699.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.6466529775680295,
+          "mean": 0.6363958174719622,
+          "min": 0.6312236239052502,
+          "std": 0.007252994878727893,
+          "values_by_seed": {
+            "0": 0.6466529775680295,
+            "1": 0.6313108509426066,
+            "2": 0.6312236239052502
+          }
+        },
+        "window_count": {
+          "max": 991665.0,
+          "mean": 991665.0,
+          "min": 991665.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 991665.0,
+            "1": 991665.0,
+            "2": 991665.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.9822581214422209,
+          "mean": 0.9818944233519721,
+          "min": 0.9816903893956125,
+          "std": 0.0002578105194705549,
+          "values_by_seed": {
+            "0": 0.9822581214422209,
+            "1": 0.9817347592180827,
+            "2": 0.9816903893956125
+          }
+        }
+      }
+    },
+    "9": {
+      "actual_sequence_length": 9,
+      "endpoint_span_l": 8,
+      "metrics": {
+        "average_deduplicated_pattern_length": {
+          "max": 3.2274595522350387,
+          "mean": 3.1801253607275974,
+          "min": 3.0862485171256218,
+          "std": 0.06638173924186709,
+          "values_by_seed": {
+            "0": 3.0862485171256218,
+            "1": 3.226668012822131,
+            "2": 3.2274595522350387
+          }
+        },
+        "canonical_distinct_type_reduction_fraction": {
+          "max": 0.691005014720049,
+          "mean": 0.6841986470466649,
+          "min": 0.6709422792303897,
+          "std": 0.009374796538751343,
+          "values_by_seed": {
+            "0": 0.6709422792303897,
+            "1": 0.691005014720049,
+            "2": 0.6906486471895554
+          }
+        },
+        "deduplicated_distinct_pattern_type_count": {
+          "max": 34684.0,
+          "mean": 34462.0,
+          "min": 34321.0,
+          "std": 158.87731115549508,
+          "values_by_seed": {
+            "0": 34684.0,
+            "1": 34321.0,
+            "2": 34381.0
+          }
+        },
+        "full_length_distinct_pattern_fraction": {
+          "max": 0.15525890900703496,
+          "mean": 0.14381244019285735,
+          "min": 0.13801227422122683,
+          "std": 0.008094119458021277,
+          "values_by_seed": {
+            "0": 0.15525890900703496,
+            "1": 0.1381661373503103,
+            "2": 0.13801227422122683
+          }
+        },
+        "full_length_pattern_occurrence_fraction": {
+          "max": 0.012722178752618694,
+          "mean": 0.012681794088694819,
+          "min": 0.012645447891163331,
+          "std": 3.1455134006203625e-05,
+          "values_by_seed": {
+            "0": 0.012645447891163331,
+            "1": 0.01267775562230243,
+            "2": 0.012722178752618694
+          }
+        },
+        "non_equivalent_total_window_denominator_reduction_fraction": {
+          "max": 0.9653489487367173,
+          "mean": 0.9652065927963855,
+          "min": 0.9649824579116081,
+          "std": 0.0001604051704035895,
+          "values_by_seed": {
+            "0": 0.9649824579116081,
+            "1": 0.9653489487367173,
+            "2": 0.9652883717408314
+          }
+        },
+        "raw_distinct_sequence_type_changed_fraction": {
+          "max": 0.9573073564232532,
+          "mean": 0.954507976653813,
+          "min": 0.9489108572729688,
+          "std": 0.003957761125947956,
+          "values_by_seed": {
+            "0": 0.9489108572729688,
+            "1": 0.9573073564232532,
+            "2": 0.9573057162652174
+          }
+        },
+        "raw_distinct_sequence_type_count": {
+          "max": 111139.0,
+          "mean": 109205.33333333333,
+          "min": 105404.0,
+          "std": 2688.08362138449,
+          "values_by_seed": {
+            "0": 105404.0,
+            "1": 111073.0,
+            "2": 111139.0
+          }
+        },
+        "total_label_token_reduction_fraction": {
+          "max": 0.6570834980971532,
+          "mean": 0.6466527376969337,
+          "min": 0.6413933830849957,
+          "std": 0.007375748804651913,
+          "values_by_seed": {
+            "0": 0.6570834980971532,
+            "1": 0.6414813319086521,
+            "2": 0.6413933830849957
+          }
+        },
+        "window_count": {
+          "max": 990475.0,
+          "mean": 990475.0,
+          "min": 990475.0,
+          "std": 0.0,
+          "values_by_seed": {
+            "0": 990475.0,
+            "1": 990475.0,
+            "2": 990475.0
+          }
+        },
+        "window_instance_changed_fraction": {
+          "max": 0.9873545521088367,
+          "mean": 0.9873182059113051,
+          "min": 0.9872778212473813,
+          "std": 3.14551340062308e-05,
+          "values_by_seed": {
+            "0": 0.9873545521088367,
+            "1": 0.9873222443776976,
+            "2": 0.9872778212473813
+          }
+        }
+      }
+    }
+  },
+  "attack_seeds": [
+    0,
+    1,
+    2
+  ],
+  "canonical_attack_is_unchanged": true,
+  "claim_boundary": [
+    "No poisoned dataset was generated.",
+    "No learner was trained or evaluated.",
+    "The closest length to the source reference is descriptive only.",
+    "Canonical Gate B and Group-2 closure remain unchanged."
+  ],
+  "dataset": {
+    "completed_trajectory_count": 1190,
+    "name": "walker2d-medium-v2",
+    "num_transitions": 1000000,
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "trailing_transition_count": 5
+  },
+  "experiment": "E2_CSDPC_SEQUENCE_LENGTH_FINGERPRINT",
+  "frozen_pipeline": {
+    "decision_unit": "concat(state, action)",
+    "deduplication": "remove_consecutive_duplicate_cluster_labels",
+    "deduplication_order": "window_then_deduplicate",
+    "feature_preprocessing": "none",
+    "kmeans_algorithm": "lloyd",
+    "kmeans_init": "k-means++",
+    "kmeans_max_iter": 300,
+    "kmeans_n_init": 10,
+    "kmeans_tol": 0.0001,
+    "respect_episode_boundaries": true,
+    "window_stride": 1
+  },
+  "historical_regression": {
+    "all_passed": true,
+    "checks": [
+      {
+        "absolute_error": 3.946681037536592e-09,
+        "absolute_tolerance": 5e-07,
+        "actual": 0.42456993605331894,
+        "actual_sequence_length": 5,
+        "attack_seed": 0,
+        "expected": 0.42456994,
+        "origin": "docs/csdpc_independent_dedup_safety_audit.md",
+        "passed": true
+      },
+      {
+        "absolute_error": 2.4452485591908157e-09,
+        "absolute_tolerance": 5e-07,
+        "actual": 0.5398971624452485,
+        "actual_sequence_length": 6,
+        "attack_seed": 0,
+        "expected": 0.53989716,
+        "origin": "docs/csdpc_independent_dedup_safety_audit.md",
+        "passed": true
+      }
+    ]
+  },
+  "metric_semantics": {
+    "canonical_distinct_type_reduction_fraction": "1 - unique deduplicated pattern types / unique raw cluster-label sequence types",
+    "endpoint_span_l": "notation-only view equal to actual_sequence_length - 1"
+  },
+  "num_clusters": 8,
+  "schema_version": "e2-csdpc-sequence-length-fingerprint-v1",
+  "seed_records": {
+    "0": {
+      "10": {
+        "actual_sequence_length": 10,
+        "endpoint_span_l": 9,
+        "metrics": {
+          "average_deduplicated_pattern_length": 3.345092667936944,
+          "canonical_distinct_type_reduction_fraction": 0.6917829858119364,
+          "counts": {
+            "changed_raw_sequence_types": 134505,
+            "changed_window_instances": 980405,
+            "full_length_distinct_patterns": 4767,
+            "full_length_pattern_occurrences": 8880,
+            "total_deduplicated_label_tokens": 3309250,
+            "total_raw_label_tokens": 9892850
+          },
+          "deduplicated_distinct_pattern_type_count": 42926,
+          "full_length_distinct_pattern_fraction": 0.11105157713274007,
+          "full_length_pattern_occurrence_fraction": 0.008976179766194777,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9566090661437301,
+          "raw_distinct_sequence_type_changed_fraction": 0.9657720144752714,
+          "raw_distinct_sequence_type_count": 139272,
+          "total_label_token_reduction_fraction": 0.6654907332063056,
+          "window_count": 989285,
+          "window_instance_changed_fraction": 0.9910238202338052
+        }
+      },
+      "2": {
+        "actual_sequence_length": 2,
+        "endpoint_span_l": 1,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.2628380915193655,
+          "canonical_distinct_type_reduction_fraction": 0.0,
+          "counts": {
+            "changed_raw_sequence_types": 8,
+            "changed_window_instances": 736281,
+            "full_length_distinct_patterns": 56,
+            "full_length_pattern_occurrences": 262524,
+            "total_deduplicated_label_tokens": 1261329,
+            "total_raw_label_tokens": 1997610
+          },
+          "deduplicated_distinct_pattern_type_count": 64,
+          "full_length_distinct_pattern_fraction": 0.875,
+          "full_length_pattern_occurrence_fraction": 0.26283809151936566,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.999935923428497,
+          "raw_distinct_sequence_type_changed_fraction": 0.125,
+          "raw_distinct_sequence_type_count": 64,
+          "total_label_token_reduction_fraction": 0.3685809542403172,
+          "window_count": 998805,
+          "window_instance_changed_fraction": 0.7371619084806343
+        }
+      },
+      "3": {
+        "actual_sequence_length": 3,
+        "endpoint_span_l": 2,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.5248557810377752,
+          "canonical_distinct_type_reduction_fraction": 0.11133200795228626,
+          "counts": {
+            "changed_raw_sequence_types": 120,
+            "changed_window_instances": 866735,
+            "full_length_distinct_patterns": 383,
+            "full_length_pattern_occurrences": 130880,
+            "total_deduplicated_label_tokens": 1521219,
+            "total_raw_label_tokens": 2992845
+          },
+          "deduplicated_distinct_pattern_type_count": 447,
+          "full_length_distinct_pattern_fraction": 0.8568232662192393,
+          "full_length_pattern_occurrence_fraction": 0.13119289505470547,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9995519313562847,
+          "raw_distinct_sequence_type_changed_fraction": 0.23856858846918488,
+          "raw_distinct_sequence_type_count": 503,
+          "total_label_token_reduction_fraction": 0.491714739654075,
+          "window_count": 997615,
+          "window_instance_changed_fraction": 0.8688071049452946
+        }
+      },
+      "4": {
+        "actual_sequence_length": 4,
+        "endpoint_span_l": 3,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.7860140000501794,
+          "canonical_distinct_type_reduction_fraction": 0.2529733204757313,
+          "counts": {
+            "changed_raw_sequence_types": 1225,
+            "changed_window_instances": 919886,
+            "full_length_distinct_patterns": 1886,
+            "full_length_pattern_occurrences": 76539,
+            "total_deduplicated_label_tokens": 1779629,
+            "total_raw_label_tokens": 3985700
+          },
+          "deduplicated_distinct_pattern_type_count": 2324,
+          "full_length_distinct_pattern_fraction": 0.8115318416523236,
+          "full_length_pattern_occurrence_fraction": 0.07681360865092707,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9976676618912612,
+          "raw_distinct_sequence_type_changed_fraction": 0.3937640630022501,
+          "raw_distinct_sequence_type_count": 3111,
+          "total_label_token_reduction_fraction": 0.5534964999874552,
+          "window_count": 996425,
+          "window_instance_changed_fraction": 0.923186391349073
+        }
+      },
+      "5": {
+        "actual_sequence_length": 5,
+        "endpoint_span_l": 4,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.046719618984461,
+          "canonical_distinct_type_reduction_fraction": 0.42456993605331894,
+          "counts": {
+            "changed_raw_sequence_types": 6989,
+            "changed_window_instances": 945069,
+            "full_length_distinct_patterns": 4114,
+            "full_length_pattern_occurrences": 50166,
+            "total_deduplicated_label_tokens": 2036967,
+            "total_raw_label_tokens": 4976175
+          },
+          "deduplicated_distinct_pattern_type_count": 6389,
+          "full_length_distinct_pattern_fraction": 0.6439192361871967,
+          "full_length_pattern_occurrence_fraction": 0.050406185473782575,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9935804106567796,
+          "raw_distinct_sequence_type_changed_fraction": 0.6294695127443033,
+          "raw_distinct_sequence_type_count": 11103,
+          "total_label_token_reduction_fraction": 0.5906560762031078,
+          "window_count": 995235,
+          "window_instance_changed_fraction": 0.9495938145262174
+        }
+      },
+      "6": {
+        "actual_sequence_length": 6,
+        "endpoint_span_l": 5,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.307014269977717,
+          "canonical_distinct_type_reduction_fraction": 0.5398971624452485,
+          "counts": {
+            "changed_raw_sequence_types": 20906,
+            "changed_window_instances": 959399,
+            "full_length_distinct_patterns": 5349,
+            "full_length_pattern_occurrences": 34646,
+            "total_deduplicated_label_tokens": 2293276,
+            "total_raw_label_tokens": 5964270
+          },
+          "deduplicated_distinct_pattern_type_count": 12080,
+          "full_length_distinct_pattern_fraction": 0.4427980132450331,
+          "full_length_pattern_occurrence_fraction": 0.03485355290756455,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9878476326524454,
+          "raw_distinct_sequence_type_changed_fraction": 0.7962673776423539,
+          "raw_distinct_sequence_type_count": 26255,
+          "total_label_token_reduction_fraction": 0.6154976216703805,
+          "window_count": 994045,
+          "window_instance_changed_fraction": 0.9651464470924355
+        }
+      },
+      "7": {
+        "actual_sequence_length": 7,
+        "endpoint_span_l": 6,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.5669992093508114,
+          "canonical_distinct_type_reduction_fraction": 0.6049024115016508,
+          "counts": {
+            "changed_raw_sequence_types": 42128,
+            "changed_window_instances": 968309,
+            "full_length_distinct_patterns": 5726,
+            "full_length_pattern_occurrences": 24546,
+            "total_deduplicated_label_tokens": 2548658,
+            "total_raw_label_tokens": 6949985
+          },
+          "deduplicated_distinct_pattern_type_count": 18907,
+          "full_length_distinct_pattern_fraction": 0.30285079600148096,
+          "full_length_pattern_occurrence_fraction": 0.024722643286280474,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9809569373171309,
+          "raw_distinct_sequence_type_changed_fraction": 0.8803443808250094,
+          "raw_distinct_sequence_type_count": 47854,
+          "total_label_token_reduction_fraction": 0.6332858272355983,
+          "window_count": 992855,
+          "window_instance_changed_fraction": 0.9752773567137195
+        }
+      },
+      "8": {
+        "actual_sequence_length": 8,
+        "endpoint_span_l": 7,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.8267761794557638,
+          "canonical_distinct_type_reduction_fraction": 0.6438864336413552,
+          "counts": {
+            "changed_raw_sequence_types": 68963,
+            "changed_window_instances": 974071,
+            "full_length_distinct_patterns": 5707,
+            "full_length_pattern_occurrences": 17594,
+            "total_deduplicated_label_tokens": 2803215,
+            "total_raw_label_tokens": 7933320
+          },
+          "deduplicated_distinct_pattern_type_count": 26591,
+          "full_length_distinct_pattern_fraction": 0.21462148847354368,
+          "full_length_pattern_occurrence_fraction": 0.01774187855777909,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9731855011521028,
+          "raw_distinct_sequence_type_changed_fraction": 0.9235703763224856,
+          "raw_distinct_sequence_type_count": 74670,
+          "total_label_token_reduction_fraction": 0.6466529775680295,
+          "window_count": 991665,
+          "window_instance_changed_fraction": 0.9822581214422209
+        }
+      },
+      "9": {
+        "actual_sequence_length": 9,
+        "endpoint_span_l": 8,
+        "metrics": {
+          "average_deduplicated_pattern_length": 3.0862485171256218,
+          "canonical_distinct_type_reduction_fraction": 0.6709422792303897,
+          "counts": {
+            "changed_raw_sequence_types": 100019,
+            "changed_window_instances": 977950,
+            "full_length_distinct_patterns": 5385,
+            "full_length_pattern_occurrences": 12525,
+            "total_deduplicated_label_tokens": 3056852,
+            "total_raw_label_tokens": 8914275
+          },
+          "deduplicated_distinct_pattern_type_count": 34684,
+          "full_length_distinct_pattern_fraction": 0.15525890900703496,
+          "full_length_pattern_occurrence_fraction": 0.012645447891163331,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9649824579116081,
+          "raw_distinct_sequence_type_changed_fraction": 0.9489108572729688,
+          "raw_distinct_sequence_type_count": 105404,
+          "total_label_token_reduction_fraction": 0.6570834980971532,
+          "window_count": 990475,
+          "window_instance_changed_fraction": 0.9873545521088367
+        }
+      },
+      "clustering": {
+        "inertia": 33191496.0,
+        "n_iter": 14,
+        "num_clusters": 8
+      },
+      "seed": 0
+    },
+    "1": {
+      "10": {
+        "actual_sequence_length": 10,
+        "endpoint_span_l": 9,
+        "metrics": {
+          "average_deduplicated_pattern_length": 3.5032432514391707,
+          "canonical_distinct_type_reduction_fraction": 0.7125226860254084,
+          "counts": {
+            "changed_raw_sequence_types": 144648,
+            "changed_window_instances": 980606,
+            "full_length_distinct_patterns": 4122,
+            "full_length_pattern_occurrences": 8679,
+            "total_deduplicated_label_tokens": 3465706,
+            "total_raw_label_tokens": 9892850
+          },
+          "deduplicated_distinct_pattern_type_count": 42768,
+          "full_length_distinct_pattern_fraction": 0.09638047138047139,
+          "full_length_pattern_occurrence_fraction": 0.008773002724189693,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9567687774503808,
+          "raw_distinct_sequence_type_changed_fraction": 0.9722928009679371,
+          "raw_distinct_sequence_type_count": 148770,
+          "total_label_token_reduction_fraction": 0.6496756748560829,
+          "window_count": 989285,
+          "window_instance_changed_fraction": 0.9912269972758103
+        }
+      },
+      "2": {
+        "actual_sequence_length": 2,
+        "endpoint_span_l": 1,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.2802378842717046,
+          "canonical_distinct_type_reduction_fraction": 0.0,
+          "counts": {
+            "changed_raw_sequence_types": 8,
+            "changed_window_instances": 718902,
+            "full_length_distinct_patterns": 56,
+            "full_length_pattern_occurrences": 279903,
+            "total_deduplicated_label_tokens": 1278708,
+            "total_raw_label_tokens": 1997610
+          },
+          "deduplicated_distinct_pattern_type_count": 64,
+          "full_length_distinct_pattern_fraction": 0.875,
+          "full_length_pattern_occurrence_fraction": 0.2802378842717047,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.999935923428497,
+          "raw_distinct_sequence_type_changed_fraction": 0.125,
+          "raw_distinct_sequence_type_count": 64,
+          "total_label_token_reduction_fraction": 0.3598810578641477,
+          "window_count": 998805,
+          "window_instance_changed_fraction": 0.7197621157282953
+        }
+      },
+      "3": {
+        "actual_sequence_length": 3,
+        "endpoint_span_l": 2,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.559704896177383,
+          "canonical_distinct_type_reduction_fraction": 0.11023622047244097,
+          "counts": {
+            "changed_raw_sequence_types": 120,
+            "changed_window_instances": 853403,
+            "full_length_distinct_patterns": 388,
+            "full_length_pattern_occurrences": 144212,
+            "total_deduplicated_label_tokens": 1555985,
+            "total_raw_label_tokens": 2992845
+          },
+          "deduplicated_distinct_pattern_type_count": 452,
+          "full_length_distinct_pattern_fraction": 0.8584070796460177,
+          "full_length_pattern_occurrence_fraction": 0.14455676789142105,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9995469194027756,
+          "raw_distinct_sequence_type_changed_fraction": 0.23622047244094488,
+          "raw_distinct_sequence_type_count": 508,
+          "total_label_token_reduction_fraction": 0.48009836794087235,
+          "window_count": 997615,
+          "window_instance_changed_fraction": 0.855443232108579
+        }
+      },
+      "4": {
+        "actual_sequence_length": 4,
+        "endpoint_span_l": 3,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.8383320370323908,
+          "canonical_distinct_type_reduction_fraction": 0.25693101225016124,
+          "counts": {
+            "changed_raw_sequence_types": 1243,
+            "changed_window_instances": 911629,
+            "full_length_distinct_patterns": 1859,
+            "full_length_pattern_occurrences": 84796,
+            "total_deduplicated_label_tokens": 1831760,
+            "total_raw_label_tokens": 3985700
+          },
+          "deduplicated_distinct_pattern_type_count": 2305,
+          "full_length_distinct_pattern_fraction": 0.8065075921908894,
+          "full_length_pattern_occurrence_fraction": 0.08510023333416966,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9976867300599643,
+          "raw_distinct_sequence_type_changed_fraction": 0.40070921985815605,
+          "raw_distinct_sequence_type_count": 3102,
+          "total_label_token_reduction_fraction": 0.5404169907419023,
+          "window_count": 996425,
+          "window_instance_changed_fraction": 0.9148997666658304
+        }
+      },
+      "5": {
+        "actual_sequence_length": 5,
+        "endpoint_span_l": 4,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.1166166784729237,
+          "canonical_distinct_type_reduction_fraction": 0.43933393339333937,
+          "counts": {
+            "changed_raw_sequence_types": 7206,
+            "changed_window_instances": 939926,
+            "full_length_distinct_patterns": 3904,
+            "full_length_pattern_occurrences": 55309,
+            "total_deduplicated_label_tokens": 2106531,
+            "total_raw_label_tokens": 4976175
+          },
+          "deduplicated_distinct_pattern_type_count": 6229,
+          "full_length_distinct_pattern_fraction": 0.6267458661101301,
+          "full_length_pattern_occurrence_fraction": 0.05557380920084201,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9937411767070089,
+          "raw_distinct_sequence_type_changed_fraction": 0.6486048604860486,
+          "raw_distinct_sequence_type_count": 11110,
+          "total_label_token_reduction_fraction": 0.5766766643054153,
+          "window_count": 995235,
+          "window_instance_changed_fraction": 0.944426190799158
+        }
+      },
+      "6": {
+        "actual_sequence_length": 6,
+        "endpoint_span_l": 5,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.394474093225156,
+          "canonical_distinct_type_reduction_fraction": 0.5576698883080742,
+          "counts": {
+            "changed_raw_sequence_types": 21518,
+            "changed_window_instances": 956475,
+            "full_length_distinct_patterns": 5073,
+            "full_length_pattern_occurrences": 37570,
+            "total_deduplicated_label_tokens": 2380215,
+            "total_raw_label_tokens": 5964270
+          },
+          "deduplicated_distinct_pattern_type_count": 11762,
+          "full_length_distinct_pattern_fraction": 0.4313041999659922,
+          "full_length_pattern_occurrence_fraction": 0.03779506963970444,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9881675376869257,
+          "raw_distinct_sequence_type_changed_fraction": 0.809221165055846,
+          "raw_distinct_sequence_type_count": 26591,
+          "total_label_token_reduction_fraction": 0.6009209844624741,
+          "window_count": 994045,
+          "window_instance_changed_fraction": 0.9622049303602955
+        }
+      },
+      "7": {
+        "actual_sequence_length": 7,
+        "endpoint_span_l": 6,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.672076990094223,
+          "canonical_distinct_type_reduction_fraction": 0.6232508948909861,
+          "counts": {
+            "changed_raw_sequence_types": 43790,
+            "changed_window_instances": 966873,
+            "full_length_distinct_patterns": 5378,
+            "full_length_pattern_occurrences": 25982,
+            "total_deduplicated_label_tokens": 2652985,
+            "total_raw_label_tokens": 6949985
+          },
+          "deduplicated_distinct_pattern_type_count": 18524,
+          "full_length_distinct_pattern_fraction": 0.2903260634852084,
+          "full_length_pattern_occurrence_fraction": 0.02616897734311657,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9813426935453817,
+          "raw_distinct_sequence_type_changed_fraction": 0.8906199153921249,
+          "raw_distinct_sequence_type_count": 49168,
+          "total_label_token_reduction_fraction": 0.6182747157008253,
+          "window_count": 992855,
+          "window_instance_changed_fraction": 0.9738310226568835
+        }
+      },
+      "8": {
+        "actual_sequence_length": 8,
+        "endpoint_span_l": 7,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.949513192459147,
+          "canonical_distinct_type_reduction_fraction": 0.6625367059914482,
+          "counts": {
+            "changed_raw_sequence_types": 72457,
+            "changed_window_instances": 973552,
+            "full_length_distinct_patterns": 5187,
+            "full_length_pattern_occurrences": 18113,
+            "total_deduplicated_label_tokens": 2924929,
+            "total_raw_label_tokens": 7933320
+          },
+          "deduplicated_distinct_pattern_type_count": 26202,
+          "full_length_distinct_pattern_fraction": 0.1979619876345317,
+          "full_length_pattern_occurrence_fraction": 0.01826524078191728,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9735777707189424,
+          "raw_distinct_sequence_type_changed_fraction": 0.9331950955643707,
+          "raw_distinct_sequence_type_count": 77644,
+          "total_label_token_reduction_fraction": 0.6313108509426066,
+          "window_count": 991665,
+          "window_instance_changed_fraction": 0.9817347592180827
+        }
+      },
+      "9": {
+        "actual_sequence_length": 9,
+        "endpoint_span_l": 8,
+        "metrics": {
+          "average_deduplicated_pattern_length": 3.226668012822131,
+          "canonical_distinct_type_reduction_fraction": 0.691005014720049,
+          "counts": {
+            "changed_raw_sequence_types": 106331,
+            "changed_window_instances": 977918,
+            "full_length_distinct_patterns": 4742,
+            "full_length_pattern_occurrences": 12557,
+            "total_deduplicated_label_tokens": 3195934,
+            "total_raw_label_tokens": 8914275
+          },
+          "deduplicated_distinct_pattern_type_count": 34321,
+          "full_length_distinct_pattern_fraction": 0.1381661373503103,
+          "full_length_pattern_occurrence_fraction": 0.01267775562230243,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9653489487367173,
+          "raw_distinct_sequence_type_changed_fraction": 0.9573073564232532,
+          "raw_distinct_sequence_type_count": 111073,
+          "total_label_token_reduction_fraction": 0.6414813319086521,
+          "window_count": 990475,
+          "window_instance_changed_fraction": 0.9873222443776976
+        }
+      },
+      "clustering": {
+        "inertia": 33207112.0,
+        "n_iter": 23,
+        "num_clusters": 8
+      },
+      "seed": 1
+    },
+    "2": {
+      "10": {
+        "actual_sequence_length": 10,
+        "endpoint_span_l": 9,
+        "metrics": {
+          "average_deduplicated_pattern_length": 3.504131771936297,
+          "canonical_distinct_type_reduction_fraction": 0.712298760985836,
+          "counts": {
+            "changed_raw_sequence_types": 144702,
+            "changed_window_instances": 980570,
+            "full_length_distinct_patterns": 4126,
+            "full_length_pattern_occurrences": 8715,
+            "total_deduplicated_label_tokens": 3466585,
+            "total_raw_label_tokens": 9892850
+          },
+          "deduplicated_distinct_pattern_type_count": 42818,
+          "full_length_distinct_pattern_fraction": 0.09636134336026904,
+          "full_length_pattern_occurrence_fraction": 0.008809392642160753,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9567182358976433,
+          "raw_distinct_sequence_type_changed_fraction": 0.9722767221221813,
+          "raw_distinct_sequence_type_count": 148828,
+          "total_label_token_reduction_fraction": 0.6495868228063703,
+          "window_count": 989285,
+          "window_instance_changed_fraction": 0.9911906073578393
+        }
+      },
+      "2": {
+        "actual_sequence_length": 2,
+        "endpoint_span_l": 1,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.2803430098968267,
+          "canonical_distinct_type_reduction_fraction": 0.0,
+          "counts": {
+            "changed_raw_sequence_types": 8,
+            "changed_window_instances": 718797,
+            "full_length_distinct_patterns": 56,
+            "full_length_pattern_occurrences": 280008,
+            "total_deduplicated_label_tokens": 1278813,
+            "total_raw_label_tokens": 1997610
+          },
+          "deduplicated_distinct_pattern_type_count": 64,
+          "full_length_distinct_pattern_fraction": 0.875,
+          "full_length_pattern_occurrence_fraction": 0.2803430098968267,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.999935923428497,
+          "raw_distinct_sequence_type_changed_fraction": 0.125,
+          "raw_distinct_sequence_type_count": 64,
+          "total_label_token_reduction_fraction": 0.35982849505158665,
+          "window_count": 998805,
+          "window_instance_changed_fraction": 0.7196569901031733
+        }
+      },
+      "3": {
+        "actual_sequence_length": 3,
+        "endpoint_span_l": 2,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.5599143958340642,
+          "canonical_distinct_type_reduction_fraction": 0.11045364891518739,
+          "counts": {
+            "changed_raw_sequence_types": 120,
+            "changed_window_instances": 853291,
+            "full_length_distinct_patterns": 387,
+            "full_length_pattern_occurrences": 144324,
+            "total_deduplicated_label_tokens": 1556194,
+            "total_raw_label_tokens": 2992845
+          },
+          "deduplicated_distinct_pattern_type_count": 451,
+          "full_length_distinct_pattern_fraction": 0.8580931263858093,
+          "full_length_pattern_occurrence_fraction": 0.1446690356500253,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9995479217934774,
+          "raw_distinct_sequence_type_changed_fraction": 0.23668639053254437,
+          "raw_distinct_sequence_type_count": 507,
+          "total_label_token_reduction_fraction": 0.4800285347219786,
+          "window_count": 997615,
+          "window_instance_changed_fraction": 0.8553309643499747
+        }
+      },
+      "4": {
+        "actual_sequence_length": 4,
+        "endpoint_span_l": 3,
+        "metrics": {
+          "average_deduplicated_pattern_length": 1.8386451564342525,
+          "canonical_distinct_type_reduction_fraction": 0.2568482114083145,
+          "counts": {
+            "changed_raw_sequence_types": 1242,
+            "changed_window_instances": 911555,
+            "full_length_distinct_patterns": 1861,
+            "full_length_pattern_occurrences": 84870,
+            "total_deduplicated_label_tokens": 1832072,
+            "total_raw_label_tokens": 3985700
+          },
+          "deduplicated_distinct_pattern_type_count": 2306,
+          "full_length_distinct_pattern_fraction": 0.8070251517779705,
+          "full_length_pattern_occurrence_fraction": 0.08517449883332916,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9976857264721379,
+          "raw_distinct_sequence_type_changed_fraction": 0.4002578150177248,
+          "raw_distinct_sequence_type_count": 3103,
+          "total_label_token_reduction_fraction": 0.5403387108914368,
+          "window_count": 996425,
+          "window_instance_changed_fraction": 0.9148255011666708
+        }
+      },
+      "5": {
+        "actual_sequence_length": 5,
+        "endpoint_span_l": 4,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.1170276366888223,
+          "canonical_distinct_type_reduction_fraction": 0.439845226311527,
+          "counts": {
+            "changed_raw_sequence_types": 7208,
+            "changed_window_instances": 939869,
+            "full_length_distinct_patterns": 3905,
+            "full_length_pattern_occurrences": 55366,
+            "total_deduplicated_label_tokens": 2106940,
+            "total_raw_label_tokens": 4976175
+          },
+          "deduplicated_distinct_pattern_type_count": 6225,
+          "full_length_distinct_pattern_fraction": 0.6273092369477912,
+          "full_length_pattern_occurrence_fraction": 0.05563108210623621,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9937451958582646,
+          "raw_distinct_sequence_type_changed_fraction": 0.6486097363448213,
+          "raw_distinct_sequence_type_count": 11113,
+          "total_label_token_reduction_fraction": 0.5765944726622356,
+          "window_count": 995235,
+          "window_instance_changed_fraction": 0.9443689178937638
+        }
+      },
+      "6": {
+        "actual_sequence_length": 6,
+        "endpoint_span_l": 5,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.3949821185157614,
+          "canonical_distinct_type_reduction_fraction": 0.557988432359348,
+          "counts": {
+            "changed_raw_sequence_types": 21557,
+            "changed_window_instances": 956434,
+            "full_length_distinct_patterns": 5069,
+            "full_length_pattern_occurrences": 37611,
+            "total_deduplicated_label_tokens": 2380720,
+            "total_raw_label_tokens": 5964270
+          },
+          "deduplicated_distinct_pattern_type_count": 11769,
+          "full_length_distinct_pattern_fraction": 0.43070779165604556,
+          "full_length_pattern_occurrence_fraction": 0.03783631525735756,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9881604957522043,
+          "raw_distinct_sequence_type_changed_fraction": 0.809622173815068,
+          "raw_distinct_sequence_type_count": 26626,
+          "total_label_token_reduction_fraction": 0.6008363135807064,
+          "window_count": 994045,
+          "window_instance_changed_fraction": 0.9621636847426425
+        }
+      },
+      "7": {
+        "actual_sequence_length": 7,
+        "endpoint_span_l": 6,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.6726803007488504,
+          "canonical_distinct_type_reduction_fraction": 0.6234600528562716,
+          "counts": {
+            "changed_raw_sequence_types": 43828,
+            "changed_window_instances": 966831,
+            "full_length_distinct_patterns": 5362,
+            "full_length_pattern_occurrences": 26024,
+            "total_deduplicated_label_tokens": 2653584,
+            "total_raw_label_tokens": 6949985
+          },
+          "deduplicated_distinct_pattern_type_count": 18522,
+          "full_length_distinct_pattern_fraction": 0.2894935752078609,
+          "full_length_pattern_occurrence_fraction": 0.02621127959268977,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9813447079382186,
+          "raw_distinct_sequence_type_changed_fraction": 0.890994104492783,
+          "raw_distinct_sequence_type_count": 49190,
+          "total_label_token_reduction_fraction": 0.6181885284644499,
+          "window_count": 992855,
+          "window_instance_changed_fraction": 0.9737887204073102
+        }
+      },
+      "8": {
+        "actual_sequence_length": 8,
+        "endpoint_span_l": 7,
+        "metrics": {
+          "average_deduplicated_pattern_length": 2.950211008757998,
+          "canonical_distinct_type_reduction_fraction": 0.6624795685916164,
+          "counts": {
+            "changed_raw_sequence_types": 72520,
+            "changed_window_instances": 973508,
+            "full_length_distinct_patterns": 5179,
+            "full_length_pattern_occurrences": 18157,
+            "total_deduplicated_label_tokens": 2925621,
+            "total_raw_label_tokens": 7933320
+          },
+          "deduplicated_distinct_pattern_type_count": 26225,
+          "full_length_distinct_pattern_fraction": 0.19748331744518588,
+          "full_length_pattern_occurrence_fraction": 0.01830961060438757,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9735545774026511,
+          "raw_distinct_sequence_type_changed_fraction": 0.9333453454999421,
+          "raw_distinct_sequence_type_count": 77699,
+          "total_label_token_reduction_fraction": 0.6312236239052502,
+          "window_count": 991665,
+          "window_instance_changed_fraction": 0.9816903893956125
+        }
+      },
+      "9": {
+        "actual_sequence_length": 9,
+        "endpoint_span_l": 8,
+        "metrics": {
+          "average_deduplicated_pattern_length": 3.2274595522350387,
+          "canonical_distinct_type_reduction_fraction": 0.6906486471895554,
+          "counts": {
+            "changed_raw_sequence_types": 106394,
+            "changed_window_instances": 977874,
+            "full_length_distinct_patterns": 4745,
+            "full_length_pattern_occurrences": 12601,
+            "total_deduplicated_label_tokens": 3196718,
+            "total_raw_label_tokens": 8914275
+          },
+          "deduplicated_distinct_pattern_type_count": 34381,
+          "full_length_distinct_pattern_fraction": 0.13801227422122683,
+          "full_length_pattern_occurrence_fraction": 0.012722178752618694,
+          "non_equivalent_total_window_denominator_reduction_fraction": 0.9652883717408314,
+          "raw_distinct_sequence_type_changed_fraction": 0.9573057162652174,
+          "raw_distinct_sequence_type_count": 111139,
+          "total_label_token_reduction_fraction": 0.6413933830849957,
+          "window_count": 990475,
+          "window_instance_changed_fraction": 0.9872778212473813
+        }
+      },
+      "clustering": {
+        "inertia": 33207056.0,
+        "n_iter": 24,
+        "num_clusters": 8
+      },
+      "seed": 2
+    }
+  },
+  "source_reference_proximity": {
+    "interpretation_boundary": "nearest_predeclared_length is descriptive only and must not be promoted to a new attack setting",
+    "mean_curve_monotonic_nondecreasing": true,
+    "nearest_predeclared_length": {
+      "absolute_distance_to_reference": 0.09446518905893986,
+      "actual_sequence_length": 10,
+      "endpoint_span_l": 9,
+      "mean_reduction_fraction": 0.7055348109410602
+    },
+    "reference_fraction": 0.8,
+    "reference_is_acceptance_gate": false,
+    "reference_is_approximate": true,
+    "rows": [
+      {
+        "absolute_distance_to_reference": 0.8,
+        "actual_sequence_length": 2,
+        "endpoint_span_l": 1,
+        "mean_reduction_fraction": 0.0
+      },
+      {
+        "absolute_distance_to_reference": 0.6893260408866951,
+        "actual_sequence_length": 3,
+        "endpoint_span_l": 2,
+        "mean_reduction_fraction": 0.11067395911330487
+      },
+      {
+        "absolute_distance_to_reference": 0.544415818621931,
+        "actual_sequence_length": 4,
+        "endpoint_span_l": 3,
+        "mean_reduction_fraction": 0.255584181378069
+      },
+      {
+        "absolute_distance_to_reference": 0.365416968080605,
+        "actual_sequence_length": 5,
+        "endpoint_span_l": 4,
+        "mean_reduction_fraction": 0.43458303191939507
+      },
+      {
+        "absolute_distance_to_reference": 0.24814817229577646,
+        "actual_sequence_length": 6,
+        "endpoint_span_l": 5,
+        "mean_reduction_fraction": 0.5518518277042236
+      },
+      {
+        "absolute_distance_to_reference": 0.1827955469170306,
+        "actual_sequence_length": 7,
+        "endpoint_span_l": 6,
+        "mean_reduction_fraction": 0.6172044530829695
+      },
+      {
+        "absolute_distance_to_reference": 0.1436990972585267,
+        "actual_sequence_length": 8,
+        "endpoint_span_l": 7,
+        "mean_reduction_fraction": 0.6563009027414733
+      },
+      {
+        "absolute_distance_to_reference": 0.11580135295333516,
+        "actual_sequence_length": 9,
+        "endpoint_span_l": 8,
+        "mean_reduction_fraction": 0.6841986470466649
+      },
+      {
+        "absolute_distance_to_reference": 0.09446518905893986,
+        "actual_sequence_length": 10,
+        "endpoint_span_l": 9,
+        "mean_reduction_fraction": 0.7055348109410602
+      }
+    ]
+  },
+  "status": "POSTFINAL_DIAGNOSTIC_ONLY"
+}
