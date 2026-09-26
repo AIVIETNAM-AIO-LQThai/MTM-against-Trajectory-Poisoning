@@ -103,9 +103,7 @@ def test_reference_proximity_uses_all_lengths():
 
     aggregate = {}
 
-    for length in config[
-        "actual_sequence_lengths"
-    ]:
+    for length in config["actual_sequence_lengths"]:
         aggregate[str(length)] = {
             "metrics": {
                 "canonical_distinct_type_reduction_fraction": {
@@ -116,18 +114,11 @@ def test_reference_proximity_uses_all_lengths():
         }
 
     result = _reference_proximity(
-        config,
-        aggregate,
+        config, aggregate,
     )
 
     assert len(result["rows"]) == 9
-
-    assert (
-        result[
-            "nearest_predeclared_length"
-        ]["actual_sequence_length"]
-        == 8
-    )
+    assert result["nearest_predeclared_length"]["actual_sequence_length"] == 8
 
 
 def test_reference_is_not_gate():
@@ -135,9 +126,7 @@ def test_reference_is_not_gate():
 
     aggregate = {}
 
-    for length in config[
-        "actual_sequence_lengths"
-    ]:
+    for length in config["actual_sequence_lengths"]:
         aggregate[str(length)] = {
             "metrics": {
                 "canonical_distinct_type_reduction_fraction": {
@@ -148,16 +137,10 @@ def test_reference_is_not_gate():
         }
 
     result = _reference_proximity(
-        config,
-        aggregate,
+        config, aggregate,
     )
 
-    assert (
-        result[
-            "reference_is_acceptance_gate"
-        ]
-        is False
-    )
+    assert result["reference_is_acceptance_gate"] is False
 
 
 def test_monotonic_curve_detected():
@@ -165,9 +148,7 @@ def test_monotonic_curve_detected():
 
     aggregate = {}
 
-    for length in config[
-        "actual_sequence_lengths"
-    ]:
+    for length in config["actual_sequence_lengths"]:
         aggregate[str(length)] = {
             "metrics": {
                 "canonical_distinct_type_reduction_fraction": {
@@ -178,16 +159,10 @@ def test_monotonic_curve_detected():
         }
 
     result = _reference_proximity(
-        config,
-        aggregate,
+        config, aggregate,
     )
 
-    assert (
-        result[
-            "mean_curve_monotonic_nondecreasing"
-        ]
-        is True
-    )
+    assert result["mean_curve_monotonic_nondecreasing"] is True
 
 
 def test_nonmonotonic_curve_detected():
@@ -218,13 +193,7 @@ def test_nonmonotonic_curve_detected():
         }
 
     result = _reference_proximity(
-        config,
-        aggregate,
+        config, aggregate
     )
 
-    assert (
-        result[
-            "mean_curve_monotonic_nondecreasing"
-        ]
-        is False
-    )
+    assert result["mean_curve_monotonic_nondecreasing"] is False
