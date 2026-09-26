@@ -1,0 +1,58 @@
+{
+  "experiment": "A2_VANILLA_DT_ATTACK_QUALIFICATION",
+  "status": "PREDECLARED",
+  "attack_name": "low_return_rtg_inflation",
+  "clean_dataset": "data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "attack_seeds": [
+    10,
+    11,
+    12
+  ],
+  "model_seeds": [
+    0,
+    1,
+    2
+  ],
+  "num_updates": 100000,
+  "batch_size": 64,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "warmup_steps": 10000,
+  "grad_clip_norm": 0.25,
+  "evaluation": {
+    "environment": "Walker2d-v3",
+    "target_return": 5000.0,
+    "num_episodes": 100,
+    "eval_seed_base": 30000
+  },
+  "clean_bridge": {
+    "fresh_controls_required": true,
+    "clean_model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "compatibility_floor": 62.82844891348723,
+    "reference": "90% of frozen Group-1 three-seed mean"
+  },
+  "qualification_gate": {
+    "mean_degradation_floor_fraction_of_matched_clean_mean": 0.05,
+    "minimum_positive_cells": 7,
+    "require_positive_mean_degradation_for_each_model_seed": true,
+    "require_positive_mean_degradation_for_each_attack_seed": true
+  },
+  "paths": {
+    "a1_metadata_root": "data/metadata/rtg_inflation/walker2d-medium-v2",
+    "a1_poison_root": "data/poisoned/rtg_inflation/walker2d-medium-v2",
+    "output_root": "experiments/attack_qualification/a2_dt"
+  },
+  "rules": [
+    "Train fresh clean DT controls in the same runtime used for all poisoned A2 runs.",
+    "Use the exact scripts.train_dt_stress runner for both clean and poisoned training.",
+    "Use the exact scripts.evaluate_dt_stress evaluator for all A2 evaluations.",
+    "Do not alter architecture, optimizer, batch size, update count, normalization, target return, or evaluation seeds after outcomes are observed.",
+    "Do not compare DT+MTM or RDT unless the A2 qualification gate passes.",
+    "All 12 training cells (3 clean + 9 poison) must be completed before interpreting the attack."
+  ]
+}
