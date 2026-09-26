@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import shutil
 from pathlib import Path
 
 import h5py
@@ -117,30 +118,94 @@ def load_hdf5(path):
         }
 
 
-def write_hdf5(path, dataset):
-    path = Path(path)
+def write_reward_only_hdf5(
+    clean_path,
+    poison_path,
+    poisoned_rewards,
+):
+    """
+    Preserve the original HDF5 structure and replace only rewards.
 
-    path.parent.mkdir(
+    Reconstructing every dataset from NumPy is unsafe because HDF5
+    string/metadata dtypes may round-trip through NumPy as Unicode or
+    object arrays that h5py cannot recreate without extra schema
+    information. A1 is reward-only, so copying the clean artifact and
+    updating the existing rewards dataset is both safer and closer to
+    the scientific contract.
+    """
+
+    clean_path = Path(
+        clean_path
+    )
+
+    poison_path = Path(
+        poison_path
+    )
+
+    poisoned_rewards = np.asarray(
+        poisoned_rewards
+    )
+
+    poison_path.parent.mkdir(
         parents=True,
         exist_ok=True,
     )
 
-    if path.exists():
+    if poison_path.exists():
         raise FileExistsError(
-            path
+            poison_path
         )
 
-    with h5py.File(
-        path,
-        "w",
-    ) as handle:
-        for key, value in dataset.items():
-            handle.create_dataset(
-                key,
-                data=np.asarray(
-                    value
-                ),
+    shutil.copy2(
+        clean_path,
+        poison_path,
+    )
+
+    try:
+        with h5py.File(
+            poison_path,
+            "r+",
+        ) as handle:
+            if "rewards" not in handle:
+                raise KeyError(
+                    "clean HDF5 is missing rewards"
+                )
+
+            rewards_dataset = (
+                handle["rewards"]
             )
+
+            if (
+                rewards_dataset.shape
+                != poisoned_rewards.shape
+            ):
+                raise RuntimeError(
+                    "reward shape mismatch: "
+                    f"hdf5={rewards_dataset.shape}, "
+                    f"poisoned={poisoned_rewards.shape}"
+                )
+
+            if (
+                rewards_dataset.dtype
+                != poisoned_rewards.dtype
+            ):
+                raise RuntimeError(
+                    "reward dtype mismatch: "
+                    f"hdf5={rewards_dataset.dtype}, "
+                    f"poisoned={poisoned_rewards.dtype}"
+                )
+
+            rewards_dataset[...] = (
+                poisoned_rewards
+            )
+
+            handle.flush()
+
+    except Exception:
+        # Never leave a half-written poison artifact behind.
+        if poison_path.exists():
+            poison_path.unlink()
+        raise
 
 
 def trajectory_returns(
@@ -805,9 +870,10 @@ def main():
             )
         )
 
-        write_hdf5(
+        write_reward_only_hdf5(
+            dataset_path,
             poison_path,
-            poisoned,
+            poisoned["rewards"],
         )
 
         poison_sha = sha256_file(

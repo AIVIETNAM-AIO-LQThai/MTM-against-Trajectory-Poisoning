@@ -1,3 +1,4 @@
+import h5py
 import numpy as np
 
 from scripts.generate_a1_rtg_inflation import (
@@ -5,6 +6,7 @@ from scripts.generate_a1_rtg_inflation import (
     select_trajectories,
     trajectory_returns,
     validate_artifact,
+    write_reward_only_hdf5,
 )
 from src.data.trajectories import (
     TrajectorySlice,
@@ -257,3 +259,131 @@ def test_validator_accepts_valid_artifact():
         ]
         == 9
     )
+
+
+
+def test_reward_only_writer_preserves_hdf5_schema(tmp_path):
+    clean_path = tmp_path / "clean.hdf5"
+    poison_path = tmp_path / "poison.hdf5"
+
+    string_dtype = h5py.string_dtype(
+        encoding="utf-8"
+    )
+
+    with h5py.File(
+        clean_path,
+        "w",
+    ) as handle:
+        observations = handle.create_dataset(
+            "observations",
+            data=np.asarray(
+                [[1.0], [2.0]],
+                dtype=np.float32,
+            ),
+            compression="gzip",
+        )
+
+        observations.attrs[
+            "meaning"
+        ] = "keep-me"
+
+        handle.create_dataset(
+            "rewards",
+            data=np.asarray(
+                [1.0, 2.0],
+                dtype=np.float32,
+            ),
+        )
+
+        handle.create_dataset(
+            "metadata_strings",
+            data=np.asarray(
+                ["walker2d", "medium-v2"],
+                dtype=object,
+            ),
+            dtype=string_dtype,
+        )
+
+        handle.attrs[
+            "root_attribute"
+        ] = "preserve-me"
+
+    poisoned_rewards = np.asarray(
+        [10.0, 20.0],
+        dtype=np.float32,
+    )
+
+    write_reward_only_hdf5(
+        clean_path,
+        poison_path,
+        poisoned_rewards,
+    )
+
+    with h5py.File(
+        clean_path,
+        "r",
+    ) as clean_handle, h5py.File(
+        poison_path,
+        "r",
+    ) as poison_handle:
+        assert set(
+            clean_handle.keys()
+        ) == set(
+            poison_handle.keys()
+        )
+
+        np.testing.assert_array_equal(
+            poison_handle[
+                "observations"
+            ][:],
+            clean_handle[
+                "observations"
+            ][:],
+        )
+
+        np.testing.assert_array_equal(
+            poison_handle[
+                "metadata_strings"
+            ][:],
+            clean_handle[
+                "metadata_strings"
+            ][:],
+        )
+
+        np.testing.assert_array_equal(
+            poison_handle[
+                "rewards"
+            ][:],
+            poisoned_rewards,
+        )
+
+        assert (
+            poison_handle[
+                "observations"
+            ].compression
+            == clean_handle[
+                "observations"
+            ].compression
+        )
+
+        assert (
+            poison_handle[
+                "observations"
+            ].attrs[
+                "meaning"
+            ]
+            == clean_handle[
+                "observations"
+            ].attrs[
+                "meaning"
+            ]
+        )
+
+        assert (
+            poison_handle.attrs[
+                "root_attribute"
+            ]
+            == clean_handle.attrs[
+                "root_attribute"
+            ]
+        )
