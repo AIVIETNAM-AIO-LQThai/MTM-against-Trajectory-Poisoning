@@ -1,0 +1,75 @@
+{
+  "attack_name": "low_return_rtg_inflation",
+  "candidate_q30_return": 2361.225280306488,
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "experiment": "A1_RTG_INFLATION_ATTACK_QUALIFICATION",
+  "planned_a2_qualification_gate": {
+    "attack_seeds": [
+      10,
+      11,
+      12
+    ],
+    "evaluation_environment": "Walker2d-v3",
+    "evaluation_episodes": 100,
+    "evaluation_seed_base": 30000,
+    "if_gate_fails": "do_not_compare_DT_plus_MTM_or_RDT_under_this_attack",
+    "mean_degradation_floor_fraction_of_matched_clean_mean": 0.05,
+    "minimum_positive_cells": 7,
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "num_crossed_cells": 9,
+    "require_positive_mean_degradation_for_each_attack_seed": true,
+    "require_positive_mean_degradation_for_each_model_seed": true,
+    "target_return": 5000.0
+  },
+  "requested_transition_budget": 49999,
+  "rows": [
+    {
+      "actual_transition_budget": 49961,
+      "attack_seed": 10,
+      "budget_utilization": 0.999239984799696,
+      "max_selected_target_return_error": 0.00016620587530269404,
+      "non_reward_arrays_identical": true,
+      "poisoned_dataset": "/mnt/c/Users/Dell ProMax Tower T2/Downloads/code/RL/MTM-against-Trajectory-Poisoning/data/poisoned/rtg_inflation/walker2d-medium-v2/attack_seed_10.hdf5",
+      "poisoned_dataset_sha256": "0c8e47454ebca78ef98222fdfcdad32e839bed5c16d030cfc9e23c612be750a2",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 86,
+      "selected_within_candidate_pool": true,
+      "trailing_fragment_unchanged": true,
+      "unselected_rewards_identical": true
+    },
+    {
+      "actual_transition_budget": 49991,
+      "attack_seed": 11,
+      "budget_utilization": 0.999839996799936,
+      "max_selected_target_return_error": 0.00013378094854488154,
+      "non_reward_arrays_identical": true,
+      "poisoned_dataset": "/mnt/c/Users/Dell ProMax Tower T2/Downloads/code/RL/MTM-against-Trajectory-Poisoning/data/poisoned/rtg_inflation/walker2d-medium-v2/attack_seed_11.hdf5",
+      "poisoned_dataset_sha256": "7c6232bf8d7b27241cd0cde4ce6fded7508ad365db484c18238444a67fbd0928",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 82,
+      "selected_within_candidate_pool": true,
+      "trailing_fragment_unchanged": true,
+      "unselected_rewards_identical": true
+    },
+    {
+      "actual_transition_budget": 49952,
+      "attack_seed": 12,
+      "budget_utilization": 0.999059981199624,
+      "max_selected_target_return_error": 0.00017520952997074346,
+      "non_reward_arrays_identical": true,
+      "poisoned_dataset": "/mnt/c/Users/Dell ProMax Tower T2/Downloads/code/RL/MTM-against-Trajectory-Poisoning/data/poisoned/rtg_inflation/walker2d-medium-v2/attack_seed_12.hdf5",
+      "poisoned_dataset_sha256": "26d024953a71c1f3817d38f2c2bd485bff34a1b96014fabdf5599ecfd6d33485",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 85,
+      "selected_within_candidate_pool": true,
+      "trailing_fragment_unchanged": true,
+      "unselected_rewards_identical": true
+    }
+  ],
+  "schema_version": "a1-rtg-inflation-summary-v1",
+  "target_q90_return": 3789.58939144183
+}
