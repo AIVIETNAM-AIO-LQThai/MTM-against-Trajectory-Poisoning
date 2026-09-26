@@ -1,0 +1,37 @@
+{
+  "experiment": "E3_CSDPC_CANDIDATE_OBJECTIVE_ATTAINMENT",
+  "status": "POSTFINAL_DIAGNOSTIC_ONLY",
+  "dataset": "walker2d-medium-v2",
+  "dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "canonical_attack_is_unchanged": true,
+  "attack_seeds": [0, 1, 2],
+  "num_clusters": 8,
+  "sequence_length": 5,
+  "eta": 0.05,
+  "rho": 0.01,
+  "num_candidates": 100,
+  "action_low": -1.0,
+  "action_high": 1.0,
+  "pipeline": {
+    "decision_unit": "concat(state, action)",
+    "feature_preprocessing": "none",
+    "selection": "canonical_rare_pattern_first_nonoverlapping",
+    "candidate_generation": "canonical_independent_uniform_relative_linf_box",
+    "candidate_rng": "numpy_default_rng_attack_seed_shared_sequentially_across_selected_windows",
+    "candidate_scoring": [
+      "higher_clean_target_pattern_frequency",
+      "lower_total_linf_perturbation",
+      "lower_candidate_index"
+    ]
+  },
+  "rules": [
+    "No alternative candidate-generation family is introduced.",
+    "No poisoned HDF5 dataset is written.",
+    "No learner is trained or evaluated.",
+    "The diagnostic uses only the canonical independent reproduction's existing uniform-random candidate generator.",
+    "The source paper's candidate-generation distribution and candidate count remain unknown.",
+    "Metrics describe how well the canonical n=100 proposal pool attains the source-stated pattern-frequency objective.",
+    "No metric threshold is used to choose or tune a new attack configuration.",
+    "Canonical Gate B and Group-2 closure remain unchanged."
+  ]
+}
