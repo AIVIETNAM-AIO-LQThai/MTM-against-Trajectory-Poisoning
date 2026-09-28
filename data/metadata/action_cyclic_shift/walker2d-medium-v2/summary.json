@@ -1,0 +1,58 @@
+{
+  "attack_name": "high_return_action_cyclic_shift",
+  "candidate_return_threshold_q70": 3670.438793261908,
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "rows": [
+    {
+      "action_multiset_preserved_per_selected_trajectory": true,
+      "actual_transition_budget": 49947,
+      "attack_seed": 20,
+      "budget_utilization": 0.998959979199584,
+      "candidate_trajectory_count": 357,
+      "changed_fraction_of_selected": 1.0,
+      "changed_transition_count": 49947,
+      "poisoned_dataset_sha256": "c0ecb7132ed2a7d423a503481686e22f8a198a2daaa847eb2f72db91bc26ee04",
+      "q70": 3670.438793261908,
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 50,
+      "selected_within_candidate_pool": true,
+      "trailing_fragment_unchanged": true,
+      "unselected_actions_identical": true
+    },
+    {
+      "action_multiset_preserved_per_selected_trajectory": true,
+      "actual_transition_budget": 49884,
+      "attack_seed": 21,
+      "budget_utilization": 0.99769995399908,
+      "candidate_trajectory_count": 357,
+      "changed_fraction_of_selected": 1.0,
+      "changed_transition_count": 49884,
+      "poisoned_dataset_sha256": "77f4922e52dbc52d445cedbfbc351c186c213890f7bd8e36114a5e6e8f73efc4",
+      "q70": 3670.438793261908,
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 50,
+      "selected_within_candidate_pool": true,
+      "trailing_fragment_unchanged": true,
+      "unselected_actions_identical": true
+    },
+    {
+      "action_multiset_preserved_per_selected_trajectory": true,
+      "actual_transition_budget": 49805,
+      "attack_seed": 22,
+      "budget_utilization": 0.9961199223984479,
+      "candidate_trajectory_count": 357,
+      "changed_fraction_of_selected": 1.0,
+      "changed_transition_count": 49805,
+      "poisoned_dataset_sha256": "4381ec338e8f54fb9e8ac0c2c6828570a4b315581fd6addf5530f6d07be05f7b",
+      "q70": 3670.438793261908,
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 50,
+      "selected_within_candidate_pool": true,
+      "trailing_fragment_unchanged": true,
+      "unselected_actions_identical": true
+    }
+  ],
+  "schema_version": "a3-action-cyclic-shift-summary-v1",
+  "stage": "A3",
+  "status": "ARTIFACT_GENERATION_PASS"
+}
