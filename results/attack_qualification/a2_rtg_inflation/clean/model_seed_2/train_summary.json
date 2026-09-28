@@ -1,0 +1,12 @@
+{
+  "attack_seed": -1,
+  "checkpoint": "experiments\\attack_qualification\\a2_dt\\clean\\model_seed_2\\train\\checkpoints\\checkpoint_step_100000.pt",
+  "condition": "a2_clean",
+  "dataset": "data\\raw\\walker2d-medium-v2\\walker2d_medium-v2.hdf5",
+  "dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "elapsed_seconds": 4902.747354269028,
+  "final_step": 100000,
+  "rho": 0.0,
+  "status": "complete",
+  "training_seed": 2
+}

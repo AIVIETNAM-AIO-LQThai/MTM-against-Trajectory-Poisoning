@@ -1,0 +1,113 @@
+{
+  "attack_seed_mean_degradation": {
+    "10": -2.4568049741043865,
+    "11": -3.2667278910903548,
+    "12": -1.8014204871911563
+  },
+  "clean_bridge_floor": 62.82844891348723,
+  "clean_bridge_pass": true,
+  "clean_mean": 66.54838639515347,
+  "clean_returns": {
+    "0": 70.97870489341976,
+    "1": 60.07549767262876,
+    "2": 68.59095661941191
+  },
+  "degradation_floor": 3.3274193197576736,
+  "experiment": "A2_VANILLA_DT_ATTACK_QUALIFICATION",
+  "gate_components": {
+    "attack_seed_consistency_pass": false,
+    "effect_floor_pass": false,
+    "model_seed_consistency_pass": false,
+    "positive_cells_pass": false
+  },
+  "matrix": {
+    "10": {
+      "0": {
+        "attack_seed": 10,
+        "clean_return": 70.97870489341976,
+        "degradation": -1.0340890061802384,
+        "model_seed": 0,
+        "poison_return": 72.0127938996,
+        "positive_degradation": false
+      },
+      "1": {
+        "attack_seed": 10,
+        "clean_return": 60.07549767262876,
+        "degradation": -4.240334623975485,
+        "model_seed": 1,
+        "poison_return": 64.31583229660424,
+        "positive_degradation": false
+      },
+      "2": {
+        "attack_seed": 10,
+        "clean_return": 68.59095661941191,
+        "degradation": -2.0959912921574357,
+        "model_seed": 2,
+        "poison_return": 70.68694791156935,
+        "positive_degradation": false
+      }
+    },
+    "11": {
+      "0": {
+        "attack_seed": 11,
+        "clean_return": 70.97870489341976,
+        "degradation": 0.7680973155954405,
+        "model_seed": 0,
+        "poison_return": 70.21060757782432,
+        "positive_degradation": true
+      },
+      "1": {
+        "attack_seed": 11,
+        "clean_return": 60.07549767262876,
+        "degradation": -10.57264946165526,
+        "model_seed": 1,
+        "poison_return": 70.64814713428402,
+        "positive_degradation": false
+      },
+      "2": {
+        "attack_seed": 11,
+        "clean_return": 68.59095661941191,
+        "degradation": 0.004368472788755184,
+        "model_seed": 2,
+        "poison_return": 68.58658814662316,
+        "positive_degradation": true
+      }
+    },
+    "12": {
+      "0": {
+        "attack_seed": 12,
+        "clean_return": 70.97870489341976,
+        "degradation": 0.09453904669423707,
+        "model_seed": 0,
+        "poison_return": 70.88416584672552,
+        "positive_degradation": true
+      },
+      "1": {
+        "attack_seed": 12,
+        "clean_return": 60.07549767262876,
+        "degradation": -6.269593327987877,
+        "model_seed": 1,
+        "poison_return": 66.34509100061663,
+        "positive_degradation": false
+      },
+      "2": {
+        "attack_seed": 12,
+        "clean_return": 68.59095661941191,
+        "degradation": 0.770792819720171,
+        "model_seed": 2,
+        "poison_return": 67.82016379969174,
+        "positive_degradation": true
+      }
+    }
+  },
+  "mean_degradation": -2.5083177841286326,
+  "median_degradation": -1.0340890061802384,
+  "model_seed_mean_degradation": {
+    "0": -0.057150881296853605,
+    "1": -7.027525804539541,
+    "2": -0.4402766665495032
+  },
+  "positive_cells": 4,
+  "qualification_pass": false,
+  "total_cells": 9
+}

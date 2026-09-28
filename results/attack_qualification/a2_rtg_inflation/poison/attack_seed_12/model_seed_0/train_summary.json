@@ -1,0 +1,12 @@
+{
+  "attack_seed": 12,
+  "checkpoint": "experiments\\attack_qualification\\a2_dt\\poison\\attack_seed_12\\model_seed_0\\train\\checkpoints\\checkpoint_step_100000.pt",
+  "condition": "rtg_inflation",
+  "dataset": "data\\poisoned\\rtg_inflation\\walker2d-medium-v2\\attack_seed_12.hdf5",
+  "dataset_sha256": "26d024953a71c1f3817d38f2c2bd485bff34a1b96014fabdf5599ecfd6d33485",
+  "elapsed_seconds": 4289.196942329407,
+  "final_step": 100000,
+  "rho": 0.05,
+  "status": "complete",
+  "training_seed": 0
+}
