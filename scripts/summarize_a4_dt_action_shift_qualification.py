@@ -1,0 +1,675 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+CONFIG = (
+    ROOT
+    / "configs"
+    / "attack_qualification"
+    / "a3_action_cyclic_shift.json"
+)
+
+OUTROOT = (
+    ROOT
+    / "experiments"
+    / "attack_qualification"
+    / "a4_dt"
+)
+
+FROZEN_A2_CLEAN = (
+    ROOT
+    / "results"
+    / "attack_qualification"
+    / "a2_rtg_inflation"
+    / "clean"
+)
+
+PREFLIGHT = (
+    OUTROOT
+    / "preflight.json"
+)
+
+OUTPUT = (
+    OUTROOT
+    / "qualification_summary.json"
+)
+
+
+def read_json(path: Path) -> dict:
+    if not path.exists():
+        raise FileNotFoundError(path)
+
+    return json.loads(
+        path.read_text(
+            encoding="utf-8"
+        )
+    )
+
+
+def main():
+    cfg = read_json(
+        CONFIG
+    )
+
+    preflight = read_json(
+        PREFLIGHT
+    )
+
+    if (
+        preflight.get("status")
+        != "PREFLIGHT_PASS"
+    ):
+        raise RuntimeError(
+            "A4 preflight is not PASS"
+        )
+
+    qualification = cfg[
+        "qualification"
+    ]
+
+    model_seeds = [
+        int(x)
+        for x
+        in qualification[
+            "model_seeds"
+        ]
+    ]
+
+    attack_seeds = [
+        int(x)
+        for x
+        in qualification[
+            "attack_seeds"
+        ]
+    ]
+
+    if (
+        model_seeds
+        != [0, 1, 2]
+    ):
+        raise RuntimeError(
+            "A4 model seeds changed"
+        )
+
+    if (
+        attack_seeds
+        != [20, 21, 22]
+    ):
+        raise RuntimeError(
+            "A4 attack seeds changed"
+        )
+
+    clean = {}
+
+    for model_seed in model_seeds:
+        path = (
+            FROZEN_A2_CLEAN
+            / (
+                f"model_seed_"
+                f"{model_seed}"
+            )
+            / "eval_summary.json"
+        )
+
+        rec = read_json(
+            path
+        )
+
+        if (
+            int(
+                rec[
+                    "training_seed"
+                ]
+            )
+            != model_seed
+        ):
+            raise RuntimeError(
+                "frozen clean seed mismatch"
+            )
+
+        if (
+            int(
+                rec[
+                    "training_update"
+                ]
+            )
+            != 100000
+        ):
+            raise RuntimeError(
+                "frozen clean update mismatch"
+            )
+
+        if (
+            int(
+                rec[
+                    "num_episodes"
+                ]
+            )
+            != 100
+        ):
+            raise RuntimeError(
+                "frozen clean evaluation "
+                "episode mismatch"
+            )
+
+        if (
+            int(
+                rec[
+                    "eval_seed_base"
+                ]
+            )
+            != 30000
+        ):
+            raise RuntimeError(
+                "frozen clean evaluation "
+                "seed mismatch"
+            )
+
+        clean[
+            model_seed
+        ] = float(
+            rec[
+                "normalized_return_mean"
+            ]
+        )
+
+    clean_values = np.asarray(
+        [
+            clean[s]
+            for s
+            in model_seeds
+        ],
+        dtype=np.float64,
+    )
+
+    clean_mean = float(
+        clean_values.mean()
+    )
+
+    expected_clean_mean = float(
+        qualification[
+            "clean_control_mean"
+        ]
+    )
+
+    if not np.isclose(
+        clean_mean,
+        expected_clean_mean,
+        rtol=0.0,
+        atol=1e-12,
+    ):
+        raise RuntimeError(
+            "frozen A4 clean mean mismatch"
+        )
+
+    rows = []
+    matrix = {}
+
+    for attack_seed in attack_seeds:
+        matrix[
+            str(
+                attack_seed
+            )
+        ] = {}
+
+        for model_seed in model_seeds:
+            path = (
+                OUTROOT
+                / "poison"
+                / (
+                    f"attack_seed_"
+                    f"{attack_seed}"
+                )
+                / (
+                    f"model_seed_"
+                    f"{model_seed}"
+                )
+                / "eval"
+                / "summary.json"
+            )
+
+            rec = read_json(
+                path
+            )
+
+            if (
+                rec.get(
+                    "condition"
+                )
+                != "action_cyclic_shift"
+            ):
+                raise RuntimeError(
+                    "A4 condition mismatch: "
+                    f"attack={attack_seed}, "
+                    f"model={model_seed}"
+                )
+
+            if (
+                int(
+                    rec[
+                        "attack_seed"
+                    ]
+                )
+                != attack_seed
+            ):
+                raise RuntimeError(
+                    "A4 eval attack seed mismatch"
+                )
+
+            if (
+                int(
+                    rec[
+                        "training_seed"
+                    ]
+                )
+                != model_seed
+            ):
+                raise RuntimeError(
+                    "A4 eval model seed mismatch"
+                )
+
+            if (
+                int(
+                    rec[
+                        "training_update"
+                    ]
+                )
+                != 100000
+            ):
+                raise RuntimeError(
+                    "A4 eval checkpoint is not "
+                    "100k update"
+                )
+
+            if (
+                int(
+                    rec[
+                        "num_episodes"
+                    ]
+                )
+                != 100
+                or int(
+                    rec[
+                        "eval_seed_base"
+                    ]
+                )
+                != 30000
+            ):
+                raise RuntimeError(
+                    "A4 eval protocol mismatch"
+                )
+
+            poison_return = float(
+                rec[
+                    "normalized_return_mean"
+                ]
+            )
+
+            degradation = float(
+                clean[
+                    model_seed
+                ]
+                - poison_return
+            )
+
+            row = {
+                "attack_seed": (
+                    attack_seed
+                ),
+                "model_seed": (
+                    model_seed
+                ),
+                "clean_return": float(
+                    clean[
+                        model_seed
+                    ]
+                ),
+                "poison_return": (
+                    poison_return
+                ),
+                "degradation": (
+                    degradation
+                ),
+                "positive_degradation": bool(
+                    degradation
+                    > 0.0
+                ),
+            }
+
+            rows.append(
+                row
+            )
+
+            matrix[
+                str(
+                    attack_seed
+                )
+            ][
+                str(
+                    model_seed
+                )
+            ] = row
+
+    deltas = np.asarray(
+        [
+            row[
+                "degradation"
+            ]
+            for row
+            in rows
+        ],
+        dtype=np.float64,
+    )
+
+    mean_delta = float(
+        deltas.mean()
+    )
+
+    median_delta = float(
+        np.median(
+            deltas
+        )
+    )
+
+    positive_cells = int(
+        np.sum(
+            deltas > 0.0
+        )
+    )
+
+    model_seed_means = {}
+
+    for model_seed in model_seeds:
+        values = [
+            row[
+                "degradation"
+            ]
+            for row
+            in rows
+            if (
+                row[
+                    "model_seed"
+                ]
+                == model_seed
+            )
+        ]
+
+        model_seed_means[
+            str(
+                model_seed
+            )
+        ] = float(
+            np.mean(
+                values
+            )
+        )
+
+    attack_seed_means = {}
+
+    for attack_seed in attack_seeds:
+        values = [
+            row[
+                "degradation"
+            ]
+            for row
+            in rows
+            if (
+                row[
+                    "attack_seed"
+                ]
+                == attack_seed
+            )
+        ]
+
+        attack_seed_means[
+            str(
+                attack_seed
+            )
+        ] = float(
+            np.mean(
+                values
+            )
+        )
+
+    gate = qualification[
+        "gate"
+    ]
+
+    floor = float(
+        gate[
+            "required_mean_degradation"
+        ]
+    )
+
+    recomputed_floor = float(
+        gate[
+            "mean_degradation_fraction_of_clean_mean"
+        ]
+        * clean_mean
+    )
+
+    if not np.isclose(
+        floor,
+        recomputed_floor,
+        rtol=0.0,
+        atol=1e-12,
+    ):
+        raise RuntimeError(
+            "A4 degradation floor changed"
+        )
+
+    effect_pass = bool(
+        mean_delta
+        >= floor
+    )
+
+    positive_cells_pass = bool(
+        positive_cells
+        >= int(
+            gate[
+                "minimum_positive_cells"
+            ]
+        )
+    )
+
+    model_seed_pass = bool(
+        all(
+            value > 0.0
+            for value
+            in model_seed_means.values()
+        )
+    )
+
+    attack_seed_pass = bool(
+        all(
+            value > 0.0
+            for value
+            in attack_seed_means.values()
+        )
+    )
+
+    qualification_pass = bool(
+        effect_pass
+        and positive_cells_pass
+        and model_seed_pass
+        and attack_seed_pass
+    )
+
+    result = {
+        "stage": "A4",
+        "experiment": (
+            "A4_VANILLA_DT_ACTION_SHIFT_"
+            "ATTACK_QUALIFICATION"
+        ),
+        "attack_name": (
+            cfg[
+                "name"
+            ]
+        ),
+        "clean_controls_reused_from": (
+            "A2 frozen clean controls"
+        ),
+        "clean_returns": {
+            str(key): value
+            for key, value
+            in clean.items()
+        },
+        "clean_mean": (
+            clean_mean
+        ),
+        "degradation_floor": (
+            floor
+        ),
+        "mean_degradation": (
+            mean_delta
+        ),
+        "median_degradation": (
+            median_delta
+        ),
+        "positive_cells": (
+            positive_cells
+        ),
+        "total_cells": len(
+            rows
+        ),
+        "model_seed_mean_degradation": (
+            model_seed_means
+        ),
+        "attack_seed_mean_degradation": (
+            attack_seed_means
+        ),
+        "gate_components": {
+            "effect_floor_pass": (
+                effect_pass
+            ),
+            "positive_cells_pass": (
+                positive_cells_pass
+            ),
+            "model_seed_consistency_pass": (
+                model_seed_pass
+            ),
+            "attack_seed_consistency_pass": (
+                attack_seed_pass
+            ),
+        },
+        "qualification_pass": (
+            qualification_pass
+        ),
+        "matrix": matrix,
+    }
+
+    OUTPUT.write_text(
+        json.dumps(
+            result,
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    print(
+        "="
+        * 96
+    )
+
+    print(
+        "A4 VANILLA DT ACTION-SHIFT "
+        "ATTACK QUALIFICATION"
+    )
+
+    print(
+        "="
+        * 96
+    )
+
+    print(
+        "clean:",
+        {
+            key: round(
+                value,
+                6,
+            )
+            for key, value
+            in clean.items()
+        },
+    )
+
+    print(
+        f"clean mean: "
+        f"{clean_mean:.6f}"
+    )
+
+    print()
+
+    print(
+        "attack_seed model_seed "
+        "clean poison degradation"
+    )
+
+    for row in rows:
+        print(
+            f"{row['attack_seed']:11d} "
+            f"{row['model_seed']:10d} "
+            f"{row['clean_return']:7.3f} "
+            f"{row['poison_return']:7.3f} "
+            f"{row['degradation']:+11.3f}"
+        )
+
+    print()
+
+    print(
+        f"mean degradation:   "
+        f"{mean_delta:+.6f}"
+    )
+
+    print(
+        f"median degradation: "
+        f"{median_delta:+.6f}"
+    )
+
+    print(
+        f"required floor:     "
+        f"{floor:.6f}"
+    )
+
+    print(
+        f"positive cells:     "
+        f"{positive_cells}/9"
+    )
+
+    print(
+        "model-seed means:",
+        model_seed_means,
+    )
+
+    print(
+        "attack-seed means:",
+        attack_seed_means,
+    )
+
+    print()
+
+    print(
+        "A4 ATTACK QUALIFICATION:",
+        (
+            "PASS"
+            if qualification_pass
+            else "FAIL"
+        ),
+    )
+
+    print(
+        "output ->",
+        OUTPUT,
+    )
+
+
+if __name__ == "__main__":
+    main()
