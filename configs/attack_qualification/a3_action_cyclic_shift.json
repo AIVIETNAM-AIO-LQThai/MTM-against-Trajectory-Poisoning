@@ -1,0 +1,117 @@
+{
+  "schema_version": "a3-action-cyclic-shift-protocol-v1",
+  "status": "predeclared",
+  "stage": "A3",
+  "name": "high_return_action_cyclic_shift",
+  "parent_frozen_tag": "a2-rtg-inflation-fail-v1",
+
+  "dataset": {
+    "name": "walker2d-medium-v2",
+    "path": "data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "completed_trajectories": 1190,
+    "used_transitions": 999995,
+    "trailing_transitions": 5
+  },
+
+  "attack": {
+    "attack_seeds": [20, 21, 22],
+    "transition_budget_fraction": 0.05,
+
+    "candidate_pool": {
+      "trajectory_return_quantile_min": 0.70,
+      "completed_trajectories_only": true,
+      "minimum_trajectory_length": 4
+    },
+
+    "selection": {
+      "unit": "whole_trajectory",
+      "procedure": "seeded_shuffle_then_greedy_whole_trajectory_packing",
+      "minimum_budget_utilization": 0.98
+    },
+
+    "transformation": {
+      "modified_dataset_field": "actions",
+      "unchanged_fields": [
+        "observations",
+        "rewards",
+        "terminals",
+        "timeouts"
+      ],
+
+      "type": "within_trajectory_cyclic_action_shift",
+
+      "offset_rule": {
+        "minimum_fraction_of_trajectory_length": 0.25,
+        "maximum_fraction_of_trajectory_length": 0.75,
+        "lower_bound": "ceil(L/4)",
+        "upper_bound": "floor(3L/4)",
+        "sampling": "uniform_integer_inclusive",
+        "trajectory_seed_rule": "attack_seed * 1000003 + trajectory_id"
+      },
+
+      "mapping": "poisoned_action[t] = clean_action[(t + k) mod L]",
+
+      "preserve_action_multiset_within_selected_trajectory": true,
+      "preserve_action_bounds": true,
+      "trailing_fragment_unchanged": true
+    }
+  },
+
+  "artifact_requirements": {
+    "byte_copy_clean_hdf5_before_modification": true,
+    "only_actions_dataset_may_differ": true,
+    "unselected_actions_identical": true,
+    "non_action_arrays_identical": true,
+    "hdf5_groups_attributes_and_metadata_identical": true,
+    "record_selected_trajectory_ids": true,
+    "record_shift_offset_per_trajectory": true,
+    "record_clean_and_poisoned_dataset_sha256": true
+  },
+
+  "qualification": {
+    "stage": "A4",
+
+    "reuse_a2_clean_controls": true,
+    "clean_control_mean": 66.5483863951535,
+    "clean_control_floor": 62.8284489134872,
+
+    "model_seeds": [0, 1, 2],
+    "attack_seeds": [20, 21, 22],
+
+    "matrix": "3_attack_seeds_x_3_model_seeds",
+
+    "training": {
+      "num_updates": 100000,
+      "batch_size": 64,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "warmup_steps": 10000,
+      "gradient_clip": 0.25
+    },
+
+    "evaluation": {
+      "environment": "Walker2d-v3",
+      "target_return": 5000,
+      "num_episodes": 100,
+      "eval_seed_base": 30000
+    },
+
+    "gate": {
+      "mean_degradation_fraction_of_clean_mean": 0.05,
+      "required_mean_degradation": 3.327419319757675,
+      "minimum_positive_cells": 7,
+      "require_each_model_seed_mean_positive": true,
+      "require_each_attack_seed_mean_positive": true
+    }
+  },
+
+  "anti_tuning_rules": [
+    "No victim-model performance may be used during attack generation.",
+    "The action transformation may not be changed after A4 victim results are observed.",
+    "The attack budget may not be changed after A4 victim results are observed.",
+    "The candidate trajectory quantile may not be changed after A4 victim results are observed.",
+    "The qualification gate may not be weakened after results are observed.",
+    "If A4 fails, this attack will not be used for DT versus DT+MTM versus RDT defense comparison."
+  ]
+}
