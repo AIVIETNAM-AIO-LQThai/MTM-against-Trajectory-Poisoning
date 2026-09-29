@@ -1,0 +1,170 @@
+{
+  "attack_name": "state_matched_low_return_action_substitution",
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "q30_donor_return_threshold": 2361.225280306488,
+  "q70_target_return_threshold": 3670.438793261908,
+  "requested_transition_budget": 49999,
+  "rows": [
+    {
+      "action_l2_displacement": {
+        "max": 4.24571076319578,
+        "mean": 1.4800853764261015,
+        "median": 1.4054421458430406,
+        "min": 0.2945726988887002,
+        "p10": 0.9739060928333693,
+        "p90": 2.093963337351776
+      },
+      "actual_transition_budget": 49999,
+      "attack_seed": 30,
+      "changed_fraction": 1.0,
+      "claim_boundary": [
+        "This is an independently specified action-label poisoning diagnostic, not a reproduction of CSDPC.",
+        "A donor action comes from a low-return trajectory but is not assumed to be objectively suboptimal for the matched target state.",
+        "A5 establishes artifact construction only; attack effectiveness is determined exclusively by the frozen A6 qualification stage."
+      ],
+      "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+      "donor_neighbor_rank": {
+        "max": 64,
+        "mean": 39.85827716554331,
+        "median": 42.0
+      },
+      "donor_pool_transition_count": 211550,
+      "integrity": {
+        "all_donors_in_q30_or_lower_trajectories": true,
+        "all_selected_targets_changed": true,
+        "all_targets_in_q70_or_higher_trajectories": true,
+        "every_poisoned_action_equals_recorded_clean_donor_action": true,
+        "exact_transition_budget": true,
+        "non_action_hdf5_content_identical": true,
+        "trailing_fragment_unchanged": true,
+        "unselected_actions_identical": true
+      },
+      "k_nearest_donors": 64,
+      "max_donor_reuse_count": 200,
+      "normalized_state_distance": {
+        "max": 7.078097762377734,
+        "mean": 1.08370872676404,
+        "median": 0.9876580165833792,
+        "p90": 1.7976568820569858,
+        "p99": 3.1297525197523264
+      },
+      "poisoned_dataset": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/poisoned/state_matched_low_return_action_substitution/walker2d-medium-v2/attack_seed_30.hdf5",
+      "poisoned_dataset_sha256": "2e9bed1f5590cdffd86a39c7ed6d7b1a9ae2dc9f333089dbf2857396f8acba71",
+      "q30_donor_return_threshold": 2361.225280306488,
+      "q70_target_return_threshold": 3670.438793261908,
+      "records_file": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/metadata/state_matched_low_return_action_substitution/walker2d-medium-v2/attack_seed_30_records.npz",
+      "records_file_sha256": "ce2892b0a094adc80ef8f3132ede377cfc3ac40150c6d2bf9869a5cf683d53d8",
+      "requested_transition_budget": 49999,
+      "target_pool_transition_count": 356086,
+      "unique_donor_count": 17495
+    },
+    {
+      "action_l2_displacement": {
+        "max": 4.24571076319578,
+        "mean": 1.4807032116274415,
+        "median": 1.4054273283967353,
+        "min": 0.32271171071383864,
+        "p10": 0.9734307649513365,
+        "p90": 2.0966008109857888
+      },
+      "actual_transition_budget": 49999,
+      "attack_seed": 31,
+      "changed_fraction": 1.0,
+      "claim_boundary": [
+        "This is an independently specified action-label poisoning diagnostic, not a reproduction of CSDPC.",
+        "A donor action comes from a low-return trajectory but is not assumed to be objectively suboptimal for the matched target state.",
+        "A5 establishes artifact construction only; attack effectiveness is determined exclusively by the frozen A6 qualification stage."
+      ],
+      "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+      "donor_neighbor_rank": {
+        "max": 64,
+        "mean": 39.70757415148303,
+        "median": 42.0
+      },
+      "donor_pool_transition_count": 211550,
+      "integrity": {
+        "all_donors_in_q30_or_lower_trajectories": true,
+        "all_selected_targets_changed": true,
+        "all_targets_in_q70_or_higher_trajectories": true,
+        "every_poisoned_action_equals_recorded_clean_donor_action": true,
+        "exact_transition_budget": true,
+        "non_action_hdf5_content_identical": true,
+        "trailing_fragment_unchanged": true,
+        "unselected_actions_identical": true
+      },
+      "k_nearest_donors": 64,
+      "max_donor_reuse_count": 191,
+      "normalized_state_distance": {
+        "max": 6.769598909675773,
+        "mean": 1.0911219676917865,
+        "median": 0.9901819679081318,
+        "p90": 1.8139568526454743,
+        "p99": 3.169392368323193
+      },
+      "poisoned_dataset": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/poisoned/state_matched_low_return_action_substitution/walker2d-medium-v2/attack_seed_31.hdf5",
+      "poisoned_dataset_sha256": "55cd77013fc0e0f80ae5fb22160a103d3b60bc7ad080e82604bf6d067568fc06",
+      "q30_donor_return_threshold": 2361.225280306488,
+      "q70_target_return_threshold": 3670.438793261908,
+      "records_file": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/metadata/state_matched_low_return_action_substitution/walker2d-medium-v2/attack_seed_31_records.npz",
+      "records_file_sha256": "562284872f0926a4b124e1eaa71fbe3f265169809f412099a91ac62e109fe689",
+      "requested_transition_budget": 49999,
+      "target_pool_transition_count": 356086,
+      "unique_donor_count": 17441
+    },
+    {
+      "action_l2_displacement": {
+        "max": 4.119822460170721,
+        "mean": 1.480751616367047,
+        "median": 1.4073669062028271,
+        "min": 0.33081229615035906,
+        "p10": 0.9730865648959731,
+        "p90": 2.093347026345463
+      },
+      "actual_transition_budget": 49999,
+      "attack_seed": 32,
+      "changed_fraction": 1.0,
+      "claim_boundary": [
+        "This is an independently specified action-label poisoning diagnostic, not a reproduction of CSDPC.",
+        "A donor action comes from a low-return trajectory but is not assumed to be objectively suboptimal for the matched target state.",
+        "A5 establishes artifact construction only; attack effectiveness is determined exclusively by the frozen A6 qualification stage."
+      ],
+      "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+      "donor_neighbor_rank": {
+        "max": 64,
+        "mean": 39.884997699954,
+        "median": 42.0
+      },
+      "donor_pool_transition_count": 211550,
+      "integrity": {
+        "all_donors_in_q30_or_lower_trajectories": true,
+        "all_selected_targets_changed": true,
+        "all_targets_in_q70_or_higher_trajectories": true,
+        "every_poisoned_action_equals_recorded_clean_donor_action": true,
+        "exact_transition_budget": true,
+        "non_action_hdf5_content_identical": true,
+        "trailing_fragment_unchanged": true,
+        "unselected_actions_identical": true
+      },
+      "k_nearest_donors": 64,
+      "max_donor_reuse_count": 180,
+      "normalized_state_distance": {
+        "max": 6.862454844747184,
+        "mean": 1.087224985828139,
+        "median": 0.9904999683125992,
+        "p90": 1.8072568698914142,
+        "p99": 3.1112567820282915
+      },
+      "poisoned_dataset": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/poisoned/state_matched_low_return_action_substitution/walker2d-medium-v2/attack_seed_32.hdf5",
+      "poisoned_dataset_sha256": "ec1edc11be48718e94daa660c6407420d0aa7eb7d795845a428ced6b506687c1",
+      "q30_donor_return_threshold": 2361.225280306488,
+      "q70_target_return_threshold": 3670.438793261908,
+      "records_file": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/metadata/state_matched_low_return_action_substitution/walker2d-medium-v2/attack_seed_32_records.npz",
+      "records_file_sha256": "8012cba9fd629bf3590e0a0f3558f925d9cf06912b79a04f80b25163c2e9481d",
+      "requested_transition_budget": 49999,
+      "target_pool_transition_count": 356086,
+      "unique_donor_count": 17614
+    }
+  ],
+  "schema_version": "state-matched-low-return-action-substitution-summary-v1",
+  "status": "ARTIFACT_GENERATION_PASS"
+}

@@ -1,0 +1,53 @@
+{
+  "action_l2_displacement": {
+    "max": 4.24571076319578,
+    "mean": 1.4800853764261015,
+    "median": 1.4054421458430406,
+    "min": 0.2945726988887002,
+    "p10": 0.9739060928333693,
+    "p90": 2.093963337351776
+  },
+  "actual_transition_budget": 49999,
+  "attack_seed": 30,
+  "changed_fraction": 1.0,
+  "claim_boundary": [
+    "This is an independently specified action-label poisoning diagnostic, not a reproduction of CSDPC.",
+    "A donor action comes from a low-return trajectory but is not assumed to be objectively suboptimal for the matched target state.",
+    "A5 establishes artifact construction only; attack effectiveness is determined exclusively by the frozen A6 qualification stage."
+  ],
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "donor_neighbor_rank": {
+    "max": 64,
+    "mean": 39.85827716554331,
+    "median": 42.0
+  },
+  "donor_pool_transition_count": 211550,
+  "integrity": {
+    "all_donors_in_q30_or_lower_trajectories": true,
+    "all_selected_targets_changed": true,
+    "all_targets_in_q70_or_higher_trajectories": true,
+    "every_poisoned_action_equals_recorded_clean_donor_action": true,
+    "exact_transition_budget": true,
+    "non_action_hdf5_content_identical": true,
+    "trailing_fragment_unchanged": true,
+    "unselected_actions_identical": true
+  },
+  "k_nearest_donors": 64,
+  "max_donor_reuse_count": 200,
+  "normalized_state_distance": {
+    "max": 7.078097762377734,
+    "mean": 1.08370872676404,
+    "median": 0.9876580165833792,
+    "p90": 1.7976568820569858,
+    "p99": 3.1297525197523264
+  },
+  "poisoned_dataset": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/poisoned/state_matched_low_return_action_substitution/walker2d-medium-v2/attack_seed_30.hdf5",
+  "poisoned_dataset_sha256": "2e9bed1f5590cdffd86a39c7ed6d7b1a9ae2dc9f333089dbf2857396f8acba71",
+  "q30_donor_return_threshold": 2361.225280306488,
+  "q70_target_return_threshold": 3670.438793261908,
+  "records_file": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/metadata/state_matched_low_return_action_substitution/walker2d-medium-v2/attack_seed_30_records.npz",
+  "records_file_sha256": "ce2892b0a094adc80ef8f3132ede377cfc3ac40150c6d2bf9869a5cf683d53d8",
+  "requested_transition_budget": 49999,
+  "target_pool_transition_count": 356086,
+  "unique_donor_count": 17495
+}
