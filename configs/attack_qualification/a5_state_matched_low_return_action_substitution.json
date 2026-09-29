@@ -1,0 +1,139 @@
+{
+  "schema_version": "a5-state-matched-low-return-action-substitution-v1",
+  "status": "predeclared",
+  "stage": "A5",
+  "name": "state_matched_low_return_action_substitution",
+  "parent_frozen_tag": "a4-action-cyclic-shift-fail-v1",
+  "dataset": {
+    "name": "walker2d-medium-v2",
+    "path": "data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "completed_trajectories": 1190,
+    "used_transitions": 999995,
+    "trailing_transitions": 5,
+    "normalization_path": "data/metadata/walker2d_medium_normalization.npz"
+  },
+  "attack": {
+    "attack_seeds": [
+      30,
+      31,
+      32
+    ],
+    "transition_budget_fraction": 0.05,
+    "requested_transition_budget_rule": "floor(fraction * used_transitions)",
+    "target_pool": {
+      "unit": "transition",
+      "completed_trajectories_only": true,
+      "trajectory_return_quantile_min": 0.7,
+      "selection": "seeded_permutation_without_replacement_then_take_exact_budget"
+    },
+    "donor_pool": {
+      "unit": "transition",
+      "completed_trajectories_only": true,
+      "trajectory_return_quantile_max": 0.3
+    },
+    "state_matching": {
+      "representation": "clean_state_normalized_by_frozen_dt_state_mean_and_std",
+      "normalization_dtype": "float64",
+      "metric": "euclidean",
+      "backend": "scipy.spatial.cKDTree",
+      "exact_query": true,
+      "k_nearest_donors": 64,
+      "p": 2,
+      "eps": 0.0,
+      "workers": 1,
+      "query_batch_size": 4096
+    },
+    "donor_selection": {
+      "primary": "maximize_l2_action_distance_from_clean_target_action_among_k_nearest_state_donors",
+      "tie_break_1": "smaller_normalized_state_distance",
+      "tie_break_2": "smaller_global_donor_transition_index",
+      "donor_reuse_allowed": true,
+      "victim_model_outputs_used": false
+    },
+    "transformation": {
+      "modified_dataset_field": "actions",
+      "mapping": "poisoned_action[target_t] = clean_action[selected_donor_t]",
+      "target_state_unchanged": true,
+      "target_reward_unchanged": true,
+      "target_rtg_unchanged_because_rewards_unchanged": true,
+      "terminals_unchanged": true,
+      "timeouts_unchanged": true,
+      "trajectory_boundaries_unchanged": true,
+      "donor_actions_are_empirical_dataset_actions": true,
+      "trailing_fragment_unchanged": true
+    }
+  },
+  "artifact_requirements": {
+    "byte_copy_clean_hdf5_before_modification": true,
+    "only_actions_dataset_may_differ": true,
+    "exact_transition_budget_required": true,
+    "all_selected_targets_must_change_action": true,
+    "all_targets_must_belong_to_q70_or_higher_trajectory": true,
+    "all_donors_must_belong_to_q30_or_lower_trajectory": true,
+    "every_poisoned_action_must_equal_its_recorded_clean_donor_action": true,
+    "unselected_actions_identical": true,
+    "non_action_arrays_identical": true,
+    "hdf5_groups_attributes_and_metadata_identical": true,
+    "record_target_and_donor_global_indices": true,
+    "record_target_and_donor_trajectory_indices": true,
+    "record_normalized_state_distance": true,
+    "record_action_l2_displacement": true,
+    "record_donor_neighbor_rank": true,
+    "record_clean_and_poisoned_dataset_sha256": true,
+    "record_unique_donor_count_and_max_reuse": true
+  },
+  "qualification": {
+    "stage": "A6",
+    "reuse_a2_clean_controls": true,
+    "clean_control_mean": 66.5483863951535,
+    "clean_control_floor": 62.8284489134872,
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "attack_seeds": [
+      30,
+      31,
+      32
+    ],
+    "matrix": "3_attack_seeds_x_3_model_seeds",
+    "training": {
+      "num_updates": 100000,
+      "batch_size": 64,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "warmup_steps": 10000,
+      "gradient_clip": 0.25
+    },
+    "evaluation": {
+      "environment": "Walker2d-v3",
+      "target_return": 5000,
+      "num_episodes": 100,
+      "eval_seed_base": 30000
+    },
+    "gate": {
+      "mean_degradation_fraction_of_clean_mean": 0.05,
+      "required_mean_degradation": 3.327419319757675,
+      "minimum_positive_cells": 7,
+      "require_each_model_seed_mean_positive": true,
+      "require_each_attack_seed_mean_positive": true
+    }
+  },
+  "anti_tuning_rules": [
+    "No victim-model performance, gradients, hidden states, prediction errors, or checkpoints may be used during A5 artifact generation.",
+    "The 5 percent transition budget may not be changed after A6 victim outcomes are observed.",
+    "The target Q70 and donor Q30 trajectory-return thresholds may not be changed after A6 victim outcomes are observed.",
+    "k_nearest_donors=64 may not be changed after A6 victim outcomes are observed.",
+    "The donor-selection objective and tie-breaking rules may not be changed after A6 victim outcomes are observed.",
+    "Attack seeds 30, 31, and 32 and model seeds 0, 1, and 2 are frozen.",
+    "The A6 qualification gate may not be weakened after outcomes are observed.",
+    "If A6 fails, this attack will not be used for DT versus DT+MTM versus RDT defense comparison."
+  ],
+  "claim_boundary": [
+    "This is an independently specified action-label poisoning diagnostic, not a reproduction of CSDPC.",
+    "A donor action comes from a low-return trajectory but is not assumed to be objectively suboptimal for the matched target state.",
+    "A5 establishes artifact construction only; attack effectiveness is determined exclusively by the frozen A6 qualification stage."
+  ]
+}
