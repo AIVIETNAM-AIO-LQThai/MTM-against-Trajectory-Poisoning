@@ -1,0 +1,114 @@
+{
+  "attack_name": "high_return_action_cyclic_shift",
+  "attack_seed_mean_degradation": {
+    "20": -5.071627865997897,
+    "21": -5.4223006002415515,
+    "22": -1.8109707831451327
+  },
+  "clean_controls_reused_from": "A2 frozen clean controls",
+  "clean_mean": 66.54838639515347,
+  "clean_returns": {
+    "0": 70.97870489341976,
+    "1": 60.07549767262876,
+    "2": 68.59095661941191
+  },
+  "degradation_floor": 3.327419319757675,
+  "experiment": "A4_VANILLA_DT_ACTION_SHIFT_ATTACK_QUALIFICATION",
+  "gate_components": {
+    "attack_seed_consistency_pass": false,
+    "effect_floor_pass": false,
+    "model_seed_consistency_pass": false,
+    "positive_cells_pass": false
+  },
+  "matrix": {
+    "20": {
+      "0": {
+        "attack_seed": 20,
+        "clean_return": 70.97870489341976,
+        "degradation": -2.232227335766339,
+        "model_seed": 0,
+        "poison_return": 73.2109322291861,
+        "positive_degradation": false
+      },
+      "1": {
+        "attack_seed": 20,
+        "clean_return": 60.07549767262876,
+        "degradation": -11.252909973267847,
+        "model_seed": 1,
+        "poison_return": 71.3284076458966,
+        "positive_degradation": false
+      },
+      "2": {
+        "attack_seed": 20,
+        "clean_return": 68.59095661941191,
+        "degradation": -1.7297462889595039,
+        "model_seed": 2,
+        "poison_return": 70.32070290837142,
+        "positive_degradation": false
+      }
+    },
+    "21": {
+      "0": {
+        "attack_seed": 21,
+        "clean_return": 70.97870489341976,
+        "degradation": 1.6229750841148984,
+        "model_seed": 0,
+        "poison_return": 69.35572980930486,
+        "positive_degradation": true
+      },
+      "1": {
+        "attack_seed": 21,
+        "clean_return": 60.07549767262876,
+        "degradation": -12.499384188332655,
+        "model_seed": 1,
+        "poison_return": 72.57488186096141,
+        "positive_degradation": false
+      },
+      "2": {
+        "attack_seed": 21,
+        "clean_return": 68.59095661941191,
+        "degradation": -5.390492696506897,
+        "model_seed": 2,
+        "poison_return": 73.98144931591881,
+        "positive_degradation": false
+      }
+    },
+    "22": {
+      "0": {
+        "attack_seed": 22,
+        "clean_return": 70.97870489341976,
+        "degradation": 9.585783660633936,
+        "model_seed": 0,
+        "poison_return": 61.392921232785824,
+        "positive_degradation": true
+      },
+      "1": {
+        "attack_seed": 22,
+        "clean_return": 60.07549767262876,
+        "degradation": -9.21199269526629,
+        "model_seed": 1,
+        "poison_return": 69.28749036789505,
+        "positive_degradation": false
+      },
+      "2": {
+        "attack_seed": 22,
+        "clean_return": 68.59095661941191,
+        "degradation": -5.806703314803045,
+        "model_seed": 2,
+        "poison_return": 74.39765993421496,
+        "positive_degradation": false
+      }
+    }
+  },
+  "mean_degradation": -4.101633083128194,
+  "median_degradation": -5.390492696506897,
+  "model_seed_mean_degradation": {
+    "0": 2.9921771363274985,
+    "1": -10.988095618955597,
+    "2": -4.3089807667564815
+  },
+  "positive_cells": 2,
+  "qualification_pass": false,
+  "stage": "A4",
+  "total_cells": 9
+}

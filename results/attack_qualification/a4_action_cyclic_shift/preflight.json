@@ -1,0 +1,89 @@
+{
+  "attack": "high_return_action_cyclic_shift",
+  "attack_rows": [
+    {
+      "action_multiset_preserved": true,
+      "actual_transition_budget": 49947,
+      "attack_seed": 20,
+      "budget_utilization": 0.998959979199584,
+      "changed_fraction_of_selected": 1.0,
+      "changed_transition_count": 49947,
+      "exact_cyclic_mapping_verified": true,
+      "only_actions_hdf5_dataset_differs": true,
+      "poisoned_dataset_sha256": "c0ecb7132ed2a7d423a503481686e22f8a198a2daaa847eb2f72db91bc26ee04",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 50
+    },
+    {
+      "action_multiset_preserved": true,
+      "actual_transition_budget": 49884,
+      "attack_seed": 21,
+      "budget_utilization": 0.99769995399908,
+      "changed_fraction_of_selected": 1.0,
+      "changed_transition_count": 49884,
+      "exact_cyclic_mapping_verified": true,
+      "only_actions_hdf5_dataset_differs": true,
+      "poisoned_dataset_sha256": "77f4922e52dbc52d445cedbfbc351c186c213890f7bd8e36114a5e6e8f73efc4",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 50
+    },
+    {
+      "action_multiset_preserved": true,
+      "actual_transition_budget": 49805,
+      "attack_seed": 22,
+      "budget_utilization": 0.9961199223984479,
+      "changed_fraction_of_selected": 1.0,
+      "changed_transition_count": 49805,
+      "exact_cyclic_mapping_verified": true,
+      "only_actions_hdf5_dataset_differs": true,
+      "poisoned_dataset_sha256": "4381ec338e8f54fb9e8ac0c2c6828570a4b315581fd6addf5530f6d07be05f7b",
+      "requested_transition_budget": 49999,
+      "selected_trajectory_count": 50
+    }
+  ],
+  "clean_controls": {
+    "mean": 66.54838639515347,
+    "required_mean_degradation": 3.3274193197576736,
+    "returns": {
+      "0": 70.97870489341976,
+      "1": 60.07549767262876,
+      "2": 68.59095661941191
+    }
+  },
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "dt_clean_control_reuse": {
+    "baseline_tag": "a2-rtg-inflation-fail-v1",
+    "paths": [
+      "src/methods/dt",
+      "src/data/batching.py",
+      "src/evaluation/walker2d.py",
+      "scripts/train_dt_stress.py",
+      "scripts/evaluate_dt_stress.py"
+    ],
+    "unchanged": true
+  },
+  "matrix": {
+    "attack_seeds": [
+      20,
+      21,
+      22
+    ],
+    "clean_runs_reused": 3,
+    "crossed_cells": 9,
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "new_poisoned_runs": 9
+  },
+  "qualification_gate": {
+    "mean_degradation_fraction_of_clean_mean": 0.05,
+    "minimum_positive_cells": 7,
+    "require_each_attack_seed_mean_positive": true,
+    "require_each_model_seed_mean_positive": true,
+    "required_mean_degradation": 3.327419319757675
+  },
+  "stage": "A4",
+  "status": "PREFLIGHT_PASS"
+}

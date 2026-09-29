@@ -1,0 +1,12 @@
+{
+  "attack_seed": 21,
+  "checkpoint": "experiments\\attack_qualification\\a4_dt\\poison\\attack_seed_21\\model_seed_2\\train\\checkpoints\\checkpoint_step_100000.pt",
+  "condition": "action_cyclic_shift",
+  "dataset": "data\\poisoned\\action_cyclic_shift\\walker2d-medium-v2\\attack_seed_21.hdf5",
+  "dataset_sha256": "77f4922e52dbc52d445cedbfbc351c186c213890f7bd8e36114a5e6e8f73efc4",
+  "elapsed_seconds": 8009.8665318489075,
+  "final_step": 100000,
+  "rho": 0.05,
+  "status": "complete",
+  "training_seed": 2
+}
