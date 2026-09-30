@@ -1,0 +1,104 @@
+{
+  "schema_version": "rdt-source-random-state-corruption-v1",
+  "status": "predeclared",
+  "name": "rdt_source_random_state_corruption_data_scarce",
+  "source": {
+    "paper": "Tackling Data Corruption in Offline Reinforcement Learning via Sequence Modeling",
+    "venue": "ICLR 2025",
+    "repository": "jiawei415/RobustDecisionTransformer",
+    "repository_commit": "865fb60632153ed7d8a49e7941b675f026480006",
+    "scope": "source corruption and downsampling semantics only; DT architecture/training remain this repository's frozen DT pipeline"
+  },
+  "dataset": {
+    "name": "walker2d-medium-v2",
+    "path": "data/raw/walker2d-medium-v2/walker2d_medium-v2.hdf5",
+    "sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+    "completed_trajectories": 1190,
+    "used_transitions": 999995,
+    "trailing_transitions": 5
+  },
+  "downsampling": {
+    "ratio": 0.02,
+    "seed": 1234,
+    "unit": "completed_trajectory",
+    "algorithm": "python_random_sample_without_replacement",
+    "sample_count_rule": "int(num_completed_trajectories * ratio)",
+    "expected_selected_trajectory_count": 23,
+    "trailing_fragment_excluded": true,
+    "source_semantics": "matches utils/ratio_dataset.py"
+  },
+  "corruption": {
+    "field": "observations",
+    "mode": "random",
+    "corruption_rate": 0.3,
+    "corruption_scale": 1.0,
+    "corruption_seeds": [
+      2023,
+      2024,
+      2025
+    ],
+    "index_selection": "RandomState(seed).random(n_transitions) < corruption_rate",
+    "noise": "RandomState(seed).uniform(-scale, scale, size=selected_observations.shape) * per_dimension_clean_downsampled_observation_std",
+    "rng_stream_rule": "the same numpy RandomState instance first samples attack indices and then samples corruption noise, matching the public source implementation",
+    "std_reference": "clean downsampled dataset observations before corruption",
+    "clipping": "none",
+    "only_observations_modified": true,
+    "actions_unchanged": true,
+    "rewards_unchanged": true,
+    "terminals_unchanged": true,
+    "timeouts_unchanged": true,
+    "source_semantics": "matches random observation corruption in utils/attack.py"
+  },
+  "normalization": {
+    "repository_specific_adaptation": true,
+    "rule": "compute state_mean/state_std once from the clean downsampled dataset and reuse the same normalization for clean and all corrupted runs",
+    "reason": "this repository's frozen DT pipeline normalizes states; holding clean downsampled normalization fixed isolates corruption from normalization drift",
+    "not_source_faithful": "the public RDT DT baseline sets normalize=False by default"
+  },
+  "training": {
+    "architecture_and_optimizer": "unchanged from this repository's frozen vanilla DT",
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "num_updates": 100000,
+    "batch_size": 64,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "warmup_steps": 10000,
+    "grad_clip_norm": 0.25,
+    "fresh_clean_controls_required": true,
+    "clean_runs": 3,
+    "corrupted_runs": 9
+  },
+  "evaluation": {
+    "environment": "Walker2d-v3",
+    "target_return": 5000.0,
+    "num_episodes": 100,
+    "eval_seed_base": 30000
+  },
+  "qualification_gate": {
+    "degradation_definition": "matched clean return for model seed minus corrupted return for corruption seed and model seed",
+    "mean_degradation_floor_fraction_of_fresh_clean_mean": 0.05,
+    "minimum_positive_cells": 7,
+    "require_positive_mean_degradation_for_each_model_seed": true,
+    "require_positive_mean_degradation_for_each_corruption_seed": true,
+    "clean_compatibility_floor": null,
+    "clean_compatibility_note": "no full-data clean floor is imposed because this experiment intentionally changes to the paper's data-scarce regime"
+  },
+  "anti_tuning_rules": [
+    "Do not change the 2 percent trajectory ratio after victim outcomes are observed.",
+    "Do not change the downsampling seed 1234 after victim outcomes are observed.",
+    "Do not change corruption rate 0.30 or corruption scale 1.0 after victim outcomes are observed.",
+    "Do not change corruption seeds 2023, 2024, 2025 after victim outcomes are observed.",
+    "Do not change from state corruption to another corruption field based on victim outcomes from this experiment.",
+    "Do not weaken the qualification gate after outcomes are observed.",
+    "Do not compare DT+MTM or RDT under this regime unless vanilla DT qualification passes."
+  ],
+  "claim_boundary": [
+    "This is not an exact reproduction of the ICLR 2025 RDT baseline because this repository retains its own frozen DT architecture, optimizer, evaluation protocol, and state normalization convention.",
+    "The downsampling and random state-corruption mechanics are source-derived from the public RDT repository.",
+    "The purpose is to test whether a published corruption regime can produce stable degradation in this repository's vanilla DT before any defense comparison."
+  ]
+}
