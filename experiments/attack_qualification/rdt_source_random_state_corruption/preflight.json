@@ -1,0 +1,102 @@
+{
+  "clean_downsample": {
+    "clean_sha256": "a2b0eedb6083b2d28f4ea0b5ce220dd6763df8c8152ce8209e98292a359ad401",
+    "normalization_sha256": "896bde4abad58e2b1e035f8f7988c6e7016129f2f16522ec38c6205a3bf74b89",
+    "num_trajectories": 23,
+    "num_transitions": 20147,
+    "selected_trajectory_indices": [
+      902,
+      239,
+      15,
+      185,
+      71,
+      171,
+      201,
+      726,
+      484,
+      35,
+      63,
+      32,
+      708,
+      991,
+      949,
+      304,
+      186,
+      374,
+      234,
+      29,
+      1030,
+      996,
+      511
+    ],
+    "trailing_transitions": 0
+  },
+  "core_dt": {
+    "baseline_tag": "a2-rtg-inflation-fail-v1",
+    "paths": [
+      "src/methods/dt",
+      "src/data/batching.py",
+      "src/evaluation/walker2d.py"
+    ],
+    "unchanged": true
+  },
+  "corruptions": [
+    {
+      "attacked_fraction": 0.3000943068446915,
+      "attacked_transition_count": 6046,
+      "corrupted_sha256": "aa2906102d5e415c6812a386c5f41bd7e7c74c043ad4a0e48afb5b1697208d12",
+      "corruption_seed": 2023,
+      "only_observations_changed": true,
+      "source_semantics_reproduced": true
+    },
+    {
+      "attacked_fraction": 0.29711619595969624,
+      "attacked_transition_count": 5986,
+      "corrupted_sha256": "4b5948bb7cfa8011d8def1ba5009a42e7fe0ac43cee992d7c3c52e66b2f7099a",
+      "corruption_seed": 2024,
+      "only_observations_changed": true,
+      "source_semantics_reproduced": true
+    },
+    {
+      "attacked_fraction": 0.2968680200526133,
+      "attacked_transition_count": 5981,
+      "corrupted_sha256": "ea2e779b7dec76e18d2f0cf6b2fdafa4cdc1882330e963891557df6459df8e89",
+      "corruption_seed": 2025,
+      "only_observations_changed": true,
+      "source_semantics_reproduced": true
+    }
+  ],
+  "experiment": "rdt_source_random_state_corruption_data_scarce",
+  "planned_training_matrix": {
+    "corrupted_runs": 9,
+    "corruption_seeds": [
+      2023,
+      2024,
+      2025
+    ],
+    "fresh_clean_controls": 3,
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "normalization": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/metadata/rdt_source_random_state_corruption/walker2d-medium-v2/clean_ratio_0p02_normalization.npz",
+    "total_runs": 12
+  },
+  "plumbing": {
+    "evaluation_normalization_path_argument": true,
+    "legacy_defaults_retained": true,
+    "train_dataset_contract_arguments": true,
+    "train_normalization_path_argument": true
+  },
+  "qualification_gate": {
+    "clean_compatibility_floor": null,
+    "clean_compatibility_note": "no full-data clean floor is imposed because this experiment intentionally changes to the paper's data-scarce regime",
+    "degradation_definition": "matched clean return for model seed minus corrupted return for corruption seed and model seed",
+    "mean_degradation_floor_fraction_of_fresh_clean_mean": 0.05,
+    "minimum_positive_cells": 7,
+    "require_positive_mean_degradation_for_each_corruption_seed": true,
+    "require_positive_mean_degradation_for_each_model_seed": true
+  },
+  "status": "PREFLIGHT_PASS"
+}

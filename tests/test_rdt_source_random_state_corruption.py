@@ -3,8 +3,10 @@ from __future__ import annotations
 import random
 
 import numpy as np
+import h5py
 
 from scripts.generate_rdt_source_random_state_corruption import (
+    create_downsampled_hdf5,
     generate_random_state_corruption,
     select_trajectory_indices,
 )
@@ -172,3 +174,90 @@ def test_unattacked_rows_are_unchanged():
             ~mask
         ],
     )
+
+
+def test_downsample_hdf5_preserves_nonmonotonic_sample_order(tmp_path):
+    source = tmp_path / "source.hdf5"
+    destination = tmp_path / "downsampled.hdf5"
+
+    observations = np.arange(
+        12,
+        dtype=np.float32,
+    ).reshape(
+        6,
+        2,
+    )
+
+    actions = np.arange(
+        6,
+        dtype=np.float32,
+    ).reshape(
+        6,
+        1,
+    )
+
+    with h5py.File(
+        source,
+        "w",
+    ) as handle:
+        handle.create_dataset(
+            "observations",
+            data=observations,
+        )
+        handle.create_dataset(
+            "actions",
+            data=actions,
+        )
+        handle.create_dataset(
+            "rewards",
+            data=np.arange(
+                6,
+                dtype=np.float32,
+            ),
+        )
+
+    row_indices = np.asarray(
+        [4, 5, 0, 1],
+        dtype=np.int64,
+    )
+
+    create_downsampled_hdf5(
+        source_path=source,
+        destination_path=destination,
+        row_indices=row_indices,
+        source_transition_count=6,
+    )
+
+    with h5py.File(
+        destination,
+        "r",
+    ) as handle:
+        np.testing.assert_array_equal(
+            handle[
+                "observations"
+            ][:],
+            observations[
+                row_indices
+            ],
+        )
+
+        np.testing.assert_array_equal(
+            handle[
+                "actions"
+            ][:],
+            actions[
+                row_indices
+            ],
+        )
+
+        np.testing.assert_array_equal(
+            handle[
+                "rewards"
+            ][:],
+            np.arange(
+                6,
+                dtype=np.float32,
+            )[
+                row_indices
+            ],
+        )

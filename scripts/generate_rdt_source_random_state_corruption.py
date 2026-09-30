@@ -296,7 +296,14 @@ def create_downsampled_hdf5(
                     and item.shape[0]
                     == source_transition_count
                 ):
-                    data = item[
+                    # h5py fancy indexing requires monotonically
+                    # increasing indices. The source-defined
+                    # random.sample trajectory order is intentionally
+                    # non-monotonic, so first materialize the source
+                    # dataset and then apply NumPy indexing. NumPy
+                    # preserves the exact sampled trajectory order.
+                    full_data = item[()]
+                    data = full_data[
                         row_indices
                     ]
                 else:

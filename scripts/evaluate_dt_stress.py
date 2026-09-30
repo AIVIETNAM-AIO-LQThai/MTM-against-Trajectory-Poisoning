@@ -38,6 +38,11 @@ def make_model() -> DecisionTransformer:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--checkpoint", type=Path, required=True)
+    parser.add_argument(
+        "--normalization",
+        type=Path,
+        default=NORMALIZATION_PATH,
+    )
     parser.add_argument("--condition", required=True)
     parser.add_argument("--rho", type=float, required=True)
     parser.add_argument("--attack-seed", type=int, required=True)
@@ -49,8 +54,8 @@ def main() -> None:
 
     if not args.checkpoint.exists():
         raise FileNotFoundError(args.checkpoint)
-    if not NORMALIZATION_PATH.exists():
-        raise FileNotFoundError(NORMALIZATION_PATH)
+    if not args.normalization.exists():
+        raise FileNotFoundError(args.normalization)
 
     device = torch.device("cpu")
     model = make_model().to(device)
@@ -60,7 +65,7 @@ def main() -> None:
         device=device,
     )
 
-    with np.load(NORMALIZATION_PATH) as handle:
+    with np.load(args.normalization) as handle:
         state_mean = handle["state_mean"].copy()
         state_std = handle["state_std"].copy()
 
@@ -97,6 +102,7 @@ def main() -> None:
                 "training_seed": int(checkpoint["seed"]),
                 "training_update": int(checkpoint["update"]),
                 "checkpoint": str(args.checkpoint),
+                "normalization": str(args.normalization),
                 "target_return": float(args.target_return),
                 "evaluation_episode": episode_index,
                 "evaluation_seed": episode_seed,
@@ -127,6 +133,7 @@ def main() -> None:
         "training_seed": int(checkpoint["seed"]),
         "training_update": int(checkpoint["update"]),
         "checkpoint": str(args.checkpoint),
+        "normalization": str(args.normalization),
         "target_return": float(args.target_return),
         "num_episodes": args.num_episodes,
         "eval_seed_base": args.eval_seed_base,

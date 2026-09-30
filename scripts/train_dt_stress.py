@@ -29,6 +29,10 @@ NORMALIZATION_PATH = Path(
 
 RESUME_LOCKED_FIELDS = (
     "dataset",
+    "normalization",
+    "expected_num_trajectories",
+    "expected_num_transitions",
+    "expected_trailing_transitions",
     "condition",
     "rho",
     "attack_seed",
@@ -45,6 +49,26 @@ RESUME_LOCKED_FIELDS = (
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=Path, required=True)
+    parser.add_argument(
+        "--normalization",
+        type=Path,
+        default=NORMALIZATION_PATH,
+    )
+    parser.add_argument(
+        "--expected-num-trajectories",
+        type=int,
+        default=1190,
+    )
+    parser.add_argument(
+        "--expected-num-transitions",
+        type=int,
+        default=999_995,
+    )
+    parser.add_argument(
+        "--expected-trailing-transitions",
+        type=int,
+        default=5,
+    )
     parser.add_argument("--condition", required=True)
     parser.add_argument("--rho", type=float, required=True)
     parser.add_argument("--attack-seed", type=int, required=True)
@@ -105,9 +129,16 @@ def make_model() -> DecisionTransformer:
     )
 
 
-def load_dataset(path: Path):
+def load_dataset(
+    path: Path,
+    *,
+    expected_num_trajectories: int,
+    expected_num_transitions: int,
+    expected_trailing_transitions: int,
+):
     if not path.exists():
         raise FileNotFoundError(path)
+
     with h5py.File(path, "r") as handle:
         observations = handle["observations"][:]
         actions = handle["actions"][:]
@@ -115,24 +146,76 @@ def load_dataset(path: Path):
         terminals = handle["terminals"][:].astype(bool)
         timeouts = handle["timeouts"][:].astype(bool)
 
-    trajectories, trailing = find_completed_trajectories(terminals, timeouts)
-    used = sum(t.length for t in trajectories)
-    if len(trajectories) != 1190 or used != 999_995 or trailing != 5:
+    trajectories, trailing = find_completed_trajectories(
+        terminals,
+        timeouts,
+    )
+
+    used = sum(
+        t.length
+        for t in trajectories
+    )
+
+    if (
+        len(trajectories) != expected_num_trajectories
+        or used != expected_num_transitions
+        or trailing != expected_trailing_transitions
+    ):
         raise RuntimeError(
             "dataset trajectory contract changed: "
-            f"trajectories={len(trajectories)} used={used} trailing={trailing}"
+            f"trajectories={len(trajectories)} "
+            f"used={used} "
+            f"trailing={trailing}; "
+            "expected "
+            f"trajectories={expected_num_trajectories} "
+            f"used={expected_num_transitions} "
+            f"trailing={expected_trailing_transitions}"
         )
-    return observations, actions, rewards, terminals, trajectories, used, trailing
+
+    return (
+        observations,
+        actions,
+        rewards,
+        terminals,
+        trajectories,
+        used,
+        trailing,
+    )
 
 
-def load_normalization():
-    with np.load(NORMALIZATION_PATH) as handle:
+def load_normalization(
+    path: Path,
+    *,
+    expected_num_trajectories: int,
+    expected_num_transitions: int,
+    expected_trailing_transitions: int,
+):
+    if not path.exists():
+        raise FileNotFoundError(path)
+
+    with np.load(path) as handle:
         state_mean = handle["state_mean"].copy()
         state_std = handle["state_std"].copy()
         ntrans = int(handle["num_training_transitions"])
         ntraj = int(handle["num_trajectories"])
-    if ntrans != 999_995 or ntraj != 1190:
-        raise RuntimeError("frozen clean normalization metadata mismatch")
+        trailing = int(handle["trailing_transitions"])
+
+    if (
+        ntrans != expected_num_transitions
+        or ntraj != expected_num_trajectories
+        or trailing != expected_trailing_transitions
+    ):
+        raise RuntimeError(
+            "normalization metadata contract mismatch: "
+            f"trajectories={ntraj} "
+            f"transitions={ntrans} "
+            f"trailing={trailing}; "
+            "expected "
+            f"trajectories={expected_num_trajectories} "
+            f"transitions={expected_num_transitions} "
+            f"trailing={expected_trailing_transitions}"
+        )
+
     return state_mean, state_std
 
 
@@ -186,7 +269,10 @@ def validate_resume(args: argparse.Namespace, saved: dict) -> None:
             raise ValueError(f"checkpoint missing locked field: {field}")
         current = getattr(args, field)
         previous = saved[field]
-        if field == "dataset":
+        if field in {
+            "dataset",
+            "normalization",
+        }:
             current = Path(current)
             previous = Path(previous)
         if current != previous:
@@ -224,8 +310,19 @@ def main() -> None:
         trajectories,
         used_transitions,
         trailing,
-    ) = load_dataset(args.dataset)
-    state_mean, state_std = load_normalization()
+    ) = load_dataset(
+        args.dataset,
+        expected_num_trajectories=args.expected_num_trajectories,
+        expected_num_transitions=args.expected_num_transitions,
+        expected_trailing_transitions=args.expected_trailing_transitions,
+    )
+
+    state_mean, state_std = load_normalization(
+        args.normalization,
+        expected_num_trajectories=args.expected_num_trajectories,
+        expected_num_transitions=args.expected_num_transitions,
+        expected_trailing_transitions=args.expected_trailing_transitions,
+    )
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     metrics_path = args.output_dir / "training_metrics.jsonl"
@@ -261,7 +358,11 @@ def main() -> None:
         manifest = {
             "dataset": str(args.dataset),
             "dataset_sha256": sha256_file(args.dataset),
-            "clean_normalization": str(NORMALIZATION_PATH),
+            "clean_normalization": str(args.normalization),
+            "normalization_sha256": sha256_file(args.normalization),
+            "expected_num_trajectories": args.expected_num_trajectories,
+            "expected_num_transitions": args.expected_num_transitions,
+            "expected_trailing_transitions": args.expected_trailing_transitions,
             "condition": args.condition,
             "rho": args.rho,
             "attack_seed": args.attack_seed,
@@ -389,6 +490,8 @@ def main() -> None:
         "training_seed": args.seed,
         "dataset": str(args.dataset),
         "dataset_sha256": sha256_file(args.dataset),
+        "normalization": str(args.normalization),
+        "normalization_sha256": sha256_file(args.normalization),
         "checkpoint": str(final_checkpoint),
         "elapsed_seconds": time.time() - start_time,
     }

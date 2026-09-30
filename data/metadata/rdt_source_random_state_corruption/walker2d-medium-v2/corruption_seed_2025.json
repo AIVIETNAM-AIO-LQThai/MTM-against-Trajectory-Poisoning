@@ -1,0 +1,25 @@
+{
+  "attacked_fraction": 0.2968680200526133,
+  "attacked_transition_count": 5981,
+  "corrupted_dataset": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/derived/rdt_source_random_state_corruption/walker2d-medium-v2/corrupted/corruption_seed_2025.hdf5",
+  "corrupted_dataset_sha256": "ea2e779b7dec76e18d2f0cf6b2fdafa4cdc1882330e963891557df6459df8e89",
+  "corruption_rate": 0.3,
+  "corruption_scale": 1.0,
+  "corruption_seed": 2025,
+  "integrity": {
+    "actions_unchanged": true,
+    "changed_rows_equal_attacked_indices": true,
+    "only_observations_changed": true,
+    "rewards_unchanged": true,
+    "same_clean_normalization_required": true,
+    "terminals_unchanged": true,
+    "timeouts_unchanged": true
+  },
+  "records_file": "/mnt/c/Users/Quoc Thai/Downloads/AI/RL/MTM-against-Trajectory-Poisoning/data/metadata/rdt_source_random_state_corruption/walker2d-medium-v2/corruption_seed_2025_records.npz",
+  "records_file_sha256": "185f92f02446f748049aeae444c7e978ffc4736a040eb2caf40e3aa2eb61de10",
+  "scaled_noise_abs": {
+    "max": 0.9999965624744779,
+    "mean": 0.5004741948122166
+  },
+  "transition_count": 20147
+}
