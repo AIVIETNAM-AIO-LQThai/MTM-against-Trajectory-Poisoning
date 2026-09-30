@@ -1,0 +1,79 @@
+{
+  "attack_name": "state_matched_low_return_action_substitution",
+  "attack_rows": [
+    {
+      "action_displacement_mean": 1.4800853764261015,
+      "attack_seed": 30,
+      "exact_mapping_verified": true,
+      "max_donor_reuse_count": 200,
+      "only_actions_hdf5_dataset_differs": true,
+      "state_distance_mean": 1.08370872676404,
+      "target_count": 49999,
+      "unique_donor_count": 17495
+    },
+    {
+      "action_displacement_mean": 1.4807032116274415,
+      "attack_seed": 31,
+      "exact_mapping_verified": true,
+      "max_donor_reuse_count": 191,
+      "only_actions_hdf5_dataset_differs": true,
+      "state_distance_mean": 1.0911219676917865,
+      "target_count": 49999,
+      "unique_donor_count": 17441
+    },
+    {
+      "action_displacement_mean": 1.480751616367047,
+      "attack_seed": 32,
+      "exact_mapping_verified": true,
+      "max_donor_reuse_count": 180,
+      "only_actions_hdf5_dataset_differs": true,
+      "state_distance_mean": 1.087224985828139,
+      "target_count": 49999,
+      "unique_donor_count": 17614
+    }
+  ],
+  "clean_controls": {
+    "mean": 66.54838639515347,
+    "required_mean_degradation": 3.327419319757675,
+    "returns": {
+      "0": 70.97870489341976,
+      "1": 60.07549767262876,
+      "2": 68.59095661941191
+    }
+  },
+  "clean_dataset_sha256": "cf00f43add04c17fdfc2958dd581dea0851b2e5bedbe6fda073758a8f841aeda",
+  "dt_clean_control_reuse": {
+    "baseline_tag": "a2-rtg-inflation-fail-v1",
+    "paths": [
+      "src/methods/dt",
+      "src/data/batching.py",
+      "src/evaluation/walker2d.py",
+      "scripts/train_dt_stress.py",
+      "scripts/evaluate_dt_stress.py"
+    ],
+    "unchanged": true
+  },
+  "matrix": {
+    "attack_seeds": [
+      30,
+      31,
+      32
+    ],
+    "clean_runs_reused": 3,
+    "crossed_cells": 9,
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "new_poisoned_runs": 9
+  },
+  "qualification_gate": {
+    "mean_degradation_fraction_of_clean_mean": 0.05,
+    "minimum_positive_cells": 7,
+    "require_each_attack_seed_mean_positive": true,
+    "require_each_model_seed_mean_positive": true,
+    "required_mean_degradation": 3.327419319757675
+  },
+  "status": "PREFLIGHT_PASS"
+}

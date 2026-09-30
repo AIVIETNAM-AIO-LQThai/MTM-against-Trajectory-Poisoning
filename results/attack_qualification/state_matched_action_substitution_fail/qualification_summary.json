@@ -1,0 +1,113 @@
+{
+  "attack_name": "state_matched_low_return_action_substitution",
+  "attack_seed_mean_degradation": {
+    "30": 3.2606222278408388,
+    "31": -3.1056596461109556,
+    "32": -4.175531165828441
+  },
+  "clean_controls_reused_from": "frozen A2 clean controls",
+  "clean_mean": 66.54838639515347,
+  "clean_returns": {
+    "0": 70.97870489341976,
+    "1": 60.07549767262876,
+    "2": 68.59095661941191
+  },
+  "degradation_floor": 3.327419319757675,
+  "experiment": "VANILLA_DT_STATE_MATCHED_ACTION_SUBSTITUTION_QUALIFICATION",
+  "gate_components": {
+    "attack_seed_consistency_pass": false,
+    "effect_floor_pass": false,
+    "model_seed_consistency_pass": false,
+    "positive_cells_pass": false
+  },
+  "matrix": {
+    "30": {
+      "0": {
+        "attack_seed": 30,
+        "clean_return": 70.97870489341976,
+        "degradation": -3.6466860469139704,
+        "model_seed": 0,
+        "poison_return": 74.62539094033373,
+        "positive_degradation": false
+      },
+      "1": {
+        "attack_seed": 30,
+        "clean_return": 60.07549767262876,
+        "degradation": 10.422299962647067,
+        "model_seed": 1,
+        "poison_return": 49.65319770998169,
+        "positive_degradation": true
+      },
+      "2": {
+        "attack_seed": 30,
+        "clean_return": 68.59095661941191,
+        "degradation": 3.0062527677894195,
+        "model_seed": 2,
+        "poison_return": 65.58470385162249,
+        "positive_degradation": true
+      }
+    },
+    "31": {
+      "0": {
+        "attack_seed": 31,
+        "clean_return": 70.97870489341976,
+        "degradation": -1.3865084982297446,
+        "model_seed": 0,
+        "poison_return": 72.3652133916495,
+        "positive_degradation": false
+      },
+      "1": {
+        "attack_seed": 31,
+        "clean_return": 60.07549767262876,
+        "degradation": -12.138104999731596,
+        "model_seed": 1,
+        "poison_return": 72.21360267236035,
+        "positive_degradation": false
+      },
+      "2": {
+        "attack_seed": 31,
+        "clean_return": 68.59095661941191,
+        "degradation": 4.207634559628474,
+        "model_seed": 2,
+        "poison_return": 64.38332205978344,
+        "positive_degradation": true
+      }
+    },
+    "32": {
+      "0": {
+        "attack_seed": 32,
+        "clean_return": 70.97870489341976,
+        "degradation": 3.891731582793682,
+        "model_seed": 0,
+        "poison_return": 67.08697331062608,
+        "positive_degradation": true
+      },
+      "1": {
+        "attack_seed": 32,
+        "clean_return": 60.07549767262876,
+        "degradation": -11.13734231465429,
+        "model_seed": 1,
+        "poison_return": 71.21283998728305,
+        "positive_degradation": false
+      },
+      "2": {
+        "attack_seed": 32,
+        "clean_return": 68.59095661941191,
+        "degradation": -5.280982765624714,
+        "model_seed": 2,
+        "poison_return": 73.87193938503663,
+        "positive_degradation": false
+      }
+    }
+  },
+  "mean_degradation": -1.3401895280328526,
+  "median_degradation": -1.3865084982297446,
+  "model_seed_mean_degradation": {
+    "0": -0.38048765411667773,
+    "1": -4.284382450579606,
+    "2": 0.6443015205977266
+  },
+  "positive_cells": 4,
+  "qualification_pass": false,
+  "total_cells": 9
+}

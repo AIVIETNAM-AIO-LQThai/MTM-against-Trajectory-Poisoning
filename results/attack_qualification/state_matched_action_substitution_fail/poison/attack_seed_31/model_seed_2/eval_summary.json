@@ -1,0 +1,20 @@
+{
+  "attack_seed": 31,
+  "checkpoint": "experiments/attack_qualification/state_matched_action_substitution/poison/attack_seed_31/model_seed_2/train/checkpoints/checkpoint_step_100000.pt",
+  "condition": "state_matched_low_return_action_substitution",
+  "dataset": "walker2d-medium-v2",
+  "environment": "Walker2d-v3",
+  "episode_length_mean": 792.59,
+  "episode_length_std": 215.2086938299659,
+  "eval_seed_base": 30000,
+  "method": "dt",
+  "normalized_return_mean": 64.38332205978344,
+  "normalized_return_std": 18.555845572704353,
+  "num_episodes": 100,
+  "raw_return_mean": 2957.255497484415,
+  "raw_return_std": 851.837820026455,
+  "rho": 0.05,
+  "target_return": 5000.0,
+  "training_seed": 2,
+  "training_update": 100000
+}

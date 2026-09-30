@@ -1,0 +1,12 @@
+{
+  "attack_seed": 31,
+  "checkpoint": "experiments\\attack_qualification\\state_matched_action_substitution\\poison\\attack_seed_31\\model_seed_2\\train\\checkpoints\\checkpoint_step_100000.pt",
+  "condition": "state_matched_low_return_action_substitution",
+  "dataset": "data\\poisoned\\state_matched_low_return_action_substitution\\walker2d-medium-v2\\attack_seed_31.hdf5",
+  "dataset_sha256": "55cd77013fc0e0f80ae5fb22160a103d3b60bc7ad080e82604bf6d067568fc06",
+  "elapsed_seconds": 6754.49800825119,
+  "final_step": 100000,
+  "rho": 0.05,
+  "status": "complete",
+  "training_seed": 2
+}
