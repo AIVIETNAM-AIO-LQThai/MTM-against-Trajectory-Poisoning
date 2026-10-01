@@ -11,6 +11,7 @@ from src.methods.rdt_source_dt.data import (
     load_source_trajectories,
 )
 from src.methods.rdt_source_dt.model import (
+    LEGACY_MHA_COMPAT_NEED_WEIGHTS,
     make_source_compatible_dt,
 )
 
@@ -25,7 +26,7 @@ CONFIG = (
     ROOT
     / "configs"
     / "attack_qualification"
-    / "rdt_source_dt_source_clip.json"
+    / "rdt_source_dt_legacy_mha_compat.json"
 )
 
 DATASET = (
@@ -41,7 +42,7 @@ OUTPUT = (
     ROOT
     / "experiments"
     / "attack_qualification"
-    / "rdt_source_dt_source_clip"
+    / "rdt_source_dt_legacy_mha_compat"
     / "clean_preflight.json"
 )
 
@@ -135,6 +136,11 @@ def main() -> None:
     model = (
         make_source_compatible_dt()
     )
+
+    if not LEGACY_MHA_COMPAT_NEED_WEIGHTS:
+        raise RuntimeError(
+            "legacy-MHA compatibility mode is not enabled"
+        )
 
     if (
         len(

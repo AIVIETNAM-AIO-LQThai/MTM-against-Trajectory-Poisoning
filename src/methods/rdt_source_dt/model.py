@@ -6,6 +6,9 @@ import torch
 import torch.nn as nn
 
 
+LEGACY_MHA_COMPAT_NEED_WEIGHTS = True
+
+
 class MLPBlock(nn.Module):
     """Small prediction head matching the public RDT DT implementation."""
 
@@ -162,7 +165,10 @@ class TransformerBlock(nn.Module):
             key_padding_mask=(
                 padding_mask
             ),
-            need_weights=False,
+            # Runtime compatibility mode:
+            # force the explicit MHA path on modern PyTorch.
+            # Returned attention weights are discarded.
+            need_weights=LEGACY_MHA_COMPAT_NEED_WEIGHTS,
         )[0]
 
         attention_out = (

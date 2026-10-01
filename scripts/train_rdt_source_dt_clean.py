@@ -758,6 +758,12 @@ def main() -> None:
             "grad_clip_return_is_failure_condition": (
                 False
             ),
+            "attention_compatibility_mode": (
+                "legacy_like_explicit_mha"
+            ),
+            "multihead_attention_need_weights": (
+                True
+            ),
             "gradient_element_finiteness_required": (
                 True
             ),

@@ -14,7 +14,7 @@ EXPERIMENT_ROOT = (
     ROOT
     / "experiments"
     / "attack_qualification"
-    / "rdt_source_dt_source_clip"
+    / "rdt_source_dt_legacy_mha_compat"
 )
 
 OUTPUT = (
@@ -144,7 +144,7 @@ def main() -> None:
 
     result = {
         "experiment": (
-            "RDT_SOURCE_COMPATIBLE_DT_SOURCE_CLIP_CLEAN_VIABILITY"
+            "RDT_SOURCE_DT_LEGACY_MHA_COMPAT_CLEAN_VIABILITY"
         ),
         "seeds": rows,
         "clean_viability_pass": (
