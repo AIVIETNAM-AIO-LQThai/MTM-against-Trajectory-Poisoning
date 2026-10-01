@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $repo = (Get-Location).Path
-$expectedBranch = "exp/rdt-source-dt-victim"
+$expectedBranch = "exp/rdt-source-dt-source-clip-semantics"
 
 $currentBranch = (git branch --show-current).Trim()
 
@@ -21,7 +21,7 @@ if ($LASTEXITCODE -ne 0) {
     throw "clean-victim preflight failed"
 }
 
-$root = "experiments\attack_qualification\rdt_source_dt_victim"
+$root = "experiments\attack_qualification\rdt_source_dt_source_clip"
 $dataset = "data\derived\rdt_source_random_state_corruption\walker2d-medium-v2\clean_ratio_0p02.hdf5"
 
 function Get-LatestCheckpoint {

@@ -1,0 +1,33 @@
+{
+  "batching": {
+    "action_padding": 0.0,
+    "padding_side": "right",
+    "return_padding": 0.0,
+    "reward_scale": 0.001,
+    "state_padding": 0.0
+  },
+  "clean_dataset_sha256": "a2b0eedb6083b2d28f4ea0b5ce220dd6763df8c8152ce8209e98292a359ad401",
+  "clean_trajectories": 23,
+  "clean_transitions": 20147,
+  "clean_viability_seeds": [
+    0,
+    1,
+    2
+  ],
+  "corrupted_training_allowed": false,
+  "source_model": {
+    "attention_dropout": 0.0,
+    "embedding_dim": 128,
+    "embedding_dropout": null,
+    "num_heads": 1,
+    "num_layers": 3,
+    "prediction_dropout": 0.1,
+    "residual_dropout": 0.1,
+    "seq_len": 20,
+    "state_normalization": false,
+    "timestep_embeddings": 1020
+  },
+  "source_repository_commit": "865fb60632153ed7d8a49e7941b675f026480006",
+  "status": "PREFLIGHT_PASS",
+  "torch_version": "2.7.1+cu128"
+}

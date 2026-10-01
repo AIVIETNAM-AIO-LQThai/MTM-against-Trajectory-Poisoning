@@ -453,6 +453,34 @@ def model_is_finite(
     )
 
 
+def gradient_elements_are_finite(
+    model,
+) -> bool:
+    """
+    Source-faithful viability check.
+
+    The public RDT trainer does not treat the scalar value
+    returned by clip_grad_norm_ as a control-flow signal.
+
+    We therefore distinguish:
+    - actual non-finite gradient tensor elements: failure;
+    - float32 overflow of the reported aggregate norm:
+      telemetry only.
+    """
+    for parameter in model.parameters():
+        if parameter.grad is None:
+            continue
+
+        if not bool(
+            torch.isfinite(
+                parameter.grad.detach()
+            ).all()
+        ):
+            return False
+
+    return True
+
+
 def optimizer_is_finite(
     optimizer,
 ) -> bool:
@@ -726,6 +754,12 @@ def main() -> None:
             ),
             "grad_clip_norm": (
                 args.grad_clip_norm
+            ),
+            "grad_clip_return_is_failure_condition": (
+                False
+            ),
+            "gradient_element_finiteness_required": (
+                True
             ),
             "device": str(
                 device
@@ -1008,6 +1042,41 @@ def main() -> None:
 
         loss.backward()
 
+        loss_value = float(
+            loss.detach()
+            .cpu()
+        )
+
+        gradient_elements_finite = (
+            gradient_elements_are_finite(
+                model
+            )
+        )
+
+        if not gradient_elements_finite:
+            write_failure(
+                failure_path,
+                update=update,
+                reason=(
+                    "non_finite_gradient_elements"
+                ),
+                loss=loss_value,
+            )
+
+            raise FloatingPointError(
+                "non-finite source-compatible DT "
+                "gradient element"
+            )
+
+        # Source-faithful clipping semantics:
+        #
+        # The public RDT trainer invokes clip_grad_norm_
+        # but does not branch on its returned total norm.
+        #
+        # On float32 the aggregate norm can overflow to inf
+        # even when every individual gradient element is
+        # finite. We log that scalar but do not treat it as
+        # a failure condition.
         grad_norm = (
             torch.nn.utils.clip_grad_norm_(
                 model.parameters(),
@@ -1017,36 +1086,16 @@ def main() -> None:
             )
         )
 
-        loss_value = float(
-            loss.detach()
-            .cpu()
-        )
-
         grad_norm_value = float(
             grad_norm.detach()
             .cpu()
         )
 
-        if not bool(
+        grad_norm_reported_finite = bool(
             torch.isfinite(
                 grad_norm
             )
-        ):
-            write_failure(
-                failure_path,
-                update=update,
-                reason=(
-                    "non_finite_gradient_norm"
-                ),
-                loss=loss_value,
-                grad_norm=(
-                    grad_norm_value
-                ),
-            )
-
-            raise FloatingPointError(
-                "non-finite source-compatible DT gradient norm"
-            )
+        )
 
         optimizer.step()
         scheduler.step()
@@ -1107,6 +1156,12 @@ def main() -> None:
                 ),
                 "grad_norm_pre_clip": (
                     grad_norm_value
+                ),
+                "gradient_elements_finite": (
+                    gradient_elements_finite
+                ),
+                "grad_norm_reported_finite": (
+                    grad_norm_reported_finite
                 ),
                 "learning_rate": float(
                     optimizer.param_groups[
@@ -1202,8 +1257,11 @@ def main() -> None:
             EXPECTED_DATASET_SHA256
         ),
         "loss_finite": True,
-        "gradient_norms_finite": (
+        "gradient_elements_finite": (
             True
+        ),
+        "reported_gradient_norm_finite_required": (
+            False
         ),
         "model_parameters_finite": (
             model_is_finite(

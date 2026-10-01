@@ -14,7 +14,7 @@ EXPERIMENT_ROOT = (
     ROOT
     / "experiments"
     / "attack_qualification"
-    / "rdt_source_dt_victim"
+    / "rdt_source_dt_source_clip"
 )
 
 OUTPUT = (
@@ -111,7 +111,7 @@ def main() -> None:
                 "loss_finite"
             ]
             and summary[
-                "gradient_norms_finite"
+                "gradient_elements_finite"
             ]
             and summary[
                 "model_parameters_finite"
@@ -144,7 +144,7 @@ def main() -> None:
 
     result = {
         "experiment": (
-            "RDT_SOURCE_COMPATIBLE_DT_CLEAN_VIABILITY"
+            "RDT_SOURCE_COMPATIBLE_DT_SOURCE_CLIP_CLEAN_VIABILITY"
         ),
         "seeds": rows,
         "clean_viability_pass": (

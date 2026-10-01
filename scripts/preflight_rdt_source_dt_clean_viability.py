@@ -25,7 +25,7 @@ CONFIG = (
     ROOT
     / "configs"
     / "attack_qualification"
-    / "rdt_source_dt_victim.json"
+    / "rdt_source_dt_source_clip.json"
 )
 
 DATASET = (
@@ -41,7 +41,7 @@ OUTPUT = (
     ROOT
     / "experiments"
     / "attack_qualification"
-    / "rdt_source_dt_victim"
+    / "rdt_source_dt_source_clip"
     / "clean_preflight.json"
 )
 
