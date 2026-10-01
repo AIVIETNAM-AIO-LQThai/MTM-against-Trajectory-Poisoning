@@ -1,0 +1,7 @@
+{
+  "grad_norm_pre_clip": Infinity,
+  "loss": 0.12218499928712845,
+  "reason": "non_finite_gradient_norm",
+  "status": "failed",
+  "update": 12996
+}
