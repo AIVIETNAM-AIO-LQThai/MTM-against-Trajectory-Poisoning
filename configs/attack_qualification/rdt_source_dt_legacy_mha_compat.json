@@ -1,0 +1,147 @@
+{
+  "schema_version": "rdt-source-dt-legacy-mha-compat-v1",
+  "status": "predeclared",
+  "name": "rdt_source_dt_legacy_mha_compat",
+  "source": {
+    "paper": "Tackling Data Corruption in Offline Reinforcement Learning via Sequence Modeling",
+    "venue": "ICLR 2025",
+    "repository": "jiawei415/RobustDecisionTransformer",
+    "repository_commit": "865fb60632153ed7d8a49e7941b675f026480006",
+    "scope": "source-compatible vanilla-DT victim training semantics; existing frozen 2-percent downsampling and random-state-corruption artifacts are reused unchanged"
+  },
+  "inputs": {
+    "clean_dataset": "data/derived/rdt_source_random_state_corruption/walker2d-medium-v2/clean_ratio_0p02.hdf5",
+    "clean_dataset_sha256": "a2b0eedb6083b2d28f4ea0b5ce220dd6763df8c8152ce8209e98292a359ad401",
+    "artifact_metadata_root": "data/metadata/rdt_source_random_state_corruption/walker2d-medium-v2",
+    "selected_trajectories": 23,
+    "transitions": 20147,
+    "trailing_transitions": 0,
+    "downsampling_seed": 1234,
+    "downsampling_ratio": 0.02,
+    "corruption_seeds": [
+      2023,
+      2024,
+      2025
+    ],
+    "corruption_rate": 0.3,
+    "corruption_scale": 1.0,
+    "corruption_field": "observations",
+    "artifact_rule": "reuse the already audited clean and corrupted HDF5 artifacts byte-for-byte; do not regenerate or tune them"
+  },
+  "victim": {
+    "implementation": "local port of public RDT repository vanilla DecisionTransformer and TransformerBlock semantics",
+    "state_dim": 17,
+    "action_dim": 6,
+    "sequence_length": 20,
+    "episode_length": 1000,
+    "embedding_dim": 128,
+    "num_layers": 3,
+    "num_heads": 1,
+    "attention_dropout": 0.0,
+    "residual_dropout": 0.1,
+    "embedding_dropout": null,
+    "prediction_dropout": 0.1,
+    "activation": "GELU",
+    "action_head": "Linear + Tanh",
+    "state_normalization": false,
+    "reward_scale": 0.001,
+    "timestep_embedding_size": 1020
+  },
+  "batching": {
+    "trajectory_sampling": "np.random.choice with probability proportional to trajectory length",
+    "start_sampling": "np.random.randint(0, trajectory_length)",
+    "padding_side": "right",
+    "state_padding": 0.0,
+    "action_padding": 0.0,
+    "return_padding": 0.0,
+    "mask": "ones for valid sequence positions followed by zeros for right padding",
+    "timestep_rule": "np.arange(start_idx, start_idx + sequence_length), including padded positions",
+    "return_to_go": "gamma=1 discounted cumulative reward from each trajectory; slice start:start+sequence_length",
+    "rng": "source-style global NumPy RNG after source-style set_seed"
+  },
+  "loss": {
+    "definition": "F.mse_loss(predicted_actions, actions.detach(), reduction='none'); then (loss * mask.unsqueeze(-1)).mean()",
+    "important_note": "the mean denominator includes the full B x K x action_dim tensor after masking, matching the public source implementation rather than valid-position-only averaging"
+  },
+  "training": {
+    "model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "num_epochs": 100,
+    "updates_per_epoch": 1000,
+    "total_updates": 100000,
+    "batch_size": 64,
+    "learning_rate": 0.0001,
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0001,
+    "warmup_steps": 10000,
+    "grad_clip_norm": 0.25,
+    "seed_semantics": "seed Python random, NumPy, torch CPU, torch CUDA; cudnn deterministic=True and benchmark=False",
+    "gradient_clipping_semantics": {
+      "max_norm": 0.25,
+      "operation": "torch.nn.utils.clip_grad_norm_",
+      "returned_total_norm_is_failure_condition": false,
+      "returned_total_norm_is_telemetry_only": true,
+      "rationale": "Matches public RDT trainer behavior. The source invokes clip_grad_norm_ and does not branch on its returned total norm.",
+      "runtime_note": "On float32, the reported global norm may overflow to Infinity while all individual gradient elements remain finite. That condition alone does not fail the source-faithful run."
+    }
+  },
+  "clean_viability_gate": {
+    "run_before_any_corrupted_training": true,
+    "required_model_seeds": [
+      0,
+      1,
+      2
+    ],
+    "requirements": [
+      "all three clean runs reach 100000 updates",
+      "all losses remain finite",
+      "all individual pre-clip gradient elements remain finite",
+      "all model parameters remain finite after optimizer steps",
+      "Adam first- and second-moment state remains finite"
+    ],
+    "explicit_non_failure_condition": "An Infinity returned by clip_grad_norm_ is not by itself a failure if every individual pre-clip gradient element is finite.",
+    "failure_rule": "If any clean seed has non-finite loss, any actual non-finite gradient element, non-finite model parameters, or non-finite Adam state, stop before corrupted training.",
+    "runtime_requirement": "All three fresh clean runs must use the frozen legacy-like explicit MHA compatibility path."
+  },
+  "evaluation": {
+    "protocol": "repository-standard evaluation retained for continuity, not exact source evaluation",
+    "environment": "Walker2d-v3",
+    "target_return": 5000.0,
+    "num_episodes": 100,
+    "eval_seed_base": 30000
+  },
+  "qualification_gate_if_clean_viability_passes": {
+    "degradation_definition": "matched clean source-compatible-DT return for model seed minus corrupted source-compatible-DT return for corruption seed and model seed",
+    "mean_degradation_floor_fraction_of_fresh_clean_mean": 0.05,
+    "minimum_positive_cells": 7,
+    "require_positive_mean_degradation_for_each_model_seed": true,
+    "require_positive_mean_degradation_for_each_corruption_seed": true
+  },
+  "anti_tuning_rules": [
+    "Do not change the existing 2-percent dataset or corruption artifacts.",
+    "Do not change the source-compatible DT architecture or batching semantics after observing victim outcomes.",
+    "Do not change the 100000-update schedule, learning rate, batch size, warmup, weight decay, or clipping after observing victim outcomes.",
+    "Do not run corrupted training unless all three clean source-compatible victim seeds pass the clean viability gate.",
+    "Do not weaken the corruption qualification gate after outcomes are observed.",
+    "Do not change need_weights=True after clean or corrupted outcomes are observed."
+  ],
+  "claim_boundary": [
+    "This variant was predeclared after diagnosing that the previous strict guard stopped on float32 total-norm overflow even though all individual gradients were finite. The change restores the public source trainer's clipping control-flow semantics; it does not alter data, architecture, optimizer hyperparameters, or qualification thresholds.",
+    "The legacy-like MHA compatibility variant is motivated only by a pre-attack runtime diagnostic: the modern path failed numerically while the explicit MHA path remained stable through 15000 updates from the same checkpoint."
+  ],
+  "runtime_compatibility": {
+    "current_runtime": "PyTorch 2.7.1+cu128",
+    "source_runtime": "PyTorch 1.8.1+cu101",
+    "attention_mode": "legacy_like_explicit_mha",
+    "multihead_attention_need_weights": true,
+    "attention_weights_used_by_model": false,
+    "reason": "Controlled replay from the same update-10000 checkpoint showed that need_weights=False produced actual non-finite gradients at update 13361, while need_weights=True remained stable through update 15000. The compatibility variant therefore forces the explicit attention-weight path on modern PyTorch.",
+    "claim_boundary": "This is a runtime compatibility approximation, not a claim of bit-exact PyTorch-1.8.1 execution."
+  }
+}
